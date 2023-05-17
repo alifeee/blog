@@ -5,3 +5,4 @@
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFrom gpx.studio\\E$"}
 {"rule":"UNIT_SPACE","sentence":"^\\QDistance I biked 150.3 km\nTotal time cycling 11h 54m\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\Qroute.ipynb\nmaps_vs_cycleroutes.ipynb\ndirectionality.ipynb\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QIf you append \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q of an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q tag, it gets made wider than the max-width of the content (default to 60rem).\\E$"}
