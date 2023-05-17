@@ -81,65 +81,7 @@
     <main>
       <zero-md src="./bike-to-cambridge.md">
         <template data-merge="append">
-          <style>
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-              text-align: center;
-              font-family: "Josefin Sans", sans-serif;
-            }
-
-            .markdown-body {
-              font-family: "Roboto", sans-serif;
-            }
-
-            .markdown-body img {
-              display: block;
-              max-height: 30rem;
-              margin: 0 auto;
-              background-color: unset;
-            }
-
-            /* from https://css-tricks.com/full-width-containers-limited-width-parents/ */
-            /* images with src="url.png#wider" are selected :) */
-            .markdown-body img[src$="wider"] {
-              max-height: unset;
-              max-width: unset;
-              --w-vw: 90vw;
-              --w-rem: 60rem;
-              --w: min(var(--w-vw), var(--w-rem));
-              /* min-width: 40rem; */
-              overflow-x: auto;
-              width: var(--w);
-              position: relative;
-              left: 50%;
-              right: 50%;
-              margin-left: calc(-1 * var(--w) / 2);
-              margin-right: calc(-1 * var(--w) / 2);
-            }
-            :host {
-              contain: unset;
-            }
-
-            .markdown-body table {
-              max-width: max-content;
-              margin: 0 auto 1rem;
-            }
-
-            figcaption {
-              text-align: center;
-              font-size: 0.8rem;
-              color: #666;
-            }
-
-            .toc li > p {
-              margin: 0.5rem 0;
-              padding: 0;
-            }
-          </style>
+          <link rel="stylesheet" href="../md_stylesheet.css" />
         </template>
       </zero-md>
     </main>

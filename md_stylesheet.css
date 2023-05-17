@@ -1,0 +1,61 @@
+/* centre headings and change font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* change default font (must include in html) */
+.markdown-body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* compress table-of-contents size */
+.toc li > p {
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+/* <figcaption> is greyed out and centred */
+figcaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* centre images and limit size */
+.markdown-body img {
+  display: block;
+  max-height: 30rem;
+  margin: 0 auto;
+}
+
+/* give svgs transparent background */
+.markdown-body img {
+  background-color: unset;
+}
+
+/* images with #wider after the url are wider than the screen width */
+:host {
+  contain: unset;
+}
+.markdown-body img[src$="wider"] {
+  /* from https://css-tricks.com/full-width-containers-limited-width-parents/ */
+  /* images with src="url.png#wider" are selected :) */
+  max-height: unset;
+  max-width: unset;
+  --w-vw: 90vw;
+  --w-rem: 60rem;
+  --w: min(var(--w-vw), var(--w-rem));
+  overflow-x: auto;
+  width: var(--w);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: calc(-1 * var(--w) / 2);
+  margin-right: calc(-1 * var(--w) / 2);
+}
