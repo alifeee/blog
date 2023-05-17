@@ -57,3 +57,11 @@ If you append `#wider` to the `src` of an `img` tag, it gets made wider than the
 Newsletter: <https://tinyletter.com/alifeee>
 
 App: <https://app.tinyletter.com/>
+
+## Python utilities
+
+| File | Description |
+| --- | --- |
+| `footer.py` | Replaces `<div class=links>` in each HTML footer with the right links. |
+| `toc_markdown.py` | Generates a table of contents for a Markdown file. |
+| `verify_og.py` | Checks that all Markdown files have the right OpenGraph tags. Not actually automated, just prints out the OpenGraph tags. |
