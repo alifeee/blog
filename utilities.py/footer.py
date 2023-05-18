@@ -27,6 +27,11 @@ def main():
             "icon": "github",
         },
         {
+            "to": "https://linktr.ee/alifeee",
+            "text": "Linktree",
+            "icon": "linktree-logo-icon",
+        },
+        {
             "to": "mailto:alifeee.web@outlook.com",
             "text": "Email",
             "icon": "envelope-solid",
