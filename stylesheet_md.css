@@ -26,10 +26,15 @@ h3 {
 figcaption {
   text-align: center;
   font-size: 0.8rem;
-  color: #666;
+  color: var(--unimportanttext-colour);
 }
 
 .toc li > p {
   margin: 0.5rem 0;
   padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom-color: var(--border-colour);
 }
