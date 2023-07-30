@@ -31,23 +31,26 @@
     <button onclick="document.getElementById('sprite').reset()">Reset</button>
     <button onclick="document.getElementById('sprite').stop()">Stop</button>
 
-    <sprite-img
-      id="coalometer"
-      src="./images/coalometer_spritesheet.png"
-      height="32"
-      width="32"
-      frames="7"
-      looping="false"
-      fps="12"
-      startpaused="true"
-      scale="2"
-    ></sprite-img>
-    <button onclick="document.getElementById('coalometer').play()">Play</button>
-    <button onclick="document.getElementById('coalometer').reset()">
-      Reset
-    </button>
+    <h3>Click to play</h3>
+    <div x-data>
+      <sprite-img
+        id="coalometer"
+        src="./images/coalometer_spritesheet.png"
+        height="32"
+        width="32"
+        frames="7"
+        looping="false"
+        fps="12"
+        startpaused="true"
+        scale="2"
+        x-on:click="$el.play()"
+        x-ref="coalometer"
+      ></sprite-img>
+      <button x-on:click="$refs.coalometer.reset()">Reset</button>
+    </div>
 
     <!-- preload spinning image -->
+    <h3>Hover to change animation</h3>
     <link
       rel="preload"
       as="image"
@@ -72,6 +75,32 @@
         :frames="spinning ? 10 : 8"
         :fps="spinning ? 10 : 5"
       ></sprite-img>
+    </div>
+
+    <h3>Hover to destroy (how to make it reappear?)</h3>
+    <div x-data>
+      <div style="display: flex">
+        <template x-for="i in 3">
+          <sprite-img
+            class="spaceship"
+            src="./images/spaceship_spritesheet.png"
+            height="48"
+            width="48"
+            frames="15"
+            looping="false"
+            fps="10"
+            startpaused="true"
+            scale="2"
+            x-on:mouseenter="$el.play()"
+          >
+          </sprite-img>
+        </template>
+      </div>
+      <button
+        onclick="document.querySelectorAll('.spaceship').forEach((ss) => {ss.reset()})"
+      >
+        Reset
+      </button>
     </div>
   </body>
 </html>
