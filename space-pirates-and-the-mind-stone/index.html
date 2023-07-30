@@ -69,91 +69,20 @@
       type="module"
       src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
     ></script>
+
+    <!-- sprite web component -->
+    <script src="./sprite.js" defer></script>
+
+    <!-- alpine -->
+    <script src="//unpkg.com/alpinejs" defer></script>
   </head>
 
-  <body>
+  <body x-data>
     <header>
       <a href="../">
         <h1>alifeee's blog</h1>
       </a>
     </header>
-
-    <div id="spaceship"></div>
-    <style scoped>
-      #spaceship {
-        rotate: 180deg;
-        background-image: url("images/spaceship_spritesheet.png");
-        width: 48px;
-        height: 48px;
-        animation: animate_ship 1s steps(14);
-        animation-play-state: paused;
-      }
-      @keyframes animate_ship {
-        100% {
-          background-position: 0 -672px;
-        }
-      }
-    </style>
-    <script>
-      let spaceship = document.getElementById("spaceship");
-      spaceship.style.animationPlayState = "paused";
-      // destroy ship on hover
-      spaceship.addEventListener("mouseover", () => {
-        spaceship.style.animationPlayState = "running";
-      });
-      spaceship.addEventListener("animationend", () => {
-        // stay on final frame
-        spaceship.style.animationPlayState = "paused";
-        spaceship.style.backgroundPosition = "0 -672px";
-        // reset animation and set frame to 0 after timeout
-        setTimeout(() => {
-          spaceship.style.animation = "none";
-          spaceship.offsetHeight; /* trigger reflow */
-          spaceship.style.animation = null;
-          spaceship.style.backgroundPosition = "0 0";
-        }, 3000);
-      });
-    </script>
-
-    <div class="asteroid"></div>
-    <div class="asteroid"></div>
-    <div class="asteroid"></div>
-    <style scoped>
-      .asteroid {
-        background-image: url("images/asteroid_spritesheet.png");
-        width: 60px;
-        height: 60px;
-        animation: animate_asteroid 0.8s steps(5);
-        animation-play-state: paused;
-      }
-      @keyframes animate_asteroid {
-        100% {
-          background-position: 0 -300px;
-        }
-      }
-    </style>
-    <script>
-      let asteroids = document.querySelectorAll(".asteroid");
-      asteroids.forEach((asteroid) => {
-        asteroid.style.animationPlayState = "paused";
-        // destroy asteroid on hover
-        asteroid.addEventListener("mouseover", () => {
-          asteroid.style.animationPlayState = "running";
-        });
-        asteroid.addEventListener("animationend", () => {
-          // stay on final frame
-          asteroid.style.animationPlayState = "paused";
-          asteroid.style.backgroundPosition = "0 -300px";
-          // reset animation and set frame to 0 after timeout
-          setTimeout(() => {
-            asteroid.style.animation = "none";
-            asteroid.offsetHeight; /* trigger reflow */
-            asteroid.style.animation = null;
-            asteroid.style.backgroundPosition = "0 0";
-          }, 3000);
-        });
-      });
-    </script>
 
     <main>
       <zero-md src="./space-pirates-and-the-mind-stone.md">
@@ -169,10 +98,29 @@
             .markdown-body {
               color: var(--text-colour);
             }
+
+            .markdown-body > p > sprite-img {
+              display: block;
+              margin: 0 auto;
+              width: min-content;
+            }
           </style>
         </template>
       </zero-md>
     </main>
+
+    <template x-for="i in 100" x-key="i">
+      <sprite-img
+      src="./images/asteroid_spritesheet.png"
+      width="32"
+      height="32"
+      frames="6"
+      looping="false"
+      fps="5"
+      startpaused="true"
+      x-on:mouseenter="$el.play()"
+      >
+    </template>
 
     <footer>
       <div class="subscription">
@@ -226,6 +174,18 @@
     .links a img {
       filter: invert(75%) sepia(6%) saturate(1329%) hue-rotate(231deg)
         brightness(92%) contrast(83%);
+    }
+
+    body {
+      image-rendering: pixelated;
+      background-image: url(./images/space_background.png);
+      background-size: 1500px auto;
+    }
+
+    main {
+      background-color: #1c141dbb;
+      padding: 1rem;
+      border-radius: 1rem;
     }
   </style>
 </html>
