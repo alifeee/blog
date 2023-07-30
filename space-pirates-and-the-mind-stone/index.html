@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - GMTK 2023</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content='My experience of my first gamejam: GMTK 2023; and the resulting game "Space Pirates and the Mind Stone"'
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="Space Pirates and the Mind Stone" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.co.uk/space-pirates-and-the-mind-stone"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/space-pirates-and-the-mind-stone/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content='My experience of my first gamejam: GMTK 2023; and the resulting game "Space Pirates and the Mind Stone"'
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-85X5BXGV88"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-85X5BXGV88");
+    </script>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
+    />
+
+    <!-- zero-md: https://github.com/zerodevx/zero-md -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="../">
+        <h1>alifeee's blog</h1>
+      </a>
+    </header>
+
+    <div id="spaceship"></div>
+    <style scoped>
+      #spaceship {
+        rotate: 180deg;
+        background-image: url("images/spaceship_spritesheet.png");
+        width: 48px;
+        height: 48px;
+        animation: animate_ship 1s steps(14);
+        animation-play-state: paused;
+      }
+      @keyframes animate_ship {
+        100% {
+          background-position: 0 -672px;
+        }
+      }
+    </style>
+    <script>
+      let spaceship = document.getElementById("spaceship");
+      spaceship.style.animationPlayState = "paused";
+      // destroy ship on hover
+      spaceship.addEventListener("mouseover", () => {
+        spaceship.style.animationPlayState = "running";
+      });
+      spaceship.addEventListener("animationend", () => {
+        // stay on final frame
+        spaceship.style.animationPlayState = "paused";
+        spaceship.style.backgroundPosition = "0 -672px";
+        // reset animation and set frame to 0 after timeout
+        setTimeout(() => {
+          spaceship.style.animation = "none";
+          spaceship.offsetHeight; /* trigger reflow */
+          spaceship.style.animation = null;
+          spaceship.style.backgroundPosition = "0 0";
+        }, 3000);
+      });
+    </script>
+
+    <main>
+      <zero-md src="./space-pirates-and-the-mind-stone.md">
+        <template data-merge="append">
+          <link rel="stylesheet" href="../stylesheet_md.css" />
+          <style>
+            h1,
+            h2,
+            h3 {
+              font-family: gameboy, monospace;
+            }
+
+            .markdown-body {
+              color: var(--text-colour);
+            }
+          </style>
+        </template>
+      </zero-md>
+    </main>
+
+    <footer>
+      <div class="subscription">
+        <form
+          action="https://tinyletter.com/alifeee"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://tinyletter.com/alifeee', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+        >
+          <label for="tlemail">Subscribe:</label>
+          <input type="text" name="email" id="tlemail" />
+          <input type="hidden" value="1" name="embed" /><input
+            type="submit"
+            value="Notify me!"
+          />
+        </form>
+      </div>
+      <div class="links">
+        <a href="https://twitter.com/alifeeeirenn" target="_blank">
+          <img alt="_Twitter_" src="../icons/twitter.svg" />
+          <span class="text">Twitter</span>
+        </a>
+        <a href="https://github.com/alifeee/blog" target="_blank">
+          <img alt="_GitHub_" src="../icons/github.svg" />
+          <span class="text">GitHub</span>
+        </a>
+        <a href="https://linktr.ee/alifeee" target="_blank">
+          <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
+          <span class="text">Linktree</span>
+        </a>
+        <a href="mailto:alifeee.web@outlook.com" target="_blank">
+          <img alt="_Email_" src="../icons/envelope-solid.svg" />
+          <span class="text">Email</span>
+        </a>
+      </div>
+      <a class="backlink" href="../">Back to main page</a>
+    </footer>
+  </body>
+  <style>
+    @font-face {
+      font-family: gameboy;
+      src: url(Early_GameBoy.ttf) format("opentype");
+    }
+
+    :root {
+      --background-colour: #1c141d;
+      --text-colour: #b8a2c8;
+      --border-colour: #b8a2c8;
+    }
+
+    .links a img {
+      filter: invert(75%) sepia(6%) saturate(1329%) hue-rotate(231deg)
+        brightness(92%) contrast(83%);
+    }
+  </style>
+</html>
