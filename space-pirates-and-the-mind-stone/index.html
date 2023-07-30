@@ -111,14 +111,20 @@
 
     <template x-for="i in 100" x-key="i">
       <sprite-img
+      class="asteroid"
       src="./images/asteroid_spritesheet.png"
       width="32"
       height="32"
       frames="6"
       looping="false"
       fps="5"
+      x-bind:scale="Math.random() * 3"
+      x-bind:style="{
+        top: Math.random() * 100 + '%',
+        left: Math.random() * 100 + '%',
+      }"
       startpaused="true"
-      x-on:mouseenter="$el.play()"
+      x-on:mouseover="$el.play()"
       >
     </template>
 
@@ -180,12 +186,18 @@
       image-rendering: pixelated;
       background-image: url(./images/space_background.png);
       background-size: 1500px auto;
+      position: relative;
     }
 
     main {
       background-color: #1c141dbb;
       padding: 1rem;
       border-radius: 1rem;
+    }
+
+    .asteroid {
+      position: fixed;
+      z-index: -1;
     }
   </style>
 </html>
