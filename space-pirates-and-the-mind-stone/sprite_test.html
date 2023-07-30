@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./sprite.js" defer></script>
+  </head>
+  <body>
+    <div id="asteroid"></div>
+    <style scoped>
+      #asteroid {
+        background-image: url("./images/asteroid_spritesheet.png");
+        height: 60px;
+        width: 60px;
+        background-color: blue;
+      }
+    </style>
+    <sprite-img
+      id="sprite"
+      src="./images/asteroid_spritesheet.png"
+      height="60"
+      width="60"
+      frames="6"
+      looping="true"
+      fps="3"
+      start-paused="false"
+    ></sprite-img>
+
+    <button onclick="document.getElementById('sprite').pause()">Pause</button>
+    <button onclick="document.getElementById('sprite').play()">Play</button>
+    <button onclick="document.getElementById('sprite').reset()">Reset</button>
+    <button onclick="document.getElementById('sprite').stop()">Stop</button>
+
+    <sprite-img
+      src="./images/coalometer_spritesheet.png"
+      height="32"
+      width="32"
+      frames="7"
+      looping="true"
+      fps="3"
+    ></sprite-img>
+  </body>
+</html>
