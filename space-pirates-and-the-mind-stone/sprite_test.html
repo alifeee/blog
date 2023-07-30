@@ -2,27 +2,29 @@
 <html lang="en">
   <head>
     <script src="./sprite.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
   </head>
   <body>
-    <div id="asteroid"></div>
-    <style scoped>
-      #asteroid {
-        background-image: url("./images/asteroid_spritesheet.png");
-        height: 60px;
-        width: 60px;
-        background-color: blue;
-      }
-    </style>
-    <sprite-img
-      id="sprite"
-      src="./images/asteroid_spritesheet.png"
-      height="60"
-      width="60"
-      frames="6"
-      looping="true"
-      fps="3"
-      start-paused="false"
-    ></sprite-img>
+    <div style="display: flex">
+      <div id="asteroid"></div>
+      <style scoped>
+        #asteroid {
+          background-image: url("./images/asteroid_spritesheet.png");
+          height: 60px;
+          width: 60px;
+          background-color: blue;
+        }
+      </style>
+      <sprite-img
+        id="sprite"
+        src="./images/asteroid_spritesheet.png"
+        height="60"
+        width="60"
+        frames="6"
+        looping="true"
+        fps="3"
+      ></sprite-img>
+    </div>
 
     <button onclick="document.getElementById('sprite').pause()">Pause</button>
     <button onclick="document.getElementById('sprite').play()">Play</button>
@@ -30,12 +32,46 @@
     <button onclick="document.getElementById('sprite').stop()">Stop</button>
 
     <sprite-img
+      id="coalometer"
       src="./images/coalometer_spritesheet.png"
       height="32"
       width="32"
       frames="7"
-      looping="true"
-      fps="3"
+      looping="false"
+      fps="12"
+      startpaused="true"
+      scale="2"
     ></sprite-img>
+    <button onclick="document.getElementById('coalometer').play()">Play</button>
+    <button onclick="document.getElementById('coalometer').reset()">
+      Reset
+    </button>
+
+    <!-- preload spinning image -->
+    <link
+      rel="preload"
+      as="image"
+      href="./images/mindstone-spin_spritesheet.png"
+    />
+    <div x-data="{spinning: false}">
+      <!-- x-bind:src="spinning ? './images/mindstone-spin_spritesheet.png' : './images/mindstone-idle_spritesheet.png'" -->
+      <!-- src="./images/mindstone-idle_spritesheet.png" -->
+      <sprite-img
+        id="mindstone"
+        src="./images/mindstone-idle_spritesheet.png"
+        x-on:mouseenter="spinning = true;"
+        x-on:mouseleave="spinning = false;"
+        height="25"
+        width="20"
+        frames="8"
+        looping="true"
+        fps="5"
+        startpaused="false"
+        scale="5"
+        :src="spinning ? './images/mindstone-spin_spritesheet.png' : './images/mindstone-idle_spritesheet.png'"
+        :frames="spinning ? 10 : 8"
+        :fps="spinning ? 10 : 5"
+      ></sprite-img>
+    </div>
   </body>
 </html>

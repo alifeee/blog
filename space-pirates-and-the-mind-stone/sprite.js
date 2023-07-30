@@ -2,17 +2,34 @@ class SpriteImg extends HTMLElement {
   constructor() {
     super();
 
-    const height = this.getAttribute("height");
-    const width = this.getAttribute("width");
-    const image_src = this.getAttribute("src");
-    const n_frames = this.getAttribute("frames");
-    const looping = this.getAttribute("looping") == "true" ? true : false;
-    const fps = this.getAttribute("fps");
-    const start_paused =
-      this.getAttribute("start-paused") == "true" ? true : false;
+    this.scale = 1;
+    this.height = 16;
+    this.width = 16;
+    this.src = "";
+    this.frames = 1;
+    this.looping = false;
+    this.fps = 1;
+    this.startpaused = true;
 
     const shadow = this.attachShadow({ mode: "open" });
+  }
 
+  connectedCallback() {
+    if (this.hasAttribute("scale")) this.scale = this.getAttribute("scale");
+    if (this.hasAttribute("height")) this.height = this.getAttribute("height");
+    if (this.hasAttribute("width")) this.width = this.getAttribute("width");
+    if (this.hasAttribute("src")) this.src = this.getAttribute("src");
+    if (this.hasAttribute("frames")) this.frames = this.getAttribute("frames");
+    if (this.hasAttribute("looping"))
+      this.looping = this.getAttribute("looping");
+    if (this.hasAttribute("fps")) this.fps = this.getAttribute("fps");
+    if (this.hasAttribute("startpaused"))
+      this.startpaused = this.getAttribute("startpaused");
+
+    this.render();
+  }
+  render() {
+    this.shadowRoot.innerHTML = "";
     const sprite = document.createElement("div");
     sprite.setAttribute("class", "sprite");
     sprite.setAttribute("id", "sprite");
@@ -21,28 +38,37 @@ class SpriteImg extends HTMLElement {
     style.textContent = `
     .sprite {
         position: relative;
-        background-image: url(${image_src});
+        background-image: url(${this.src});
         background-repeat: no-repeat;
         background-origin: border-box;
-        height: ${height}px;
-        width: ${width}px;
-        background-color: green;
+        background-size: ${this.scale * this.width}px ${
+      this.scale * this.height * this.frames
+    }px;
+        height: ${this.scale * this.height}px;
+        width: ${this.scale * this.width}px;
         animation-name: animate;
-        animation-duration: ${n_frames / fps}s;
-        animation-timing-function: steps(${n_frames}, jump-none);
-        animation-iteration-count: ${looping ? "infinite" : "1"};
-        animation-play-state: ${start_paused ? "paused" : "running"};
+        animation-duration: ${this.frames / this.fps}s;
+        animation-timing-function: steps(${this.frames}, jump-none);
+        animation-iteration-count: ${this.looping == "true" ? "infinite" : "1"};
+        animation-play-state: ${
+          this.startpaused == "true" ? "paused" : "running"
+        };
         animation-fill-mode: forwards;
     }
     @keyframes animate {
         100% {
-            background-position-y: -${(n_frames - 1) * height}px;
+            background-position-y: -${
+              (this.frames - 1) * this.scale * this.height
+            }px;
         }
+    }
+    * {
+        image-rendering: pixelated;
     }
     `;
 
-    shadow.appendChild(style);
-    shadow.appendChild(sprite);
+    this.shadowRoot.appendChild(style);
+    this.shadowRoot.appendChild(sprite);
 
     this.sprite = sprite;
   }
@@ -64,6 +90,15 @@ class SpriteImg extends HTMLElement {
   stop() {
     this.reset();
     this.pause();
+  }
+
+  static get observedAttributes() {
+    return ["src", "height", "width", "frames", "looping", "fps"];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this[name] = newValue;
+    this.render();
   }
 }
 
