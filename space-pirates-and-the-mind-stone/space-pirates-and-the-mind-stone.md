@@ -6,7 +6,7 @@
         width="20"
         frames="8"
         looping="true"
-        fps="5"
+        fps="4"
         scale="5"
     ></sprite-img>
 
