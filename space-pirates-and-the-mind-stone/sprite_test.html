@@ -5,31 +5,34 @@
     <script src="//unpkg.com/alpinejs" defer></script>
   </head>
   <body>
-    <div style="display: flex">
-      <div id="asteroid"></div>
-      <style scoped>
-        #asteroid {
-          background-image: url("./images/asteroid_spritesheet.png");
-          height: 60px;
-          width: 60px;
-          background-color: blue;
-        }
-      </style>
-      <sprite-img
-        id="sprite"
-        src="./images/asteroid_spritesheet.png"
-        height="60"
-        width="60"
-        frames="6"
-        looping="true"
-        fps="3"
-      ></sprite-img>
-    </div>
+    <div x-data>
+      <div style="display: flex">
+        <div id="asteroid"></div>
+        <style scoped>
+          #asteroid {
+            background-image: url("./images/asteroid_spritesheet.png");
+            height: 60px;
+            width: 60px;
+            background-color: blue;
+          }
+        </style>
+        <sprite-img
+          id="sprite"
+          src="./images/asteroid_spritesheet.png"
+          height="60"
+          width="60"
+          frames="6"
+          looping="true"
+          fps="3"
+          x-ref="sprite"
+        ></sprite-img>
+      </div>
 
-    <button onclick="document.getElementById('sprite').pause()">Pause</button>
-    <button onclick="document.getElementById('sprite').play()">Play</button>
-    <button onclick="document.getElementById('sprite').reset()">Reset</button>
-    <button onclick="document.getElementById('sprite').stop()">Stop</button>
+      <button x-on:click="$refs.sprite.pause()">Pause</button>
+      <button x-on:click="$refs.sprite.play()">Play</button>
+      <button x-on:click="$refs.sprite.reset()">Reset</button>
+      <button x-on:click="$refs.sprite.stop()">Stop</button>
+    </div>
 
     <h3>Click to play</h3>
     <div x-data>
@@ -101,6 +104,21 @@
       >
         Reset
       </button>
+    </div>
+
+    <h3>Change frame</h3>
+    <div x-data="{frame: 0}">
+      <sprite-img
+        src="./images/coalometer_spritesheet.png"
+        height="32"
+        width="32"
+        frames="7"
+        startpaused="true"
+        scale="2"
+        x-bind:frame="frame"
+      ></sprite-img>
+      Frame: <span x-text="frame"></span>
+      <input type="range" x-model="frame" min="0" max="6" />
     </div>
   </body>
 </html>

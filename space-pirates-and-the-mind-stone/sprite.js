@@ -7,6 +7,7 @@ class SpriteImg extends HTMLElement {
     this.width = 16;
     this.src = "";
     this.frames = 1;
+    this.frame = 0;
     this.looping = false;
     this.fps = 1;
     this.startpaused = true;
@@ -20,6 +21,7 @@ class SpriteImg extends HTMLElement {
     if (this.hasAttribute("width")) this.width = this.getAttribute("width");
     if (this.hasAttribute("src")) this.src = this.getAttribute("src");
     if (this.hasAttribute("frames")) this.frames = this.getAttribute("frames");
+    if (this.hasAttribute("frame")) this.frames = this.getAttribute("frame");
     if (this.hasAttribute("looping"))
       this.looping = this.getAttribute("looping");
     if (this.hasAttribute("fps")) this.fps = this.getAttribute("fps");
@@ -44,6 +46,7 @@ class SpriteImg extends HTMLElement {
         background-size: ${this.scale * this.width}px ${
       this.scale * this.height * this.frames
     }px;
+        background-position-y: -${this.scale * this.height * this.frame}px;
         height: ${this.scale * this.height}px;
         width: ${this.scale * this.width}px;
         animation-name: animate;
@@ -93,7 +96,7 @@ class SpriteImg extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["src", "height", "width", "frames", "looping", "fps"];
+    return ["src", "height", "width", "frames", "looping", "fps", "frame"];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
