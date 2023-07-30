@@ -115,6 +115,46 @@
       });
     </script>
 
+    <div class="asteroid"></div>
+    <div class="asteroid"></div>
+    <div class="asteroid"></div>
+    <style scoped>
+      .asteroid {
+        background-image: url("images/asteroid_spritesheet.png");
+        width: 60px;
+        height: 60px;
+        animation: animate_asteroid 0.8s steps(5);
+        animation-play-state: paused;
+      }
+      @keyframes animate_asteroid {
+        100% {
+          background-position: 0 -300px;
+        }
+      }
+    </style>
+    <script>
+      let asteroids = document.querySelectorAll(".asteroid");
+      asteroids.forEach((asteroid) => {
+        asteroid.style.animationPlayState = "paused";
+        // destroy asteroid on hover
+        asteroid.addEventListener("mouseover", () => {
+          asteroid.style.animationPlayState = "running";
+        });
+        asteroid.addEventListener("animationend", () => {
+          // stay on final frame
+          asteroid.style.animationPlayState = "paused";
+          asteroid.style.backgroundPosition = "0 -300px";
+          // reset animation and set frame to 0 after timeout
+          setTimeout(() => {
+            asteroid.style.animation = "none";
+            asteroid.offsetHeight; /* trigger reflow */
+            asteroid.style.animation = null;
+            asteroid.style.backgroundPosition = "0 0";
+          }, 3000);
+        });
+      });
+    </script>
+
     <main>
       <zero-md src="./space-pirates-and-the-mind-stone.md">
         <template data-merge="append">
