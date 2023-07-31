@@ -70,8 +70,11 @@ class SpriteImg extends HTMLElement {
     }
     `;
 
-    this.shadowRoot.appendChild(style);
+    const slot = document.createElement("slot");
+
+    sprite.appendChild(slot);
     this.shadowRoot.appendChild(sprite);
+    this.shadowRoot.appendChild(style);
 
     this.sprite = sprite;
   }
