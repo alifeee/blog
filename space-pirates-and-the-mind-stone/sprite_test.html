@@ -60,8 +60,6 @@
       href="./images/mindstone-spin_spritesheet.png"
     />
     <div x-data="{spinning: false}">
-      <!-- x-bind:src="spinning ? './images/mindstone-spin_spritesheet.png' : './images/mindstone-idle_spritesheet.png'" -->
-      <!-- src="./images/mindstone-idle_spritesheet.png" -->
       <sprite-img
         id="mindstone"
         src="./images/mindstone-idle_spritesheet.png"
@@ -120,5 +118,9 @@
       Frame: <span x-text="frame"></span>
       <input type="range" x-model="frame" min="0" max="6" />
     </div>
+
+    <h3>Hoverable mindstone?</h3>
+    <script src="./mindstone.js" defer></script>
+    <hoverable-mindstone></hoverable-mindstone>
   </body>
 </html>
