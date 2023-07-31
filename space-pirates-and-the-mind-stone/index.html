@@ -72,6 +72,7 @@
 
     <!-- sprite web component -->
     <script src="./sprite.js" defer></script>
+    <script src="./mindstone.js" defer></script>
 
     <!-- alpine -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -85,7 +86,7 @@
     </header>
 
     <main>
-      <zero-md src="./space-pirates-and-the-mind-stone.md">
+      <zero-md src="./space-pirates-and-the-mind-stone.md" no-shadow>
         <template data-merge="append">
           <link rel="stylesheet" href="../stylesheet_md.css" />
           <style>
@@ -99,7 +100,7 @@
               color: var(--text-colour);
             }
 
-            .markdown-body > p > sprite-img {
+            .markdown-body > p > hoverable-mindstone {
               display: block;
               margin: 0 auto;
               width: min-content;
