@@ -96,7 +96,17 @@ class SpriteImg extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["src", "height", "width", "frames", "looping", "fps", "frame"];
+    return [
+      "scale",
+      "height",
+      "width",
+      "src",
+      "frames",
+      "frame",
+      "looping",
+      "fps",
+      "startpaused",
+    ];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
