@@ -76,6 +76,25 @@
 
     <!-- alpine -->
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    <!-- giscus: https://giscus.app/ -->
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="alifeee/blog"
+      data-repo-id="R_kgDOJaqeLQ"
+      data-category="comments"
+      data-category-id="DIC_kwDOJaqeLc4CZQST"
+      data-mapping="og:title"
+      data-strict="1"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="dark"
+      data-lang="en"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async
+    ></script>
   </head>
 
   <body x-data>
@@ -108,24 +127,26 @@
           </style>
         </template>
       </zero-md>
+      <hr />
+      <div id="giscus" class="giscus"></div>
     </main>
 
     <template x-for="i in 100" x-key="i">
       <sprite-img
-      class="asteroid"
-      src="./images/asteroid_spritesheet.png"
-      width="32"
-      height="32"
-      frames="6"
-      looping="false"
-      fps="5"
-      x-bind:scale="Math.random() * 3"
-      x-bind:style="{
+        class="asteroid"
+        src="./images/asteroid_spritesheet.png"
+        width="32"
+        height="32"
+        frames="6"
+        looping="false"
+        fps="5"
+        x-bind:scale="Math.random() * 3"
+        x-bind:style="{
         top: Math.random() * 100 + '%',
         left: Math.random() * 100 + '%',
       }"
-      startpaused="true"
-      x-on:mouseover="$el.play()"
+        startpaused="true"
+        x-on:mouseover="$el.play()"
       >
       </sprite-img>
     </template>
