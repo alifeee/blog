@@ -2,4 +2,6 @@
 
 <hoverable-mindstone></hoverable-mindstone>
 
-Game!
+## Game!
+
+Content!
