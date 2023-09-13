@@ -66,6 +66,14 @@
       src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
     ></script>
 
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
+    <script type="module">
+      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
+      document.addEventListener("zero-md-rendered", function (event) {
+        anchors.add();
+      });
+    </script>
+
     <!-- giscus: https://giscus.app/ -->
     <script
       src="https://giscus.app/client.js"
@@ -100,7 +108,7 @@
       style="transform: rotate(-9deg)"
     />
     <main>
-      <zero-md src="./hitchhiking-in-2023.md">
+      <zero-md src="./hitchhiking-in-2023.md" no-shadow>
         <template data-merge="append">
           <link rel="stylesheet" href="../md_stylesheet.css" />
         </template>
