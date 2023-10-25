@@ -9,6 +9,7 @@ h3 {
 
 .markdown-body {
   font-family: "Roboto", sans-serif;
+  max-width: 95vw;
 }
 
 .markdown-body img {
@@ -37,4 +38,18 @@ figcaption {
 .markdown-body h1,
 .markdown-body h2 {
   border-bottom-color: var(--border-colour);
+}
+
+img {
+  color: rgb(221, 37, 37);
+  text-align: center;
+}
+
+.markdown-body > video {
+  display: block;
+  max-height: 30rem;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: unset;
+  margin-bottom: 16px;
 }

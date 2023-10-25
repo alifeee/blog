@@ -1,7 +1,20 @@
 {
   "default": true,
   "MD033": {
-    "allowed_elements": ["figcaption", "a", "div"]
+    "allowed_elements": [
+      "figcaption",
+      "a",
+      "div",
+      "alive-checker",
+      "img",
+      "input",
+      "template",
+      "button",
+      "details",
+      "summary",
+      "video",
+      "source"
+    ]
   },
   "MD013": false,
   "MD026": {

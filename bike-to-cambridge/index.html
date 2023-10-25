@@ -72,6 +72,32 @@
       type="module"
       src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
     ></script>
+
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
+    <script type="module">
+      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
+      document.addEventListener("zero-md-rendered", function (event) {
+        anchors.add();
+      });
+    </script>
+
+    <!-- giscus: https://giscus.app/ -->
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="alifeee/blog"
+      data-repo-id="R_kgDOJaqeLQ"
+      data-category="comments"
+      data-category-id="DIC_kwDOJaqeLc4CZQST"
+      data-mapping="og:title"
+      data-strict="1"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async
+    ></script>
   </head>
 
   <body>
@@ -79,11 +105,14 @@
       <a href="../">
         <h1>alifeee's blog</h1>
       </a>
+      <a id="rss" href="../feed.xml">
+        <img alt="_RSS_" src="../icons/rss.svg" />
+      </a>
     </header>
 
     <img id="background" src="./images/route.svg" alt="route" width="100%" />
     <main>
-      <zero-md src="./bike-to-cambridge.md">
+      <zero-md src="./bike-to-cambridge.md" no-shadow>
         <template data-merge="append">
           <link rel="stylesheet" href="../stylesheet_md.css" />
           <style>
@@ -110,6 +139,14 @@
           </style>
         </template>
       </zero-md>
+      <hr />
+      <div id="giscus" class="giscus">
+        <h2>Comments!</h2>
+        <p>
+          There should be a comment section here. If there isn't, refresh the
+          page (and consider telling me :).
+        </p>
+      </div>
     </main>
 
     <footer>

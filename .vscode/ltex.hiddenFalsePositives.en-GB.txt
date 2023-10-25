@@ -21,3 +21,14 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qmaybe.)\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QA Garden of Eden state, or paradisical state, is one that the system cannot reenter once it has left it.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QTo celebrate that we'd all spent half the year knee-deep inside a PDF, we had DICE (Dissertation Isdone Celebration Event)!\\E$"}
+
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qlipu tenpo is a non-profit magazine written entirely in toki pona.\\E$"}
+
+{"rule":"COMP_THAN","sentence":"^\\QTo this end, I initially set up the script to save a cache of thumbnails as it went, so that over time, collages would be quicker as more and more games were locally cached.\\E$"}
+
+{"rule":"SETUP_VERB","sentence":"^\\QOscilloscope by the side connects to setup.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QAn aside: Neonode touch\nThe natural conclusion: a theremin\nTheremin + bus sign!\\E$"}
+
+{"rule":"TO_NON_BASE","sentence":"^\\QWires soldered to pins 2, 3, 5, 7, & 8\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QIn Morse, is this eeeeeee or ttttttt?\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qv0.4.0?\\E$"}

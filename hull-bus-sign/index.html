@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - hull bus sign</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hull Bus Terminal Signs: Making Pong on an old Dot-Matrix Display"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="Hull Bus Terminal Signs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.co.uk/hull-bus-sign"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/hull-bus-sign/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="Making Pong on an old Dot-Matrix Display."
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-85X5BXGV88"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-85X5BXGV88");
+    </script>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
+    />
+
+    <!-- zero-md: https://github.com/zerodevx/zero-md -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
+    ></script>
+
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
+    <script type="module">
+      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
+      document.addEventListener("zero-md-rendered", function (event) {
+        anchors.add();
+      });
+    </script>
+
+    <!-- giscus: https://giscus.app/ -->
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="alifeee/blog"
+      data-repo-id="R_kgDOJaqeLQ"
+      data-category="comments"
+      data-category-id="DIC_kwDOJaqeLc4CZQST"
+      data-mapping="og:title"
+      data-strict="1"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    <!-- alpinejs -->
+    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+
+    <!-- resize images with src ending "#10rem" etc (max width) -->
+    <script>
+      // get all images ending in "#XXrem" and set their max-width to XXrem
+      addEventListener("zero-md-rendered", () => {
+        document.querySelectorAll("img[src$='rem']").forEach((img) => {
+          // get width XX from img.png#XXrem
+          const width = img.src.split("#")[1].slice(0, -3);
+          img.style.maxWidth = `${width}rem`;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <a href="../">
+        <h1>alifeee's blog</h1>
+      </a>
+      <a id="rss" href="../feed.xml">
+        <img alt="_RSS_" src="../icons/rss.svg" />
+      </a>
+    </header>
+
+    <main>
+      <zero-md src="./hull-bus-sign.md" no-shadow>
+        <template data-merge="append">
+          <link rel="stylesheet" href="../stylesheet_md.css" />
+        </template>
+      </zero-md>
+      <hr />
+      <div id="giscus" class="giscus">
+        <h2>Comments!</h2>
+        <p>
+          There should be a comment section here. If there isn't, refresh the
+          page (and consider telling me :).
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="subscription">
+        <form
+          action="https://tinyletter.com/alifeee"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://tinyletter.com/alifeee', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+        >
+          <label for="tlemail">Subscribe:</label>
+          <input type="text" name="email" id="tlemail" />
+          <input type="hidden" value="1" name="embed" /><input
+            type="submit"
+            value="Notify me!"
+          />
+        </form>
+      </div>
+      <div class="links">
+        <a href="https://twitter.com/alifeeeirenn" target="_blank">
+          <img alt="_Twitter_" src="../icons/twitter.svg" />
+          <span class="text">Twitter</span>
+        </a>
+        <a href="https://github.com/alifeee/blog" target="_blank">
+          <img alt="_GitHub_" src="../icons/github.svg" />
+          <span class="text">GitHub</span>
+        </a>
+        <a href="https://linktr.ee/alifeee" target="_blank">
+          <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
+          <span class="text">Linktree</span>
+        </a>
+        <a href="mailto:alifeee.web@outlook.com" target="_blank">
+          <img alt="_Email_" src="../icons/envelope-solid.svg" />
+          <span class="text">Email</span>
+        </a>
+      </div>
+      <a class="backlink" href="../">Back to main page</a>
+    </footer>
+  </body>
+</html>
