@@ -1,5 +1,7 @@
 # Coding Projects! #1: Collage generator for Steam games
 
+<word-count parent=".markdown-body"></word-count>
+
 1. [What tools to use?](#what-tools-to-use)
    1. [How to get Steam library information](#how-to-get-steam-library-information)
    2. [Image manipulation](#image-manipulation)

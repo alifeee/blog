@@ -1,5 +1,7 @@
 # Ring populations: how to compare cities more agnostically
 
+<word-count parent=".markdown-body"></word-count>
+
 1. [Internet-Inconsistencies](#internet-inconsistencies)
 2. [Let's concentrize!](#lets-concentrize)
    1. [What does 10 km look like?](#what-does-10-km-look-like)

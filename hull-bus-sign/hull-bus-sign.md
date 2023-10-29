@@ -1,5 +1,7 @@
 # Hull Bus Terminal Signs: Making Pong on an old Dot-Matrix Display
 
+<word-count parent=".markdown-body"></word-count>
+
 1. [Introduction](#introduction)
 2. [Opening it up](#opening-it-up)
 3. [How to connect to a bunch of scary looking electronics](#how-to-connect-to-a-bunch-of-scary-looking-electronics)

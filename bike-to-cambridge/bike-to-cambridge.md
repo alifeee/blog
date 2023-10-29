@@ -1,5 +1,7 @@
 # I biked from Birmingham to Cambridge (a tribute to National Cycle Routes)
 
+<word-count parent=".markdown-body"></word-count>
+
 1. [Technicalities - how far *did* I bike?](#technicalities---how-far-did-i-bike)
 2. [How to plan a bike route](#how-to-plan-a-bike-route)
    1. [Google Maps hates bikes](#google-maps-hates-bikes)

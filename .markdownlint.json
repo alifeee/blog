@@ -13,7 +13,8 @@
       "details",
       "summary",
       "video",
-      "source"
+      "source",
+      "word-count"
     ]
   },
   "MD013": false,

@@ -1,5 +1,7 @@
 # Sketch Your Society: 100 different sketches from 100 different societies
 
+<word-count parent=".markdown-body"></word-count>
+
 In 2021, [Alex] and I wanted to go to freshers' fair at Durham to check out what cool, post-covid societies had sprung up. To make it entertaining, and force ourselves to talk to societies that we wouldn't otherwise, we wanted a creative idea. What we came up with was to take round a sketchbook to each society at the fair, and to propose to them "please draw something - *whatever you feel like* - in our sketchbook, to represent your society :)".
 
 Many people who acquiesced our request asked us how they could see the whole book afterwards, or where it would be posted online. At the time we had no response, as we were just doing it for our own amusement. But now, thanks to the wonders of digitization, the answer is: right here!
