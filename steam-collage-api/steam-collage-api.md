@@ -1,3 +1,12 @@
+---
+date: 2023-08-23
+title: "Coding Projects! #1: Collage generator for Steam games"
+tabtitle: steam collage api
+description: "How I made an automatic collage generator: to make a custom game collage using the games in any Steam library."
+tags: 
+  - programming
+---
+
 # Coding Projects! #1: Collage generator for Steam games
 
 <word-count parent=".markdown-body"></word-count>
