@@ -2,24 +2,18 @@
 
 This repo contains blog stuff that I write, as well as any code used to generate it. It can be found on [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk)
 
-## Markdown
+## Commands
 
-Markdown parsing is done client side using [zero-md](https://github.com/zerodevx/zero-md). This is to avoid using a build step.
+### Build
 
-```html
-<head>
-    ...
-  <script
-    type="module"
-    src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
-  ></script>
-  ...
-</head>
-<body>
-  ...
-  <zero-md src="/example.md"></zero-md>
-  ...
-</body>
+```bash
+npx @11ty/eleventy --formats=md
+```
+
+### Dev
+
+```bash
+npx @11ty/eleventy --formats=md --serve
 ```
 
 ## Comments
