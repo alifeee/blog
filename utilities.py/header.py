@@ -22,7 +22,7 @@ def get_all_html_files():
     html_files = []
     for root, _, files in os.walk("."):
         for foile in files:
-            if foile.endswith(".html"):
+            if foile.endswith("index.html"):
                 html_files.append(os.path.join(root, foile))
     return html_files
 

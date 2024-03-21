@@ -11,10 +11,10 @@
 
 Below, you *should* see a lovely image of my four most recently played games on [Steam]. You can also change it to display your Steam account.
 
-If you use Firefox, this should work. If you use Chrome (or anything else), the [images will be blocked][chrome no https], as they are [mixed media][HTTP on HTTPS]. To fix this, you can allow mixed media on `blog.alifeee.co.uk`. If I [add HTTPS in the future][fixed in future], this should not be needed.
+<del>If you use Firefox,</del> this should work. <del>If you use Chrome (or anything else), the [images will be blocked][chrome no https], as they are [mixed media][HTTP on HTTPS]. To fix this, you can allow mixed media on `blog.alifeee.co.uk`. If I [add HTTPS in the future][fixed in future], this should not be needed.</del> I added HTTPS (2024-02-19).
 
 <details>
-<summary>How to enable images on Chrome</summary>
+<summary><del>How to enable HTTP images on Chrome</del></summary>
 
 1. Navigate to site settings for `blog.alifeee.co.uk`
 ![Screenshot of Chrome site settings](images/chrome_site_settings.png)
@@ -30,7 +30,7 @@ If you use Firefox, this should work. If you use Chrome (or anything else), the 
 
 <figcaption>
 
-API status: <img src="http://server.alifeee.co.uk:5000/steamcollage/alive_img" onerror="this.src='./didnotload.png'" style="background-color: orange; display: inline-block; height: 1rem; width: 1rem; border-radius: 50%;" />
+API status: <img src="https://steamcollage.alifeee.co.uk/steamcollage/alive_img" onerror="this.src='./didnotload.png'" style="background-color: orange; display: inline-block; height: 1rem; width: 1rem; border-radius: 50%;" />
 
 </figcaption>
 
@@ -43,9 +43,9 @@ API status: <img src="http://server.alifeee.co.uk:5000/steamcollage/alive_img" o
         <button>Go!</button>
     </div>
     <img
-        src="http://server.alifeee.co.uk:5000/steamcollage/games?id=alifeee&cols=2&rows=2&sort=recent"
+        src="https://steamcollage.alifeee.co.uk/steamcollage/games?id=alifeee&cols=2&rows=2&sort=recent"
         alt="Oops. It must have broken. Here *should* be alifeee's 4 most recently played Steam games."
-        :src="'http://server.alifeee.co.uk:5000/steamcollage/games?id=' + user + '&cols=2&rows=2&sort=' + (user == 'alifeee' ? 'recent' : 'playtime')"
+        :src="'https://steamcollage.alifeee.co.uk/steamcollage/games?id=' + user + '&cols=2&rows=2&sort=' + (user == 'alifeee' ? 'recent' : 'playtime')"
         :alt="'Oops. It must have broken. Here *should* be ' + user + 's library.'"
         >
     </img>
@@ -53,7 +53,7 @@ API status: <img src="http://server.alifeee.co.uk:5000/steamcollage/alive_img" o
 
 <figcaption>
 
-For my library, these are my four most recently played games. For yours, it's your four most played ([recent is broken](https://github.com/alifeee/steam_collage_api/issues/20)). This is HTTP content on an HTTPS page, so it may also not work if you are on Chrome - see above.
+For my library, these are my four most recently played games. For yours, it's your four most played ([recent is broken](https://github.com/alifeee/steam_collage_api/issues/20)). <del>This is HTTP content on an HTTPS page, so it may also not work if you are on Chrome - see above.</del>
 
 </figcaption>
 
@@ -243,7 +243,7 @@ When you visit `http://0.0.0.0:5000/steamcollage/Alive` on a web browser (or, fo
 Alive
 ```
 
-Since this example is also an [actual endpoint][api.py:alive] for the server I set up, you can see it live [here](http://server.alifeee.co.uk:5000/steamcollage/alive). With only a few lines of Python code you can make a lovely web server. At the moment, it's only HTTP, not HTTPS, which means [I can only really use it to serve images][HTTP on HTTPS]. But... that works fine for this!
+Since this example is also an [actual endpoint][api.py:alive] for the server I set up, you can see it live [here](https://steamcollage.alifeee.co.uk/steamcollage/alive). With only a few lines of Python code you can make a lovely web server. At the moment, it's only HTTP, not HTTPS, which means [I can only really use it to serve images][HTTP on HTTPS]. But... that works fine for this!
 
 You can see the full API code in [`api.py`]. Its function is to: take the steam ID, and required image size (rows/cols/sorting), and use the methods from the sections above to make an image and return it. Here is a briefened version of [the code][`api.py`]:
 

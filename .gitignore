@@ -1,2 +1,10 @@
+# ltex (markdown lint)
 .vscode/ltex.hiddenFalsePositives.en-GB.txt
 .vscode/ltex.hiddenFalsePositives.en-GB.txt
+
+# python
+/env
+**/__pycache__
+
+# secrets
+/.env

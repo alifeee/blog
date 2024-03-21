@@ -1,0 +1,75 @@
+/* mostly copied from https://codepen.io/alifeee/pen/vYzBBKy */
+:root {
+  --zine-width: min(30vw, 200px);
+}
+.why-fonts-matter {
+  --zine-height: calc(var(--zine-width) * (1.17207207207));
+}
+.script-fonts {
+  --zine-height: calc(var(--zine-width) * (1.49031296572));
+}
+
+.hover-area {
+  display: block;
+  margin: 0 auto;
+  box-sizing: content-box;
+  width: var(--zine-width);
+  height: var(--zine-height);
+  padding-top: calc(var(--zine-width) * 0.13);
+  padding-bottom: calc(var(--zine-width) * 0.12);
+  padding-right: calc(var(--zine-width) * 0.05);
+  padding-left: calc(var(--zine-width) * 0.05);
+
+  cursor: pointer;
+}
+
+.zine {
+  position: absolute;
+  height: var(--zine-height);
+  width: var(--zine-width);
+
+  transform-origin: 0 0;
+  transition: transform 0.25s ease-out;
+
+  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.zine.front {
+  transform: skewY(4deg);
+}
+
+.zine.back {
+  transform: skewY(-5deg) scaleX(1.02);
+}
+
+.hover-area:hover > .zine.front {
+  transform: skewY(5deg);
+}
+
+.hover-area:hover > .zine.back {
+  transform: skewY(-8deg) scaleX(0.99);
+}
+
+.why-fonts-matter .zine.front {
+  background-image: url("images/why-fonts-matter.jpg");
+}
+.why-fonts-matter .zine.back {
+  background-image: url("images/why-fonts-matter-back.jpg");
+}
+
+.script-fonts .zine.front {
+  background-image: url("images/script-fonts.jpg");
+}
+.script-fonts .zine.back {
+  background-image: url("images/script-fonts-back.jpg");
+}
+
+.zine.front,
+.zine.back {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}

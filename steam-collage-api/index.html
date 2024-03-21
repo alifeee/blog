@@ -31,67 +31,49 @@
     />
     <meta property="og:locale" content="en_GB" />
 
-    <!-- favicons -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon-16x16.png"
-    />
-
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
     <link rel="stylesheet" href="../stylesheet.css" />
+    <!-- fonts -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
     />
-
     <!-- zero-md: https://github.com/zerodevx/zero-md -->
     <script
       type="module"
       src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
     ></script>
-
+    <!-- alpinejs -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- htmx -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.8"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
       import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
       document.addEventListener("zero-md-rendered", function (event) {
-        anchors.add();
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
       });
     </script>
 
-    <!-- giscus: https://giscus.app/ -->
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="alifeee/blog"
-      data-repo-id="R_kgDOJaqeLQ"
-      data-category="comments"
-      data-category-id="DIC_kwDOJaqeLc4CZQST"
-      data-mapping="og:title"
-      data-strict="1"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="top"
-      data-theme="light"
-      data-lang="en"
-      crossorigin="anonymous"
-      async
-    ></script>
+    <!-- word-count component from word-count.js -->
+    <script src="../word-count.js"></script>
 
-    <!-- alpinejs -->
-    <script src="//unpkg.com/alpinejs" defer></script>
-
-    <!-- sprite web component -->
+    <!-- alive checker web component -->
     <script src="./alive_checker.js" defer></script>
 
-    <!-- word count web component -->
-    <script src="../word-count.js"></script>
+    <!-- GoatCounter - https://alifeee-blog.goatcounter.com/ -->
+    <script
+      data-goatcounter="https://alifeee-blog.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
   </head>
 
   <body>
@@ -105,63 +87,67 @@
     </header>
 
     <main>
-      <zero-md src="./steam-collage-api.md" no-shadow>
-        <template data-merge="append">
-          <link rel="stylesheet" href="../stylesheet_md.css" />
-          <style>
-            input {
-              max-width: 10rem;
-              margin: auto;
-            }
-            .column {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 0.5rem;
-            }
-          </style>
-        </template>
-      </zero-md>
+      <section id="content">
+        <zero-md src="./steam-collage-api.md" no-shadow>
+          <template data-merge="append">
+            <link rel="stylesheet" href="../stylesheet_md.css" />
+            <style>
+              input {
+                max-width: 10rem;
+                margin: auto;
+              }
+              .column {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+              }
+            </style>
+          </template>
+        </zero-md>
+      </section>
       <hr />
-      <div id="giscus" class="giscus">
-        <h2>Comments!</h2>
-        <p>
-          There should be a comment section here. If there isn't, refresh the
-          page (and consider telling me :).
-        </p>
-      </div>
+
+      <section id="comments">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="alifeee/blog"
+          data-repo-id="R_kgDOJaqeLQ"
+          data-category="comments"
+          data-category-id="DIC_kwDOJaqeLc4CZQST"
+          data-mapping="og:title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </section>
+
+      <section id="similar">
+        <h1>Similar posts</h1>
+        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
+      </section>
     </main>
 
     <footer>
-      <div class="subscription">
-        <form
-          action="https://tinyletter.com/alifeee"
-          method="post"
-          target="popupwindow"
-          onsubmit="window.open('https://tinyletter.com/alifeee', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
-        >
-          <label for="tlemail">Subscribe:</label>
-          <input type="text" name="email" id="tlemail" />
-          <input type="hidden" value="1" name="embed" /><input
-            type="submit"
-            value="Notify me!"
-          />
-        </form>
-      </div>
       <div class="links">
-        <a href="https://twitter.com/alifeeeirenn" target="_blank">
+        <a href="https://twitter.com/alifeeeirenn">
           <img alt="_Twitter_" src="../icons/twitter.svg" />
           <span class="text">Twitter</span>
         </a>
-        <a href="https://github.com/alifeee/blog" target="_blank">
+        <a href="https://github.com/alifeee/blog">
           <img alt="_GitHub_" src="../icons/github.svg" />
           <span class="text">GitHub</span>
         </a>
-        <a href="https://linktr.ee/alifeee" target="_blank">
+        <a href="https://linktr.ee/alifeee">
           <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
           <span class="text">Linktree</span>
         </a>
-        <a href="mailto:alifeee.web@outlook.com" target="_blank">
+        <a href="mailto:alifeee.web@outlook.com">
           <img alt="_Email_" src="../icons/envelope-solid.svg" />
           <span class="text">Email</span>
         </a>

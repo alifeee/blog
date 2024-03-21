@@ -7,9 +7,15 @@ h3 {
   font-family: "Josefin Sans", sans-serif;
 }
 
+.markdown-body a {
+  color: var(--link-colour);
+}
+
 .markdown-body {
   font-family: "Roboto", sans-serif;
   max-width: 95vw;
+  color: var(--text-colour);
+  text-align: justify;
 }
 
 .markdown-body img {

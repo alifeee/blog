@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - Factorio proximity chat</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Coding Projects! #2: Making Proximity-based voice chat for Factorio"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="Making Factorio Proximity Voice Chat" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.co.uk/factorio-proximity-chat"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/factorio-proximity-chat/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="Using Lua and C to enable proximity-based voice chat in Factorio"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../stylesheet.css" />
+    <!-- fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
+    />
+    <!-- zero-md: https://github.com/zerodevx/zero-md -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
+    ></script>
+    <!-- alpinejs -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- htmx -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.8"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
+    <script type="module">
+      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
+      document.addEventListener("zero-md-rendered", function (event) {
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
+      });
+    </script>
+
+    <!-- word-count component from word-count.js -->
+    <script src="../word-count.js"></script>
+
+    <!-- GoatCounter - https://alifeee-blog.goatcounter.com/ -->
+    <script
+      data-goatcounter="https://alifeee-blog.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="../">
+        <h1>alifeee's blog</h1>
+      </a>
+      <a id="rss" href="../feed.xml">
+        <img alt="_RSS_" src="../icons/rss.svg" />
+      </a>
+    </header>
+
+    <main>
+      <section id="content">
+        <zero-md src="./factorio-proximity-chat.md" no-shadow>
+          <template data-merge="append">
+            <link rel="stylesheet" href="../stylesheet_md.css" />
+            <style>
+              /* by default, tokens (=, +, etc) have a background that...
+              doesn't get set by themes */
+              .language-css .token.string,
+              .style .token.string,
+              .token.entity,
+              .token.operator,
+              .token.url {
+                background: none;
+              }
+            </style>
+            <link href="prism-atom-dark.css" rel="stylesheet" />
+          </template>
+        </zero-md>
+      </section>
+      <hr />
+
+      <section id="comments">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="alifeee/blog"
+          data-repo-id="R_kgDOJaqeLQ"
+          data-category="comments"
+          data-category-id="DIC_kwDOJaqeLc4CZQST"
+          data-mapping="og:title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </section>
+
+      <section id="similar">
+        <h1>Similar posts</h1>
+        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="links">
+        <a href="https://twitter.com/alifeeeirenn">
+          <img alt="_Twitter_" src="../icons/twitter.svg" />
+          <span class="text">Twitter</span>
+        </a>
+        <a href="https://github.com/alifeee/blog">
+          <img alt="_GitHub_" src="../icons/github.svg" />
+          <span class="text">GitHub</span>
+        </a>
+        <a href="https://linktr.ee/alifeee">
+          <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
+          <span class="text">Linktree</span>
+        </a>
+        <a href="mailto:alifeee.web@outlook.com">
+          <img alt="_Email_" src="../icons/envelope-solid.svg" />
+          <span class="text">Email</span>
+        </a>
+      </div>
+      <a class="backlink" href="../">Back to main page</a>
+    </footer>
+  </body>
+  <style>
+    :root {
+      --text-colour: #fff;
+      --link-colour: #e39827;
+      --unimportanttext-colour: #ccc;
+      --border-colour: #e39827;
+      --background-colour: #002b02;
+    }
+    body {
+      background-image: url("./images/grass-tiled.jpg");
+    }
+  </style>
+</html>

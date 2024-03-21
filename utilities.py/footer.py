@@ -7,7 +7,7 @@ def get_all_html_files():
     html_files = []
     for root, dirs, files in os.walk("."):
         for file in files:
-            if file.endswith(".html"):
+            if file.endswith(".html") and file != "similar.html":
                 html_files.append(os.path.join(root, file))
     return html_files
 
@@ -56,7 +56,7 @@ def main():
             new_content = content[: links_start + len('<div class="links">')]
             for link in links:
                 new_content += (
-                    f'<a href="{link["to"]}" target="_blank">\n'
+                    f'<a href="{link["to"]}">\n'
                     f'<img alt="_{link["text"]}_" src="{"." * depth}/icons/{link["icon"]}.svg">\n'
                     f'<span class="text">{link["text"]}</span>\n'
                     f"</a>\n"

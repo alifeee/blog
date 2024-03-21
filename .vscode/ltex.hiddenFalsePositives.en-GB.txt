@@ -32,3 +32,21 @@
 {"rule":"TO_NON_BASE","sentence":"^\\QWires soldered to pins 2, 3, 5, 7, & 8\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QIn Morse, is this eeeeeee or ttttttt?\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qv0.4.0?\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q:(\\E$"}
+
+{"rule":"NUMEROUS_DIFFERENT","sentence":"^\\QOne is Why Fonts Matter, which posed a fun experiment of asking \"how many different fonts am I exposed to in an hour?\".\\E$"}
+{"rule":"EN_DIACRITICS_REPLACE","sentence":"^\\QTom7's fonts (a website I discovered via Tom7's YouTube channel), and Des polices de caracteres a Gogo (I found this site, a French website, mostly in French, with Robyn - I do not remember how or where, but it was probably browsing webrings).\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QNet (the program I use for all raster image editing - think a more powerful MS Paint), and used \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to turn my photos into black-and-white PNGs (a simplified story.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Q\"bog?\", they inquired.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Q\"yes\", I replied.\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QMy new fonts section on my website \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q FontForge, a free, open-source app for creating fonts \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"NUMEROUS_DIFFERENT","sentence":"^\\Qwhich posed a fun experiment of asking \"how many different fonts am I exposed to in an hour?\".\\E$"}
+{"rule":"EN_DIACRITICS_REPLACE","sentence":"^\\Q...and Des polices de caracteres a Gogo (I found this site, a French website, mostly in French, with Robyn - I do not remember how or where, but it was probably browsing webrings).\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QMy new fonts section on my website\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QNet.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qbog.\\E$"}
+{"rule":"EN_UNPAIRED_BRACKETS","sentence":"^\\QThis change technically reduces the \"authenticity\" of the font, but a) who was counting, and b) I drew the letters first-try with no design direction.\\E$"}
+{"rule":"EN_UNPAIRED_BRACKETS","sentence":"^\\QThis change technically reduces the \"authenticity\" of the font, but a) who was counting, and b) I drew the letters first-try with no design direction anyway.\\E$"}
+
+{"rule":"KIND_OF_A","sentence":"^\\QHowever, you can't use custom fonts, which was... kind of a killer for a font workshop.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qpotrace was used to convert the bitmap images into SVG images, which were then imported into FontForge, where they could be resized and moved around to look good.\\E$"}

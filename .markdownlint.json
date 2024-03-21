@@ -1,22 +1,6 @@
 {
   "default": true,
-  "MD033": {
-    "allowed_elements": [
-      "figcaption",
-      "a",
-      "div",
-      "alive-checker",
-      "img",
-      "input",
-      "template",
-      "button",
-      "details",
-      "summary",
-      "video",
-      "source",
-      "word-count"
-    ]
-  },
+  "MD033": false,
   "MD013": false,
   "MD026": {
     "punctuation": ".,;:。，；："

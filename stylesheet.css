@@ -3,6 +3,12 @@
   --text-colour: #000;
   --unimportanttext-colour: #666;
   --border-colour: #444;
+
+  --link-colour: #0366d6;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -19,6 +25,14 @@ body {
   align-items: center;
 
   box-sizing: border-box;
+}
+
+a {
+  color: var(--link-colour);
+}
+
+a:visited {
+  color: var(--link-visited-colour);
 }
 
 h1,
@@ -62,16 +76,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: start;
-}
-
-footer > .subscription > form {
-  border: 1px solid var(--form-border);
-  padding: 0.25rem;
-  text-align: center;
-}
-
-footer > .subscription #tlemail {
-  width: 10rem;
 }
 
 footer > .links {
@@ -118,4 +122,103 @@ header a {
 
 header a:visited {
   color: inherit;
+}
+
+/* posts */
+/*  */
+/*  */
+/*  */
+#introduction p,
+#introduction h2 {
+  text-align: center;
+}
+#posts-header {
+  margin: 0;
+  margin-top: 2rem;
+  text-align: center;
+}
+.posts {
+  padding: 0;
+  margin: 0;
+}
+.post {
+  text-align: center;
+  list-style: none;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  pointer-events: none;
+  margin: 1rem 0;
+}
+.post:hover {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* inside a post */
+.post .link {
+  text-decoration: none;
+  color: black;
+  pointer-events: auto;
+  min-height: 10rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "preview-image info";
+  align-items: center;
+}
+.post:nth-last-child(even) > .link {
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "info preview-image";
+}
+.post .link > * {
+  margin: 0 0.5rem;
+}
+.post .link > .info {
+  grid-area: info;
+}
+.post .link > .preview-image {
+  grid-area: preview-image;
+  max-width: 100%;
+  display: flex;
+}
+.post .preview-image > img {
+  width: 10em;
+  height: 10em;
+  object-fit: contain;
+  border-radius: 1em;
+  margin: 0 auto;
+}
+
+.post .info .title {
+  margin: 0;
+}
+.post .info .date {
+  margin: 0;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+/* category chips */
+.categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.categories > li {
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  pointer-events: auto;
+  opacity: 0.6;
+}
+.categories > li.active {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
+.categories > li > a {
+  text-decoration: none;
+  color: black;
 }

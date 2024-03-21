@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - making bogface</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How and why I made my first font" />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="Making my own Font - BogFace" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.co.uk/making-bogface"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/making-bogface/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="How and why I made my first font"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- styling -->
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../stylesheet.css" />
+    <!-- fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
+    />
+
+    <!-- libraries -->
+    <!-- zero-md: https://github.com/zerodevx/zero-md -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
+    ></script>
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
+    <script type="module">
+      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
+      document.addEventListener("zero-md-rendered", function (event) {
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
+      });
+    </script>
+
+    <!-- word-count component from word-count.js -->
+    <script src="../word-count.js"></script>
+
+    <!-- htmx -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.8"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- GoatCounter - https://alifeee-blog.goatcounter.com/ -->
+    <script
+      data-goatcounter="https://alifeee-blog.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+
+    <!-- extra scripts -->
+    <script>
+      addEventListener("zero-md-rendered", function (event) {
+        let base = event.target;
+        let bogswitch1 = base.querySelector("#bogswitch-1");
+        let bogswitch2 = base.querySelector("#bogswitch-2");
+
+        [bogswitch1, bogswitch2].forEach((bogswitch) => {
+          bogswitch.addEventListener("change", function () {
+            if (bogswitch.checked) {
+              base.querySelector(".markdown-body").classList.add("BogFace");
+            } else {
+              base.querySelector(".markdown-body").classList.remove("BogFace");
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <a href="../">
+        <h1>alifeee's blog</h1>
+      </a>
+      <a id="rss" href="../feed.xml">
+        <img alt="_RSS_" src="../icons/rss.svg" />
+      </a>
+    </header>
+
+    <main>
+      <section id="content">
+        <zero-md src="./making-bogface.md" no-shadow>
+          <template data-merge="append">
+            <link rel="stylesheet" href="../stylesheet_md.css" />
+            <link rel="stylesheet" href="./zine.css" />
+            <style>
+              @font-face {
+                font-family: "BogFace";
+                src: url("./BogFace.woff");
+              }
+              .BogFace {
+                font-family: "BogFace";
+              }
+              .large {
+                font-size: 1.5em;
+              }
+              .centred {
+                text-align: center;
+              }
+              .textarea {
+                width: 100%;
+                height: 10rem;
+                font-size: 3em;
+              }
+
+              .view-in-bogface {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .view-in-bogface fieldset {
+                padding: 0.5em;
+                margin: auto;
+                border: 1px solid black;
+                border-radius: 0.5em;
+                background-color: #f0f0f0;
+                font-size: 1.5em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .view-in-bogface fieldset label {
+                margin: 0 0.5rem;
+              }
+
+              /* from https://www.w3schools.com/howto/howto_css_switch.asp */
+              /* The switch - the box around the slider */
+              .switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+              }
+
+              /* Hide default HTML checkbox */
+              .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+              }
+
+              /* The slider */
+              .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+              }
+
+              .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+              }
+
+              input:checked + .slider {
+                background-color: #2196f3;
+              }
+
+              input:focus + .slider {
+                box-shadow: 0 0 1px #2196f3;
+              }
+
+              input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+              }
+
+              /* Rounded sliders */
+              .slider.round {
+                border-radius: 34px;
+              }
+
+              .slider.round:before {
+                border-radius: 50%;
+              }
+            </style>
+          </template>
+        </zero-md>
+      </section>
+      <hr />
+
+      <section id="comments">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="alifeee/blog"
+          data-repo-id="R_kgDOJaqeLQ"
+          data-category="comments"
+          data-category-id="DIC_kwDOJaqeLc4CZQST"
+          data-mapping="og:title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </section>
+
+      <section id="similar">
+        <h1>Similar posts</h1>
+        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="links">
+        <a href="https://twitter.com/alifeeeirenn">
+          <img alt="_Twitter_" src="../icons/twitter.svg" />
+          <span class="text">Twitter</span>
+        </a>
+        <a href="https://github.com/alifeee/blog">
+          <img alt="_GitHub_" src="../icons/github.svg" />
+          <span class="text">GitHub</span>
+        </a>
+        <a href="https://linktr.ee/alifeee">
+          <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
+          <span class="text">Linktree</span>
+        </a>
+        <a href="mailto:alifeee.web@outlook.com">
+          <img alt="_Email_" src="../icons/envelope-solid.svg" />
+          <span class="text">Email</span>
+        </a>
+      </div>
+      <a class="backlink" href="../">Back to main page</a>
+    </footer>
+  </body>
+</html>
