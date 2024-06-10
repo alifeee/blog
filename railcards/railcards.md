@@ -421,12 +421,11 @@ The differences are... not much! Here are all of them I know:
 
 - The 26-30 Railcard is only available digitally, while the 16-25 Railcard is available as a physical card (from T&Cs above)
 - The 26-30 Railcard does not offer an exemption to non-advance*, on-peak** tickets under £12 in July and August, while the 16-25 Railcard does*** (from T&Cs above)
-- The 26-30 Railcard cannot be used for a discount on the Caledonian Sleeper, while the 16-25 Railcard can be****
+- The 26-30 Railcard [cannot be used](https://www.26-30railcard.co.uk/using-your-railcard/travel-times-tickets/) for a discount on the Caledonian Sleeper, while the 16-25 Railcard [can be](https://www.16-25railcard.co.uk/about-the-railcard/using-your-railcard/)
 
 *: an "advance ticket" as used here means a ticket for a specific train, which can only be used for that train  
 **: "on-peak" as used here means trains departing between 04:30am and 10:00am on Monday to Friday, not including public holidays  
 ***: To clarify: neither railcard can be used to discount non-advance, on-peak tickets under £12. But, the 16-25 railcard does not have this restriction in July and August  
-****: Relevant information on the Caledonian Sleeper for the [16-25 Railcard](https://www.16-25railcard.co.uk/about-the-railcard/using-your-railcard/) and the [26-30 Railcard](https://www.26-30railcard.co.uk/using-your-railcard/travel-times-tickets/)
 
 ### When can you use the 16-25 or 26-30 railcards until?
 
