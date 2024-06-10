@@ -1,0 +1,62 @@
+# run build scripts
+# currently, this is:
+#  blog build scripts
+#  RSS feed
+#  similar posts
+#
+# note:
+#   if this makes changes, it will commit to the repository,
+#   which will cancel the github pages action and re-run it
+#   this sends a notification to me,
+#   but I don't know an easier way to do this differently
+
+name: Build scripts
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  scripts:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - name: Install marked for markdown -> html parsing
+        run: npm install -g marked
+
+      - name: Verify header with Python
+        run: |
+          python ./utilities.py/header.py
+
+      - name: Run md -> HTML build scripts
+        run: bash ./build.sh
+
+      - name: Make RSS Feed with Python
+        run: |
+          python ./utilities.py/rss_feed.py
+
+      - name: Make suggestions with Python
+        run: |
+          python ./utilities.py/embeddings.py
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4

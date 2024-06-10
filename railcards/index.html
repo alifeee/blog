@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - UK Railcards</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="UK Railcards and all the differences between the 16-25 and 26-30 Railcard"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="UK Railcards" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta property="og:url" content="https://blog.alifeee.co.uk/railcards" />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/railcards/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="UK Railcards and all the differences between the 16-25 and 26-30 Railcard"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- styling -->
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- external stylesheets -->
+    <!-- from https://cdn.jsdelivr.net/gh/sindresorhus/github-markdown-css@4/github-markdown.min.css -->
+    <link rel="stylesheet" href="/github-markdown.min.css" />
+    <!-- from https://cdn.jsdelivr.net/gh/PrismJS/prism@1/themes/prism.min.css -->
+    <link rel="stylesheet" href="/prism.min.css" />
+    <!-- my stylesheets -->
+    <link rel="stylesheet" href="/stylesheet.css" />
+    <link rel="stylesheet" href="/stylesheet_md.css" />
+    <!-- specific to this page styles -->
+    <style>
+      @font-face {
+        font-family: "OpenSans-Bold";
+        src: url("fonts/OpenSans-Bold.ttf");
+      }
+      @font-face {
+        font-family: "Inter-Regular";
+        src: url("fonts/Inter-Regular.ttf");
+      }
+
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4 {
+        font-family: "OpenSans-Bold", sans-serif;
+      }
+      .markdown-body {
+        font-family: "Inter-Regular", sans-serif;
+      }
+
+      .pre-wrap {
+        white-space: pre-wrap; /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+      }
+      #tocdiff {
+        color: #fff;
+        background-color: #1f1f1f;
+        white-space: pre-line;
+      }
+      #tocdiff del,
+      #tocdiff .del {
+        text-decoration: none;
+        background-color: #701414;
+        padding: 0 0.1rem;
+      }
+      #tocdiff ins,
+      #tocdiff .ins {
+        text-decoration: none;
+        background-color: #4c5b2b;
+        padding: 0 0.1rem;
+      }
+      #tocdiff .jump {
+        background-color: #6d4000;
+        color: #999;
+      }
+      #tocdiff .info {
+        color: #999;
+        margin: 0;
+      }
+
+      .markdown-body img.full-width-image {
+        max-height: unset;
+        max-width: unset;
+        --w-vw: 90vw;
+        --w-rem: 60rem;
+        --w: min(var(--w-vw), var(--w-rem));
+        /* min-width: 40rem; */
+        overflow-x: auto;
+        width: var(--w);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: calc(-1 * var(--w) / 2);
+        margin-right: calc(-1 * var(--w) / 2);
+      }
+
+      #railcard-ages {
+        display: grid;
+        grid-template-columns: repeat(18, auto);
+        grid-template-rows: repeat(3, auto);
+        text-align: center;
+      }
+      #railcard-ages span {
+        display: block;
+        border-right: 1px solid #000;
+      }
+      #railcard-ages span:nth-last-child(-n + 3) {
+        border-right: none;
+      }
+      #railcard-ages .rc1625 {
+        grid-area: 2 / 2 / 2 / 13;
+        background-color: #4c5b2b;
+        color: #fff;
+      }
+      #railcard-ages .rc2630 {
+        grid-area: 3 / 12 / 3 / 18;
+        background-color: #6d4000;
+        color: #fff;
+      }
+    </style>
+
+    <!-- libraries -->
+    <!-- zero-md: https://github.com/zerodevx/zero-md -->
+    <script type="module" src="../zero-md.js"></script>
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
+    <script type="module">
+      import "/anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
+      });
+    </script>
+    <!-- prismjs https://github.com/PrismJS/prism -->
+    <!-- from https://cdn.jsdelivr.net/gh/PrismJS/prism@1/prism.min.js -->
+    <script src="/prism.min.js"></script>
+
+    <!-- word-count component from word-count.js -->
+    <script src="../word-count.js"></script>
+
+    <!-- htmx -->
+    <script
+      src="/htmx.min.js"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- extra scripts -->
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <a href="../">
+        <h1>alifeee's blog</h1>
+      </a>
+      <a id="rss" href="../feed.xml">
+        <img alt="_RSS_" src="../icons/rss.svg" />
+      </a>
+    </header>
+
+    <main>
+      <section id="content" class="markdown-body">
+        <!-- !!start content!! -->
+<h1>UK Railcards and all the differences between the 16-25 and 26-30 Railcard</h1>
+<p><word-count parent=".markdown-body"></word-count></p>
+<p>Welcome to a semi deep dive on UK Railcards.</p>
+<p>This is inspired from the string of questions and answers of:</p>
+<!-- omit in toc -->
+<h2>When can you stop using a 16-25 railcard?</h2>
+<p>You can buy a 1-year 16-25 railcard up to the day before you turn 26, so you can use one up to the day before you turn 27.</p>
+<p>...or &quot;until you are 27&quot;.</p>
+<!-- omit in toc -->
+<h2>So, should you try to eke it out?</h2>
+<p>Well, there is a 26-30 Railcard. So, it&#39;s pointless trying to game any systems if they are functionally the same.</p>
+<p>(spoilers: probably don&#39;t bother eking, just buy the 26-30)</p>
+<!-- omit in toc -->
+<h2>Are the 16-25 and 26-30 railcards functionally the same?</h2>
+<p>What a good question! Let&#39;s find out. We will be lamenting the difference between the railcard websites, lamenting the difference between the Terms &amp; Conditions, and lamenting the lack of a universal Railcard.</p>
+<p>(spoilers: <a href="#all-the-differences-between-the-16-25-and-26-30-railcard">see the differences</a>)</p>
+<ol>
+<li><a href="#what-railcards-can-you-buy">What railcards can you buy?</a><ol>
+<li><a href="#all-the-railcard-sites-are-different">All the railcard sites are different</a></li>
+<li><a href="#what-railcard-can-you-buy-flow-chart">What railcard can you buy: Flow chart</a></li>
+<li><a href="#the-britrail-pass">The Britrail pass</a></li>
+<li><a href="#the-bahncard">The BahnCard</a></li>
+<li><a href="#a-national-railcard">A national railcard?</a></li>
+</ol>
+</li>
+<li><a href="#whats-the-difference-between-the-16-25-and-26-30-railcard">What&#39;s the difference between the 16-25 and 26-30 railcard?</a><ol>
+<li><a href="#the-terms-and-conditions">The Terms and conditions</a></li>
+<li><a href="#all-the-differences-between-the-16-25-and-26-30-railcard">All the differences between the 16-25 and 26-30 railcard</a></li>
+<li><a href="#when-can-you-use-the-16-25-or-26-30-railcards-until">When can you use the 16-25 or 26-30 railcards until?</a></li>
+<li><a href="#use-your-railcard-on-the-london-underground">Use your railcard on the London Underground</a></li>
+</ol>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2>What railcards can you buy?</h2>
+<p>The <a href="https://www.nationalrail.co.uk/railcards/">Railcards website</a> has a list of all railcards that you can buy. To save you a click, the ones listed there are:</p>
+<ul>
+<li><a href="https://www.16-17saver.co.uk/">16-17 Saver</a></li>
+<li><a href="https://www.16-25railcard.co.uk/">16-25 Railcard</a></li>
+<li><a href="https://www.26-30railcard.co.uk/">26-30 Railcard</a></li>
+<li><a href="https://www.disabledpersons-railcard.co.uk/">Disabled Persons Railcard</a></li>
+<li><a href="https://www.familyandfriends-railcard.co.uk/">Family &amp; Friends Railcard</a></li>
+<li><a href="https://www.network-railcard.co.uk/">Network Railcard</a></li>
+<li><a href="https://www.senior-railcard.co.uk/">Senior Railcard</a></li>
+<li><a href="https://www.twotogether-railcard.co.uk/">Two Together Railcard</a></li>
+<li><a href="https://www.veterans-railcard.co.uk/">Veterans Railcard</a></li>
+</ul>
+<h3>All the railcard sites are different</h3>
+<p>All the websites above are different. They are all about railcards, which are broadly &quot;cards that get you 1/3 off train ticket costs&quot;, but each is a completely different website. This means that to compare two cards (as we do below), the link structure and information on each of the pages is completely different. This is kind of annoying.</p>
+<h3>What railcard can you buy: Flow chart</h3>
+<p>I had a look at the eligibility criteria for the railcards, and drew up a flow chart to decide if anyone could buy one or not.</p>
+<p>In short: you can probably buy one. However, if you are:</p>
+<ul>
+<li>between 31 and 59 years old</li>
+<li>not living in the South-East of England</li>
+<li>not travelling with another person</li>
+</ul>
+<p>...then you probably can&#39;t buy one.</p>
+<p>I made the flowchart using <a href="https://www.tldraw.com/">tldraw</a>. Here it is. It contains two railcards not in the URL above: the armed forces railcard and the local railcard, which are listed on the <a href="https://en.wikipedia.org/wiki/Concessionary_fares_on_the_British_railway_network">Wikipedia page for &quot;Concessionary fares on the British railway network&quot;</a>. That page doesn&#39;t have all the railcards listed, so maybe I should edit it...</p>
+<p>Anyway, flowchart:</p>
+<img src="flowchart_tldraw.svg" alt="a large flowchart" class="full-width-image" style="border-radius: 2rem;">
+
+<figcaption>
+
+<p>This is an SVG export of the flow chart from <a href="https://www.tldraw.com/">tldraw</a>. <a href="./flowchart_tldraw.svg">View full screen</a></p>
+<p>Footnotes: (1) <a href="https://www.network-railcard.co.uk/download/clientfiles/files/London_South_East_Network_Railcard_map_May2022.pdf">Network Railcard area</a> (3) <a href="https://en.wikipedia.org/wiki/Concessionary_fares_on_the_British_railway_network#Local_railcards">Local Railcards</a></p>
+</figcaption>
+
+<p>I have also turned the flowchart into one made using <a href="(https://mermaid.js.org/)">Mermaid</a>, which is a way of making diagrams with text (or &quot;code&quot;, but that is a scary word). Here is a snippet of the source, and the chart below (rendered by <em>your</em> browser!).</p>
+<pre><code class="language-mermaid">flowchart TD
+  Q:AGE[What is your age?]
+  R:16-25[16-25 Railcard!]:::R
+  Q:AGE --&gt;|18-25| R:16-25
+  ...
+</code></pre>
+<details><summary>View full diagram source</summary>
+
+<p>You can paste this code into the <a href="https://mermaid.live/edit">Mermaid editor</a>. Or, click <a href="https://mermaid.live/edit#pako:eNp9VtGO2jgU_ZW7We2qlUAaOmW2zcNW7CS0qAy0SVo0G_rgiQ1YODaynbKo6Xu_Yj9uv2QdJyZhJqqQIi73nONr3-MbvnmZwMTzvQ0Tx2yHpIYkWHOAyL99N5sH6UkUEjTN9kQrQJLA-Oo3EJsNICYJwqcvvu9HNWF0Mxz9kdonxOgrkb9cJl-MU_uECFGWIYm7-Rc3w-ur1D5783G4mC2jNCacCtmLWITJahm9TxdEH4Xc92KCWTz5ax4GaUAVemAEwwcileCqFz2d3M3m9-kU5ZSd4HeYSko4brEdqFk6Wb4Nk3dhlCZHAYnYEr0j_ZVOorswmC6j2zBOJzI3VUyFzEh_EZ_DJIwmizj9TDSRiPcuP1_eTubpXGSI9Z_NchGm96KAvFAaDugE5B8tpKaCI03gIGm1_MacLAItEeUNt2JnDCkVkA1EkAkmpP9rNh4PNpQxnwtOBkpLsSf2e0346E_ehulqhzRQBdZAaEvefKlzrk1rr3KTyQLlYI4KHvetcht6A8_mgmPBAXFsYbEo9A5CpPRzeDZ6vvYa3Tj5FISLJHWqCHKkCxMoXWDCtVt_WfUoTlemfot7IGBapSnf1jtXcKRmAWG7dyDiwM6lW_fM5rPkPsXCknfG5mYlXLmJMqpPDnpXwSbRfRp0gfwEjPK9Ai3sXvKKg-SZ1TVGZx8kfzC1iI3lSLItGDJHao2zscYZGJQkisivVOkBmDZWyIO5zbwiSsDkQIx1zTFAtqMMS8KdnlHIiXQVrGbBctVZ-2hWOlIsjo0orbU4Ru2JNg7tsBqrOkDtzrU3U5WErE6MWatK12pOzDqGa9p9Xbf0bCQYDv8sr4ajcelm0mXKzpvSjZ9HuVdm3JRu-lzm7Kgp3eS5zF2PhuPXZWvWy-zN1fC_H_-W56Hkim3AFnMiqmxn0tM8F2XrWSfQhF2BTuHdbE2vrezYdeTIg9rGXEAuzInrHeLwEhAuWDXHzV16eXZCeR51PxFCXNS9O9iBCcLMdxjdwMl0ToFguLycgk-k6pLbK-TKbn_p7tsN6l5MLeWumBNycStzcaF6QLWOdefZcC2hW84Tnce4WsreHidlg5-KtIia3lwkJ9CEXQn3MngK6NmLDbrsJnuZq4j1C6LitR9v4Jm5kCOKzb-DbxVr7RkH5GTt-eYrRnK_9tb8u8GhQov4xDPP3yCmyMCTotjuzlFxwOYlE1C0lSg__3pA_G8hXPz9f8jKsfQ">this link</a> to go to the editor with this pre-filled in.</p>
+<pre><code class="language-mermaid">flowchart TD
+  R:CHILD[your tickets are 50% off already]:::R
+  R:16-17[16-17 Saver!]:::R
+  R:16-25[16-25 Railcard!]:::R
+  R:26-30[26-30 Railcard!]:::R
+  R:SENIOR[Senior Railcard!]:::R
+  R:NETWORK[Network Railcard!]:::R
+  R:DISABLED[Disabled Persons Railcard!]:::R
+  R:FAMILY[Family &amp; Friends Railcard]:::R
+  R:TWOTOGETHER[Two Together Railcard!]:::R
+  R:ARMEDFORCES[Armed Forces Railcard!]:::R
+  R:VETERANS[Veterans Railcard]:::R
+  R:LOCAL[Local Railcard!]:::R
+  R:NONE[You must pay extortionate prices for a train]:::R
+
+  classDef R color:#c55,fill:none,stroke:none
+
+  Q:AGE[What is your age?]
+  Q:NETWORK[&quot;are you in the Network Railcard area? (London and the South East) (1)&quot;]
+  Q:STUDENT[are you a mature student?]
+  Q:OTHERS[Will you be getting trains with other people?]
+  Q:DISABILITY[do you have a disability?]
+  Q:MILITARY[Do you have any links to the military?]
+  Q:ARMEDFORCES[are you a member of the regular armed forces, a reservist, or the partner or depeendent children of the former?]
+  Q:WIDOW[are you a war widow or their dependant?]
+  Q:VETERAN[are you a Veteran?]
+  Q:LOCAL[&quot;Is there a local railcard near you? (3)&quot;]
+
+  Q:AGE --&gt;|0-15| R:CHILD
+  Q:AGE --&gt;|16-17| R:16-17
+  Q:AGE --&gt;|18-25| R:16-25
+  Q:AGE --&gt;|26-30| R:26-30
+  Q:AGE --&gt;|31-59| Q:NETWORK
+  Q:AGE --&gt;|60-∞| R:SENIOR
+
+  Q:NETWORK --&gt;|yes| R:NETWORK
+  Q:NETWORK --&gt;|no| Q:STUDENT
+
+  Q:STUDENT --&gt;|yes| R:16-25
+  Q:STUDENT --&gt;|no| Q:OTHERS
+
+  Q:OTHERS --&gt;|yes, with no more than 4 adults and 4 children| R:FAMILY
+  Q:OTHERS --&gt;|yes, with anothere person over 16 years old| R:TWOTOGETHER
+  Q:OTHERS --&gt;|no| Q:DISABILITY
+
+  Q:DISABILITY --&gt;|yes| R:DISABLED
+  Q:DISABILITY --&gt;|no| Q:MILITARY
+
+  Q:MILITARY --&gt;|yes| Q:ARMEDFORCES
+  Q:MILITARY --&gt;|no| Q:LOCAL
+
+  Q:ARMEDFORCES --&gt;|yes| R:ARMEDFORCES
+  Q:ARMEDFORCES --&gt;|no| Q:WIDOW
+
+  Q:WIDOW --&gt;|yes| R:ARMEDFORCES
+  Q:WIDOW --&gt;|no| Q:VETERAN
+
+  Q:VETERAN --&gt;|yes| R:VETERANS
+  Q:VETERAN --&gt;|no| Q:LOCAL
+
+  Q:LOCAL --&gt;|yes| R:LOCAL
+  Q:LOCAL --&gt;|no| R:NONE
+</code></pre>
+</details>
+
+<pre class="mermaid full-width-image">
+flowchart TD
+  R:CHILD[your tickets are 50% off already]:::R
+  R:16-17[16-17 Saver!]:::R
+  R:16-25[16-25 Railcard!]:::R
+  R:26-30[26-30 Railcard!]:::R
+  R:SENIOR[Senior Railcard!]:::R
+  R:NETWORK[Network Railcard!]:::R
+  R:DISABLED[Disabled Persons Railcard!]:::R
+  R:FAMILY[Family & Friends Railcard]:::R
+  R:TWOTOGETHER[Two Together Railcard!]:::R
+  R:ARMEDFORCES[Armed Forces Railcard!]:::R
+  R:VETERANS[Veterans Railcard]:::R
+  R:LOCAL[Local Railcard!]:::R
+  R:NONE[You must pay extortionate prices for a train]:::R
+
+  classDef R color:#c55,fill:none,stroke:none
+
+  Q:AGE[What is your age?]
+  Q:NETWORK["are you in the Network Railcard area? (London and the South East) (1)"]
+  Q:STUDENT[are you a mature student?]
+  Q:OTHERS[Will you be getting trains with other people?]
+  Q:DISABILITY[do you have a disability?]
+  Q:MILITARY[Do you have any links to the military?]
+  Q:ARMEDFORCES[are you a member of the regular armed forces, a reservist, or the partner or depeendent children of the former?]
+  Q:WIDOW[are you a war widow or their dependant?]
+  Q:VETERAN[are you a Veteran?]
+  Q:LOCAL["Is there a local railcard near you? (3)"]
+
+  Q:AGE -->|0-15| R:CHILD
+  Q:AGE -->|16-17| R:16-17
+  Q:AGE -->|18-25| R:16-25
+  Q:AGE -->|26-30| R:26-30
+  Q:AGE -->|31-59| Q:NETWORK
+  Q:AGE -->|60-∞| R:SENIOR
+
+  Q:NETWORK -->|yes| R:NETWORK
+  Q:NETWORK -->|no| Q:STUDENT
+
+  Q:STUDENT -->|yes| R:16-25
+  Q:STUDENT -->|no| Q:OTHERS
+
+  Q:OTHERS -->|yes, with no more than 4 adults and 4 children| R:FAMILY
+  Q:OTHERS -->|yes, with anothere person over 16 years old| R:TWOTOGETHER
+  Q:OTHERS -->|no| Q:DISABILITY
+
+  Q:DISABILITY -->|yes| R:DISABLED
+  Q:DISABILITY -->|no| Q:MILITARY
+
+  Q:MILITARY -->|yes| Q:ARMEDFORCES
+  Q:MILITARY -->|no| Q:LOCAL
+
+  Q:ARMEDFORCES -->|yes| R:ARMEDFORCES
+  Q:ARMEDFORCES -->|no| Q:WIDOW
+
+  Q:WIDOW -->|yes| R:ARMEDFORCES
+  Q:WIDOW -->|no| Q:VETERAN
+
+  Q:VETERAN -->|yes| R:VETERANS
+  Q:VETERAN -->|no| Q:LOCAL
+
+  Q:LOCAL -->|yes| R:LOCAL
+  Q:LOCAL -->|no| R:NONE
+</pre>
+
+<figcaption>
+
+<p>This is a live rendered flowchart using <a href="(https://mermaid.js.org/)">Mermaid</a>. <a href="./flowchart_mermaid.svg">View full screen</a>. <a href="https://mermaid.live/view#pako:eNp9VtGO2jgU_ZW7We2qlUAaOmW2zcNW7CS0qAy0SVo0G_rgiQ1YODaynbKo6Xu_Yj9uv2QdJyZhJqqQIi73nONr3-MbvnmZwMTzvQ0Tx2yHpIYkWHOAyL99N5sH6UkUEjTN9kQrQJLA-Oo3EJsNICYJwqcvvu9HNWF0Mxz9kdonxOgrkb9cJl-MU_uECFGWIYm7-Rc3w-ur1D5783G4mC2jNCacCtmLWITJahm9TxdEH4Xc92KCWTz5ax4GaUAVemAEwwcileCqFz2d3M3m9-kU5ZSd4HeYSko4brEdqFk6Wb4Nk3dhlCZHAYnYEr0j_ZVOorswmC6j2zBOJzI3VUyFzEh_EZ_DJIwmizj9TDSRiPcuP1_eTubpXGSI9Z_NchGm96KAvFAaDugE5B8tpKaCI03gIGm1_MacLAItEeUNt2JnDCkVkA1EkAkmpP9rNh4PNpQxnwtOBkpLsSf2e0346E_ehulqhzRQBdZAaEvefKlzrk1rr3KTyQLlYI4KHvetcht6A8_mgmPBAXFsYbEo9A5CpPRzeDZ6vvYa3Tj5FISLJHWqCHKkCxMoXWDCtVt_WfUoTlemfot7IGBapSnf1jtXcKRmAWG7dyDiwM6lW_fM5rPkPsXCknfG5mYlXLmJMqpPDnpXwSbRfRp0gfwEjPK9Ai3sXvKKg-SZ1TVGZx8kfzC1iI3lSLItGDJHao2zscYZGJQkisivVOkBmDZWyIO5zbwiSsDkQIx1zTFAtqMMS8KdnlHIiXQVrGbBctVZ-2hWOlIsjo0orbU4Ru2JNg7tsBqrOkDtzrU3U5WErE6MWatK12pOzDqGa9p9Xbf0bCQYDv8sr4ajcelm0mXKzpvSjZ9HuVdm3JRu-lzm7Kgp3eS5zF2PhuPXZWvWy-zN1fC_H_-W56Hkim3AFnMiqmxn0tM8F2XrWSfQhF2BTuHdbE2vrezYdeTIg9rGXEAuzInrHeLwEhAuWDXHzV16eXZCeR51PxFCXNS9O9iBCcLMdxjdwMl0ToFguLycgk-k6pLbK-TKbn_p7tsN6l5MLeWumBNycStzcaF6QLWOdefZcC2hW84Tnce4WsreHidlg5-KtIia3lwkJ9CEXQn3MngK6NmLDbrsJnuZq4j1C6LitR9v4Jm5kCOKzb-DbxVr7RkH5GTt-eYrRnK_9tb8u8GhQov4xDPP3yCmyMCTotjuzlFxwOYlE1C0lSg__3pA_G8hXPz9f8jKsfQ">View online</a>. See above for footnotes.</p>
+<p>I hope this diagram still works when you are reading this. I couldn&#39;t easily get it to use local libraries, so it downloads lots of JavaScript from &quot;not this website&quot;.</p>
+</figcaption>
+
+<h3>The Britrail pass</h3>
+<p>As a sidenote, I discovered this week about the existence of the <a href="https://britrail.net/">Britrail pass</a>, which is a rail pass similar to the <a href="https://www.interrail.eu/en">Interrail pass</a> but just for the UK. It seems a similar price, so could be useful if you want to go on a train adventure in the UK, but you have a UK passport (as Interrail prohibits use in your home country).</p>
+<h3>The BahnCard</h3>
+<p>There is a lot of information in the above flowcharts. In Germany, the flow chart for their <a href="https://int.bahn.de/en/offers/bahncard">BahnCard</a> is much simpler, and I can write it as the text:</p>
+<p>If you are:</p>
+<ul>
+<li>6-26 years old: you can get a &quot;My BahnCard&quot;</li>
+<li>27-64 years old: you can get a BahnCard</li>
+<li>older than 65: you can get a BahnCard for senior citizens</li>
+</ul>
+<p><img src="images/bahncard_all.png" alt="screenshot of BahnCard and My BahnCard"></p>
+<figcaption>
+
+<p>All the BahnCards available (well, there is also a more expensive 50% off version, a trial version, and the senior citizen version is not shown here)</p>
+</figcaption>
+
+<p>Currently, you can also buy a &quot;Fan BahnCard&quot;, which gets better if Germany wins the current UEFA EURO football competition. No-loss gambling, I suppose?</p>
+<p><img src="images/bahncard_uefa.png" alt="Screenshot of BahnCard website, with cards that say &quot;Fan BahnCard 25, 2nd class. Save 3 months and extend for free for 12 months if Germany wins UEFA EURO 2024™&quot;"></p>
+<p>This leads on to:</p>
+<h3>A national railcard?</h3>
+<p>The existence of a national railcard would nullify this entire blog post. I&#39;d welcome that.</p>
+<p>Quoting my good friend, and reliable source, <a href="https://en.wikipedia.org/wiki/Concessionary_fares_on_the_British_railway_network#Campaign_for_a_National_Railcard">Wikipedia</a>:</p>
+<blockquote>
+<p>Railfuture [...] has been campaigning [...] for a National Railcard to replace the plethora of different railcards. [...]</p>
+<p>A study undertaken jointly by Railfuture and the Rail Passengers Council [...] suggested that three million people would buy such a Railcard for £20.00 if it gave a one third discount on off-peak fares.</p>
+<p>The &quot;most conservative forecast&quot; indicated that [...] passenger mileage would be increased by 11% per annum and rail industry profits by £50 million.</p>
+<p>The profit-maximising combination [...] would increase profits by £70 million.</p>
+</blockquote>
+<p>i.e., a National Railcard would be pretty sweet. We&#39;ll see how that goes, considering that study was from 2003.</p>
+<h2>What&#39;s the difference between the 16-25 and 26-30 railcard?</h2>
+<p>As I said before, the websites for the <a href="https://www.16-25railcard.co.uk/">16-25 Railcard</a> and the <a href="https://www.26-30railcard.co.uk/">26-30 Railcard</a> are annoyingly different, for how similar concepts they are.</p>
+<p>Here is a sub-menu from the 16-25 railcard...</p>
+<p><img src="./images/website_16-25.png" alt="Screenshot of website sub-menu, showing &quot;About the Railcard&quot;, &quot;Benefits&quot;, &quot;Are you eligible?&quot;, &quot;Using your railcard&quot;, &quot;Where to buy&quot;, &quot;Renew or Replace&quot;, and &quot;Journey Planner&quot;"></p>
+<p>...and here is the &quot;same&quot; sub-menu from the 26-30 railcard.</p>
+<p><img src="./images/website_26-30.png" alt="Screenshot of website sub-menu, showing &quot;About the Railcard&quot;, &quot;What it is&quot;, &quot;Are you eligible&quot;, &quot;Travel times &amp; tickets&quot;, &quot;Where to buy&quot;, &quot;Journey planner&quot;, &quot;Renewing your Railcard&quot;"></p>
+<p>Which of those menu items are you pressing if you want to answer the questions &quot;How old can I be to buy the card?&quot; or &quot;What specific trains can I get?&quot;? It&#39;s annoying. It doesn&#39;t matter now though, because I found links to the...</p>
+<h3>The Terms and conditions</h3>
+<p>The 16-25 and 26-30 railcards have Terms and Conditions (T&amp;Cs) online:</p>
+<ul>
+<li><a href="https://www.16-25railcard.co.uk/help/railcard-terms-conditions/">16-25 Railcard Terms and Conditions</a></li>
+<li><a href="https://www.26-30railcard.co.uk/help/railcard-terms-conditions/">26-30 Railcard Terms and Conditions</a></li>
+</ul>
+<p>Even these are weirdly different to each other, in formatting and content. I have copied their text and provide the text versions here</p>
+<ul>
+<li><a href="./16-25%20Railcard%20Terms%20&%20Conditions.txt">16-25 Railcard Terms and Conditions (text)</a></li>
+<li><a href="./26-30%20Railcard%20Terms%20&%20Conditions.txt">26-30 Railcard Terms and Conditions (text)</a></li>
+</ul>
+<p>I used the diff/compare feature of VSCodium to try and spot the differences between these two texts. But, what I did first was clean them up. They were differently formatted. Here are some differences (I leave it up to you to match each difference to each T&amp;Cs).</p>
+<ul>
+<li>one had spaces at the end of most lines, the other did not</li>
+<li>one used &quot;Data Protection&quot;, the other &quot;data protection&quot;</li>
+<li>one used <code>“”</code>, the other <code>&#39;&#39;</code></li>
+<li>one had a lot of non-breaking spaces <code>&amp;nbsp;</code> instead of spaces</li>
+<li>one used &quot;property rights&quot;, the other &quot;proporty rights&quot; (bad spelling)</li>
+</ul>
+<p>Here are the updated versions after I made the T&amp;Cs more similar to each other in structure:</p>
+<ul>
+<li><a href="./16-25%20Railcard%20Terms%20&%20Conditions_updated.txt">16-25 Railcard Terms and Conditions (text, updated)</a></li>
+<li><a href="./26-30%20Railcard%20Terms%20&%20Conditions_updated.txt">26-30 Railcard Terms and Conditions (text, updated)</a></li>
+</ul>
+<p>It should now be more easy to see the differences between them. We can generate a nice diff between these files, using <code>git diff</code> like</p>
+<pre><code class="language-bash">git diff --no-index --word-diff=plain -U2 railcard16-25.txt railcard26-30.txt
+</code></pre>
+<p>...where <code>--no-index</code> enables diffing of files, <code>--word-diff=plain</code> diffs words instead of lines, and <code>-U2</code> shows 2 lines of context around each diff. The output of this diff is <a href="./diff.txt">here</a>, but I can also turn it into nice-looking HTML by using trickery.</p>
+<p>The trickery I used is VSCode&#39;s regex find-and-replace to turn <code>git diff</code> into more style-able HTML. I followed my own instructions:</p>
+<ul>
+<li>find <code>\[-(.*?)-\]</code>, replace <code>&lt;del&gt;$1&lt;/del&gt;</code></li>
+<li>find <code>\{\+(.*?)\+\}</code>, replace <code>&lt;ins&gt;$1&lt;/ins&gt;</code> (turns out if you don&#39;t escape the second <code>+</code> like <code>\+</code> you can crash VSCode...)</li>
+<li>find <code>^(@@.*@@.*)$</code> replace <code>&lt;span class=&quot;jump&quot;&gt;$1&lt;/span&gt;</code></li>
+<li>wrap header in HTML</li>
+</ul>
+<p>Here are the differing parts of the T&amp;Cs!</p>
+<p>(<a href="#all-the-differences-between-the-16-25-and-26-30-railcard">skip to &quot;all the differences&quot;</a>)</p>
+<pre class="pre-wrap" id="tocdiff">
+  <p>diff --git a/16-25 Railcard Terms & Conditions_updated.txt b/26-30 Railcard Terms & Conditions_updated.txt
+  index d3f5aae..b6b93b1 100755
+  <span class="del">--- a/16-25 Railcard Terms & Conditions_updated.txt</span>
+  <span class="ins">+++ b/26-30 Railcard Terms & Conditions_updated.txt</span></p>
+  <span class="jump">@@ -1,7 +1,7 @@</span>
+  <del>16-25</del><ins>26-30</ins> Railcard Terms & Conditions
+
+  1. Introduction
+
+  1.1. These terms and conditions (“Railcard Conditions”) apply to the use of the <del>16-25</del><ins>26-30</ins> Railcard and reduced priced tickets ('discounted tickets') bought with the <del>16-25</del><ins>26-30</ins> Railcard.
+
+  <span class="jump">@@ -17,11 +17,7 @@</span>
+  1. General conditions of use of the Railcard
+
+  2.1. <del>If you have a physical Railcard, your</del><ins>Your 26-30</ins> Railcard is <del>not valid, and you cannot use it, until you have signed it.</del><ins>only valid when uploaded to the Railcard app on a mobile device.</ins>
+
+  2.2. The Railcard does not become your property <del>and, if requested:</del>
+
+  <del>2.2.1. You must hand it to a representative of any of the Train Companies, if you have a physical Railcard.</del>
+
+  <del>2.2.2. You must remove it</del><ins>and can be removed</ins> from your mobile <del>device if requested by a representative of any of the Train Companies, if you have a digital Railcard.</del><ins>device.</ins>
+
+  <span class="jump">@@ -41,15 +37,9 @@</span>
+  In these cases you will be able to use your Railcard to buy tickets on the train or at your destination.
+
+  2.8. You must <del>carry</del><ins>be able to show</ins> your valid Railcard<del>with you</del> on <ins>a mobile device throughout</ins> your journey. When asked by rail staff, you must show a valid ticket and<del>valid Railcard within its period of validity when you travel.</del>
+
+  <del>2.8.1. If you have a physical Railcard, it must be signed by you and should be legible so staff can read it, as further detailed in the NRCoT.</del>
+
+  <del>2.8.2 If you bought your physical Railcard at a rail station, you must carry your Railcard Photocard with you on your journey.</del>
+
+  <del>2.8.3. If you have a digital Railcard, you must be able to show it on a mobile device throughout</del> your <del>journey.</del><ins>valid Railcard.</ins>
+
+  2.9. The photo of the cardholder must meet our guidelines and be recognisable as the cardholder.
+
+  2.10. If you fail to comply with condition 2.7, 2.8 and/or 2.9, the Train Company reserves the right to charge you the full price for<del>the single fare applicable to your journey, as if no ticket had been purchased before starting the journey. In some cases you may also be issued with</del> a <del>Penalty Fare. If you are using your Railcard to get discounts for another person, they will also be charged the full price for the applicable</del><ins>standard</ins> single fare for <del>their</del><ins>your</ins> journey, as if no ticket had been purchased before starting the journey. In some cases <del>they</del><ins>you</ins> may also be issued with a Penalty Fare.
+
+  <span class="jump">@@ -59,37 +49,25 @@</span>
+
+  Railcard discounts do not apply to Season tickets, train company promotional tickets, Eurostar tickets, and most London Underground and <del>DLR tickets.</del>
+
+  <del>3. Replacing your lost, damaged or stolen Railcard</del>
+
+  <del>3.1. If you have a physical Railcard and lose it, damage it or it is stolen, you can apply for a replacement. If you purchased your Railcard online, you must request a replacement online. If you bought</del><ins>Docklands Light Railway tickets - see 26-30railcard.co.uk for</ins> the <del>original Railcard at a rail station, you can request a replacement only at a ticket office and you must show the completed ‘Receipt’ voucher from the original application form. You will be requested to show some form of identification when obtaining a replacement from a station.</del>
+
+  <del>3.1.1. You will only be issued with one replacement of a physical Railcard in any 12 month period, and you will need to pay an administration fee, unless your physical Railcard was stolen and you have a crime reference number or documentation issued by the Police. For 16-25 Railcard, the administration fee is £10.</del>
+
+  <del>3.2. If you have a digital Railcard and lose or damage the mobile device that it is stored on, you can upload it to a new mobile device with no administration fee by accessing your online account at 16-25railcard.co.uk.</del>
+
+  <del>4. Conditions of use of the 16-25 Railcard</del>
+
+  <del>4.1. You must be aged between 16 and 25 years old</del><ins>most up</ins> to <del>purchase this Railcard, unless you qualify under condition 4.3.</del><ins>date information.</ins>
+
+  <del>4.2. 3-year 16-25 Railcards are available online only and may be purchased up until the day before your 24th birthday.</del><ins>3. Lost or damaged mobile device</ins>
+
+  <del>4.3.</del><ins>3.1.</ins> If you <del>are a full-time student over 25 years old, you may purchase</del><ins>lose or damage</ins> the <del>1-year</del><ins>mobile device that your</ins> Railcard <del>with valid proof of full time study. See 16-25railcard.co.uk/maturestudents for details of the valid proof required.</del><ins>is stored on, you can upload it to a new mobile device by accessing your online account at 26-30railcard.co.uk.</ins>
+
+  <del>4.4. If you bought your physical Railcard at a rail station, you must carry your separate 16-25 Photocard that was issued at the time</del><ins>4. Conditions</ins> of <del>purchase (or where appropriate a ‘Permit to travel without Photocard’) and you must present this in any circumstance where you present your physical Railcard (i.e. when buying tickets and travelling with</del><ins>use of the 26-30</ins> Railcard<del>discounted tickets).</del>
+
+  <del>4.5. The 16-25 Railcard has a minimum fare that applies from 04.30</del><ins>4.1. You must be aged between 26</ins> and <del>10.00 Monday</del><ins>30 years old</ins> to <del>Friday. During</del><ins>purchase</ins> this <del>time, the discount is applied to fares above the minimum fare. This minimum fare does not apply to:</del><ins>Railcard.</ins>
+
+  <del>4.5.1. advance tickets; or</del><ins>4.2. The 26-30 Railcard has a minimum fare that applies between 04.30 - 10.00 hours Monday to Friday. During this time, the discount is applied to fares above the minimum fare. This minimum fare does not apply to:</ins>
+
+  <del>4.5.2. journeys on public holidays;</del><ins>4.2.1. advance tickets;</ins> or
+
+  <del>4.5.3.</del><ins>4.2.2.</ins> journeys <del>during July and August.</del><ins>on public holidays</ins>
+
+  At the time of <del>printing,</del><ins>publication,</ins> the minimum fare is £12. The minimum fare is subject to change during the validity of your Railcard - <del>check website for</del><ins>see 26-30railcard.co.uk for</ins> the most up to date information.
+
+  INFORMATION:
+
+  As long as you are aged <del>25</del><ins>30</ins> at the time you purchased the 1-year <ins>26-30</ins> Railcard, you may still travel at the discounted fare throughout the validity period of the Railcard.<del>Likewise, 3-year 16-25 Railcards purchased by the day before your 24th birthday will be valid for a full 3 years.</del>
+</pre>
+
+<h3>All the differences between the 16-25 and 26-30 railcard</h3>
+<p>The differences are... not much! Here are all of them I know:</p>
+<ul>
+<li>The 26-30 Railcard is only available digitally, while the 16-25 Railcard is available as a physical card (from T&amp;Cs above)</li>
+<li>The 26-30 Railcard does not offer an exemption to non-advance*, on-peak** tickets under £12 in July and August, while the 16-25 Railcard does*** (from T&amp;Cs above)</li>
+<li>The 26-30 Railcard cannot be used for a discount on the Caledonian Sleeper, while the 16-25 Railcard can be****</li>
+</ul>
+<p>*: an &quot;advance ticket&quot; as used here means a ticket for a specific train, which can only be used for that train<br>**: &quot;on-peak&quot; as used here means trains departing between 04:30am and 10:00am on Monday to Friday, not including public holidays<br>***: To clarify: neither railcard can be used to discount non-advance, on-peak tickets under £12. But, the 16-25 railcard does not have this restriction in July and August<br>****: Relevant information on the Caledonian Sleeper for the <a href="https://www.16-25railcard.co.uk/about-the-railcard/using-your-railcard/">16-25 Railcard</a> and the <a href="https://www.26-30railcard.co.uk/using-your-railcard/travel-times-tickets/">26-30 Railcard</a></p>
+<h3>When can you use the 16-25 or 26-30 railcards until?</h3>
+<p>Another interesting rule we can take from the T&amp;Cs is the latest time you can buy a Railcard, and the latest you can use it. These times are:</p>
+<ul>
+<li>you can buy the 16-25 Railcard until the day you turn 26</li>
+<li>you can use the 16-25 Railcard until the day you turn 27</li>
+<li>you can buy the 26-30 Railcard until the day you turn 31</li>
+<li>you can use the 26-30 Railcard until the day you turn 32</li>
+</ul>
+<p>Visually, this looks like:</p>
+<div id="railcard-ages">
+  <span>0-15</span>
+  <span>16</span>
+  <span>17</span>
+  <span>18</span>
+  <span>19</span>
+  <span>20</span>
+  <span>21</span>
+  <span>22</span>
+  <span>23</span>
+  <span>24</span>
+  <span>25</span>
+  <span>26</span>
+  <span>27</span>
+  <span>28</span>
+  <span>29</span>
+  <span>30</span>
+  <span>31</span>
+  <span>32+</span>
+  <span class="rc1625">16-25 Railcard</span>
+  <span class="rc2630">26-30 Railcard</span>
+</div>
+
+<figcaption>
+
+<p>What ages you can <em>use</em> the 16-25 and 26-30 Railcards. For the final year of each, you must buy it while you are still the age labelled in the name of the card.</p>
+</figcaption>
+
+<h3>Use your railcard on the London Underground</h3>
+<p>I&#39;m not the biggest fan of London. But, one solace is that I get 1/3 off the London Underground with a railcard. You, too, can get this, if you get an Oyster pay-as-you-go card and register the railcard onto it.</p>
+<h2>Conclusion</h2>
+<p>I have provided what is probably too much information about railcards. I hope you enjoy it.</p>
+<p>The takeaway is probably: try to buy your railcards near to your birthday.</p>
+<p>At the least, hopefully this can save you some money for around 6-12 months if you are 30 years old and your railcard expires soon.</p>
+<p>Oh, and: take the Caledonian Sleeper before it&#39;s too late.</p>
+        <!-- !!end content!! -->
+      </section>
+      <hr />
+
+      <section id="comments">
+        <h2>Comments</h2>
+        <p>
+          Email me →
+          <a href="mailto:alifeee.web@outlook.com">alifeee.web@outlook.com</a>
+          :)
+        </p>
+        <p>
+          Message me on any social media →
+          <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
+        </p>
+      </section>
+
+      <section id="similar">
+        <h1>
+          Similar posts
+          <a
+            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
+            >(?)</a
+          >
+        </h1>
+        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="links">
+        <a href="https://github.com/alifeee/blog">
+          <img alt="_GitHub_" src="/icons/github.svg" />
+          <span class="text">GitHub</span>
+        </a>
+        <a href="https://linktr.ee/alifeee">
+          <img alt="_Linktree_" src="/icons/linktree-logo-icon.svg" />
+          <span class="text">Linktree</span>
+        </a>
+        <a href="mailto:alifeee.web@outlook.com">
+          <img alt="_Email_" src="/icons/envelope-solid.svg" />
+          <span class="text">Email</span>
+        </a>
+      </div>
+      <a class="backlink" href="../">Back to main page</a>
+    </footer>
+  </body>
+</html>

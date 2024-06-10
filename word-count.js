@@ -350,7 +350,7 @@ class WordCount extends HTMLElement {
     this.render();
   }
 
-  render() {
+  update() {
     const parent = document.querySelector(this.parent);
     var count = 0;
     Countable.count(parent, function (counter) {
@@ -368,6 +368,13 @@ class WordCount extends HTMLElement {
         </figcaption>
     `;
     this.innerHTML = template;
+  }
+
+  render() {
+    this.update();
+    document.addEventListener("DOMContentLoaded", () => {
+      this.update();
+    });
   }
 }
 
