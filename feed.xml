@@ -4,12 +4,29 @@
 
 <title>alifeee's blog</title>
 <link href='https://blog.alifeee.co.uk' rel='self' />
-<updated>2024-05-01T00:00:00+00:00</updated>
+<updated>2024-06-09T00:00:00+00:00</updated>
 <author>
   <name>alifeee</name>
 </author>
 <id>https://blog.alifeee.co.uk/</id>
 <icon>https://blog.alifeee.co.uk/og-image.png</icon>
+
+<entry>
+  <title>UK Railcards</title>
+  <link href='https://blog.alifeee.co.uk/railcards' />
+  <id>https://blog.alifeee.co.uk//railcards</id>
+  <updated>2024-06-09T00:00:00+00:00</updated>
+  <summary>UK Railcards and all the differences between the 16-25 and 26-30 Railcard</summary>
+  <content type='html'>
+    <a href='https://blog.alifeee.co.uk/railcards'>https://blog.alifeee.co.uk/railcards</a>
+    <p>UK Railcards and all the differences between the 16-25 and 26-30 Railcard</p>
+    <![CDATA[
+     <a href='https://blog.alifeee.co.uk/railcards'>
+        <img alt='UK Railcards' src='https://blog.alifeee.co.uk/railcards/og-image.png' />
+      </a>
+    ]]>
+  </content>
+</entry>
 
 <entry>
   <title>My GitHub Gists</title>
