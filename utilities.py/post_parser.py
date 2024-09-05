@@ -57,8 +57,7 @@ def get_all_posts() -> List[Post]:
         relative_url = post.find("a", class_="link")["href"]
         # md url is f"{relative_url}/{relative_url}.md"
         #  with "./\" stripped from relative_url
-        title_filename = relative_url.lstrip("./")
-        md_url = f"{relative_url}/{title_filename}.md"
+        md_url = os.path.join(relative_url, os.path.basename(relative_url) + ".md")
 
         date_str = post.find("time")["datetime"]
         date = datetime.strptime(date_str, "%Y-%m-%d")

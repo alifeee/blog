@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - UK Railcards</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="UK Railcards and all the differences between the 16-25 and 26-30 Railcard"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="UK Railcards" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta property="og:url" content="https://blog.alifeee.co.uk/railcards" />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/railcards/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="UK Railcards and all the differences between the 16-25 and 26-30 Railcard"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- styling -->
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- external stylesheets -->
+    <!-- from https://cdn.jsdelivr.net/gh/sindresorhus/github-markdown-css@4/github-markdown.min.css -->
+    <link rel="stylesheet" href="/github-markdown.min.css" />
+    <!-- from https://cdn.jsdelivr.net/gh/PrismJS/prism@1/themes/prism.min.css -->
+    <link rel="stylesheet" href="/prism.min.css" />
+    <!-- my stylesheets -->
+    <link rel="stylesheet" href="/stylesheet.css" />
+    <link rel="stylesheet" href="/stylesheet_md.css" />
+    <!-- specific to this page styles -->
+    <style></style>
+
+    <!-- libraries -->
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs -->
+    <script type="module">
+      import "/anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
+      });
+    </script>
+    <!-- prismjs https://github.com/PrismJS/prism -->
+    <!-- from https://cdn.jsdelivr.net/gh/PrismJS/prism@1/prism.min.js -->
+    <script src="/prism.min.js"></script>
+
+    <!-- word-count component from word-count.js -->
+    <script src="/word-count.js"></script>
+
+    <!-- htmx -->
+    <script
+      src="/htmx.min.js"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- extra scripts -->
+    <script type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="/">
+        <h1>alifeee's blog</h1>
+      </a>
+      <a id="rss" href="/feed.xml">
+        <img alt="_RSS_" src="/icons/rss.svg" />
+      </a>
+    </header>
+
+    <main>
+      <section id="content" class="markdown-body">
+        <!-- !!start content!! -->
+        <h1>Empty</h1>
+        <p>Not much content here :)</p>
+        <!-- !!end content!! -->
+      </section>
+      <hr />
+
+      <section id="comments">
+        <h2>Comments</h2>
+        <p>
+          Email me →
+          <a href="mailto:alifeee.web@outlook.com">alifeee.web@outlook.com</a>
+          :)
+        </p>
+        <p>
+          Message me on any social media →
+          <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
+        </p>
+      </section>
+
+      <section id="similar">
+        <h1>
+          Similar posts
+          <a
+            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
+            >(?)</a
+          >
+        </h1>
+        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="links">
+        <a href="https://github.com/alifeee/blog">
+          <img alt="_GitHub_" src="/icons/github.svg" />
+          <span class="text">GitHub</span>
+        </a>
+        <a href="https://linktr.ee/alifeee">
+          <img alt="_Linktree_" src="/icons/linktree-logo-icon.svg" />
+          <span class="text">Linktree</span>
+        </a>
+        <a href="mailto:alifeee.web@outlook.com">
+          <img alt="_Email_" src="/icons/envelope-solid.svg" />
+          <span class="text">Email</span>
+        </a>
+      </div>
+      <a class="backlink" href="/">Back to main page</a>
+    </footer>
+  </body>
+</html>
