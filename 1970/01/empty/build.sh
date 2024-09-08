@@ -9,7 +9,7 @@
 
 if [ -z $1 ]; then
   CONTENT_FILE="${PWD##*/}.md"
-  echo "transforming CONTENT_FILE"
+  echo "transforming $CONTENT_FILE"
 else
   CONTENT_FILE="$1"
 fi
@@ -22,6 +22,11 @@ END_CONTENT="<!-- !!end content!! -->"
 original_html=$(cat $INDEX_FILE)
 
 html=$(marked -i "$CONTENT_FILE")
+
+has_template=$(echo "${html}" | grep '{{.*}}')
+if [ ! -z has_template ]; then
+  echo "{{template}}s found in file. They should be removed soon..."
+fi
 
 # get line numbers of START_CONTENT and END_CONTENT
 start=$(echo "${original_html}" | grep -n "${START_CONTENT}" | cut -d : -f1)
@@ -40,3 +45,5 @@ echo "${original_html}" | awk 'NR >= '"${end}"'' >> $TEMP_FILE
 
 cat $TEMP_FILE > $INDEX_FILE
 rm -f $TEMP_FILE
+
+echo "done! 🚀"
