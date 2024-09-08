@@ -34,13 +34,6 @@ for post in posts:
     feed += f"  <id>{SUMMARY_ID}/{post.relative_url.lstrip('./')}</id>\n"
     feed += f"  <updated>{post.date.isoformat()}</updated>\n"
     feed += f"  <summary>{post.description}</summary>\n"
-
-    # content (link + summary + image)
-    feed += "  <content type='html'>\n"
-    feed += f"    <a href='{link}'>{link}</a>\n"
-    feed += f"    <p>{post.description}</p>\n"
-    feed += "  </content>\n"
-
     feed += "</entry>\n\n"
 feed += "</feed>\n"
 
