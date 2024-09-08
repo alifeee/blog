@@ -25,7 +25,7 @@ html=$(marked -i "$CONTENT_FILE")
 
 has_template=$(echo "${html}" | grep '{{.*}}')
 if [ ! -z "${has_template}" ]; then
-  echo "{{template}}s found in file. They should be removed soon..."
+  printf "{{template}}s found in file. They should be removed soon. e.g.: %s" $(echo "${has_template}" | head -n1)
 fi
 
 # get line numbers of START_CONTENT and END_CONTENT

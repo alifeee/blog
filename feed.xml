@@ -4,12 +4,24 @@
 
 <title>alifeee's blog</title>
 <link href='https://blog.alifeee.co.uk' rel='self' />
-<updated>2024-06-09T00:00:00+00:00</updated>
+<updated>2024-09-08T00:00:00+00:00</updated>
 <author>
   <name>alifeee</name>
 </author>
 <id>https://blog.alifeee.co.uk/</id>
 <icon>https://blog.alifeee.co.uk/og-image.png</icon>
+
+<entry>
+  <title>Easy envelope</title>
+  <link href='https://blog.alifeee.co.uk/2024/09/fold-an-envelope/' />
+  <id>https://blog.alifeee.co.uk//2024/09/fold-an-envelope/</id>
+  <updated>2024-09-08T00:00:00+00:00</updated>
+  <summary>Folding an A4 sheet into its own envelope</summary>
+  <content type='html'>
+    <a href='https://blog.alifeee.co.uk/2024/09/fold-an-envelope/'>https://blog.alifeee.co.uk/2024/09/fold-an-envelope/</a>
+    <p>Folding an A4 sheet into its own envelope</p>
+  </content>
+</entry>
 
 <entry>
   <title>UK Railcards</title>
@@ -20,11 +32,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/railcards'>https://blog.alifeee.co.uk/railcards</a>
     <p>UK Railcards and all the differences between the 16-25 and 26-30 Railcard</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/railcards'>
-        <img alt='UK Railcards' src='https://blog.alifeee.co.uk/railcards/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -37,11 +44,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/gists'>https://blog.alifeee.co.uk/gists</a>
     <p>Why I like (GitHub) gists and a short tour through ones I have created</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/gists'>
-        <img alt='My GitHub Gists' src='https://blog.alifeee.co.uk/gists/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -54,11 +56,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/font-workshop'>https://blog.alifeee.co.uk/font-workshop</a>
     <p>What did people make and what did I learn?</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/font-workshop'>
-        <img alt='I ran a computer font-making workshop!' src='https://blog.alifeee.co.uk/font-workshop/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -71,11 +68,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/making-bogface'>https://blog.alifeee.co.uk/making-bogface</a>
     <p>How and why I made my first font</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/making-bogface'>
-        <img alt='Making my own Font - BogFace' src='https://blog.alifeee.co.uk/making-bogface/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -88,11 +80,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/what-is-a-third-space'>https://blog.alifeee.co.uk/what-is-a-third-space</a>
     <p>I talk a lot about third spaces. These are some thoughts and opinions.</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/what-is-a-third-space'>
-        <img alt='What is a third space and why do I like the concept?' src='https://blog.alifeee.co.uk/what-is-a-third-space/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -105,11 +92,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/hackspace-adventures'>https://blog.alifeee.co.uk/hackspace-adventures</a>
     <p>What, why, and how is a Hackspace, and what have I used them for?</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/hackspace-adventures'>
-        <img alt='Hackspace Adventures' src='https://blog.alifeee.co.uk/hackspace-adventures/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -122,11 +104,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/factorio-proximity-chat'>https://blog.alifeee.co.uk/factorio-proximity-chat</a>
     <p>Using Lua and C to enable proximity-based voice chat in Factorio</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/factorio-proximity-chat'>
-        <img alt='Making Factorio Proximity Voice Chat' src='https://blog.alifeee.co.uk/factorio-proximity-chat/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -139,11 +116,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/hull-bus-sign'>https://blog.alifeee.co.uk/hull-bus-sign</a>
     <p>Making Pong on an old Dot-Matrix Display.</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/hull-bus-sign'>
-        <img alt='Hull Bus Terminal Signs' src='https://blog.alifeee.co.uk/hull-bus-sign/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -156,11 +128,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/steam-collage-api'>https://blog.alifeee.co.uk/steam-collage-api</a>
     <p>How I made an automatic collage generator: to make a custom game collage using the games in any Steam library.</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/steam-collage-api'>
-        <img alt='Coding Projects! #1: Collage generator for Steam games' src='https://blog.alifeee.co.uk/steam-collage-api/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -173,11 +140,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/snippets-of-a-degree'>https://blog.alifeee.co.uk/snippets-of-a-degree</a>
     <p>Tiny snippets from Masters' degree reports and dissertations at Durham University.</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/snippets-of-a-degree'>
-        <img alt='Snippets of a Degree' src='https://blog.alifeee.co.uk/snippets-of-a-degree/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -190,11 +152,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/sketch-your-society'>https://blog.alifeee.co.uk/sketch-your-society</a>
     <p>We took a blank sketchbook to a university freshers' fair and asked every society to draw us something. This is what they drew!</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/sketch-your-society'>
-        <img alt='Sketch Your Society: 100 different sketches from 100 different societies' src='https://blog.alifeee.co.uk/sketch-your-society/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -207,11 +164,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/ring-populations'>https://blog.alifeee.co.uk/ring-populations</a>
     <p>Why is it so hard to compare city populations? Dispatches investigates.</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/ring-populations'>
-        <img alt='Ring Populations' src='https://blog.alifeee.co.uk/ring-populations/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 
@@ -224,11 +176,6 @@
   <content type='html'>
     <a href='https://blog.alifeee.co.uk/bike-to-cambridge'>https://blog.alifeee.co.uk/bike-to-cambridge</a>
     <p>The story of my first bike-tour, and why trains are great.</p>
-    <![CDATA[
-     <a href='https://blog.alifeee.co.uk/bike-to-cambridge'>
-        <img alt='I biked from Birmingham to Cambridge (a tribute to National Cycle Routes)' src='https://blog.alifeee.co.uk/bike-to-cambridge/og-image.png' />
-      </a>
-    ]]>
   </content>
 </entry>
 

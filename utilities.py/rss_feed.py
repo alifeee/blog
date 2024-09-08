@@ -39,12 +39,6 @@ for post in posts:
     feed += "  <content type='html'>\n"
     feed += f"    <a href='{link}'>{link}</a>\n"
     feed += f"    <p>{post.description}</p>\n"
-    feed += "    <![CDATA[\n"
-    feed += f"     <a href='{link}'>\n"
-    OG_IMAGE = link + "/og-image.png"
-    feed += f"        <img alt='{post.title}' src='{OG_IMAGE}' />\n"
-    feed += "      </a>\n"
-    feed += "    ]]>\n"
     feed += "  </content>\n"
 
     feed += "</entry>\n\n"
