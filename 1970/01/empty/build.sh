@@ -7,11 +7,23 @@
 # usage:
 #  ./build.sh content.md
 
+# check marked is installed
+if ! type "marked" 2> /dev/null > /dev/null; then
+  echo "marked not installed. https://www.npmjs.com/package/marked. please run"
+  echo "npm install -g marked"
+  exit 1
+fi
+
 if [ -z $1 ]; then
   CONTENT_FILE="${PWD##*/}.md"
   echo "transforming $CONTENT_FILE"
 else
   CONTENT_FILE="$1"
+fi
+
+if [ ! -f "${CONTENT_FILE}" ]; then
+  echo "${CONTENT_FILE} does not exist"
+  exit 1
 fi
 
 INDEX_FILE="index.html"
