@@ -35,7 +35,7 @@ original_html=$(cat $INDEX_FILE)
 
 html=$(marked -i "$CONTENT_FILE")
 
-has_template=$(echo "${html}" | grep '{{.*}}')
+has_template=$(echo "${original_html}" | grep '{{.*}}')
 if [ ! -z "${has_template}" ]; then
   echo "{{template}}s found in file. They should be removed soon..."
 fi
