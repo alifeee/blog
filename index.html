@@ -34,26 +34,125 @@
       href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
     />
     <style>
-      .also {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin: 0.5em 0;
-        text-align: center;
-        width: 100%;
-        display: block;
-      }
-      .also a {
-        text-decoration: underline;
-      }
-      .also:hover a {
-        text-decoration: none;
-      }
       @font-face {
         font-family: "BogFace";
         src: url("making-bogface/BogFace.woff");
       }
       .BogFace {
         font-family: "BogFace";
+      }
+    </style>
+    <style>
+      main > * {
+        max-width: 40rem;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      main,
+      #introduction {
+        max-width: unset;
+      }
+      .other-sites {
+        margin: 0.5rem 0 0 0;
+        max-width: 100vw;
+        width: auto;
+      }
+      .other-sites h2 {
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      .other-sites-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* website style */
+      .website {
+        font-family: "Josefin Sans";
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #222;
+        color: white;
+        text-decoration: none;
+        max-width: 20rem;
+      }
+      .website:visited {
+        color: white;
+      }
+      .website > * {
+        width: 100%;
+        text-align: center;
+        margin: 0 1rem;
+      }
+      .website .title {
+        background-color: #63a;
+        padding: 1rem 0;
+      }
+      .website p {
+        margin: 0.5rem 1rem;
+        padding: 0 1rem;
+      }
+
+      /* weeknote style */
+      @font-face {
+        font-family: "BogFace";
+        src: url("./fonts/BogFace.woff2");
+      }
+      .weeknote {
+        font-family: "BogFace", sans-serif !important;
+        padding: 1rem;
+        margin: 0.5rem;
+        display: grid;
+        grid-template-columns: 4fr 3fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+          "title date"
+          "words links";
+        grid-gap: 1rem;
+        border: 1px solid grey;
+        border-radius: 0.5rem;
+        max-width: 40rem;
+        position: relative;
+        background-color: #f5abb7;
+        background-size: 25px 25px;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          #9591 0,
+          #9591 2px,
+          #f5abb7 0,
+          #f5abb7 50%
+        );
+        text-decoration: none;
+        text-align: center;
+        color: #444 !important;
+        position: relative;
+      }
+      .weeknote:visited {
+        color: #444 !important;
+      }
+      .weeknote .title {
+        margin: 0;
+        grid-area: title;
+        color: #000;
+        font-size: 1.5rem;
+      }
+      .weeknote .words {
+        grid-area: words;
+      }
+      .weeknote .links {
+        grid-area: links;
+      }
+      .weeknote .date {
+        grid-area: date;
       }
     </style>
   </head>
@@ -79,10 +178,23 @@
           <a href="./feed.xml">RSS feed</a>
           to be notified when there is new <i>content</i> to digest.
         </p>
-        <p class="also">
-          also check out ->
-          <a href="https://weeknotes.alifeee.co.uk">alifeee's weeknotes!!!</a>
-        </p>
+        <section class="other-sites">
+          <h2>Why not check out:</h2>
+          <div class="other-sites-list">
+            <a class="website" href="https://alifeee.co.uk">
+              <span class="title">alifeee.co.uk</span>
+              <p class="desc">
+                creations, inventions, and madness from the mind of alifeee
+              </p>
+            </a>
+            <a href="https://weeknotes.alifeee.co.uk/" class="weeknote">
+              <span class="title">my weeknotes !! :]</span>
+              <span class="words">between 137 and 3,215 words</span>
+              <span class="links">many links</span>
+              <time class="date">posted every Sunday</time>
+            </a>
+          </div>
+        </section>
         <p>
           If you have any comments, email me → alifeee [dot] web [at] outlook
           [dot] com or message me on any social media →
