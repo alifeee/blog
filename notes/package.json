@@ -1,0 +1,30 @@
+{
+  "name": "notes",
+  "version": "0.1.0",
+  "description": "a single-page notes thing",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alifeee/blog.git"
+  },
+  "keywords": [
+    "eleventy"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alifeee/blog/issues"
+  },
+  "homepage": "https://github.com/alifeee/blog#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-handlebars": "^1.0.0"
+  },
+  "type": "module"
+}

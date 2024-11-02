@@ -1,0 +1,23 @@
+---
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/picnic.css">
+</head>
+
+<body>
+    <h1>
+        notes
+    </h1>
+    {{#each collections.all}}
+    {{page.url}}
+    {{/each}}
+    {{#each collections.all}}
+    {{{content}}}
+    {{/each}}
+</body>
+
+</html>
