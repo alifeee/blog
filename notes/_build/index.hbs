@@ -16,6 +16,7 @@ permalink: /
     <ul>
         {{#each collections.all}}
         <a href="{{page.url}}">{{mdtitle page.rawInput}}</a>
+        (<a href="#{{slugify (mdtitle page.rawInput)}}">down</a>)
         {{/each}}
     </ul>
     {{#each collections.all}}

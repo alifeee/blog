@@ -1,5 +1,7 @@
 import handlebarsPlugin from "@11ty/eleventy-plugin-handlebars";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import markdownIt from "markdown-it";
+import markdownItAnchor from "markdown-it-anchor";
 
 export default function (eleventyConfig) {
   eleventyConfig.setInputDirectory("..");
@@ -13,6 +15,9 @@ export default function (eleventyConfig) {
   } else if (process.env.ELEVENTY_RUN_MODE == "build") {
     eleventyConfig.setOutputDirectory("..");
   }
+
+  const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
+  eleventyConfig.setLibrary("md", markdownLib);
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(handlebarsPlugin);
