@@ -15,7 +15,7 @@ permalink: /
     </h1>
     <ul>
         {{#each collections.all}}
-        <a href="{{page.url}}">{{page.url}}</a>
+        <a href="{{page.url}}">{{mdtitle page.rawInput}}</a>
         {{/each}}
     </ul>
     {{#each collections.all}}

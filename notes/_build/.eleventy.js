@@ -16,6 +16,14 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(handlebarsPlugin);
+
+  // get h1 from markdown, i.e., find "# this is a title"
+  // adapted from https://lewisdale.dev/post/detecting-markdown-titles-with-eleventy/
+  eleventyConfig.addFilter("mdtitle", (raw_md) => {
+    const withoutFrontMatter = raw_md.replace(/^---[^]*---/, "");
+    const title = withoutFrontMatter.match(/^#{1}\s(.+)/);
+    return title ? title[1] : "No title detected :sad:";
+  });
 }
 
 export const config = {
