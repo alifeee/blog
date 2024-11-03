@@ -1,6 +1,6 @@
 ---
 title: cron jobs are hard to make
-Date: 2024-11-03
+date: 2024-11-03
 tags:
   - cron
 ---
