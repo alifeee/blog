@@ -1,15 +1,14 @@
 ---
+title: ActivityPub posts and the ACCEPT header
 date: 2024-11-02
 tags:
 - ActivityPub
 ---
-# ActivityPub posts and the ACCEPT header
-
 This note was made to investigate how ActivityPub worked for getting information about posts, as a small investigation into <https://gitlab.com/edent/activity-bot/-/issues/2>.
 
 We consider two posts:
 
-1. a post by myself: https://mastodon.social/@alifeee/113410809105877544
+1. a post by myself: <https://mastodon.social/@alifeee/113410809105877544>
 2. a post by @edent's bot "@bot@bot.viii.fi":
   a. the post on Mastodon: <https://mastodon.social/@bot@bot.viii.fi/113402721781767728>
   b. the post on the original server: <https://bot.viii.fi/posts/6723a0f2-d5c4-9276-916d-546aa5f831fd.json>
