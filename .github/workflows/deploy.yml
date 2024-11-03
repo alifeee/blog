@@ -1,5 +1,5 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# build required parts with npm and deploy to pages
+name: deploy to pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -39,6 +39,7 @@ jobs:
         with:
           node-version: 20.x
           cache: "npm"
+          cache-dependency-path: "notes/_build/package-lock.json"
       - name: Install dependencies
         run: (cd notes/_build; npm ci)
       - name: Build
