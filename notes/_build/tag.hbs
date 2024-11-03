@@ -1,0 +1,12 @@
+---
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+  title: {{data.title}}
+permalink: /{{tag}}/
+layout: multi
+---

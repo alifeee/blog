@@ -1,0 +1,27 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+layout: 0
+---
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet href="{{url "/feed.xsl"}}" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>alifeee's notes</title>
+    <link href="https://blog.alifeee.co.uk/notes/feed.xml" rel="self" />
+    <updated>{{getNowDate}}</updated>
+    <author>
+        <name>alifeee</name>
+    </author>
+    <id>https://blog.alifeee.co.uk/notes/</id>
+
+    {{#each collections.all}}
+    <entry>
+        <title>{{data.title}}</title>
+        <link href="https://blog.alifeee.co.uk/notes/{{page.filePathStem}}" />
+        <id>https://blog.alifeee.co.uk/notes/{{page.filePathStem}}</id>
+        <updated>{{ isoDate data.page.date }}</updated>
+        <summary>{{data.title}}</summary>
+    </entry>
+    {{/each}}
+</feed>

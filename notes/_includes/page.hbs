@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>alifeee's notes{{#if (neq tag 'all')}} ({{tag}}){{/if}}{{#if title}} - {{title}}{{/if}}</title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="alifeee's notes{{#if (neq tag 'all')}} ({{tag}}){{/if}}{{#if title}} - {{title}}{{/if}}" />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title"
+        content="alifeee's notes{{#if (neq tag 'all')}} ({{tag}}){{/if}}{{#if title}} - {{title}}{{/if}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's notes" />
+    <meta property="og:url" content="https://blog.alifeee.co.uk{{page.url}}" />
+    <!-- <meta property="og:image" content="https://blog.alifeee.co.uk/" /> -->
+    <meta property="og:description"
+        content='quick markdown notes from alifeee, mainly about programming and the Internet{{#if (neq tag "all")}}, filtered to notes tagged "{{tag}}"{{/if}}' />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- styling -->
+    <!-- favicon -->
+    <!-- <link rel="icon" type="image/png" href="{{'/favicon.png'}}" /> -->
+    <link rel="stylesheet" href='/picnic.css'>
+
+    <link rel="stylesheet" href='/highlight.min.css'>
+    <script src="/highlight.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <style>
+        header {
+            margin: 1rem;
+        }
+
+        header h1 {
+            padding: 0;
+        }
+
+        header .return {
+            margin: 0 0 0 1rem;
+        }
+
+        .source {
+            opacity: 0.5;
+            font-size: 75%;
+        }
+
+        #contents time {
+            opacity: 0.5;
+        }
+
+        .tags {
+            opacity: 0.5;
+        }
+
+        .tag {
+            text-decoration: underline dotted;
+        }
+
+        main article {
+            /* margin: 1px;*/
+            padding: 1rem;
+        }
+
+        main article:nth-of-type(2n) {
+            border: 2px dashed #0f08;
+        }
+
+        main article:nth-of-type(2n + 1) {
+            border: 2px dashed #f0f8;
+        }
+
+        main article>h2 {
+            margin: 0;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0;
+            position: sticky;
+            top: 0px;
+            background-color: white;
+            z-index: 10;
+        }
+
+        main article .tags {
+            margin: 0;
+            margin-left: 1rem;
+        }
+
+        main article p,
+        main article ol,
+        main article ul {
+            max-width: 40rem;
+        }
+
+
+        main .back-to-top {
+            display: block;
+            width: 100%;
+            text-align: center;
+            opacity: 0.5;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="all">
+            {{#if (neq page.url "/")}}<a href="/">{{/if}}
+                notes
+                {{#if (neq page.url "/")}}</a>{{/if}}
+            by alifeee
+            {{#if (neq tag "all")}}
+            tagged <span class="tag">{{tag}}</span> ({{length (objget collections tag)}})
+            {{/if}} <a class="source" href="/feed.xml">rss</a>
+        </h1>
+        <p class="return">
+            return to <a href="/">notes</a> / <a href="https://blog.alifeee.co.uk">blog</a> / <a
+                href="https://alifeee.co.uk">website</a> /
+            <a href="https://weeknotes.alifeee.co.uk">weeknotes</a> / <a href="https://linktr.ee/alifeee">linktree</a>
+        </p>
+        <p>
+            here I may post some short, text-only notes, mostly about programming. <a
+                href="https://github.com/alifeee/blog/tree/main/notes">source code</a>.
+        </p>
+        <p class="tags">
+            tags:
+            {{#each collections~}}
+            {{#unless @first}},{{/unless}}
+            <a class="tag" href="{{url (unperma_all @key)}}">{{@key}}</a> ({{length (objget ../collections @key)}})
+            {{~/each}}
+        </p>
+        {{#unless hide_contents}}
+        <ul id="contents">
+            {{#each (reverse_collections (objget collections tag))}}
+            <li>
+                <time datetime="{{fmt_date data.date}}">{{fmt_date data.date}}</time>
+                <a href="#{{slugify data.title}}">{{data.title}}</a>
+                <a class="source" href="{{page.filePathStem}}">single</a>
+                {{/each}}
+            </li>
+        </ul>
+        {{/unless}}
+    </header>
+    <main>
+        {{{content}}}
+    </main>
+    <footer></footer>
+</body>
+
+</html>

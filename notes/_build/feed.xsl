@@ -9,57 +9,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <title>Web Feed • <xsl:value-of select="atom:feed/atom:title"/>
         </title>
+        <link rel="stylesheet" href="/picnic.css" />
         <style type="text/css">
-          body {
-            max-width: 768px;
-            margin: 0 auto;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-              Helvetica, Arial, sans-serif, "Apple Color Emoji",
-              "Segoe UI Emoji", "Segoe UI Symbol";
-            font-size: 16px;
-            line-height: 1.5em;
-            background-color: #dcd;
-          }
-          section {
-            margin: 30px 15px;
-          }
-          h1 {
-            font-size: 2em;
-            margin: 0.67em 0;
-            line-height: 1.125em;
-          }
-          h2 {
-            border-bottom: 1px solid #eaecef;
-            padding-bottom: 0.3em;
-          }
-          .alert {
-            background: #fff5b1;
-            padding: 4px 12px;
-            margin: 0 -12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
-          }
-          a {
-            text-decoration: none;
-          }
-          .entry h3 {
-            margin-bottom: 0;
-          }
-          .entry p {
-            margin: 4px 0;
-          }
-
-          header {
-            text-align: center;
-            position: relative;
-          }
-
-          header h1 {
-            font-style: italic;
-            font-family: Georgia, serif;
-            padding-bottom: 0.25rem;
-            border-bottom: 1px dashed var(--border-colour);
-          }
+            body {
+                max-width: 768px;
+                margin: 0 auto;
+            }
+            section {
+                margin: 1rem;
+            }
+            h1 {
+                margin: 0.67em 0;
+            }
+            h2 {
+                border-bottom: 1px solid #eaecef;
+                padding-bottom: 0.3em;
+            }
+            .alert {
+                background: #fff5b1;
+                padding: 4px 12px;
+                margin: 0 -12px;
+                border-radius: 8px;
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+            }
+            .entry p {
+                margin: 4px 0;
+            }
+            header {
+                text-align: center;
+            }
+            header h1 {
+                font-style: italic;
+                padding-bottom: 0.25rem;
+                border-bottom: 1px dashed purple;
+            }
         </style>
       </head>
       <body>
@@ -77,7 +60,7 @@
   <xsl:template match="atom:feed">
     <header>
       <a href="./">
-        <h1>alifeee's blog (web feed)</h1>
+        <h1>alifeee's notes (web feed)</h1>
       </a>
     </header>
 
@@ -91,8 +74,7 @@
     </section>
 
     <p>
-      Welcome to my blog! I will sometimes write things! You are welcome to like
-      the things!
+      here I may post some short, text-only notes, mostly about programming.
     </p>
     <p>This RSS feed provides the latest posts.</p>
 
