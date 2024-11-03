@@ -15,7 +15,7 @@ layout: 0
     </author>
     <id>https://blog.alifeee.co.uk/notes/</id>
 
-    {{#each collections.all}}
+    {{#each (reverse_collections collections.all)}}
     <entry>
         <title>{{data.title}}</title>
         <link href="https://blog.alifeee.co.uk/notes/{{page.filePathStem}}" />
