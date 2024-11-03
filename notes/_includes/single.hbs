@@ -1,0 +1,21 @@
+---
+layout: page
+tag: 'all'
+hide_contents: true
+---
+<article id="{{slugify title}}">
+    <h2>
+        {{title}}
+        <a href="#{{slugify title}}">#</a>
+        <a class="source" href="/{{relpath page.inputPath}}">source</a>
+    </h2>
+    <p class="tags">
+        tags:
+        {{#each tags~}}
+        {{#unless @first}},{{/unless}}
+        <a class="tag" href="/{{this}}">{{this}}</a>
+        {{~/each}}
+    </p>
+    {{{increase_headings content}}}
+</article>
+<a href="/" class="back-to-top">back to main page</a>

@@ -1,27 +1,6 @@
 ---
 eleventyExcludeFromCollections: true
+tag: all
 permalink: /
+layout: multi
 ---
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="stylesheet" href="/picnic.css">
-</head>
-
-<body>
-    <h1>
-        notes
-    </h1>
-    <ul>
-        {{#each collections.all}}
-        <a href="{{page.url}}">{{mdtitle page.rawInput}}</a>
-        (<a href="#{{slugify (mdtitle page.rawInput)}}">down</a>)
-        {{/each}}
-    </ul>
-    {{#each collections.all}}
-    {{{content}}}
-    {{/each}}
-</body>
-
-</html>

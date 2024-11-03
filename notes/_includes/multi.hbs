@@ -1,0 +1,33 @@
+---
+layout: page
+---
+{{#each (reverse_collections (objget collections tag))}}
+<article id="{{slugify data.title}}">
+  <h2>
+    {{data.title}}
+    <a href="#{{slugify data.title}}">#</a>
+    {{#if @first~}}
+    <span class="source">prev</span>
+    {{~else~}}
+    <a class="source"
+      href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index -1)))}}">prev</a>
+    {{~/if~}}
+    &nbsp;<a class="source" href="{{filePathStem}}#{{slugify data.title}}">single</a>&nbsp;
+    {{~#if @last~}}
+    <span class="source">next</span>
+    {{~else~}}
+    <a class="source"
+      href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index 1)))}}">next</a>
+    {{~/if}}
+  </h2>
+  <p class="tags">
+    tags:
+    {{#each data.tags~}}
+    {{#unless @first}},{{/unless}}
+    <a class="tag" href="/{{this}}">{{this}}</a>
+    {{~/each}}
+  </p>
+  {{{increase_headings content}}}
+</article>
+<a href="#all" class="back-to-top">back to top</a>
+{{/each}}
