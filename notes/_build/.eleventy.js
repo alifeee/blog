@@ -16,14 +16,14 @@ export default function (eleventyConfig) {
   let copy_to;
   if (process.env.ELEVENTY_RUN_MODE == "build") {
     eleventyConfig.setOutputDirectory("..");
-    copy_to = "..";
+    copy_to = "/";
   } else {
     copy_to = "/";
+    eleventyConfig.addPassthroughCopy({ "../*.md": copy_to });
   }
 
   eleventyConfig.addPassthroughCopy({ "../../*.css": copy_to });
   eleventyConfig.addPassthroughCopy({ "../../*.js": copy_to });
-  eleventyConfig.addPassthroughCopy({ "../*.md": copy_to });
   eleventyConfig.addPassthroughCopy({ "./*.xsl": copy_to });
 
   const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
