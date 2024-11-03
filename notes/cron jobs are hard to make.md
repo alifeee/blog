@@ -44,5 +44,5 @@ they are related to these projects (match them up yourself):
 - <https://gist.github.com/alifeee/2eb9ac2296a698dc8a05d4ed531d8d36>
 - <https://github.com/alifeee/ringram>
 - <https://github.com/alifeee/simple-calendar>
-- https://github.com/alifeee/weather_landscape/tree/image_gen
-- https://github.com/alifeee/sheffield-events/
+- <https://github.com/alifeee/weather_landscape/tree/image_gen>
+- <https://github.com/alifeee/sheffield-events/>
