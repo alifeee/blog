@@ -9,11 +9,13 @@ cron jobs are a great tool, but it's very difficult to test them. a lot of the t
 I've now developed a process (when making something work that's super annoying, you stick to your solution, even if it's hacky), which is:
 
 - make a bash script that does what I want the cron to do, e.g., `collect.sh`
-- `cd` out of the folder and test the script works in a "sub-job" (brackets), i.e., 
+- `cd` out of the folder and test the script works in a "sub-job" (brackets), i.e.,
+
     ```bash
     cd /
     (cd /usr/alifeee/cool-thing/; ./collect.sh >> cron.log)
     ```
+
 - put that exact command (with brackets) in the cron job
 
 before I did this, I was making sure that the scripts I made worked when called from any directory (i.e., by making each call to a file use `"${root_directory}/${file}"`). This was kind of annoying and I much prefer the "just `cd` into the directory before running the script" method.
