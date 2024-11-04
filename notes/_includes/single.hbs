@@ -12,7 +12,7 @@ hide_contents: true
         tags:
         {{#each tags~}}
         {{#unless @first}},{{/unless}}
-        <a class="tag" href="/{{this}}">{{this}}</a>
+        <a class="tag" href="/tagged/{{this}}">{{this}}</a>
         {{~/each}}
     </p>
     {{{increase_headings content}}}

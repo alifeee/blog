@@ -141,7 +141,7 @@
             tags:
             {{#each collections~}}
             {{#unless @first}},{{/unless}}
-            <a class="tag" href="/{{#unless (eq @key 'all')}}{{@key}}{{/unless}}">{{@key}}</a> ({{length (objget
+            <a class="tag" href="/{{#unless (eq @key 'all')}}tagged/{{@key}}{{/unless}}">{{@key}}</a> ({{length (objget
             ../collections @key)}})
             {{~/each}}
         </p>

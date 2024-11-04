@@ -24,7 +24,7 @@ layout: page
     tags:
     {{#each data.tags~}}
     {{#unless @first}},{{/unless}}
-    <a class="tag" href="/{{this}}">{{this}}</a>
+    <a class="tag" href="/tagged/{{this}}">{{this}}</a>
     {{~/each}}
   </p>
   {{{increase_headings content}}}
