@@ -24,6 +24,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "../../*.css": copy_to });
   eleventyConfig.addPassthroughCopy({ "../../*.js": copy_to });
+  eleventyConfig.addPassthroughCopy({ "../../*.png": copy_to });
   eleventyConfig.addPassthroughCopy({ "./*.xsl": copy_to });
 
   const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
