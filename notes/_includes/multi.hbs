@@ -2,8 +2,8 @@
 layout: page
 ---
 {{#each (reverse_collections (objget collections tag))}}
-<article id="{{slugify data.title}}">
-  <h2>
+<article>
+  <h2 class="sticky" id="{{slugify data.title}}">
     {{data.title}}
     <a href="#{{slugify data.title}}">#</a>
     {{#if @first~}}
