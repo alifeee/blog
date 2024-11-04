@@ -111,7 +111,7 @@
         }
         
         a {
-	        word-break: break-word;
+            word-break: break-word;
         }
     </style>
 </head>
@@ -151,7 +151,7 @@
             <li>
                 <time datetime="{{fmt_date data.date}}">{{fmt_date data.date}}</time>
                 <a href="#{{slugify data.title}}">{{data.title}}</a>
-                <a class="source" href="{{page.filePathStem}}">single</a>
+                <a class="source" href="{{page.url}}">single</a>
                 {{/each}}
             </li>
         </ul>

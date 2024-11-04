@@ -1,7 +1,7 @@
 ---
 permalink: /feed.xml
 eleventyExcludeFromCollections: true
-layout: 0
+layout: null
 ---
 <?xml version='1.0' encoding='UTF-8'?>
 <?xml-stylesheet href="{{url "/feed.xsl"}}" type="text/xsl"?>
@@ -18,8 +18,8 @@ layout: 0
     {{#each (reverse_collections collections.all)}}
     <entry>
         <title>{{data.title}}</title>
-        <link href="https://blog.alifeee.co.uk/notes/{{page.filePathStem}}" />
-        <id>https://blog.alifeee.co.uk/notes/{{page.filePathStem}}</id>
+        <link href="https://blog.alifeee.co.uk/notes{{page.url}}" />
+        <id>https://blog.alifeee.co.uk/notes{{page.url}}</id>
         <updated>{{ isoDate data.page.date }}</updated>
         <summary>{{data.title}}</summary>
     </entry>

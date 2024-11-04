@@ -12,7 +12,7 @@ layout: page
     <a class="source"
       href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index -1)))}}">prev</a>
     {{~/if~}}
-    &nbsp;<a class="source" href="{{filePathStem}}#{{slugify data.title}}">single</a>&nbsp;
+    &nbsp;<a class="source" href="{{this.url}}#note">single</a>&nbsp;
     {{~#if @last~}}
     <span class="source">next</span>
     {{~else~}}
