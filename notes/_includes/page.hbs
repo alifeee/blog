@@ -146,10 +146,10 @@
         </p>
         <p class="tags">
             tags:
-            {{#each collections~}}
+            {{#each (tags_sorted_by_occurence collections)~}}
             {{#unless @first}},{{/unless}}
-            <a class="tag" href="/{{#unless (eq @key 'all')}}tagged/{{@key}}{{/unless}}">{{@key}}</a> ({{length (objget
-            ../collections @key)}})
+            <a class="tag" href="/{{#unless (eq . 'all')}}tagged/{{.}}{{/unless}}">{{.}}</a> ({{length (objget
+            ../collections .)}})
             {{~/each}}
         </p>
         {{#unless hide_contents}}

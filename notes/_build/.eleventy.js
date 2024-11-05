@@ -103,6 +103,20 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("reverse_collections", (collections) => {
     return collections.toSorted((c) => -c.date);
   });
+  eleventyConfig.addFilter("tags_sorted_by_occurence", (collections) => {
+    // sort tags (collections keys) by number of notes tagged by that tag
+    return Object.keys(collections).toSorted(
+      (k1, k2) => {
+        let l2 = collections[k2].length
+        let l1 = collections[k1].length
+        // alphabetically if same number of tagged posts
+        if (l2 - l1 == 0) {
+          return ('' + k1).localeCompare(k2)
+        }
+        return l2 - l1
+      }
+    )
+  });
   eleventyConfig.addFilter("eq", (item1, item2) => {
     return item1 == item2;
   });
