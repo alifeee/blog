@@ -133,4 +133,5 @@ export default function (eleventyConfig) {
 export const config = {
   pathPrefix: process.env.ELEVENTY_RUN_MODE == "build" ? "/notes/" : "/",
   // pathPrefix: "test",
+  markdownTemplateEngine: false
 };
