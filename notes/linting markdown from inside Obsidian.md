@@ -17,7 +17,15 @@ Anyway, I've been writing these notes in Obsidian. I have then been copying and 
 
 Anyway, I found an Obsidian extension which lets you specify shell commands <https://github.com/Taitava/obsidian-shellcommands> that you can run via the command palette. This seems super neat - I can do ANYTHING now.
 
-Anyway, I installed it and made a command to lint the current markdown file. I had to [install `npm` globally](https://blog.alifeee.co.uk/notes/installing-nvm-globally-so-automated-scripts-can-use-node-and-npm/) because it wasn't working when being called from the Obsidian script, and then I made this command to run the lint:
+Anyway, I installed it and made a command to lint the current markdown file. I had to [install `npm` globally](https://blog.alifeee.co.uk/notes/installing-nvm-globally-so-automated-scripts-can-use-node-and-npm/) because it wasn't working when being called from the Obsidian script, and then I made this command to run the lint.
+
+First install the [`markdownlint`](https://github.com/DavidAnson/markdownlint) CLI:
+
+```bash
+npm install -g markdownlint-cli
+```
+
+The command is:
 
 ```bash
 (cd {{folder_path:absolute}}; source /usr/alifeee/.nvm/nvm.sh && nvm use 20 && markdownlint {{file_name}} --disable MD013 && echo "no lint issues!")
