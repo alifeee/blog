@@ -159,8 +159,14 @@
                 <time datetime="{{fmt_date data.date}}">{{fmt_date data.date}}</time>
                 <a href="#{{slugify data.title}}">{{data.title}}</a>
                 <a class="source" href="{{page.url}}">single</a>
-                {{/each}}
+                <span class="tags source">
+                    {{#each data.tags}}
+                    {{#unless @first}}, {{/unless}}
+                    <span class="tag">{{this}}</span>
+                    {{/each}}
+                </span>
             </li>
+            {{/each}}
         </ul>
         {{/unless}}
     </header>
