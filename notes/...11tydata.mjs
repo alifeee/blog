@@ -1,4 +1,8 @@
-module.exports = {
+import slugify from "./_build/node_modules/@sindresorhus/slugify/index.js";
+
+console.log(slugify)
+
+export default {
   // set layout for all notes to single
   layout: "single",
   // set permalinks of notes to remove spaces from filenames
@@ -12,10 +16,9 @@ module.exports = {
       if (data?.permalink) {
         return data?.permalink;
       }
-      // otherwise, make permalink from file slug by replacing spaces with "-"
-      fs = "" + data?.page?.fileSlug;
-      fs_no_spaces = fs.replaceAll(" ", "-");
-      return "/" + fs_no_spaces + "/";
+      // otherwise, make permalink be slug of title
+      //   to match anchor hash link
+      return "/" + slugify(data.title) + "/"
     },
   },
 };
