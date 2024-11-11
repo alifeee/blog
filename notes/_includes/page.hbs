@@ -204,12 +204,19 @@
         <p class="tags">
             tags:
             {{#each (limit (tags_sorted_by_occurence collections) max_tags)~}}
-            {{#unless @first}},{{/unless}}
-            <a class="tag" href="/{{#if (eq . 'all')}}all/{{else}}tagged/{{.}}/{{/if}}">{{.}}</a> ({{length (objget
+            {{~#if (or (eq ../tag "all") (eq ../tag .))~}}
+            {{~#if (eq ../tag "all")}}{{#unless @first}},{{/unless}}{{/if}}
+            <a class="tag" href="/{{#if (eq . 'all')}}all/{{else}}tagged/{{.}}/{{/if}}">{{.}}</a>&nbsp;({{length (objget
             ../collections .)}})
-            {{~/each}}
+            {{~/if}}
+            {{/each}}
             {{#if (gt (length collections) max_tags)}}
-            <a href="/all/">............ see all (+{{sub (length collections) max_tags}})</a>
+
+            <a href="/all/">............ see all (+{{#if (eq tag "all")~}}
+                {{sub (length collections) max_tags~}}
+                {{~else~}}
+                {{sub (length collections) 1~}}
+                {{/if}})</a>
             {{/if}}
         </p>
         {{#unless hide_contents}}

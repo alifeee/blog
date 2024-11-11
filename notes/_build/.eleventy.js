@@ -127,6 +127,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("ge", (item1, item2) => {
     return item1 >= item2;
   });
+  eleventyConfig.addFilter("or", (condition1, condition2) => {
+    return condition1 || condition2;
+  });
   eleventyConfig.addFilter("objget", (obj, key) => {
     return obj[key];
   });
