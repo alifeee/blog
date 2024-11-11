@@ -183,14 +183,10 @@
 <body id="top">
     <header>
         <h1 id="all">
-            {{#if (neq page.url "/")}}<a href="/">{{/if}}
-                notes
-                {{#if (neq page.url "/")}}</a>{{/if}}
-            by alifeee
-            <img alt="profile picture" src="/og-image.png">
-            {{#if (neq tag "all")}}
-            tagged <span class="tag">{{tag}}</span> ({{length (objget collections tag)}})
-            {{/if}} <a class="source" href="/feed.xml">rss</a>
+            {{#if (neq page.url "/")}}<a href="/">{{/if~}}
+                notes{{#if (neq page.url "/")}}</a>{{/if}} by alifeee <img alt="profile picture" src="/og-image.png">
+            {{~#if (neq tag "all")}} tagged <span class="tag">{{tag}}</span> ({{length (objget collections tag)}})
+            {{~/if}} <a class="source" href="/feed.xml">rss</a>
         </h1>
         <p class="return">
             return to <a href="/">notes</a> / <a href="https://blog.alifeee.co.uk">blog</a> / <a
