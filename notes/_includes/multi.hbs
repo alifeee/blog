@@ -2,11 +2,11 @@
 layout: page
 ---
 {{#each (limit (reverse_collections (objget collections tag)) max_notes)}}
-<article>
-  <h2 class="sticky" id="{{slugify data.title}}">
+<article id="{{slugify data.title}}">
+  <h2 class="sticky">
     {{data.title}}
-    <a href="#{{slugify data.title}}">#</a>
-    {{#if @first~}}
+    <a href="#{{slugify data.title}}">#</a>&nbsp;
+    {{~#if @first~}}
     <span class="source">prev</span>
     {{~else~}}
     <a class="source"
@@ -18,7 +18,8 @@ layout: page
     {{~else~}}
     <a class="source"
       href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index 1)))}}">next</a>
-    {{~/if}}
+    {{~/if~}}
+    &nbsp;<a class="source" href="#top">top</a>
   </h2>
   <p class="tags">
     tags:
