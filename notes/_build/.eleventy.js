@@ -3,6 +3,7 @@ import handlebarsPlugin from "@11ty/eleventy-plugin-handlebars";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+import slugify from "./node_modules/@sindresorhus/slugify/index.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.setInputDirectory("..");
@@ -45,6 +46,10 @@ export default function (eleventyConfig) {
     const withoutFrontMatter = raw_md.replace(/^---[^]*---/, "");
     const title = withoutFrontMatter.match(/^#{1}\s(.+)/);
     return title ? title[1] : "No title detected :sad:";
+  });
+
+  eleventyConfig.addFilter("slugify", (string) => {
+    return slugify(string);
   });
 
   eleventyConfig.addFilter("relpath", (abs_path) => {
