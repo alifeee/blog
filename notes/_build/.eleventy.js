@@ -4,6 +4,7 @@ import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import slugify from "./node_modules/@sindresorhus/slugify/index.js";
+import memoize from "memoize";
 
 export default function (eleventyConfig) {
   eleventyConfig.setInputDirectory("..");
@@ -48,9 +49,12 @@ export default function (eleventyConfig) {
     return title ? title[1] : "No title detected :sad:";
   });
 
-  eleventyConfig.addFilter("slugify", (string) => {
-    return slugify(string);
-  });
+  eleventyConfig.addFilter(
+    "slugify",
+    memoize((string) => {
+      return slugify(string);
+    })
+  );
 
   eleventyConfig.addFilter("relpath", (abs_path) => {
     if (!abs_path) {
