@@ -67,6 +67,20 @@
             text-decoration: underline dotted;
         }
 
+        .full-width {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: none;
+        }
+
+        @media (width >=50rem) {
+            .full-width {
+                display: inline-block;
+            }
+        }
+
         main article {
             /* margin: 1px;*/
             padding: 1rem;
@@ -121,6 +135,27 @@
             word-break: break-word;
         }
     </style>
+    <script>
+        // toggle full width - unset all max-width styles in this stylesheet
+        function toggle_full_width() {
+            inline_stylesheets = [
+                ...document.styleSheets
+            ].filter(
+                s => s.href == null
+            )
+            console.log(inline_stylesheets)
+            inline_stylesheets.forEach(stylesheet => {
+                max_width_rules = [
+                    ...stylesheet.rules
+                ].filter(
+                    r => r.style && r.style["max-width"]
+                )
+                max_width_rules.forEach(r => {
+                    r.style["max-width"] = r.style["max-width"] == "unset" ? "40rem" : "unset";
+                })
+            })
+        }
+    </script>
 </head>
 
 <body>

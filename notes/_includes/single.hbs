@@ -16,6 +16,7 @@ hide_contents: true
         {{#unless @first}},{{/unless}}
         <a class="tag" href="/tagged/{{this}}">{{this}}</a>
         {{~/each}}
+        <button class="pseudo full-width" onclick="toggle_full_width()">full width</button>
     </p>
     {{{increase_headings content}}}
 </article>

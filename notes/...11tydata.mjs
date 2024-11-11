@@ -1,7 +1,5 @@
 import slugify from "./_build/node_modules/@sindresorhus/slugify/index.js";
 
-console.log(slugify)
-
 export default {
   // set layout for all notes to single
   layout: "single",
@@ -18,7 +16,7 @@ export default {
       }
       // otherwise, make permalink be slug of title
       //   to match anchor hash link
-      return "/" + slugify(data.title) + "/"
+      return "/" + slugify(data.title) + "/";
     },
   },
 };
