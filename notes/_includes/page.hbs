@@ -227,10 +227,11 @@
                 <a href="{{#if (ge @index ../max_notes)}}/{{else}}#{{/if}}{{slugify data.title}}">{{data.title}}</a>
                 <a class="source" href="{{page.url}}">single</a>
                 <span class="tags source">
-                    {{#each data.tags}}
-                    {{#unless @first}}, {{/unless}}
+                    {{~#each data.tags}}
+                    {{~#unless @first}}, {{/unless}}
                     <span class="tag">{{this}}</span>
-                    {{/each}}
+                    {{~/each}}
+
                 </span>
             </li>
             {{/each}}
