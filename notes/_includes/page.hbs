@@ -170,10 +170,10 @@
                 max_width_rules = [
                     ...stylesheet.rules
                 ].filter(
-                    r => r.style && r.style["max-width"]
+                    r => r.style && (r.style["max-width"] == "40rem" || r.style["max-width"] == "10000rem")
                 )
                 max_width_rules.forEach(r => {
-                    r.style["max-width"] = r.style["max-width"] == "unset" ? "40rem" : "unset";
+                    r.style["max-width"] = r.style["max-width"] == "10000rem" ? "40rem" : "10000rem";
                 })
             })
         }
