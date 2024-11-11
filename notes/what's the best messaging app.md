@@ -1,9 +1,10 @@
 ---
 date: 2024-11-10
 title: what's the best messaging app
-tags: privacy, software
+tags:
+- privacy
+- software
 ---
-
 Recently some of my friend group wanted to move messaging app. We were using Instagram. For me this was a great opportunity to promote the good word of ~~God~~ encryption and privacy, and also make a proto-comparison matrix of different apps, as every comparison matrix is biased, usually to whoever's website you're on. In this case, I provide the bias.
 
 Instagram is only on the list because this was a proposal to move away from Instagram, and WhatsApp is only there because everyone I personally know whines and says "but eeeveryone has WhatsApp". Currently, I'm mostly using Telegram and Signal to message people.
