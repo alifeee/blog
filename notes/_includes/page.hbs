@@ -55,8 +55,30 @@
             font-size: 75%;
         }
 
+        #contents {
+            max-width: max-content;
+        }
+
         #contents time {
             opacity: 0.5;
+            font-family: monospace;
+        }
+
+        #contents .see-more {
+            opacity: 0.75;
+            list-style: none;
+            padding: 0.5rem;
+        }
+
+        #contents .see-more a {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+
+            background-image: radial-gradient(circle, #0004 0 10%, transparent 30% 100%);
+            background-size: 8px 8px;
+            background-position: left 115%;
+            background-repeat: repeat no-repeat;
         }
 
         .tags {
@@ -181,18 +203,21 @@
         </p>
         <p class="tags">
             tags:
-            {{#each (tags_sorted_by_occurence collections)~}}
+            {{#each (limit (tags_sorted_by_occurence collections) max_tags)~}}
             {{#unless @first}},{{/unless}}
-            <a class="tag" href="/{{#unless (eq . 'all')}}tagged/{{.}}{{/unless}}">{{.}}</a> ({{length (objget
+            <a class="tag" href="/{{#if (eq . 'all')}}all/{{else}}tagged/{{.}}/{{/if}}">{{.}}</a> ({{length (objget
             ../collections .)}})
             {{~/each}}
+            {{#if (gt (length collections) max_tags)}}
+            <a href="/all/">............ see all (+{{sub (length collections) max_tags}})</a>
+            {{/if}}
         </p>
         {{#unless hide_contents}}
         <ul id="contents">
-            {{#each (reverse_collections (objget collections tag))}}
+            {{#each (limit (reverse_collections (objget collections tag)) max_contents)}}
             <li>
                 <time datetime="{{fmt_date data.date}}">{{fmt_date data.date}}</time>
-                <a href="#{{slugify data.title}}">{{data.title}}</a>
+                <a href="{{#if (ge @index ../max_notes)}}/{{else}}#{{/if}}{{slugify data.title}}">{{data.title}}</a>
                 <a class="source" href="{{page.url}}">single</a>
                 <span class="tags source">
                     {{#each data.tags}}
@@ -202,6 +227,11 @@
                 </span>
             </li>
             {{/each}}
+            {{#if (gt (length (objget collections tag)) max_contents)}}
+            <li class="see-more">
+                <a href="/all/">see all notes (+{{sub (length (objget collections tag)) max_contents}})</a>
+            </li>
+            {{/if}}
         </ul>
         {{/unless}}
     </header>

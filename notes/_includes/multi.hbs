@@ -1,7 +1,7 @@
 ---
 layout: page
 ---
-{{#each (reverse_collections (objget collections tag))}}
+{{#each (limit (reverse_collections (objget collections tag)) max_notes)}}
 <article>
   <h2 class="sticky" id="{{slugify data.title}}">
     {{data.title}}
@@ -32,3 +32,11 @@ layout: page
 </article>
 <a href="#top" class="back-to-top">back to top</a>
 {{/each}}
+
+{{#if (gt (length (objget collections tag)) max_notes)}}
+{{#unless (eq max_notes 0)}}
+<a href="{{#if (gt max_contents max_notes)}}#contents{{else}}/all/{{/if}}" class="back-to-top">see more (+{{sub (length
+  (objget
+  collections tag)) max_notes}})</a>
+{{/unless}}
+{{/if}}
