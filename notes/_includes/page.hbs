@@ -200,12 +200,10 @@
         <p class="tags">
             tags:
             {{#each (limit (tags_sorted_by_occurence collections) max_tags)~}}
-            {{~#if (or (eq ../tag "all") (eq ../tag .))~}}
             {{~#if (eq ../tag "all")}}{{#unless @first}},{{/unless}}{{/if}}
             <a class="tag" href="/{{#if (eq . 'all')}}all/{{else}}tagged/{{.}}/{{/if}}">{{.}}</a>&nbsp;({{length (objget
             ../collections .)}})
-            {{~/if}}
-            {{/each}}
+            {{~/each}}
             {{#if (gt (length collections) max_tags)}}
 
             <a href="/all/">............ see all (+{{#if (eq tag "all")~}}
