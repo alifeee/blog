@@ -1,6 +1,6 @@
 ---
 title: how I organise my notes (project-active-resource-archive)
-date: 2024-11-20T01:00:00
+date: 2024-11-20
 tags:
   - obsidian
   - note-taking
