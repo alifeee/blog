@@ -171,6 +171,18 @@ export default function (eleventyConfig) {
     if (limit == -1) return array;
     return array.slice(0, limit);
   });
+
+  // wordcount - probably pass "page.rawInput"
+  eleventyConfig.addFilter("wordcount", (content) => {
+    let words = content.match(/\w+/g);
+    let nwords = words.length;
+    return (
+      nwords +
+      " 'words', " +
+      Math.round((nwords / 200) * 60, 0) +
+      " secs @ 200wpm"
+    );
+  });
 }
 
 export const config = {

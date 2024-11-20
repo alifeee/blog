@@ -13,10 +13,13 @@ max_tags: 10
     </h2>
     <p class="tags">
         tags:
-        {{#each tags~}}
+        {{~#each tags~}}
         {{#unless @first}},{{/unless}}
         <a class="tag" href="/tagged/{{this}}">{{this}}</a>
         {{~/each}}
+
+        •
+        {{wordcount page.rawInput}}
         <button class="pseudo full-width" onclick="toggle_full_width()">full width</button>
     </p>
     {{{increase_headings content}}}
