@@ -35,25 +35,10 @@
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
     <link rel="stylesheet" href="../stylesheet.css" />
-    <!-- fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
-    />
-    <!-- zero-md: https://github.com/zerodevx/zero-md -->
-    <script type="module" src="../zero-md.js"></script>
-    <!-- alpinejs -->
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <!-- htmx -->
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
       import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
-      document.addEventListener("zero-md-rendered", function (event) {
+      document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
       });
@@ -61,6 +46,28 @@
 
     <!-- word-count component from word-count.js -->
     <script src="../word-count.js"></script>
+
+    <link rel="stylesheet" href="../github-markdown.min.css" />
+    <link rel="stylesheet" href="../stylesheet_md.css" />
+    <style>
+      /* from https://css-tricks.com/full-width-containers-limited-width-parents/ */
+      /* images with src="url.png#wider" are selected :) */
+      img[src$="wider"] {
+        max-height: unset;
+        max-width: unset;
+        --w-vw: 90vw;
+        --w-rem: 60rem;
+        --w: min(var(--w-vw), var(--w-rem));
+        /* min-width: 40rem; */
+        overflow-x: auto;
+        width: var(--w);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: calc(-1 * var(--w) / 2);
+        margin-right: calc(-1 * var(--w) / 2);
+      }
+    </style>
   </head>
 
   <body>
@@ -75,34 +82,240 @@
 
     <img id="background" src="./images/route.svg" alt="route" width="100%" />
     <main>
-      <section id="content">
-        <zero-md src="./bike-to-cambridge.md" no-shadow>
-          <template data-merge="append">
-            <link rel="stylesheet" href="../stylesheet_md.css" />
-            <style>
-              /* from https://css-tricks.com/full-width-containers-limited-width-parents/ */
-              /* images with src="url.png#wider" are selected :) */
-              .markdown-body img[src$="wider"] {
-                max-height: unset;
-                max-width: unset;
-                --w-vw: 90vw;
-                --w-rem: 60rem;
-                --w: min(var(--w-vw), var(--w-rem));
-                /* min-width: 40rem; */
-                overflow-x: auto;
-                width: var(--w);
-                position: relative;
-                left: 50%;
-                right: 50%;
-                margin-left: calc(-1 * var(--w) / 2);
-                margin-right: calc(-1 * var(--w) / 2);
-              }
-              :host {
-                contain: unset;
-              }
-            </style>
-          </template>
-        </zero-md>
+      <section id="content" class="markdown-body">
+        <h1 id="i-biked-from-birmingham-to-cambridge-a-tribute-to-national-cycle-routes">I biked from Birmingham to Cambridge (a tribute to National Cycle Routes)</h1>
+<p><word-count parent=".markdown-body"></word-count></p>
+<ol>
+<li><a href="#technicalities---how-far-did-i-bike">Technicalities - how far <em>did</em> I bike?</a></li>
+<li><a href="#how-to-plan-a-bike-route">How to plan a bike route</a><ol>
+<li><a href="#google-maps-hates-bikes">Google Maps hates bikes</a></li>
+</ol>
+</li>
+<li><a href="#national-cycle-routes">National Cycle Routes!</a><ol>
+<li><a href="#why-get-lost-when-you-can-not-get-lost">Why get lost when you can not get lost</a></li>
+<li><a href="#do-they-go-the-right-way">Do they go the right way?</a></li>
+<li><a href="#why-go-the-right-way-when-you-can-go-the-wrong-way">Why go the right way when you can go the wrong way</a></li>
+</ol>
+</li>
+<li><a href="#conclusion-and-what">Conclusion (&quot;And what?&quot;)</a></li>
+<li><a href="#appendix-tools">Appendix: Tools</a></li>
+</ol>
+<p>In April, I biked from Birmingham to Cambridge.</p>
+<p>More accurately, I half-biked, half-trained from Birmingham to Cambridge.</p>
+<p>The original plan was to be on the bike the whole way, from Birmingham to Leamington Spa, to Wellingborough, through Bedford, and finally into Cambridge (it may sound a haphazard route, but I&#39;d managed to find someone who would host me at each town!). This route was half on established cycle routes, and half country roads where I&#39;d have to find my own way. Not bad, but it might be annoying to navigate on roads which were completely new to me.</p>
+<p>But then... why should I have to bike on unlabelled routes and terrible roads? Why am I biking in the first place? Ultimately:</p>
+<ul>
+<li>Because I can,</li>
+<li>It sounds fun,</li>
+<li>I&#39;ve always wanted to go on a bike tour and this is almost that</li>
+</ul>
+<p>Therefore, why bother with a convoluted and annoying bike just for the sake of having biked the whole way. Let&#39;s ditch the idea of &quot;purity&quot;... and just catch a few trains to make it more pleasant. Here was the final route:</p>
+<p><img src="./images/route_descriptive.svg" alt="Sketch of the route that I took from Birmingham to Cambridge. Half of the image is shortcut via train."></p>
+<figcaption>
+
+<p>Look ma! I did most of it with my own legs!
+<a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/route.ipynb">Source</a>.</p>
+</figcaption>
+
+<p>In an ideal world, I would have biked closer to Cambridge, but I injured my foot just before the final day, so I couldn&#39;t. Hence, the horrific detour by train! (turns out, the Bedfordshire council <em>does not</em> let you take a bike onto their buses)</p>
+<p>So, what&#39;s the rest of this post about? Basically...</p>
+<ul>
+<li>Alternatives to Google Maps for finding a bike route</li>
+<li>Me using the opportunity of having data to make pretty graphs with Python</li>
+<li>Why you should cheat if you go on a bike ride</li>
+</ul>
+<h2 id="technicalities---how-far-did-i-bike">Technicalities - how far <em>did</em> I bike?</h2>
+<p>As the crow flies, the distance from my house to where I ended up in Cambridge is 141.1 km.
+If said crow got tired and wanted to stop off at the same places I stopped off, the distance would be 148.4 km (thanks to my friend trigonometry for such a small change.)</p>
+<p><img src="./images/crow_flies_distance_annotated.png#wider" alt="Screenshot from Google Maps showing the crow flies distance from Birmingham to Leamington to Bedford to Cambridge: 148 km"></p>
+<figcaption>
+
+<p>If I were a crow, it would be a nice life.
+I would also get to Cambridge in 148 km, with stopovers.
+From <a href="https://google.com/maps">Google Maps</a>.</p>
+</figcaption>
+
+<p>According to my records, I biked 150.3 km. That&#39;s more than 148.4 km!</p>
+<p>I&#39;m better than a crow! Or, I can (in the most roundabout of technicalities) now say:</p>
+<p>&quot;I biked the distance from Birmingham to Cambridge!&quot;</p>
+<p>That sounds pretty good! I&#39;ll start telling people that, and they&#39;ll be none the wiser.</p>
+<p>Since this seems to be the section with all the statistics, let&#39;s finish off with the rest of them:</p>
+<table>
+<thead>
+<tr>
+<th>Statistic</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Crow-distance from Birmingham to Cambridge</td>
+<td>141.1 km</td>
+</tr>
+<tr>
+<td>Sleepy crow-distance from Birmingham to Cambridge</td>
+<td>148.4 km</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Distance I biked</td>
+<td>150.3 km</td>
+</tr>
+<tr>
+<td>Total time cycling</td>
+<td>11hr 54min</td>
+</tr>
+<tr>
+<td>Total climb</td>
+<td>746 m</td>
+</tr>
+<tr>
+<td>Average speed</td>
+<td>12.6 km/h</td>
+</tr>
+</tbody></table>
+<h2 id="how-to-plan-a-bike-route">How to plan a bike route</h2>
+<p>Before this, I&#39;d not planned a very long bike ride before. I had biked from Durham to Newcastle, but that&#39;s basically a straight shot up the A167 until you find a &quot;Newcastle Road&quot; that you can follow. The biggest gripe I remember from this and other long-ish rides was that the directions <a href="https://google.com/maps">Google Maps</a> gave me were: not great for biking; and took <em>way</em> longer than the estimate said. These are basically encapsulated in what I will call my &quot;top 2 criteria for a perfect bike route&quot;:</p>
+<ol>
+<li>I don&#39;t want to bike on roads unfriendly to bikes (I think I should be allowed to desire to not be run over by a car)</li>
+<li>I don&#39;t want to stop to check my phone for directions (I&#39;m afraid I&#39;m not bourgeois enough to have one of those fancy phone holders on my handlebars)</li>
+</ol>
+<p>I ended up finding a great website for finding any distance bike routes: <a href="https://cycle.travel">cycle.travel</a>. As well as actual bike-friendly routes (which are, naturally, slightly longer than Google&#39;s suggestions but ten times more pleasant to bike on), the website provides some information about the type of roads on the route. This solves the first problem above, and also how I figure that...</p>
+<h3 id="google-maps-hates-bikes">Google Maps hates bikes</h3>
+<p>Here are the routes that <a href="https://google.com/maps">Google Maps</a> and <a href="https://cycle.travel">cycle.travel</a> give me for the route:</p>
+<p>Birmingham → Leamington Spa → Wellingborough → Bedford → Cambridge</p>
+<p><img src="./images/google_vs_cycle.travel_routes_with_legend.png#wider" alt="Comparison of the route from Google Maps and cycle.travel. They look broadly similar."></p>
+<figcaption>
+
+<p>Spot the difference.
+From <a href="https://gpx.studio/">gpx.studio</a>.</p>
+</figcaption>
+
+<p>They look pretty similar! Now let&#39;s use <a href="https://cycle.travel">cycle.travel</a>&#39;s route planner to see what types of roads you&#39;d be biking on if you followed these routes:</p>
+<p><img src="./images/google_vs_cycletravel_stats.svg" alt="Comparison of road type statistics for the Google Maps route and cycle.travel route. For (Google Maps, cycle.travel): busy roads (46.8 km, 2.4 km), paved roads (90.5 km, 155 km), paved paths (32.6 km, 48.3 km), unpaved paths (21.1 km, 5.3 km), pushing (6.6 km, 0.58 km)."></p>
+<figcaption>
+
+<p>Which of these would <em>you</em> rather bike on?
+<a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/maps_vs_cycleroutes.ipynb">Source</a>.</p>
+</figcaption>
+
+<p>Now personally, 2 of these 5 road types I find enjoyable to bike along, and the other three far less so. I&#39;ll leave it to you to imagine which. Needless to say, the directions Google gives you are <em>not</em> made for cycling.</p>
+<p>Additionally, <a href="https://google.com/maps">Google Maps</a> seems to think that you are some kind of cycling God, presumably decked out with Lycra, speed stripes, and one of those back-pockets. I say this because the time estimate it gives you expects you to be cycling <strong>19.1 km/h</strong>. If you aren&#39;t acutely aware of the relative speeds of biking, what are you doing with your life. But, if not, I would describe this as &quot;very fast&quot;. To contextualise: over three days, I managed an average of 12.6 km/h, and going what I felt was a moderate speed I would get to about 15 km/h. Meanwhile, <a href="https://cycle.travel">cycle.travel</a>&#39;s travel time estimates estimate that you are doing around 15.8 km/h. Much more reasonable. (though I <em>personally</em> still have to add an hour to any time estimates. What can I say, I love dawdling.)</p>
+<p>So, <a href="https://cycle.travel">cycle.travel</a> (or probably many other cycling websites) solves my first bike route desire: I don&#39;t want to be run over. How do we solve the second: I don&#39;t want a SatNav?</p>
+<h2 id="national-cycle-routes">National Cycle Routes!</h2>
+<p>Biking can be very pleasant when it&#39;s relaxing and stress-free (see: when there are no cars). National Cycle Routes are exactly that! They are a network of paths, roads, and bridges through the UK which are kept navigable, and they are all very well signed.</p>
+<blockquote>
+<p>The National Cycle Network is a UK-wide network of signed paths and routes for walking, wheeling, cycling and exploring outdoors.</p>
+</blockquote>
+<p>- <a href="https://www.sustrans.org.uk/national-cycle-network">Sustrans</a></p>
+<p>The goal of national cycle routes is to make it pleasant to bike on them. As I have expressed, the main goal of this whole adventure was also to have an enjoyable time, so why not use national cycle routes as much as possible!</p>
+<p><img src="./images/canal-bike-path.jpg" alt="Photo of a bike path going down to a canal towpath."></p>
+<figcaption>
+Ramp down to the Stratford canal, National Cycle Route 5.
+</figcaption>
+
+<h3 id="why-get-lost-when-you-can-not-get-lost">Why get lost when you can not get lost</h3>
+<p>One of my favourite things about the routes is that they are very well signed. <a href="https://www.sustrans.org.uk/">Sustrans</a> do a great job keeping them up to date and making any diversions obvious. Set off down a route, and you&#39;ll encounter a familiar blue and red sign at every turn keeping you on track. This pretty neatly deals with my &quot;I don&#39;t want to stop for directions&quot; criterion.</p>
+<p>If you blindly follow the routes, you will end up skirting round villages and past large roads in long, winding, or counterintuitive diversions, but you&#39;ll also end up encountering what you might not if you try and zoom through everywhere that you visit via the fastest route possible.</p>
+<p><img src="./images/ford.jpg" alt="Photo of large car half-submerged as it drives through a ford."></p>
+<figcaption>
+
+<p>Whoosh!
+Picture from a bridge next to the ford.
+Would&#39;ve been fun to try and get through on a bike though.</p>
+</figcaption>
+
+<p>There is a definite comfort in knowing that you&#39;re on the right track. If I weren&#39;t, then after every turn I&#39;d feel the need to check if I&#39;m going the right way, so I don&#39;t end up careening down a hill for ten minutes only to find I&#39;ve made a wrong turn and all the freewheeling fun was for nothing.</p>
+<p><img src="./images/wet-route.jpg" alt="Photo of a road in grey weather, with a pothole filled with water."></p>
+<figcaption>
+
+<p>Get to the end of this, but a thousand times, and you might end up in Cambridge.</p>
+</figcaption>
+
+<h3 id="do-they-go-the-right-way">Do they go the right way?</h3>
+<p>No.</p>
+<p>The national cycles routes come with the problem that they might simply not align with where you want to go. That was certainly the case for me. You try and find a good way from Birmingham to Cambridge that doesn&#39;t end up in a huge detour of a winding mess.</p>
+<p><img src="./images/national_cycle_routes_annotated.png#wider" alt="Screenshot of OS Maps between Birmingham and Cambridge with all national cycle routes shown. There are none that really go in the right direction."></p>
+<figcaption>
+
+<p>Here&#39;s a game. Why does everything go the wrong way?
+Sorry, that wasn&#39;t a game.
+From <a href="https://explore.osmaps.com/">OS Maps</a>.</p>
+</figcaption>
+
+<p>However, for me, biking along a cycle route offers too many benefits in contrast to the alternative: making sweeping shortcuts across Northamptonshire.</p>
+<h3 id="why-go-the-right-way-when-you-can-go-the-wrong-way">Why go the right way when you can go the wrong way</h3>
+<p>If my mind was cavernous and my thighs thunderous, I would be able to set off and bike straight towards Cambridge. Stopping only to sleep, this is the overall direction I would end up going in, thanks to petty limitations of the real world like &quot;roads don&#39;t go in perfectly straight lines&quot;:</p>
+<p><img src="./images/directionality_proposed_route.svg" alt="Polar bar chart, showing the proportion of the route (from cycle.travel) which goes in which direction (North/East/South/etc)"></p>
+<figcaption>
+
+<p>Turns out the fastest way to get somewhere is to go that way.
+<a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/directionality.ipynb">Source</a>.</p>
+</figcaption>
+
+<p>The sad news was I don&#39;t have a cavernous mind or thunderous thighs (the latter is at least achievable with more cycling). And with the fact that the direct route lies on approximately zero national cycle routes, it did not seem a good way to go. However! There was a solution! Trains! I could just hop on a quick 30-minute train and re-align myself with the curious spider web of cycleways. I just had to find out when and where I could do that, which is where the National Rail route map comes in:</p>
+<p><img src="./images/train_routes.png" alt="Screenshot from a PDF showing each of the train lines in the UK"></p>
+<figcaption>
+
+<p>An insight into my definitely organised mind:
+what I sketched to see which trains I could use on my journey if I needed to.
+Blue is the bike route, with green the trains that could be used as shortcuts.
+Background from <a href="https://www.nationalrail.co.uk/stations_destinations/rail-maps.aspx">National Rail</a> (<a href="./data/Rail%20map%20v37%20orange%20Dec%2022.pdf">PDF</a>).</p>
+</figcaption>
+
+<p>I ended up doing a completely different route which goes off both the top <em>and</em> bottom of that map, but it planted the seed that trains were only here to help.</p>
+<p><img src="./images/bike-on-train.jpg" alt="Photo of my bike inside a train carriage."></p>
+<figcaption>
+
+<p>I&#39;m big. My bike is big.
+Sometimes we fit in a train.</p>
+</figcaption>
+
+<p>If we look back at the route I finally did, I ended up on national cycle routes for <em>the whole thing</em>.</p>
+<p><img src="./images/route_descriptive.svg" alt="Sketch of the route that I took from Birmingham to Cambridge. Half of the image is shortcut via train."></p>
+<figcaption>
+
+<p>It&#39;s all national cycle routes?
+Always has been.
+<a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/route.ipynb">Source</a>.</p>
+</figcaption>
+
+<p>This ended up meaning that some days I was biking not towards Cambridge at all, which - if I were only biking - would usually mean zero progress towards the end. But not so bad here! It&#39;s easily fixable with a train or two.</p>
+<p><img src="./images/directionality_actual_routes.svg#wider" alt="Polar bar chart, showing the proportion of each of the three actual bike routes which goes in which direction (North/East/South/etc)"></p>
+<figcaption>
+
+<p>Going the right way is for nerds.
+<a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/directionality.ipynb">Source</a>.</p>
+</figcaption>
+
+<h2 id="conclusion-and-what">Conclusion (&quot;And what?&quot;)</h2>
+<p>To me, my journey counts as a bike tour. I will also say: bike touring is fun! You have one thing to do: bike. Go forwards. Head empty. Eat snack. Pedal.</p>
+<p>Also, let&#39;s not be purist. Trains make it so much better. You can pick and choose the best bike routes, all while retaining the feeling of slow progress towards your destination.</p>
+<p>10/10 would bike again.</p>
+<p><img src="./images/millenium-milestone.jpg" alt="Photo of my bike in front of a millennium milepost."></p>
+<figcaption>
+
+<p>My bike in front of <a href="https://www.sustrans.org.uk/national-cycle-network/millennium-mileposts">millennium milepost 897X</a>.
+6 km into day 2, the 80 km day.</p>
+</figcaption>
+
+<h2 id="appendix-tools">Appendix: Tools</h2>
+<p>Here are a few tools I used to get data from the bike ride, and subsequent GPS data:</p>
+<ul>
+<li>Planning routes - <a href="https://cycle.travel">cycle.travel</a></li>
+<li>View all the National Cycle Routes - <a href="https://explore.osmaps.com/">OS Maps</a></li>
+<li>Recording routes - <a href="https://explore.osmaps.com/">OS Maps</a></li>
+<li>Viewing route GPX data - <a href="https://gpx.studio/">gpx.studio</a></li>
+</ul>
+<p>You can also view the data analysis in the <a href="https://github.com/alifeee/blog/tree/main/bike-to-cambridge">GitHub repository</a>! In particular, check out these Jupyter notebooks:</p>
+<ul>
+<li><a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/route.ipynb">route.ipynb</a></li>
+<li><a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/maps_vs_cycleroutes.ipynb">maps_vs_cycleroutes.ipynb</a></li>
+<li><a href="https://github.com/alifeee/blog/blob/main/bike-to-cambridge/src/directionality.ipynb">directionality.ipynb</a></li>
+</ul>
+<p>You can open and play with these notebooks on <a href="https://mybinder.org/v2/gh/alifeee/blog/HEAD">Binder</a>.</p>
       </section>
       <hr />
 

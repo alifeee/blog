@@ -4,22 +4,26 @@ This repo contains blog stuff that I write, as well as any code used to generate
 
 ## Markdown
 
-Markdown parsing is done client side using [zero-md](https://github.com/zerodevx/zero-md). This is to avoid using a build step.
+Markdown parsing is done using [`markedjs`](https://marked.js.org/). Install and use it using:
 
-```html
-<head>
-    ...
-  <script
-    type="module"
-    src="../zero-md.js"
-  ></script>
-  ...
-</head>
-<body>
-  ...
-  <zero-md src="/example.md"></zero-md>
-  ...
-</body>
+```bash
+# install
+npm install -g marked
+# use
+marked file.md
+```
+
+...then I put the generated HTML into the file manually or use [a script](./2024/09/sellotape-dispenser/build.sh).
+
+To add anchor link IDs, add the [`marked-gfm-heading-id`](https://github.com/markedjs/marked-gfm-heading-id) extension using:
+
+```bash
+npm install -g marked-gfm-heading-id
+# add heading ID extension
+#   import { gfmHeadingId } from "marked-gfm-heading-id";
+#   marked.use(gfmHeadingId());
+# to add to CLI:
+sed -i '/import { marked } from /a import { gfmHeadingId } from "marked-gfm-heading-id";\nmarked.use(gfmHeadingId());' /usr/alifeee/.nvm/versions/node/v20.18.0/lib/node_modules/marked/bin/main.js
 ```
 
 ## RSS Feed
