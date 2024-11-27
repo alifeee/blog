@@ -2,6 +2,15 @@
 Then, a "similar.json" file is generated for each blog post, which contains the top 3 most similar blog posts to that blog post.
 """
 
+## 
+##
+## 
+## NOT USED
+## :)
+##
+## 
+##
+
 import os
 import json
 import re
