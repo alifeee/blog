@@ -35,20 +35,14 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
+    <link rel="stylesheet" href="../github-markdown.min.css" />
     <link rel="stylesheet" href="../stylesheet.css" />
-    <!-- fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
-    />
+    <link rel="stylesheet" href="../stylesheet_md.css" />
 
-    <!-- libraries -->
-    <!-- zero-md: https://github.com/zerodevx/zero-md -->
-    <script type="module" src="../zero-md.js"></script>
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
-      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
-      document.addEventListener("zero-md-rendered", function (event) {
+      import "../anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
       });
@@ -56,13 +50,6 @@
 
     <!-- word-count component from word-count.js -->
     <script src="../word-count.js"></script>
-
-    <!-- htmx -->
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
@@ -76,12 +63,124 @@
     </header>
 
     <main>
-      <section id="content">
-        <zero-md src="./what-is-a-third-space.md" no-shadow>
-          <template data-merge="append">
-            <link rel="stylesheet" href="../stylesheet_md.css" />
-          </template>
-        </zero-md>
+      <section id="content" class="markdown-body">
+        <h1 id="what-is-a-third-space-and-why-do-i-like-the-concept">What is a third space, and why do I like the concept?</h1>
+<p><word-count parent=".markdown-body"></word-count></p>
+<p>I am currently talking a lot about third spaces. Let me write my thoughts down. Maybe I&#39;ve sent you a link to this very page.</p>
+<ol>
+<li><a href="#who-is-this-relevant-to">Who (is this relevant to)?</a></li>
+<li><a href="#what-is-a-third-space">What (is a third space)?</a></li>
+<li><a href="#why-do-they-exist">Why (do they exist)?</a></li>
+<li><a href="#when-do-they-exist">When (do they exist)?</a></li>
+<li><a href="#where-are-they">Where (are they)?</a><ol>
+<li><a href="#what-makes-a-rubbish-third-space">What makes a rubbish third space?</a><ol>
+<li><a href="#bad-time-based-availability">Bad time-based availability</a></li>
+<li><a href="#bad-financial-accessibility">Bad financial accessibility</a></li>
+<li><a href="#bad-social-accessibility">Bad social accessibility</a></li>
+<li><a href="#task-based-activities">Task-based activities</a></li>
+</ol>
+</li>
+<li><a href="#list-of-third-spaces">List of third spaces!</a></li>
+</ol>
+</li>
+<li><a href="#how-can-i-go-to-a-third-space">How (can I go to a third space)?</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#information">Information</a></li>
+<li><a href="#footnotes">Footnotes</a></li>
+</ol>
+<p>Time for a lightning round of the 5 Ws</p>
+<h2 id="who-is-this-relevant-to">Who (is this relevant to)?</h2>
+<p>Everyone! I encourage everyone I know to think about and visit third spaces. I believe they provide an experience valuable to everyone.</p>
+<h2 id="what-is-a-third-space">What (is a third space)?</h2>
+<p>To me, a third space is:</p>
+<ul>
+<li>a place that is not your work or your home</li>
+<li>and a place which you can visit semi-regularly, and have repeated interactions and chats with the same people, without planning to meet with them beforehand</li>
+</ul>
+<p>If you text friends/colleagues/acquaintances, and then go to a place to meet them, it is not a third space in my view. This is just a group of people meeting together, as an activity. A third space is somewhere people meet by chance, and somewhere that people are comfortable going to alone, because they know that people will be there who they can socialise with and chat to.</p>
+<p>I have tried to keep this definition broad, to include many places. In my personal opinion, some third spaces are better than others, &quot;better&quot; here meaning more socially &quot;good&quot;. &quot;Good&quot; here meaning &quot;good&quot;<a href="#footnotes">¹</a>.</p>
+<h2 id="why-do-they-exist">Why (do they exist)?</h2>
+<p>Humans are social creatures<a href="#footnotes">²</a>. Third spaces are places that people <em>choose</em> to go exist in, and to socialise in, unlike the more forced nature of socialising at work, or even at home. There is a level of intentionalness about going to a third space which renders them different to &quot;the first&quot; (home) or &quot;second&quot; (work) places.</p>
+<h2 id="when-do-they-exist">When (do they exist)?</h2>
+<p>Okay, this is a strange W, but, I have twisted it into: third spaces have always existed, and I think people in &quot;modern&quot; society should be more aware of them as a social good, especially as the Internet and modern post-capitalism have trended younger generations towards a more... isolated lifestyle. In this way I also think that they should flourish and their existence grow.</p>
+<p>In my experience, a lot of people disregard third spaces as unimportant because they feel they lack the time outside of work and domesticity to be able to just &quot;hang around&quot; somewhere, without being <em>productive</em> with what little time they have left of the week. I think this is a bad thing, and that everyone should have more time (that fact alone is worth another entire blog post) to slow down and enjoy a third space.</p>
+<h2 id="where-are-they">Where (are they)?</h2>
+<p>Perhaps the most important W! Here I will list some places I consider to be third spaces, along with whether I consider them to be &quot;good&quot; third spaces (or, &quot;good examples&quot;) and why.</p>
+<h3 id="what-makes-a-rubbish-third-space">What makes a rubbish third space?</h3>
+<p>In order to not repeat myself, I introduce a few common reasons that a third place might be a bit rubbish</p>
+<h4 id="bad-time-based-availability">Bad time-based availability</h4>
+<p>Basically, this is the freedom to come and go on your own schedule. If a space is only accessible once a fortnight or once a month, then I think the time-based availability is bad. If you &quot;miss&quot; going to a third space, and that means you will have to wait a few weeks before being able to go again, the time-based accessibility is bad.</p>
+<p>I think a good space strives to be open as often as possible. However, being available too often may come with other drawbacks, such as a necessity to spend money.</p>
+<h4 id="bad-financial-accessibility">Bad financial accessibility</h4>
+<p>If you have to pay every time you visit a third space, or if it requires some kind of membership fee, it has bas financial accessibility.</p>
+<h4 id="bad-social-accessibility">Bad social accessibility</h4>
+<p>If you turn up to a space and people are not welcoming then it has bad social accessibility. This can be because the space is considered for a certain &quot;type of person&quot; by the people who attend it (think <a href="https://en.wikipedia.org/wiki/Private_members%27_club">Gentlemen&#39;s Club</a>), or just because lots of people use the space only for pre-agreed meetings with friends, so are not turned on to the idea of talking to, or socialising with, strangers (think cafés, board game cafés, pool halls).</p>
+<h4 id="task-based-activities">Task-based activities</h4>
+<p>Some social spaces only exist because everybody there has a task in common that requires they meet at the space. I personally do not consider these proper accessible third spaces.</p>
+<h3 id="list-of-third-spaces">List of third spaces!</h3>
+<p>In no particular order, here is my (and <a href="https://alifeee.co.uk/i-am-having-a-good-blow-at-cheltenham/">Robyn</a>&#39;s) list of third spaces. Each space has a clarification of what problems it may have to limit its goodness as a third space. These are theoretical based on our assumptions of a presumed average space of each type.</p>
+<ul>
+<li><p>Hackspace/makerspace</p>
+<p>  This is <a href="https://blog.alifeee.co.uk/hackspace-adventures/">my favourite</a> third space to visit. Some hackspaces have bad time-based availability (are only open for social nights once a week/infrequently). They could also be socially daunting to people who may not consider themselves &#39;specialised&#39; enough to attend. If this is you: maybe <a href="https://blog.alifeee.co.uk/hackspace-adventures/">my post about hackspaces</a> can change your mind! ;)</p>
+</li>
+<li><p>Community garden</p>
+<p>  Community gardens are fun! The time-based availability could be less-than-optimal, and the same with the weather.</p>
+</li>
+<li><p>Community centre/social club</p>
+<p>  In theory, there is not much wrong with these!</p>
+</li>
+<li><p>Community café</p>
+<p>  I have specifically said &quot;community café&quot; here, as I believe most cafés are not third spaces, but places people go (sometimes in groups) to buy drinks and food. However, I do think some cafés foster more of a sense of community and socialisation, so I include them here with the quite-arbitrary adjective of &quot;community&quot;. One issue here is a potential bad financial accessibility, which is a problem brought by the capitalistic need to purchase.</p>
+</li>
+<li><p>Barbershop/hair stylist</p>
+<p>  I think people get a lot of social time out of hair establishments. I think they are similar to cafés, and have similar problems of financial accessibility.</p>
+</li>
+<li><p>Gym</p>
+<p>  I prefer to bike, but I know some people consider gyms great third spaces. Again, however, I believe there is often a financial accessibility issue.</p>
+</li>
+<li><p>Members club</p>
+<p>  Fun idea. Could be quite socially exclusionary and have financial accessibility issues.</p>
+</li>
+<li><p>Pool hall</p>
+<p>  An example I often use. However, could be socially daunting or socially exclusionary, especially if the people there are there to play their <em>own</em> games of pool with their <em>own</em> friends, and not necessarily speak to <em>strangers</em>.</p>
+</li>
+<li><p>Board game café</p>
+<p>  Another place after my own heart, although time-based availability is often poor. That is to say that most of the time they are not social places, but instead only offer social evenings once or twice a month.</p>
+</li>
+<li><p>Religious groups</p>
+<p>  This is a broad category and includes things organised by people who attend places of worship, but the activities to be thought of here are not specifically worship. Again, time-based availability is perhaps not great, and potentially socially exclusionary.</p>
+</li>
+<li><p>Sports clubs</p>
+<p>  For example, tennis clubs, golf clubs, badminton clubs, climbing gyms. I think these have quite a large range of accessibility, thrice socially, physically, and fiscally.</p>
+</li>
+<li><p>Dog park</p>
+<p>  I think this is an interesting example, but one I consider &quot;task based&quot;, as people only turn up here who have a dog to walk, so not overly accessible.</p>
+</li>
+<li><p>School playground</p>
+<p>  Ditto to the above, but &quot;dog to walk&quot; → &quot;child to walk&quot;.</p>
+</li>
+<li><p>Laundrette</p>
+<p>  Also ditto to the above, but &quot;dog to walk&quot; → &quot;garment to walk&quot;.</p>
+</li>
+</ul>
+<p>I think that any place has the potential to be a great third space, for anyone! I think that there are a few common reasons holding some places back, or holding some people back (me) from thinking they are the best examples of third spaces that they want to provide to represent and explain the idea.</p>
+<p>This is also not an exhaustive list! If you have any other ideas, do comment or text me.</p>
+<h2 id="how-can-i-go-to-a-third-space">How (can I go to a third space)?</h2>
+<p>If any of the spaces above or in the links below interest you, try and find the one nearest you! Or, ask me about it and I will give you my opinion as someone who has repeatedly had to find third places because of my frequent moving between cities.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I love third spaces. I also love &quot;free spaces&quot;, which is a different concept for another time that I desire my society to have more of.</p>
+<p>My definition of third spaces, I think, differs slightly from the general definition of a &quot;third place&quot;, as I tend to place more importance on the social aspect, and opportunity to socialise and chat to people you may not know, or would not have otherwise. This may also be why I enjoy hitchhiking<a href="#footnotes">³</a>.</p>
+<h2 id="information">Information</h2>
+<p>The content here was produced from my own brain. Lots of other people over time have influenced my brain. Here are some of them.</p>
+<p><a href="https://en.wikipedia.org/wiki/The_Great_Good_Place_(book)">The Great Good Place</a> is a book I have not read, but I keep hearing about.</p>
+<p><a href="https://en.wikipedia.org/wiki/Third_place">The Wikipedia page on Third Places</a> has a lot of information. In particular, the section on &quot;Oldenburg&#39;s characteristics&quot; makes interesting criteria for what a third place is (&quot;Neutral ground&quot;, &quot;A levelling place&quot;, &quot;Conversation is the main activity&quot;, <a href="https://en.wikipedia.org/wiki/Third_place#Oldenburg's_characteristics">read more...</a>)</p>
+<p><a href="https://www.youtube.com/@Andrewism">Andrewism</a> is a YouTuber who posts videos about solarpunk ideals and ideas for a better society. In particular, he has a <a href="https://youtu.be/MD_CMrCpBMc?si=0gHkONRWMC7vu652">video specifically about third spaces</a>.</p>
+<h2 id="footnotes">Footnotes</h2>
+<ol>
+<li>I believe humans are inherently good, so they should have an understanding of what &quot;good&quot; means</li>
+<li>citation needed</li>
+<li>hitchhiking blogpost coming soon...</li>
+</ol>
       </section>
       <hr />
 
@@ -96,17 +195,6 @@
           Message me on any social media →
           <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
         </p>
-      </section>
-
-      <section id="similar">
-        <h1>
-          Similar posts
-          <a
-            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
-            >(?)</a
-          >
-        </h1>
-        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
       </section>
     </main>
 

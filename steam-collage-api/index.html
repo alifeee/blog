@@ -34,26 +34,26 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
+    <link rel="stylesheet" href="../github-markdown.min.css" />
+    <link rel="stylesheet" href="../prism.min.css" />
     <link rel="stylesheet" href="../stylesheet.css" />
-    <!-- fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
-    />
-    <!-- zero-md: https://github.com/zerodevx/zero-md -->
-    <script type="module" src="../zero-md.js"></script>
+    <link rel="stylesheet" href="../stylesheet_md.css" />
+
+    <!-- prismjs for code highlighting -->
+    <script src="../prism.min.js"></script>
+    <script src="../prism-autoloader.min.js">
+    </script>
+    <script>
+      Prism.plugins.autoloader.languages_path = '/prism-components/';
+    </script>
+
     <!-- alpinejs -->
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <!-- htmx -->
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../alpine.min.js" defer></script>
+
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
-      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
-      document.addEventListener("zero-md-rendered", function (event) {
+      import "../anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
       });
@@ -64,6 +64,19 @@
 
     <!-- alive checker web component -->
     <script src="./alive_checker.js" defer></script>
+
+    <style>
+      input {
+        max-width: 10rem;
+        margin: auto;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    </style>
   </head>
 
   <body>
@@ -77,24 +90,243 @@
     </header>
 
     <main>
-      <section id="content">
-        <zero-md src="./steam-collage-api.md" no-shadow>
-          <template data-merge="append">
-            <link rel="stylesheet" href="../stylesheet_md.css" />
-            <style>
-              input {
-                max-width: 10rem;
-                margin: auto;
-              }
-              .column {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-              }
-            </style>
-          </template>
-        </zero-md>
+      <section id="content" class="markdown-body">
+        <h1 id="coding-projects-1-collage-generator-for-steam-games">Coding Projects! #1: Collage generator for Steam games</h1>
+<p><word-count parent=".markdown-body"></word-count></p>
+<ol>
+<li><a href="#what-tools-to-use">What tools to use?</a><ol>
+<li><a href="#how-to-get-steam-library-information">How to get Steam library information</a></li>
+<li><a href="#image-manipulation">Image manipulation</a></li>
+<li><a href="#hosting-as-an-api">Hosting as an API</a></li>
+</ol>
+</li>
+<li><a href="#memory-issues">Memory issues</a></li>
+<li><a href="#thoughts">Thoughts</a></li>
+</ol>
+<p>Below, you <em>should</em> see a lovely image of my four most recently played games on <a href="https://steamcommunity.com/id/alifeee/">Steam</a>. You can also change it to display your Steam account.</p>
+<p><del>If you use Firefox,</del> this should work. <del>If you use Chrome (or anything else), the <a href="https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html?m=1">images will be blocked</a>, as they are <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content">mixed media</a>. To fix this, you can allow mixed media on <code>blog.alifeee.co.uk</code>. If I <a href="https://github.com/alifeee/steam_collage_api/issues/21">add HTTPS in the future</a>, this should not be needed.</del> I added HTTPS (2024-02-19).</p>
+<details>
+<summary><del>How to enable HTTP images on Chrome</del></summary>
+
+<ol>
+<li>Navigate to site settings for <code>blog.alifeee.co.uk</code>
+<img src="images/chrome_site_settings.png" alt="Screenshot of Chrome site settings"></li>
+<li>Enable <code>Insecure content</code>
+<img src="images/chrome_insecure_content.png" alt="Screenshot of insecure content setting"></li>
+<li>Done. Now HTTP images will be allowed only for this webpage.</li>
+</ol>
+</details>
+
+<figcaption>
+
+<p>API status: <img src="https://steamcollage.alifeee.co.uk/steamcollage/alive_img" onerror="this.src='./didnotload.png'" style="background-color: orange; display: inline-block; height: 1rem; width: 1rem; border-radius: 50%;" /></p>
+</figcaption>
+
+<div
+    x-data="{user: 'alifeee'}"
+    class="column"
+    >
+    <div>
+        <input type="text" x-model.lazy="user" />
+        <button>Go!</button>
+    </div>
+    <img
+        src="https://steamcollage.alifeee.co.uk/steamcollage/games?id=alifeee&cols=2&rows=2&sort=recent"
+        alt="Oops. It must have broken. Here *should* be alifeee's 4 most recently played Steam games."
+        :src="'https://steamcollage.alifeee.co.uk/steamcollage/games?id=' + user + '&cols=2&rows=2&sort=' + (user == 'alifeee' ? 'recent' : 'playtime')"
+        :alt="'Oops. It must have broken. Here *should* be ' + user + 's library.'"
+        >
+    </img>
+</div>
+
+<figcaption>
+
+<p>For my library, these are my four most recently played games. For yours, it&#39;s your four most played (<a href="https://github.com/alifeee/steam_collage_api/issues/20">recent is broken</a>). <del>This is HTTP content on an HTTPS page, so it may also not work if you are on Chrome - see above.</del></p>
+</figcaption>
+
+<p>This is created fresh every time you reload the page, and comes from <a href="http://server.alifeee.co.uk">my server</a>.</p>
+<p>Is being able to have a live image like that worth the considerable (as you will unearth below) pain?
+Maybe. I think it&#39;s neat!</p>
+<p>I consider myself a visual person, and as such I like to always have an image to use in combination with text (as you see on <a href=".."><em>this blog&#39;s homepage</em></a> any <a href="https://linktr.ee/liputenpo">lipu tenpo posts</a>, and any Notion page I have [unfortunately] made you subscribe to). In the past for these things I have used Python and <a href="https://python-pillow.org/">Pillow</a> to make collages, such as this <a href="https://linktr.ee/liputenpo">lipu tenpo</a> collage:</p>
+<p><img src="./images/lipu%20tenpo%20collage.png" alt="Collage of lipu tenpo covers"></p>
+<figcaption>
+
+<p><a href="https://linktr.ee/liputenpo">lipu tenpo</a> is a non-profit magazine written entirely in <a href="https://en.wikipedia.org/wiki/Toki_Pona">toki pona</a>. I originally created this cover image for personal use, but it turned out useful as a banner for the <a href="https://linktr.ee/liputenpo">social media</a>.</p>
+</figcaption>
+
+<p>I also made a Python script to generate Steam game collages, the very topic of this blog post.
+This I put this <a href="https://github.com/alifeee/steam_collage_api/tree/1483bc0ed5157e9608e7cf31a8a07a50645d1343">on GitHub</a> for anyone to use.</p>
+<p>However, as it only worked locally (and my <a href="https://github.com/alifeee/steam_collage_api/tree/1483bc0ed5157e9608e7cf31a8a07a50645d1343">installation instructions</a> weren&#39;t exactly... <em>exhaustive</em>), it couldn&#39;t be used very easily.
+This meant when people were interested, I ended up just generating an image for them, rather than them being able to act autonomously.
+This also meant that any images were fixed in aspect ratio, size, games included, etc.
+I did have the ambition to &quot;put it on the web&quot;, but knowing little of the web at the time, my thoughts were &quot;surely you can just run a Python file on a website?&quot;. After trying, I did not manage this.</p>
+<p>But! That&#39;s where this blog post comes in! A few years later (and with more knowledge about <a href="https://en.wikipedia.org/wiki/Website">websites</a>, <a href="https://en.wikipedia.org/wiki/API">APIs</a>, and <a href="https://en.wikipedia.org/wiki/Server_(computing)">servers</a>) I felt I could now come up with a solution for making my collage generator more usable, and less manual.</p>
+<h2 id="what-tools-to-use">What tools to use?</h2>
+<p>Atomised, the idea of &quot;automatically make collages from Steam game libraries&quot; can be split into:</p>
+<ol>
+<li>how to get steam library information</li>
+<li>image manipulation</li>
+<li>how to host the tool</li>
+</ol>
+<h3 id="how-to-get-steam-library-information">How to get Steam library information</h3>
+<p>In <a href="https://github.com/alifeee/steam_collage_api/tree/1483bc0ed5157e9608e7cf31a8a07a50645d1343">my first attempt</a>, I used <a href="https://en.wikipedia.org/wiki/Web_scraping">web scraping</a> to get a list of all games from a user&#39;s <a href="https://steamcommunity.com/id/alifeee/games/?tab=all">Steam profile page</a>. While this worked, it was not robust, and a bit of a hack. By this point, I had more experience using APIs, so I decided to use <a href="https://steamcommunity.com/dev">Steam&#39;s API</a>.</p>
+<p>Annoyingly (and as is often the case with public APIs), it was not easy to read the <a href="https://steamcommunity.com/dev">documentation</a>, and Steam has several APIs, with the two biggest helpfully differentiated by one being the <a href="https://partner.steamgames.com/doc/api">&quot;Steamworks API&quot;</a>, and the other the <a href="https://partner.steamgames.com/doc/webapi">&quot;Steamworks Web API&quot;</a>.</p>
+<p>The latter had the two endpoints I needed. <a href="https://partner.steamgames.com/doc/webapi/ISteamUser">Firstly</a>, a way to convert <a href="https://www.makeuseof.com/how-to-set-up-custom-url-steam-profile/">vanity URLs</a> to <a href="https://help.steampowered.com/en/faqs/view/2816-BE67-5B69-0FEC">steam IDs</a> (other APIs generally want a steam ID). <a href="https://partner.steamgames.com/doc/webapi/IPlayerService">Secondly</a>, an endpoint which returns the list of games owned by a player.</p>
+<pre><code class="language-bash">GET https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/
+</code></pre>
+<p>The response from the games API looks like this:</p>
+<pre><code class="language-json">[
+    {
+        &quot;appid&quot;: 10,
+        &quot;name&quot;: &quot;Counter-Strike&quot;,
+        &quot;playtime_forever&quot;: 0,
+        &quot;img_icon_url&quot;: &quot;2a9b1a1c8e8f9d1f9a9b1a1c8e8f9d1f9a9b1a1c&quot;,
+        &quot;playtime_windows_forever&quot;: 0,
+        &quot;playtime_mac_forever&quot;: 0,
+        &quot;playtime_linux_forever&quot;: 0,
+        &quot;rtime_last_played&quot;: 0,
+    },
+    {
+        &quot;appid&quot;: 20,
+        &quot;name&quot;: &quot;Team Fortress Classic&quot;,
+        &quot;playtime_forever&quot;: 0,
+        &quot;img_icon_url&quot;: &quot;2a9b1a1c8e8f9d1f9a9b1a1c8e8f9d1f9a9b1a1c&quot;,
+        &quot;playtime_windows_forever&quot;: 0,
+        &quot;playtime_mac_forever&quot;: 0,
+        &quot;playtime_linux_forever&quot;: 0,
+        &quot;rtime_last_played&quot;: 0,
+    },
+]
+</code></pre>
+<p>Perfect. Just need to wrap that in some Python, and I&#39;ve got the games. That boils down to something like this</p>
+<pre><code class="language-python">import requests
+
+...
+
+url = &quot;http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/&quot;
+params = {
+    &quot;key&quot;: API_KEY,
+    &quot;steamid&quot;: steam_id,
+}
+r = requests.get(url, params=params)
+json = r.json()
+games = response[&quot;games&quot;]
+</code></pre>
+<p>For the actual code, see <a href="https://github.com/alifeee/steam_collage_api/blob/master/api/steam_api.py"><code>steam_api.py</code></a>.
+Next, the images.</p>
+<h3 id="image-manipulation">Image manipulation</h3>
+<p>There was little novel here this time around, since I&#39;d already made a collage in my <a href="https://github.com/alifeee/steam_collage_api/tree/1483bc0ed5157e9608e7cf31a8a07a50645d1343">old project</a>.</p>
+<p>Firstly, I had to find a reliable way of getting the game thumbnails. I found this URL from the <a href="https://store.steampowered.com/app/400/Portal/">store page thumbnails</a> which works pretty well.</p>
+<pre><code class="language-bash">GET https://cdn.cloudflare.steamstatic.com/steam/apps/400/header.jpg
+</code></pre>
+<p>Play around with it, see if you can randomly find the game IDs for your favourite games (or, alternatively, see what nostalgia trips you can go on since all the low number IDs are games from about 2003).</p>
+<div
+    x-data="{gameid: 400}"
+    style="
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        min-height:215px;
+        "
+    >
+    <input type="number" x-model="gameid" style="width: 5rem" step="10" />
+    <div style="display: flex; flex-wrap: wrap; justify-content: center">
+        <template x-for="id in [20, 30, 70, 150, 400, 500, 550, 810, 4000]">
+            <button
+                @click="gameid = id"
+                x-html="id"
+                style="width: 3rem; margin: 0.25rem"
+                >
+            </button>
+        </template>
+    </div>
+    <img
+        src="https://cdn.cloudflare.steamstatic.com/steam/apps/400/header.jpg"
+        :src="'https://cdn.cloudflare.steamstatic.com/steam/apps/' + gameid + '/header.jpg'"
+        width="460px"
+        height="215px"
+        style="max-width: 90vw; height: auto; width: auto; margin: auto;"
+        alt="game not found"
+    />
+</div>
+
+<figcaption>
+
+<p>Steam game thumbnails. I don&#39;t know exactly how Steam assigns IDs, but it seems that above a few thousand, every multiple of 10 or 100 is a different game.</p>
+</figcaption>
+
+<p>We can fetch these images and use <a href="https://python-pillow.org/">Pillow</a> to combine them into a collage.</p>
+<pre><code class="language-python">from PIL import Image
+
+...
+
+collage = Image.new(&quot;RGB&quot;, (width_px, height_px))
+for i, thumbnail in enumerate(thumbnail):
+    row = i // columns
+    col = i % columns
+    x = col * thumbnail_width
+    y = row * thumbnail_height
+    collage.paste(image, (x, y))
+return collage
+</code></pre>
+<p>Again, for the actual code I used for this, see <a href="https://github.com/alifeee/steam_collage_api/blob/master/api/images.py"><code>images.py</code></a>. Finally, hosting!</p>
+<h3 id="hosting-as-an-api">Hosting as an API</h3>
+<p>The <a href="https://github.com/alifeee/steam_collage_api/tree/1483bc0ed5157e9608e7cf31a8a07a50645d1343">original project</a> was just a Python file. The motivation this time was to make an <a href="https://en.wikipedia.org/wiki/API">API</a>, so I could host the Python file on a <a href="https://en.wikipedia.org/wiki/Server_(computing)">server</a> and get the images from anywhere. Then, anyone could make a collage, without having to screw around installing Python (even with what fun that is).</p>
+<p>For an API in Python, I found <a href="https://flask.palletsprojects.com/en/2.2.x/">Flask</a>. It seems to do all I want, as well as having an <em>ancient</em>-looking logo. You can run a basic HTTP server with some simple code.</p>
+<pre><code class="language-python">from waitress import serve
+from flask import Flask, request, send_file
+
+app = Flask(__name__)
+
+@app.route(&quot;/steamcollage/alive&quot;)
+def alive():
+    return &quot;Alive&quot;
+
+if __name__ == &quot;__main__&quot;:
+    serve(app, host=&quot;0.0.0.0&quot;, port=5000)
+</code></pre>
+<p>When you visit <code>http://0.0.0.0:5000/steamcollage/Alive</code> on a web browser (or, for the more bold among you, make a Curl request...), you will be greeted with</p>
+<pre><code class="language-text">Alive
+</code></pre>
+<p>Since this example is also an <a href="https://github.com/alifeee/steam_collage_api/blob/5dd1bd9e44967719a7596f2b6987d42a9da1b68e/api/api.py#L21-L24">actual endpoint</a> for the server I set up, you can see it live <a href="https://steamcollage.alifeee.co.uk/steamcollage/alive">here</a>. With only a few lines of Python code you can make a lovely web server. At the moment, it&#39;s only HTTP, not HTTPS, which means <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content">I can only really use it to serve images</a>. But... that works fine for this!</p>
+<p>You can see the full API code in <a href="https://github.com/alifeee/steam_collage_api/blob/master/api/api.py"><code>api.py</code></a>. Its function is to: take the steam ID, and required image size (rows/cols/sorting), and use the methods from the sections above to make an image and return it. Here is a briefened version of <a href="https://github.com/alifeee/steam_collage_api/blob/master/api/api.py">the code</a>:</p>
+<pre><code class="language-python">from steam_api import getGamesFromSteamId
+from images import makeCollage, bytesFromPilImage
+
+...
+
+@app.route(&quot;/steamcollage/games&quot;)
+def games():
+    profile_string = request.args.get(&quot;id&quot;)
+    columns = request.args.get(&quot;cols&quot;, default=8, type=int)
+    rows = request.args.get(&quot;rows&quot;, default=9, type=int)
+
+    allgames = getGamesFromSteamId(API_KEY, profile_id)
+    
+    collage = makeCollage(allgames, (columns, rows))
+    collage_bytes = bytesFromPilImage(collage)
+
+    return send_file(collage_bytes, mimetype=&quot;image/jpeg&quot;)
+</code></pre>
+<p>With that, it&#39;s made! And to get the image, it&#39;s as simple as changing the <a href="https://en.wikipedia.org/wiki/Query_string">query parameters</a> on the URL. For example, the default image at the top of this post uses the URL:</p>
+<pre><code class="language-url">http://server.alifeee.co.uk/steamcollage/games
+  ?id=alifeee
+  &amp;rows=2
+  &amp;cols=2
+  &amp;sort=recent
+</code></pre>
+<p>So, you can get any collage you want by just changing the URL in your browser. However, to make it easier, I also made a <a href="https://alifeee.co.uk/steam_mosaic/">simple webpage on my website</a>.</p>
+<p>That means with little effort, I can make great background images like this (all of my games on Steam):</p>
+<p><img src="./images/mosaic.jpeg" alt="Giant collage"></p>
+<h2 id="memory-issues">Memory issues</h2>
+<p>Making a larger collage requires downloading a lot of images. To this end, I initially set up the script to save a cache of thumbnails as it went, so that over time, collages would be quicker as more and more games were locally cached. However, I use Docker to host the app, and the server I use to host it only has a small amount of memory available to use. If I downloaded the thumbnails for all the games on Steam it would amount to several gigabytes of storage (around 30 kb average thumbnail size &#215; <a href="https://backlinko.com/steam-users">around 100k games</a>). This would not be a lot of disk usage, but for a reason I could never figure out, having a cache monotonically increased the memory usage of the Docker container, resulting in an inevitable shutdown when it reached the maximum allowed memory usage. Not knowing a lot about Docker, my solution to this was to disable caching. Perhaps in the future I can fight the issue again and turn it back on.</p>
+<p>After I &#39;fixed&#39; the first memory issues, there was another, hiding behind the first. Initially, the program worked by downloading a thumbnail, adding it to the collage, and when it was complete, resizing the collage and returning it. The problem here was that there was no maximum size for the intermediate collage, so that if you asked for many rows and columns, it created an image in Pillow many times larger than 4K resolution, and Python quickly ran out of memory, also killing the Docker container. The fix for this was more reasonable, and was just to resize the thumbnails before adding them to the image, so that the image never got larger than 4K resolution, so the memory usage was never behemothal.</p>
+<h2 id="thoughts">Thoughts</h2>
+<p>Overall, it was a neat little contained project to make. I know a lot more about APIs, HTTP vs HTTPS, and Docker deployments, as well as using a Test-Driven-Development style to write a lot of the code. If I were to build upon the project, I&#39;d want to add an image cache, improve the creation speed, and maybe add something funky like multithreading.</p>
+<p>I would also most likely not deploy it with Docker a second time around. It is an extremely small-in-scope hobby project, and does not need continuous deployment. I am fine to have to execute a couple of shell commands every time I want to redeploy it.</p>
+<p>Have a play on <a href="https://alifeee.co.uk/steam_mosaic/">the frontend</a>!</p>
+<!-- links -->
       </section>
       <hr />
 
@@ -109,17 +341,6 @@
           Message me on any social media →
           <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
         </p>
-      </section>
-
-      <section id="similar">
-        <h1>
-          Similar posts
-          <a
-            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
-            >(?)</a
-          >
-        </h1>
-        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
       </section>
     </main>
 
@@ -140,5 +361,7 @@
       </div>
       <a class="backlink" href="../">Back to main page</a>
     </footer>
+
+    
   </body>
 </html>

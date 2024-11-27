@@ -32,20 +32,14 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
+    <link rel="stylesheet" href="../github-markdown.min.css" />
     <link rel="stylesheet" href="../stylesheet.css" />
-    <!-- fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
-    />
+    <link rel="stylesheet" href="../stylesheet_md.css" />
 
-    <!-- libraries -->
-    <!-- zero-md: https://github.com/zerodevx/zero-md -->
-    <script type="module" src="../zero-md.js"></script>
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
-      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
-      document.addEventListener("zero-md-rendered", function (event) {
+      import "../anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
       });
@@ -53,13 +47,6 @@
 
     <!-- word-count component from word-count.js -->
     <script src="../word-count.js"></script>
-
-    <!-- htmx -->
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
 
     <!-- extra scripts -->
     <style>
@@ -70,6 +57,46 @@
           var(--background-colour) 0.5px
         );
         background-size: 10px 10px;
+      }
+    </style>
+    <style>
+      @font-face {
+        font-family: "classic-neil";
+        src: url("fonts/classic-neil/classicneil.woff") format("woff");
+      }
+      .font--classic-neil * {
+        font-family: "classic-neil", cursive;
+      }
+      @font-face {
+        font-family: "vmorse";
+        src: url("fonts/vmorse/VMORSE.woff") format("woff");
+      }
+      .font--vmorse * {
+        font-family: "vmorse", cursive;
+      }
+      @font-face {
+        font-family: "font";
+        src: url("fonts/font/font.woff") format("woff");
+      }
+      .font--font * {
+        font-family: "font", sans-serif;
+      }
+      @font-face {
+        font-family: "Ricardo";
+        src: url("fonts/ricardo/Ricardo.woff") format("woff");
+      }
+      .font--ricardo * {
+        font-family: "Ricardo", cursive;
+      }
+      @font-face {
+        font-family: "A Font";
+        src: url("fonts/a-font/a-font.woff") format("woff");
+      }
+      .font--a-font * {
+        font-family: "A Font", cursive;
+      }
+      .font--cursive * {
+        font-family: cursive;
       }
     </style>
   </head>
@@ -85,52 +112,89 @@
     </header>
 
     <main>
-      <section id="content">
-        <zero-md src="./font-workshop.md" no-shadow>
-          <template data-merge="append">
-            <link rel="stylesheet" href="../stylesheet_md.css" />
-            <style>
-              @font-face {
-                font-family: "classic-neil";
-                src: url("fonts/classic-neil/classicneil.woff") format("woff");
-              }
-              .font--classic-neil * {
-                font-family: "classic-neil", cursive;
-              }
-              @font-face {
-                font-family: "vmorse";
-                src: url("fonts/vmorse/VMORSE.woff") format("woff");
-              }
-              .font--vmorse * {
-                font-family: "vmorse", cursive;
-              }
-              @font-face {
-                font-family: "font";
-                src: url("fonts/font/font.woff") format("woff");
-              }
-              .font--font * {
-                font-family: "font", sans-serif;
-              }
-              @font-face {
-                font-family: "Ricardo";
-                src: url("fonts/ricardo/Ricardo.woff") format("woff");
-              }
-              .font--ricardo * {
-                font-family: "Ricardo", cursive;
-              }
-              @font-face {
-                font-family: "A Font";
-                src: url("fonts/a-font/a-font.woff") format("woff");
-              }
-              .font--a-font * {
-                font-family: "A Font", cursive;
-              }
-              .font--cursive * {
-                font-family: cursive;
-              }
-            </style>
-          </template>
-        </zero-md>
+      <section id="content" class="markdown-body">
+        <h1 id="i-ran-a-computer-font-making-workshop">I ran a computer font-making workshop!</h1>
+<p><word-count parent=".markdown-body"></word-count></p>
+<p>This week I ran a computer font-making workshop at my local hackspace. It was a bunch of fun, and I really enjoyed seeing the creativity come out of people via the medium of creating typefaces :)</p>
+<h2 id="why">Why?</h2>
+<p><a href="../making-bogface/">I like fonts</a></p>
+<h2 id="who-where-when">Who, Where, When?</h2>
+<p>I ran the workshop at my local hackspace. I&#39;d seen that they had run workshops before on knife-making and other things, and I thought it would be neat if I did something similarly collective. Often, people are together at the hackspace, which I <a href="../what-is-a-third-space/">enjoy in and of itself</a>. But, it is extra neat if people can be together and all be working on similar things.</p>
+<p>About three or four weeks ago, I decided to just &quot;do it&quot;, and I made up a sign and put it up at the hackspace.</p>
+<p><img src="./images/workshop-sign.jpg" alt="Hand-drawn sign saying "font making workshop""></p>
+<figcaption>
+
+<p>Some have pointed out an irony that a poster for a computer font workshop was handwritten...</p>
+</figcaption>
+
+<p>As far as I was concerned, &quot;a workshop&quot; was not really an established idea. But that&#39;s part of the reason I like community spaces like the hackspace: I can pretend something is an established idea and people will believe it is.</p>
+<p>I didn&#39;t start with a great plan, but rather started by motivating myself to create a plan (by putting up the poster). This turned out to be a nice method of motivation, as I had set a date for my &quot;workshop&quot;, which forced me to consider what a &quot;workshop&quot; would involve.</p>
+<h2 id="what-does-a-workshop-involve">What does a workshop involve?</h2>
+<p>I ended up giving a short presentation about why I like fonts, some things to think about when designing a font, and an overview of how to use FontForge, which is the program <a href="../making-bogface/">that I made BogFace in</a>.</p>
+<h3 id="the-presentation">The presentation</h3>
+<p>I thought about using Google Slides to make a presentation. However, you can&#39;t use custom fonts, which was... kind of a killer for a font workshop.</p>
+<p>I went with <a href="https://revealjs.com/">RevealJS</a>, which I had seen one of my computer-loving lecturers use at university. It&#39;s quite neat to use, mainly because everything is written in HTML. I guess I am fate-bound to never use a WYSIWYG editor again.</p>
+<p>The presentation is hosted at <a href="https://alifeee.co.uk/font-workshop/">https://alifeee.co.uk/font-workshop/</a>, but since it is a website, I can also embed it here! Have a scuttle around (press space to <del>slow down</del> progress.)</p>
+<iframe
+  src="https://alifeee.co.uk/font-workshop/"
+  style="width: 100%; height: 100%; min-height: 20rem"
+></iframe>
+
+<figcaption>
+
+<p>If I do another workshop in the future, I will probably update this a bit, and this embed would change :)</p>
+</figcaption>
+
+<h2 id="what-people-made">What people made</h2>
+<p>I helped five people make their own fonts. Each one went about it quite (or slightly, depending on how much you care about fonts) differently.</p>
+<p>No method was wrong. Some methods were slower, fostering - I think - more appreciation for digital graphic work. All methods were very creative, and it was great to see different ways people went about making a font.</p>
+<p>Described briefly, and each description written in their own font, here are the ways people created their fonts:</p>
+<p>(Some are incomplete. Some will be updated as time passes.)</p>
+<div class="font--classic-neil">
+
+<h3 id="auto-traced-handwriting">Auto-traced handwriting</h3>
+<p>Tanya<a href="#footnotes">¹</a> did what many designate the &quot;classic move&quot; in font-making: they made a handwriting font.</p>
+<p>The method was to draw the letters a through z on paper and take a picture of it. Then, each letter was isolated into a bitmap image of each letter. <a href="https://potrace.sourceforge.net/">potrace</a> was used to convert the bitmap images into SVG images, which were then imported into FontForge, where they could be resized and moved around to look good.</p>
+</div>
+
+<div class="font--font">
+
+<h3 id="manually-traced-hand-designed-letters">Manually traced hand-designed letters</h3>
+<p>Ivanka<a href="#footnotes">¹</a> drew some guidelines on paper, and designed and drew block letters on the sheet. Then, they took a picture of the hand-drawn letters and digitised them manually, using the vector tools in FontForge.</p>
+</div>
+
+<div class="font--vmorse">
+
+<h3 id="designed-a-morse-code-font">Designed a Morse code font</h3>
+<p>Dragomir<a href="#footnotes">¹</a> designed a Morse font. You are reading it now.</p>
+</div>
+
+<div class="font--a-font">
+
+<h3 id="digitally-designed-letter-forms">Digitally designed letter forms</h3>
+<p>Katya<a href="#footnotes">¹</a> designed their letter forms entirely digitally, within FontForge. After a few, they were able to copy stylistic parts of letters to other letters, such as the caps of &quot;b&quot; and &quot;d&quot;.</p>
+</div>
+
+<div class="font--ricardo">
+
+<h3 id="stroke-expanded-lines-drawn-via-touchscreen">Stroke-expanded lines drawn via touchscreen</h3>
+<p>Tomislav<a href="#footnotes">¹</a> used their touchscreen laptop to draw the letters with a single stroke, and then used FontForge&#39;s <a href="https://fontforge.org/docs/techref/stroke.html">&quot;Expand Stroke&quot;</a> to turn the one-dimensional drawings into two-dimensional vector shapes.</p>
+</div>
+
+<h2 id="id-love-to-do-another-workshop">I&#39;d love to do another workshop!</h2>
+<p>I had a lot of fun helping people make fonts, through thinking about design to how to practically using tools. It was very interesting and cool to me that each person involved made their font differently.</p>
+<p>In terms of how I ran it, and my presentation, I have some ideas of how to make things clearer and easier to understand.</p>
+<p>It was very fun to do, and I&#39;d love to run another font workshop!</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>My blog post about how I made a font: <a href="https://blog.alifeee.co.uk/making-bogface/">https://blog.alifeee.co.uk/making-bogface/</a></li>
+<li>The presentation I used for this workshop: <a href="https://github.com/alifeee/font-workshop/">https://github.com/alifeee/font-workshop/</a></li>
+<li>Another font I am halfway through making as of writing (repository contains some nice commands for working with traced images): <a href="https://github.com/alifeee/kiran-builder-typeface">https://github.com/alifeee/kiran-builder-typeface</a></li>
+</ul>
+<h2 id="footnotes">Footnotes</h2>
+<ul>
+<li>¹Names randomly generated using <a href="https://github.com/Necronhym/Name_Generator">https://github.com/Necronhym/Name_Generator</a></li>
+</ul>
       </section>
       <hr />
 
@@ -145,17 +209,6 @@
           Message me on any social media →
           <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
         </p>
-      </section>
-
-      <section id="similar">
-        <h1>
-          Similar posts
-          <a
-            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
-            >(?)</a
-          >
-        </h1>
-        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
       </section>
     </main>
 

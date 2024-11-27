@@ -31,26 +31,22 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
+    <link rel="stylesheet" href="../github-markdown.min.css" />
+    <link rel="stylesheet" href="../prism.min.css" />
     <link rel="stylesheet" href="../stylesheet.css" />
-    <!-- fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
-    />
-    <!-- zero-md: https://github.com/zerodevx/zero-md -->
-    <script type="module" src="../zero-md.js"></script>
-    <!-- alpinejs -->
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <!-- htmx -->
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="../stylesheet_md.css" />
+
+    <!-- prismjs for code highlighting -->
+    <script src="../prism.min.js"></script>
+    <script src="../prism-autoloader.min.js"></script>
+    <script>
+      Prism.plugins.autoloader.languages_path = "/prism-components/";
+    </script>
+
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
-      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
-      document.addEventListener("zero-md-rendered", function (event) {
+      import "../anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
       });
@@ -83,12 +79,759 @@
     </header>
 
     <main>
-      <section id="content">
-        <zero-md src="./hull-bus-sign.md" no-shadow>
-          <template data-merge="append">
-            <link rel="stylesheet" href="../stylesheet_md.css" />
-          </template>
-        </zero-md>
+      <section id="content" class="markdown-body">
+        <h1
+          id="hull-bus-terminal-signs-making-pong-on-an-old-dot-matrix-display"
+        >
+          Hull Bus Terminal Signs: Making Pong on an old Dot-Matrix Display
+        </h1>
+        <p><word-count parent=".markdown-body"></word-count></p>
+        <ol>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#opening-it-up">Opening it up</a></li>
+          <li>
+            <a href="#how-to-connect-to-a-bunch-of-scary-looking-electronics"
+              >How to connect to a bunch of scary looking electronics</a
+            >
+            <ol>
+              <li><a href="#ribbon-cable">Ribbon cable</a></li>
+              <li><a href="#soldering">Soldering</a></li>
+              <li>
+                <a href="#connected-but-it-doesnt-work"
+                  >Connected! But it doesn&#39;t work</a
+                >
+              </li>
+            </ol>
+          </li>
+          <li>
+            <a href="#what-is-spi">What is SPI?</a>
+            <ol>
+              <li><a href="#the-fix">The fix!</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#the-final-project---pong"
+              >The &quot;Final Project&quot; - Pong!</a
+            >
+          </li>
+          <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#links">Links</a></li>
+        </ol>
+        <h2 id="introduction">Introduction</h2>
+        <p>
+          Several weeks ago I wandered into
+          <a href="https://linktr.ee/makerspacehull">Hull Makerspace</a> to see
+          what it was like. At the time the only Makerspace (<a
+            href="https://www.makerspaces.com/what-is-a-makerspace/"
+            >what is a Makerspace?</a
+          >) I had been to was <a href="https://fizzpop.org.uk/">fizzPOP</a> in
+          Birmingham, so I wanted to see what others were like. After reading
+          about computing pedagogy in some
+          <a href="https://helloworld.raspberrypi.org/">magazines</a> I found, I
+          stumbled across an interesting looking GitHub repository on Hull
+          Makerspace&#39;s
+          <a href="https://linktr.ee/makerspacehull">linktr.ee</a> (as of now
+          it&#39;s no longer there). It was titled &quot;Bus Terminal
+          Signs&quot; and the initial readme contained only the lines:
+        </p>
+        <p>
+          <code
+            >Everything we found out about these signs and Arduino code to drive
+            them</code
+          >
+        </p>
+        <p><code>This is a work in progress.</code></p>
+        <p>
+          The only thing I knew about &quot;bus terminal signs&quot; was that
+          for a few years, the ones at Hull&#39;s bus station were broken, with
+          the solution of printed A4 paper with bus timetables stuck to each
+          door. Eventually, they were replaced by LED screens. (Personally, I
+          think dot matrix displays are great and shouldn&#39;t be replaced
+          under the reasoning that they&#39;re &#39;old technology&#39;, as
+          commenters suggest
+          <a
+            href="https://www.ianvisits.co.uk/articles/euston-station-testing-new-departure-display-boards-58759/"
+            >here</a
+          >.)
+        </p>
+        <p>
+          I asked the Makerspace staff, and they told me that my suspicions were
+          correct, and when the bus station had ditched the old signs for good,
+          they had asked Hull Makerspace if they wanted the (broken) signs. Of
+          course, they said yes. A year or so ago the Makerspace had given them
+          out to members, but they still had two or three hidden behind some
+          workbenches, so they pulled one out for me behind the scenes. Here it
+          is!
+        </p>
+        <p>
+          <img src="images/hw_sign_closed.jpg" alt="Picture of bus sign on a
+          workbench. It is a long blue and black dot matrix display with the
+          titles "Service", "Destination", and "Time"">
+        </p>
+        <p>
+          I had a bit of a deeper look into the
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/tree/924d6c9f16a497d58154f33e4dc9a63ff28e7344"
+            ><code>Bus Terminal Signs</code> GitHub repository</a
+          >
+          and saw that
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/924d6c9f16a497d58154f33e4dc9a63ff28e7344/Code/CH_AS1100.cpp#L3"
+            >Paul Richards</a
+          >
+          and <a href="https://github.com/BNNorman">Brian Norman</a> had
+          documented part of their work with the signs, including datasheets,
+          images, and code to interface with the chips on the signs. Knowing
+          what I knew about electronics, C, and hardware, I saw this as a great
+          opportunity for a self-contained and fun project I could work on at
+          the Makerspace! My initial ambitions were that: I wanted to set up the
+          signs myself and get them displaying pixels and/or text; and I wanted
+          to document the process a bit more, so that others who had taken signs
+          home could understand more easily how to use them.
+        </p>
+        <p>
+          The end result was that I improved the original documentation, and it
+          is now hosted on the same repository:
+          <a href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/"
+            >ConnectedHumber/Bus-Terminal-Signs</a
+          >! On there is a step-by-step guide on setting up the signs as well as
+          many images. On the rest of this page, I will go into a bit more depth
+          (and in a bit more of a storytelling theme) on my electronical
+          adventure with the signs :)
+        </p>
+        <h2 id="opening-it-up">Opening it up</h2>
+        <p>
+          The first step was to... take it all apart and look at the wires! With
+          only four allen-key twists, we got the sign open to have a better look
+          inside. Here&#39;s what it looks like open, with the LED panels lifted
+          on their hinge:
+        </p>
+        <p>
+          <img
+            src="images/hw_sign_open.png"
+            alt="Picture of the bus sign with the front panel lifted. You can see the individual LED dot matrix panels."
+          />
+        </p>
+        <p>
+          Inside there are a
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/8442f09b8f9d1832f875e6f604bd82d333bfda3f/pics/Control%20Modules.png"
+            >lot of electronics</a
+          >. There were two leads coming out of the box: a severed 3-core power
+          cable; and an Ethernet cable. I had initially considered trying to
+          hack into the Ethernet cable by sending the &quot;correct&quot;
+          requests, and maybe the sign would <em>magically work</em>. This would
+          probably not happen, so instead I wired directly into the microchips
+          controlling the LEDs!...
+        </p>
+        <h2 id="how-to-connect-to-a-bunch-of-scary-looking-electronics">
+          How to connect to a bunch of scary looking electronics
+        </h2>
+        <p>
+          Here is a zoom of the sign. As you can see, the LEDs come in panels,
+          which are removable. Under each panel are four microchips (called
+          AS1100 chips -
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/master/Datasheets/AS1100_DS000273_1-00.pdf"
+            >datasheet</a
+          >
+          for the strong-hearted) for controlling the lights. These are wired up
+          so that each chip controls a 6 x 8 pixel grid, and there are four of
+          these per LED panel.
+        </p>
+        <p>
+          <img
+            src="images/hw_sign_as1100-chips.jpg"
+            alt="Close-up picture of the electronics behind one of the panels on the display. Four AS1100 chips are visible."
+          />
+        </p>
+        <figcaption>
+          <p>
+            One panel is 24 x 9 pixels. The bottom row isn&#39;t used, leaving
+            four 6 x 8 grids, which each of these four chips controls.
+          </p>
+        </figcaption>
+
+        <p>
+          The AS1100 chips are daisy-chained together, so you only have to
+          attach wires to the input of the first chip, and then it outputs a
+          delayed signal into the input of the next chip. All-in-all, 32 chips
+          are daisy-chained together on the top row, and the same on the bottom.
+          The rows are controlled independently. This is shown as a diagram in
+          the
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/master/Datasheets/AS1100_DS000273_1-00.pdf"
+            >AS1100 datasheet</a
+          >
+        </p>
+        <p>
+          <img
+            src="images/sw_as1100_daisychain.png"
+            alt="Screenshot from AS1100 datasheet showing chips joined to 8x8 dot matrix displays, and chained together, along with accompanying text."
+          />
+        </p>
+        <figcaption>
+          <p>
+            A curious note: the AS1100 chips are actually <em>not</em> designed
+            to drive dot-matrix displays, but instead
+            &quot;<em>should</em>&quot; be used for 7-segment displays. Their
+            ability to drive dot matrix displays is just secondary and covered
+            in this single diagram in the datasheet.
+          </p>
+        </figcaption>
+
+        <p>So...! We only need to wire into the first chip.</p>
+        <h3 id="ribbon-cable">Ribbon cable</h3>
+        <p>
+          Handily, there is already a ribbon cable, connecting from the PCB
+          containing the chips (above) to the aforementioned
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/8442f09b8f9d1832f875e6f604bd82d333bfda3f/pics/Control%20Modules.png"
+            >&quot;bunch of electronics&quot;</a
+          >
+          (below).
+        </p>
+        <p>
+          <img
+            src="images/hw_sign_ribbon-cable.jpg"
+            alt="Close-up of a ribbon cable connected to a PCB via a socket."
+          />
+        </p>
+        <p>
+          It was already worked out which ribbon cable pins connect to which
+          terminals on the AS1100 chips by BNNorman (<a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/#pin-designation"
+            >Ribbon cable pin designation</a
+          >), so all I had to do was figure out a way to connect the ribbon
+          cable wires to an
+          <a href="https://store.arduino.cc/products/arduino-uno-rev3"
+            >Arduino</a
+          >. Without ordering any parts online, the easiest way I could think to
+          do that was to... just solder straight onto the back of the pins of
+          the ribbon cable connector.
+        </p>
+        <p>
+          I initially marked the cable-to-solder-pad mapping the wrong way round
+          (I had the first pin on the bottom right), but using a multimeter, I
+          noticed it was wrong. I probably should&#39;ve realised that just like
+          the red marking on the ribbon cable designating wire 1, the square
+          soldering pad on the PCB also designated pin 1. If you imagine it,
+          though, this means there are some funky Z-shaped wires inside the
+          connector to make the pins connect to the opposite side that they
+          entered in. Weird.
+        </p>
+        <p>
+          <img
+            src="images/hw_sign_ribbon-port_back.png"
+            alt="Close-up picture of the pins of the ribbon cable, and the soldering pads on the bottom of the PCB. Both are correspondingly numbered."
+          />
+        </p>
+        <p>
+          <img
+            src="images/hw_sign_ribbon-port_front.png"
+            alt="Close-up picture of the top of the PCB, showing the holes the ribbon cable enters."
+          />
+        </p>
+        <h3 id="soldering">Soldering</h3>
+        <p>
+          To solder some wires onto the PCB, I first had to have some wires.
+          Revolutionary. So I cut some lengths from wire coils, stripped them,
+          tinned them, and crimped them (all skills which Hull Makerspace was
+          more than glad to help with).
+        </p>
+        <p>
+          <img
+            src="images/hw_wires_stripped.jpg"
+            alt="Picture of several loose stripped wires above an electronics workbench."
+          />
+        </p>
+        <p>
+          And the final soldering. As they say, &quot;you shouldn&#39;t use
+          solder for strength&quot;, but hey... I can pick up this circuit board
+          by just the wires now. They only came off three times when I did that.
+        </p>
+        <p>
+          <img
+            src="images/hw_sign_ribbon-board_back.jpg"
+            alt="Close-up picture of wires soldered into the connection pads on the back of a PCB."
+          />
+        </p>
+        <figcaption>
+          <p>Wires soldered to pins 2, 3, 5, 7, &amp; 8</p>
+        </figcaption>
+
+        <p>
+          These wires are only for controlling the logic of the chips. The LEDs
+          are powered separately. So, the only connections we need here are:
+        </p>
+        <ul>
+          <li>Ground</li>
+          <li>ISET (sets the brightness of the LEDs)</li>
+          <li>DATA (for sending data packets)</li>
+          <li>CLOCK (for synchronising data sending)</li>
+          <li>
+            LOAD (for telling the chip when we have finished sending data)
+          </li>
+        </ul>
+        <p>
+          In other words, this is
+          <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface"
+            >SPI communication</a
+          >! I hadn&#39;t used SPI before, and so had to learn how it worked, as
+          you&#39;ll see below.
+        </p>
+        <p>
+          After soldering, we can put it together and connect the wires to the
+          sign (as well as connecting power to it)...
+        </p>
+        <p>
+          <img
+            src="images/hw_setup_zoom.jpg"
+            alt="Picture of the bus sign with several wires attached to it."
+          />
+        </p>
+        <figcaption>
+          <p>Looking like a Frankensteinian machine with all those wires.</p>
+        </figcaption>
+
+        <p>
+          ...and connect the control/logic wires to the Arduino, so we can send
+          data to the chips...
+        </p>
+        <p>
+          <img
+            src="images/hw_arduino_lonely.jpg"
+            alt="Close-up picture of an Arduino Elego Uno R3, with three wires connected into pins 8, 9, and 10."
+          />
+        </p>
+        <figcaption>
+          <p>
+            The contact-anxious among you will be glad to know I moved these
+            wires further apart later on.
+          </p>
+        </figcaption>
+
+        <p>
+          ...and that&#39;s all that should be needed! Now we just program the
+          Arduino with
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/master/Code/Examples/display_test.ino"
+            >some code</a
+          >, and it should work!
+        </p>
+        <h3 id="connected-but-it-doesnt-work">
+          Connected! But it doesn&#39;t work
+        </h3>
+        <p>
+          Lights! This was the first time I got the sign to light up.
+          Unfortunately it lit up completely randomly and with no clear logic,
+          but hey! Lights!
+        </p>
+        <video
+          controls
+          preload="none"
+          poster="./images/videopre_sign_garbage.jpg"
+          loop
+        >
+          <source src="./images/videoff_sign_garbage.mp4" type="video/mp4" />
+        </video>
+
+        <figcaption>
+          <p>
+            You never know. Enough of these could be a funky backdrop to a DJ
+            set.
+          </p>
+        </figcaption>
+
+        <p>
+          This was the end of the journey beginning &quot;let&#39;s plug it in
+          and see if it immediately works&quot;, with the sad answer of &quot;it
+          doesn&#39;t&quot;. Now, it was time for some investigative
+          electronics, i.e., sticking an oscilloscope to things and seeing what
+          happens.
+        </p>
+        <h2 id="what-is-spi">What is SPI?</h2>
+        <p>
+          All about SPI! With only the datasheet in-hand, I started in the dark
+          corner of &quot;I have no idea what SPI is&quot;, and played around
+          with an oscilloscope until I understood what was happening.
+        </p>
+        <p>
+          SPI (Serial Peripheral Interface) is a way for one piece of
+          electronics to send messages to another one, used mainly for devices
+          that are physically next to each other and always attached with the
+          same wires. One device is a &quot;host&quot; and the other a
+          &quot;listener&quot;.
+        </p>
+        <p>
+          Here is the explanation of SPI from the
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/master/Datasheets/AS1100_DS000273_1-00.pdf"
+            >AS1100 datasheet</a
+          >. My explanation follows.
+        </p>
+        <p>
+          <img
+            src="images/sw_as1100_serial-addressing-modes.png"
+            alt="Screenshot from AS1100 datasheet, showing SPI protocol as a timing diagram."
+          />
+        </p>
+        <p>
+          SPI communication had been set up in the
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/tree/924d6c9f16a497d58154f33e4dc9a63ff28e7344"
+            >original</a
+          >
+          code by using &quot;bit banging&quot;, where wire signals are changed
+          to <strong>HIGH</strong> and <strong>LOW</strong> using Arduino code.
+          I wanted to change this to use Arduino&#39;s SPI library, as it is
+          faster and less error-prone, but first I had to understand SPI. So,
+          Hull Makerspace found me an oscilloscope. This, I attached to two SPI
+          wires, <strong>CLOCK</strong> and <strong>DATA</strong> (explained
+          below), to see what was happening when the Arduino sent a signal to
+          the bus sign.
+        </p>
+        <p>
+          <img
+            src="images/hw_arduino_probes.png"
+            alt="Closeup picture of oscilloscope probes attached to wires going into Arduino."
+          />
+        </p>
+        <figcaption>
+          <p>Probes.</p>
+        </figcaption>
+
+        <p>
+          <img
+            src="images/hw_setup_scoping.jpg"
+            alt="Picture of workbench, showing all components to make bus sign work. Oscilloscope by the side connects to setup."
+          />
+        </p>
+        <figcaption>
+          <p>Probes, et al.</p>
+        </figcaption>
+
+        <p>
+          For SPI, there are three wires. A <em>clock</em> wire, a
+          <em>data</em> wire, and a <em>load</em> wire. When the
+          <strong>host</strong> wants to send a message (2 bytes), they
+          oscillate the <em>clock</em> signal up and down 16 times (16 bits),
+          and each time it goes up they put the <em>data</em> wire to the
+          corresponding bit of the byte(s). I used the Arduino to send the SPI
+          signal 0x0E02 (0000 1110 0000 0010), and the voltage on the wires
+          looked like this:
+        </p>
+        <p>
+          <img
+            src="images/sw_oscilloscope_bad-spi.png"
+            alt="Digital image of oscilloscope trace. Above: yellow signal oscillating. Below: blue signal turning on and off less frequently."
+          />
+        </p>
+        <figcaption>
+          <p>
+            Top, yellow: clock signal. Bottom, blue: data signal. Grey vertical
+            lines: rising edge of the clock signal, which triggers the device to
+            read from the data line. See that 0x0E02 is encoded in the blue
+            signal as 0000&nbsp;1110&nbsp;0000&nbsp;0010.
+          </p>
+        </figcaption>
+
+        <p>
+          So, it looked like the SPI was working! In fact, it was. The real
+          problem was that the voltage was too low. It needed to be 5 V to be
+          registered by the bus sign, and as you can see above, it was anywhere
+          from around 3 to 4 V. This meant that only some peaks in the above
+          signal were registered by the sign, so it was basically receiving
+          rubbish. That explained the flickering.
+        </p>
+        <p>
+          The root cause of this problem was that the Arduino wasn&#39;t
+          grounded to the same ground as the bus sign, and as soon as I
+          connected the common grounds the signal corrected itself, and became
+          the below. Nice and neat.
+        </p>
+        <p>
+          <img
+            src="images/hw_oscilloscope_trace.jpg"
+            alt="Picture of oscilloscope screen, showing neat SPI trace."
+          />
+        </p>
+        <figcaption>
+          <p>
+            One SPI message, taking up the whole screen. Top, yellow: clock
+            signal. Bottom, blue: data signal.
+          </p>
+        </figcaption>
+
+        <p>
+          With this 5 V signal, the sign worked perfectly, so it turned out
+          there was nothing wrong with the code. However, at this point, I had
+          spent almost two days figuring out how SPI works, so I
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/commit/42d419e2f393794e35022eb3a698ca0bd0645b34"
+            >changed the code to use Arduino&#39;s native SPI</a
+          >
+          anyway. It ended up being only a couple of lines:
+        </p>
+        <pre><code class="language-arduino">void Panel::write16(int d) {
+  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE3));
+  SPI.transfer16(d);
+  SPI.endTransaction();
+}
+</code></pre>
+        <p>
+          Finally, the third wire in SPI is used for confirmation. You can have
+          multiple devices connected to your <strong>CLOCK</strong> and
+          <strong>DATA</strong> signals, and then you can send a final signal on
+          the <strong>LOAD</strong> wire of a specific device to make it process
+          the signal. This can be seen on this trace:
+        </p>
+        <p>
+          <img
+            src="images/hw_oscilloscope_signal.jpg"
+            alt="Picture of oscilloscope screen, showing SPI trace more zoomed out."
+          />
+        </p>
+        <figcaption>
+          <p>
+            The same SPI message from above but with LOAD instead of DATA,
+            zoomed out. Top, yellow: clock signal. Bottom, blue: load signal.
+            The load signal is sent with software, so takes longer than the
+            internal SPI communications.
+          </p>
+        </figcaption>
+
+        <h3 id="the-fix">The fix!</h3>
+        <p>
+          Now that SPI was fixed, after not actually being broken, I could start
+          using the sign as intended: as a customisable dot matrix display! The
+          first thing was to make sure it worked, so I sent the debug command
+          which flashes on/off all the LEDs, and...
+        </p>
+        <p>It worked!</p>
+        <video
+          controls
+          preload="none"
+          poster="./images/videopre_sign_display-test.jpg"
+          loop
+        >
+          <source
+            src="./images/videoff_sign_display-test.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <figcaption>
+          <p>In Morse, is this eeeeeee or ttttttt?</p>
+        </figcaption>
+
+        <p>
+          Now that the sign worked, the
+          <a
+            href="https://www.connectedhumber.org/Bus-Terminal-Signs/html/index.html"
+            >documented library code</a
+          >
+          could be used to make a
+          <a
+            href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/blob/master/Code/Examples/scrolling_text.ino"
+            >simple script</a
+          >
+          to scroll the screen with text:
+        </p>
+        <pre><code class="language-arduino">#include &lt;CH_AS1100.h&gt;
+
+#define LOAD_PIN_TOP 7 // top panel
+#define LOAD_PIN_BOT 5 // bottom panel
+#define NUM_CHIPS 32 // panel length
+
+Panel topRow = Panel(LOAD_PIN_TOP, NUM_CHIPS);
+Panel bottomRow = Panel(LOAD_PIN_BOT, NUM_CHIPS);
+
+void showText(Panel &amp;p, char *msg)
+{
+    p.setCursor(0, 0);
+    p.setTextColor(1);
+    p.setTextSize(1); // pixel size multiplier
+    p.println(msg);
+    p.display();
+}
+
+void setup()
+{
+    topRow.begin();
+    bottomRow.begin();
+
+    showText(topRow, (char *)&quot;Hull Makerspace&quot;);
+    showText(bottomRow, (char *)&quot;@alifeee&quot;);
+}
+
+void loop()
+{
+    topRow.scrollRows(1, true); // wrap scroll left to right
+    topRow.display();
+    bottomRow.scrollRows(-1, true); // wrap scroll right to left
+    bottomRow.display();
+}
+</code></pre>
+        <p>And there we go!</p>
+        <video
+          controls
+          preload="none"
+          poster="./images/videopre_sign_scrolling-text_fast.jpg"
+          loop
+        >
+          <source
+            src="./images/videoff_sign_scrolling-text_fast.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <figcaption>
+          <p>
+            Ignore the dead pixel. I
+            <a
+              href="https://github.com/ConnectedHumber/Bus-Terminal-Signs/commit/1c7fe0c121c2975fd823975c814084656c6ecbe9"
+              >fixed that</a
+            >
+            eventually.
+          </p>
+        </figcaption>
+
+        <h2 id="the-final-project---pong">
+          The &quot;Final Project&quot; - Pong!
+        </h2>
+        <p>
+          Now that I could use the sign fairly effectively, I wanted to get
+          something cool set up. I had originally wanted to set up a server on
+          the sign so that anyone could connect and change the text, so that it
+          could be displayed somewhere. However, my friend John had just given
+          me a
+          <a href="https://neonode.com/technologies/zforce/touch-sensor-modules"
+            >&quot;touchless touch sensor&quot;</a
+          >, so another friend suggested I make Pong with this touch sensor as a
+          controller.
+        </p>
+        <p>
+          The way time works had meant I only had one day to make the game, so I
+          got stuck in. The first thing I did was plan the game in pseudocode.
+          Here&#39;s a snippet of the
+          <a href="./pong%20plan.txt">full thing</a>, with (most of) my plan for
+          the game loop.
+        </p>
+        <pre><code class="language-text">...
+
+# game loop (every frame)
+compute delta
+deal with touch events
+  for each event
+    get player
+    get y
+    set player position to y
+deal with ball
+  work out ball&#39;s next position
+  if off top of screen
+    reverse y velocity
+    set position to top of screen
+  ...
+  add velocity to ball position
+clear pixels
+draw paddles
+draw ball
+send display()
+</code></pre>
+        <p>
+          I used this to write the code in Arduino&#39;s language, and it
+          basically... just worked :) Here&#39;s the result!
+        </p>
+        <video
+          controls
+          preload="none"
+          poster="./images/videopre_both_pong.jpg"
+          loop
+        >
+          <source src="./images/videoff_both_pong.mp4" type="video/mp4" />
+        </video>
+
+        <figcaption>
+          <p>v0.4.0? More like v1.0.0. Endless fun to be had.</p>
+        </figcaption>
+
+        <p>
+          Finally, I left the game set up in the Makerspace for a few weeks, so
+          anyone could play it if they wanted.
+        </p>
+        <p>
+          <img
+            src="images/output_pong.jpg"
+            alt="Picture of sign and electronics set up to play Pong on a workbench at Hull Makerspace."
+          />
+        </p>
+        <figcaption>
+          <p>
+            The power supply powers the sign, and the laptop powers the Arduino.
+            Pong!
+          </p>
+        </figcaption>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>
+          Pong! The signs were pretty fun to get working and use, and I now have
+          many ideas and other things I want to do with them. Some things I want
+          to do are:
+        </p>
+        <ul>
+          <li>
+            Set up a sign with a QR code attached, which lets you change the
+            text displayed on a whim (e.g., by using a Raspberry Pi instead of
+            an Arduino, which can use Wi-Fi to host a server with the tool to
+            change the text)
+          </li>
+          <li>
+            Using it to show the next train/bus departures, returning it to its
+            initial use (just like the
+            <a
+              href="https://ukdepartureboards.co.uk/store/product/desktop-departures"
+              >Desktop Departures® Board</a
+            >)
+          </li>
+          <li>
+            Make more games! For example: that tower stacking game where the
+            tower gets thinner if you mistime the stacking; Tetris.
+          </li>
+          <li>Anything else! Got any ideas?</li>
+        </ul>
+        <p>
+          It would also be nice to close the lid of the display, so it is
+          portable. When they were uninstalled from the bus station, the power
+          cables were all cut off, so the main part of this is just rewiring a
+          3-pin plug onto the box.
+        </p>
+        <p>
+          Screwing around with this sign has been great contained electronical
+          shenanigans! E-waste no more.
+        </p>
+        <h2 id="links">Links</h2>
+        <ul>
+          <li>
+            <p>Main Bus Sign Repository:</p>
+            <p>
+              <a href="https://github.com/ConnectedHumber/Bus-Terminal-Signs"
+                >https://github.com/ConnectedHumber/Bus-Terminal-Signs</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              Documentation for the custom C++ library to control the signs:
+            </p>
+            <p>
+              <a href="https://www.connectedhumber.org/Bus-Terminal-Signs"
+                >https://www.connectedhumber.org/Bus-Terminal-Signs</a
+              >
+            </p>
+          </li>
+        </ul>
+        <!-- links -->
       </section>
       <hr />
 
@@ -103,17 +846,6 @@
           Message me on any social media →
           <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
         </p>
-      </section>
-
-      <section id="similar">
-        <h1>
-          Similar posts
-          <a
-            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
-            >(?)</a
-          >
-        </h1>
-        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
       </section>
     </main>
 

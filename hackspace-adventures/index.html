@@ -31,26 +31,14 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
+    <link rel="stylesheet" href="../github-markdown.min.css" />
     <link rel="stylesheet" href="../stylesheet.css" />
-    <!-- fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto"
-    />
-    <!-- zero-md: https://github.com/zerodevx/zero-md -->
-    <script type="module" src="../zero-md.js"></script>
-    <!-- alpinejs -->
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <!-- htmx -->
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="../stylesheet_md.css" />
+
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
-      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
-      document.addEventListener("zero-md-rendered", function (event) {
+      import "../anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
       });
@@ -87,12 +75,145 @@
     </header>
 
     <main>
-      <section id="content">
-        <zero-md src="./hackspace-adventures.md" no-shadow>
-          <template data-merge="append">
-            <link rel="stylesheet" href="../stylesheet_md.css" />
-          </template>
-        </zero-md>
+      <section id="content" class="markdown-body">
+        <h1 id="what-why-and-how-is-a-hackspace-and-what-have-i-used-them-for">What, why, and how is a Hackspace, and what have I used them for?</h1>
+<p><word-count parent=".markdown-body"></word-count></p>
+<p>I love hackspaces.</p>
+<ol>
+<li><a href="#what-is-a-hackspace">What is a hackspace?</a></li>
+<li><a href="#what-could-you-do-in-a-hackspace">What could you do in a hackspace?</a></li>
+<li><a href="#hackspaces-ive-been-to">Hackspaces I&#39;ve been to</a><ol>
+<li><a href="#fizzpop-makerspace-birmingham">fizzPOP Makerspace Birmingham</a></li>
+<li><a href="#makerspace-hull">Makerspace Hull</a></li>
+<li><a href="#sheffield-hackspace">Sheffield Hackspace</a></li>
+</ol>
+</li>
+<li><a href="#mostly-small-things-ive-done-in-hackspaces">(Mostly small) Things I&#39;ve done in hackspaces</a><ol>
+<li><a href="#bus-sign">Bus Sign</a></li>
+<li><a href="#html-fridge-magnets">HTML Fridge Magnets</a></li>
+<li><a href="#bookends">Bookends</a></li>
+<li><a href="#shelf">Shelf</a></li>
+<li><a href="#trousers-hem">Trousers hem</a></li>
+<li><a href="#cushion">Cushion</a></li>
+<li><a href="#foam-cushion">Foam Cushion</a></li>
+</ol>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#resources">Resources</a></li>
+</ol>
+<h2 id="what-is-a-hackspace">What is a hackspace?</h2>
+<p>Also called makerspaces, I describe them as &quot;rooms with lots of interesting machines and even more interesting people&quot;. At a hackspace, you could find laser cutters, 3D printers, sewing machines, wood lathes, embroidery machines, lino cutters, electronics supplies, screen printing stuff, kilns, and more. Without the humans, they are rooms or buildings full of machines and tools for all making-related activities.</p>
+<p>But! That wouldn&#39;t be describing much more than a workshop. Hackspaces also have members! Usually, a space will have one or more open evenings a week when members are invited to come to the space and work on their projects under the same roof, and non-members (people) are encouraged to come along to check out the space while someone is there to let them in. Usually, there is a common space (a desk, chairs, a sofa, etc), where people can gather and chat while working on whatever project is currently interesting them... or just chat! It&#39;s this combination of people hanging around together and chatting about both the projects they&#39;re working on and general chit-chat that I love most about makerspaces. I have ultimately not spent a lot of time in them, but I have learnt so much.</p>
+<h2 id="what-could-you-do-in-a-hackspace">What could you do in a hackspace?</h2>
+<p>I won&#39;t provide here any project ideas, but a genericized description of why you might want to use a hackspace. In a hackspace, you could:</p>
+<ul>
+<li>get help or pointers with a project you&#39;re working on by people who&#39;ve done similar things before</li>
+<li>use expensive machines and tools that wouldn&#39;t be worth buying for yourself</li>
+<li>try out many hobbies, crafts, and skills for the first time</li>
+</ul>
+<p>Hackspaces are primarily a space to get started with skills, work on small projects, and exist in a community of other people doing similar. If you want to develop one skill particularly deeply, you may need to extend beyond the hackspace. For example: the wood lathe might not be long enough to make the size furniture you want to make; you might want to 3D print <em>lots</em> of stuff, and use the 3D printer for more time than is reasonable; you might want to make things to sell commercially. These are all things quite large in scope, and while a hackspace may not be a good place for them, it creates a great jumping off point for getting started.</p>
+<h2 id="hackspaces-ive-been-to">Hackspaces I&#39;ve been to</h2>
+<h3 id="fizzpop-makerspace-birmingham">fizzPOP Makerspace Birmingham</h3>
+<p>The first hackspace I went to was <a href="https://fizzpop.org.uk/">fizzPOP Makerspace</a>, which is a community-run hackspace in Birmingham. This remains the largest space I&#39;ve been to, and is the only one with enough space (and permission) to do hot metalwork. At fizzPOP, there is a large common area, a woodworking room, a hot metalwork room, and many small rooms for things like electronics, printing, laser cutting, and pottery.</p>
+<h3 id="makerspace-hull">Makerspace Hull</h3>
+<p>Hull&#39;s makerspace, <a href="https://www.hcandl.co.uk/libraries/makerspace">MakerspaceHull</a> is a bit different to what I described above, because it is a library service, instead of being community run. It is part of Hull library, so it only opens for a few hours a day, but for all of that time there are multiple staff members there. They have lots of expertise with the tools and machines in the space, and can teach you how to use any of them. Hull&#39;s makerspace is more art-focused, with a lot of supplies for printing, some electronics, and currently no woodwork.</p>
+<h3 id="sheffield-hackspace">Sheffield Hackspace</h3>
+<p><a href="https://www.sheffieldhackspace.org.uk/">Sheffield Hackspace</a> is my current haunt, and the smallest of the three spaces I&#39;ve been to. It is split over two rooms; a common room &amp; electronics/3D printing/laser cutting cupboard, and a woodwork/metalwork dungeon. There are currently open evenings three days a week which you can attend for a small membership price after your first few, meaning that you can get a lot out of it without having to become a full-fledged member.</p>
+<h2 id="mostly-small-things-ive-done-in-hackspaces">(Mostly small) Things I&#39;ve done in hackspaces</h2>
+<p>I first came across hackspaces in the middle of 2023. It&#39;s now the end of 2023. Here, I show off some of the things I&#39;ve done in various hackspaces, as an example of what you could get up to there. Some of them took a few weeks or months of on-and-off, and some only took a couple of hours. For your amusement, I have also provided a <a href="https://zzz.dog/">Zdog</a> 3D render of each item. You can drag them around!</p>
+<h3 id="bus-sign">Bus Sign</h3>
+<figcaption>
+
+<p><em>made at</em>: Hull Makerspace · <em>made in</em>: 1 month · <em>made with</em>: bus sign, electronics</p>
+</figcaption>
+
+<p><bus-sign-model></bus-sign-model></p>
+<figcaption>
+
+<p>This was actually quite a big project. See the <a href="../hull-bus-sign/">separate blog post</a>.</p>
+</figcaption>
+
+<h3 id="html-fridge-magnets">HTML Fridge Magnets</h3>
+<figcaption>
+
+<p><em>made at</em>: Hull Makerspace · <em>made in</em>: 1 day · <em>made with</em>: magnetic printable paper, ink, determination</p>
+</figcaption>
+
+<p><fridge-magnets-model></fridge-magnets-model></p>
+<figcaption>
+
+<p>I just printed a design onto magnetic paper and then cut it out. I wanted to cut them out automatically, but instead I spent an hour in front of the paper cutter. See <a href="https://github.com/alifeee/html-fridge-magnets">more info here</a>.</p>
+</figcaption>
+
+<h3 id="bookends">Bookends</h3>
+<figcaption>
+
+<p><em>made at</em>: Sheffield Hackspace · <em>made in</em>: 1 day · <em>made with</em>: wood, screws</p>
+</figcaption>
+
+<p><bookend-model></bookend-model></p>
+<figcaption>
+
+<p>My first time doing anything remotely woodworky. They turned out pretty well. I mean, they hold up my books.</p>
+</figcaption>
+
+<h3 id="shelf">Shelf</h3>
+<figcaption>
+
+<p><em>made at</em>: Sheffield Hackspace · <em>made in</em>: 1 day · <em>made with</em>: wood</p>
+</figcaption>
+
+<p><shelf-model></shelf-model></p>
+<figcaption>
+
+<p>My <em>second</em> time doing anything remotely woodworky. This time, no nails! Friction fit. Look at that join.</p>
+</figcaption>
+
+<h3 id="trousers-hem">Trousers hem</h3>
+<figcaption>
+
+<p><em>made at</em>: Sheffield Hackspace · <em>made in</em>: 1 day · <em>made with</em> thread</p>
+</figcaption>
+
+<p><img src="" alt="model broken, please check back never"></img></p>
+<figcaption>
+
+<p>This was a little modification I wanted to make to my trousers that also happened to be my first time using a sewing machine.</p>
+</figcaption>
+
+<h3 id="cushion">Cushion</h3>
+<figcaption>
+
+<p><em>made at</em>: Sheffield Makerspace · <em>made in</em>: 1 day · <em>made with</em>: fabric, stuffing</p>
+</figcaption>
+
+<p><cushion-model></cushion--model></p>
+<figcaption>
+
+<p>My <em>second</em> time using a sewing machine, to make a lovely little cushion.</p>
+</figcaption>
+
+<h3 id="foam-cushion">Foam Cushion</h3>
+<figcaption>
+
+<p><em>made at</em>: Sheffield Makerspace · <em>made in</em>: 1 week · <em>made with</em>: fabric, foam</p>
+</figcaption>
+
+<p><foam-cushion-model></foam-cushion-model></p>
+<figcaption>
+
+<p>This cushion is around 60 cm by 60 cm. For me, it was a lot of sewing, and my first &quot;3D&quot; sewing project. It deserves, and may well get, its own blog post.</p>
+</figcaption>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>I have lots of ideas of things I want to work on at my local hackspace. The list gets bigger by the week. As long as I have time to, I endeavour to continue indiscriminately making things.</p>
+<p>If you haven&#39;t, I think you should definitely check out your local hackspace! You can find them by googling for hackspace or makerspace.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://wiki.hackerspaces.org/">Hackspace wiki</a> - more information about what hackspaces are</li>
+<li><a href="https://www.hackspace.org.uk/">Hackspace foundation</a> - A non-profit, community organisation dedicated to promoting and coordinating hackspaces in and around the UK.</li>
+<li><a href="https://en.wikipedia.org/wiki/Hackerspace">Hackspace Wikipedia</a> - Wikipedia&#39;s entry for &quot;hackerspace&quot;</li>
+</ul>
       </section>
       <hr />
 
@@ -107,17 +228,6 @@
           Message me on any social media →
           <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
         </p>
-      </section>
-
-      <section id="similar">
-        <h1>
-          Similar posts
-          <a
-            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
-            >(?)</a
-          >
-        </h1>
-        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
       </section>
     </main>
 

@@ -34,10 +34,13 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../favicon.png" />
     <!-- stylesheets -->
+    <link rel="stylesheet" href="../github-markdown.min.css" />
     <link rel="stylesheet" href="../stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheet_md.css" />
+
     <!-- anchorjs: https://github.com/bryanbraun/anchorjs (zero-md must be no-shadow mode)-->
     <script type="module">
-      import "https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js";
+      import "../anchor.min.js";
       document.addEventListener("DOMContentLoaded", function (event) {
         let tags = ["h2", "h3", "h4", "h5", "h6"];
         anchors.add("#content " + tags.join(", #content "));
@@ -47,8 +50,6 @@
     <!-- word-count component from word-count.js -->
     <script src="../word-count.js"></script>
 
-    <link rel="stylesheet" href="../github-markdown.min.css" />
-    <link rel="stylesheet" href="../stylesheet_md.css" />
     <style>
       /* from https://css-tricks.com/full-width-containers-limited-width-parents/ */
       /* images with src="url.png#wider" are selected :) */
@@ -330,17 +331,6 @@ Always has been.
           Message me on any social media →
           <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a> :)
         </p>
-      </section>
-
-      <section id="similar">
-        <h1>
-          Similar posts
-          <a
-            href="https://github.com/alifeee/blog?tab=readme-ov-file#similar-posts"
-            >(?)</a
-          >
-        </h1>
-        <div hx-get="./similar.html" hx-trigger="load" hx-swap="afterend"></div>
       </section>
     </main>
 
