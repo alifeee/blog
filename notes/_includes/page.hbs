@@ -14,7 +14,7 @@
         content="alifeee's notes{{#if (neq tag 'all')}} ({{tag}}){{/if}}{{#if title}} - {{title}}{{/if}}" />
     <meta property="og:type" content="website" />
     <meta property="og:site" content="alifeee's notes" />
-    <meta property="og:url" content="https://blog.alifeee.co.uk{{page.url}}" />
+    <meta property="og:url" content="https://blog.alifeee.co.uk/notes{{page.url}}" />
     <meta property="og:image" content="https://blog.alifeee.co.uk/og-image.png" />
     <meta property="og:description"
         content='quick markdown notes from alifeee, mainly about programming and the Internet{{#if (neq tag "all")}}, filtered to notes tagged "{{tag}}"{{/if}}' />
@@ -55,8 +55,30 @@
             font-size: 75%;
         }
 
+        #contents {
+            max-width: max-content;
+        }
+
         #contents time {
             opacity: 0.5;
+            font-family: monospace;
+        }
+
+        #contents .see-more {
+            opacity: 0.75;
+            list-style: none;
+            padding: 0.5rem;
+        }
+
+        #contents .see-more a {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+
+            background-image: radial-gradient(circle, #0004 0 10%, transparent 30% 100%);
+            background-size: 8px 8px;
+            background-position: left 115%;
+            background-repeat: repeat no-repeat;
         }
 
         .tags {
@@ -65,6 +87,22 @@
 
         .tag {
             text-decoration: underline dotted;
+        }
+
+        .full-width {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: none;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (width >=50rem) {
+            .full-width {
+                display: inline-block;
+            }
         }
 
         main article {
@@ -121,19 +159,36 @@
             word-break: break-word;
         }
     </style>
+    <script>
+        // toggle full width - unset all max-width styles in this stylesheet
+        function toggle_full_width() {
+            inline_stylesheets = [
+                ...document.styleSheets
+            ].filter(
+                s => s.href == null
+            )
+            console.log(inline_stylesheets)
+            inline_stylesheets.forEach(stylesheet => {
+                max_width_rules = [
+                    ...stylesheet.rules
+                ].filter(
+                    r => r.style && (r.style["max-width"] == "40rem" || r.style["max-width"] == "10000rem")
+                )
+                max_width_rules.forEach(r => {
+                    r.style["max-width"] = r.style["max-width"] == "10000rem" ? "40rem" : "10000rem";
+                })
+            })
+        }
+    </script>
 </head>
 
-<body>
-    <header id="top">
+<body id="top">
+    <header>
         <h1 id="all">
-            {{#if (neq page.url "/")}}<a href="/">{{/if}}
-                notes
-                {{#if (neq page.url "/")}}</a>{{/if}}
-            by alifeee
-            <img alt="profile picture" src="/og-image.png">
-            {{#if (neq tag "all")}}
-            tagged <span class="tag">{{tag}}</span> ({{length (objget collections tag)}})
-            {{/if}} <a class="source" href="/feed.xml">rss</a>
+            {{#if (neq page.url "/")}}<a href="/">{{/if~}}
+                notes{{#if (neq page.url "/")}}</a>{{/if}} by alifeee <img alt="profile picture" src="/og-image.png">
+            {{~#if (neq tag "all")}} tagged <span class="tag">{{tag}}</span> ({{length (objget collections tag)}})
+            {{~/if}} <a class="source" href="/feed.xml">rss</a>
         </h1>
         <p class="return">
             return to <a href="/">notes</a> / <a href="https://blog.alifeee.co.uk">blog</a> / <a
@@ -146,27 +201,42 @@
         </p>
         <p class="tags">
             tags:
-            {{#each (tags_sorted_by_occurence collections)~}}
-            {{#unless @first}},{{/unless}}
-            <a class="tag" href="/{{#unless (eq . 'all')}}tagged/{{.}}{{/unless}}">{{.}}</a> ({{length (objget
+            {{#each (limit (tags_sorted_by_occurence collections) max_tags)~}}
+            {{~#if (eq ../tag "all")}}{{#unless @first}},{{/unless}}{{/if}}
+            <a class="tag" href="/{{#if (eq . 'all')}}all/{{else}}tagged/{{.}}/{{/if}}">{{.}}</a>&nbsp;({{length (objget
             ../collections .)}})
             {{~/each}}
+            {{#if (gt (length collections) max_tags)}}
+
+            <a href="/all/">............ see all (+{{#if (eq tag "all")~}}
+                {{sub (length collections) max_tags~}}
+                {{~else~}}
+                {{sub (length collections) 1~}}
+                {{/if}})</a>
+            {{/if}}
         </p>
         {{#unless hide_contents}}
         <ul id="contents">
-            {{#each (reverse_collections (objget collections tag))}}
+            {{#each (limit (reverse_collections (objget collections tag)) max_contents)}}
             <li>
                 <time datetime="{{fmt_date data.date}}">{{fmt_date data.date}}</time>
-                <a href="#{{slugify data.title}}">{{data.title}}</a>
+                <a href="{{#if (ge @index ../max_notes)}}/{{else}}#{{/if}}{{slugify data.title}}">{{data.title}}</a>
                 <a class="source" href="{{page.url}}">single</a>
                 <span class="tags source">
-                    {{#each data.tags}}
-                    {{#unless @first}}, {{/unless}}
+                    {{~#each data.tags}}
+                    {{~#unless @first}}, {{/unless}}
                     <span class="tag">{{this}}</span>
-                    {{/each}}
+                    {{~/each}}
+
                 </span>
+                <span class="source">• {{wordcount page.rawInput}}</span>
             </li>
             {{/each}}
+            {{#if (gt (length (objget collections tag)) max_contents)}}
+            <li class="see-more">
+                <a href="/all/">see all notes (+{{sub (length (objget collections tag)) max_contents}})</a>
+            </li>
+            {{/if}}
         </ul>
         {{/unless}}
     </header>

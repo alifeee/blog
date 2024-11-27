@@ -3,6 +3,8 @@ import handlebarsPlugin from "@11ty/eleventy-plugin-handlebars";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+import slugify from "./node_modules/@sindresorhus/slugify/index.js";
+import memoize from "memoize";
 
 export default function (eleventyConfig) {
   eleventyConfig.setInputDirectory("..");
@@ -46,6 +48,13 @@ export default function (eleventyConfig) {
     const title = withoutFrontMatter.match(/^#{1}\s(.+)/);
     return title ? title[1] : "No title detected :sad:";
   });
+
+  eleventyConfig.addFilter(
+    "slugify",
+    memoize((string) => {
+      return slugify(string);
+    })
+  );
 
   eleventyConfig.addFilter("relpath", (abs_path) => {
     if (!abs_path) {
@@ -105,17 +114,15 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("tags_sorted_by_occurence", (collections) => {
     // sort tags (collections keys) by number of notes tagged by that tag
-    return Object.keys(collections).toSorted(
-      (k1, k2) => {
-        let l2 = collections[k2].length
-        let l1 = collections[k1].length
-        // alphabetically if same number of tagged posts
-        if (l2 - l1 == 0) {
-          return ('' + k1).localeCompare(k2)
-        }
-        return l2 - l1
+    return Object.keys(collections).toSorted((k1, k2) => {
+      let l2 = collections[k2].length;
+      let l1 = collections[k1].length;
+      // alphabetically if same number of tagged posts
+      if (l2 - l1 == 0) {
+        return ("" + k1).localeCompare(k2);
       }
-    )
+      return l2 - l1;
+    });
   });
   eleventyConfig.addFilter("eq", (item1, item2) => {
     return item1 == item2;
@@ -123,14 +130,32 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("neq", (item1, item2) => {
     return item1 != item2;
   });
+  eleventyConfig.addFilter("gt", (item1, item2) => {
+    return item1 > item2;
+  });
+  eleventyConfig.addFilter("ge", (item1, item2) => {
+    return item1 >= item2;
+  });
+  eleventyConfig.addFilter("or", (condition1, condition2) => {
+    return condition1 || condition2;
+  });
   eleventyConfig.addFilter("objget", (obj, key) => {
     return obj[key];
   });
   eleventyConfig.addFilter("length", (array) => {
-    return array.length;
+    if (array instanceof Array) {
+      return array.length;
+    } else if (array instanceof Object) {
+      return Object.keys(array).length;
+    } else {
+      throw "oh no, can't compute length";
+    }
   });
   eleventyConfig.addFilter("add", (n1, n2) => {
     return n1 + n2;
+  });
+  eleventyConfig.addFilter("sub", (n1, n2) => {
+    return n1 - n2;
   });
   eleventyConfig.addFilter("unperma_all", (tag) => {
     if (tag == "all") {
@@ -142,10 +167,26 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("getdatatitle", (item) => {
     return item?.data?.title;
   });
+  eleventyConfig.addFilter("limit", (array, limit) => {
+    if (limit == -1) return array;
+    return array.slice(0, limit);
+  });
+
+  // wordcount - probably pass "page.rawInput"
+  eleventyConfig.addFilter("wordcount", (content) => {
+    let words = content.match(/\w+/g);
+    let nwords = words.length;
+    return (
+      nwords +
+      " 'words', " +
+      Math.round((nwords / 200) * 60, 0) +
+      " secs @ 200wpm"
+    );
+  });
 }
 
 export const config = {
   pathPrefix: process.env.ELEVENTY_RUN_MODE == "build" ? "/notes/" : "/",
   // pathPrefix: "test",
-  markdownTemplateEngine: false
+  markdownTemplateEngine: false,
 };

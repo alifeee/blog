@@ -25,7 +25,8 @@
     "markdown-it-anchor": "^9.2.0"
   },
   "dependencies": {
-    "@11ty/eleventy-plugin-handlebars": "^1.0.0"
+    "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "memoize": "^10.0.0"
   },
   "type": "module"
 }

@@ -1,12 +1,12 @@
 ---
 layout: page
 ---
-{{#each (reverse_collections (objget collections tag))}}
-<article>
-  <h2 class="sticky" id="{{slugify data.title}}">
+{{#each (limit (reverse_collections (objget collections tag)) max_notes)}}
+<article id="{{slugify data.title}}">
+  <h2 class="sticky">
     {{data.title}}
-    <a href="#{{slugify data.title}}">#</a>
-    {{#if @first~}}
+    <a href="#{{slugify data.title}}">#</a>&nbsp;
+    {{~#if @first~}}
     <span class="source">prev</span>
     {{~else~}}
     <a class="source"
@@ -18,16 +18,29 @@ layout: page
     {{~else~}}
     <a class="source"
       href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index 1)))}}">next</a>
-    {{~/if}}
+    {{~/if~}}
+    &nbsp;<a class="source" href="#top">top</a>
   </h2>
   <p class="tags">
     tags:
-    {{#each data.tags~}}
+    {{~#each data.tags~}}
     {{#unless @first}},{{/unless}}
     <a class="tag" href="/tagged/{{this}}">{{this}}</a>
     {{~/each}}
+
+    •
+    {{wordcount page.rawInput}}
+    <button class="pseudo full-width" onclick="toggle_full_width()">full width</button>
   </p>
   {{{increase_headings content}}}
 </article>
 <a href="#top" class="back-to-top">back to top</a>
 {{/each}}
+
+{{#if (gt (length (objget collections tag)) max_notes)}}
+{{#unless (eq max_notes 0)}}
+<a href="{{#if (gt max_contents max_notes)}}#contents{{else}}/all/{{/if}}" class="back-to-top">see more (+{{sub (length
+  (objget
+  collections tag)) max_notes}})</a>
+{{/unless}}
+{{/if}}
