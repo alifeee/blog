@@ -12,7 +12,7 @@ One thing I wanted to do recently was turn a list of points ("places I've been")
 
 Effectively, I want to turn these coordinates...
 
-```bash
+```csv
 latitude,longitude,description,best part
 53.74402,-0.34753,Hull,smallest window in the UK
 54.779764,-1.581559,Durham,great cathedral
