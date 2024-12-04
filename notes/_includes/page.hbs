@@ -25,10 +25,13 @@
     <link rel="icon" type="image/png" href="/og-image.png" />
     <link rel="stylesheet" href='/picnic.css'>
 
-    <link rel="stylesheet" href='/highlight.min.css'>
-    <script src="/highlight.min.js"></script>
-
-    <script>hljs.highlightAll();</script>
+    <!-- prismjs for code highlighting -->
+    <link rel="stylesheet" href="/prism.min.css" />
+    <script src="/prism.min.js"></script>
+    <script src="/prism-autoloader.min.js"></script>
+    <script>
+        Prism.plugins.autoloader.languages_path = "{{#unless dev}}/notes{{/unless}}/prism-components/";
+    </script>
 
     <style>
         header {

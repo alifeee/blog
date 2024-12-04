@@ -28,6 +28,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "../../*.js": copy_to });
   eleventyConfig.addPassthroughCopy({ "../../*.png": copy_to });
   eleventyConfig.addPassthroughCopy({ "./*.xsl": copy_to });
+  eleventyConfig.addPassthroughCopy({
+    "../../prism-components/*": "/prism-components/",
+  });
 
   const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
   eleventyConfig.setLibrary("md", markdownLib);
@@ -171,6 +174,9 @@ export default function (eleventyConfig) {
     if (limit == -1) return array;
     return array.slice(0, limit);
   });
+  eleventyConfig.addFilter("dev", () => {
+    return process.env.ELEVENTY_RUN_MODE != "build";
+  });
 
   // wordcount - probably pass "page.rawInput"
   eleventyConfig.addFilter("wordcount", (content) => {
@@ -186,7 +192,7 @@ export default function (eleventyConfig) {
 }
 
 export const config = {
-  pathPrefix: process.env.ELEVENTY_RUN_MODE == "build" ? "/notes/" : "/",
-  // pathPrefix: "test",
+  // pathPrefix: process.env.ELEVENTY_RUN_MODE == "build" ? "/notes/" : "/",
+  pathPrefix: "/notes/",
   markdownTemplateEngine: false,
 };
