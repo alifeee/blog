@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <title>alifeee - hitchhiking</title>
+
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hitchhiking!" />
+
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -39,6 +46,7 @@
               attribution:
                 '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
               ext: "jpg",
+              opacity: 0.5,
             }
           ).addTo(map);
         } else if (tilemap == 2) {
@@ -63,18 +71,120 @@
         }
 
         const lineStyle = {
-          color: "#ff0000",
-          weight: 5,
-          opacity: 1,
+          weight: 9,
+          opacity: 0.6,
         };
+
+        const colours = [
+          //
+          "#0000ff",
+          "#8800ff",
+          "#0088ff",
+          "#00ffff",
+          "#ff0000",
+        ];
+        const colorcycle = {
+          1: colours[0],
+          2: colours[0],
+          3: colours[0],
+          4: colours[0],
+          5: colours[1],
+          6: colours[2],
+          7: colours[2],
+          8: colours[2],
+          9: colours[3],
+          10: colours[4],
+          11: colours[4],
+          12: colours[4],
+        };
+        // const colorcycle = [
+        //   "#000000",
+        //   "#ff0000",
+        //   "#00ff00",
+        //   "#0000ff",
+        //   "#ffff00",
+        //   "#ff00ff",
+        //   "#00ffff",
+        //   "#ff8800",
+        //   "#ff0088",
+        //   "#00ff88",
+        //   "#0088ff",
+        //   "#88ff00",
+        //   "#8800ff",
+        // ];
+
+        const layerlabels = {
+          1: "Birmingham -> Hull",
+          2: "Birmingham -> Leeds",
+          3: "Birmingham -> Liverpool",
+          4: "Birmingham -> Glasgow",
+          5: "Hull -> London",
+          6: "London -> Hull",
+          7: "London -> Sheffield",
+          8: "London -> Sheffield",
+          9: "The Peaks (Bamford) -> Sheffield",
+          10: "Sheffield -> Hull",
+          11: "Sheffield -> Dublin",
+          12: "Dublin -> Belfast",
+        };
+
+        function onEachFeature(feature, layer) {
+          // does this feature have a property named label?
+          if (feature.properties && feature.properties.label) {
+            layer.bindPopup(feature.properties.label);
+          }
+        }
 
         fetch("hitching.geojson")
           .then((data) => {
             return data.json();
           })
           .then((geojson) => {
-            console.log(geojson);
-            L.geoJSON(geojson, { style: lineStyle }).addTo(map);
+            let big_collection = {
+              type: "FeatureCollection",
+              properties: {},
+              features: [],
+            };
+
+            geojson.features = geojson.features.toSorted(
+              (a, b) => Number(a.properties.trip) > Number(b.properties.trip)
+            );
+            geojson.features.forEach((feature) => {
+              let trip_number = feature.properties.trip;
+              // not in features
+              console.log(trip_number);
+              if (trip_number > big_collection.features.length) {
+                big_collection.features.push({
+                  type: "FeatureCollection",
+                  properties: { trip: String(trip_number) },
+                  features: [feature],
+                });
+              }
+              // in features
+              else {
+                big_collection.features[trip_number - 1].features.push(feature);
+              }
+            });
+
+            let geojson_layers_and_labels = [];
+            big_collection.features.forEach((trip) => {
+              let layer = L.geoJSON(trip, {
+                style: function (feature) {
+                  return {
+                    ...lineStyle,
+                    color: colorcycle[feature.properties.trip],
+                  };
+                },
+                onEachFeature: onEachFeature,
+              }).addTo(map);
+              geojson_layers_and_labels.push([layer, trip.properties.trip]);
+            });
+
+            let layerControl = L.control.layers().addTo(map);
+            geojson_layers_and_labels.forEach((layer) => {
+              console.log(layer);
+              layerControl.addOverlay(layer[0], layerlabels[layer[1]]);
+            });
           });
       });
     </script>
@@ -82,5 +192,18 @@
   <body>
     <h1>Hi :)</h1>
     <div id="map"></div>
+    <pre>
+1 Birmingham -> Hull
+2 Birmingham -> Leeds
+3 Birmingham -> Liverpool
+4 Birmingham -> Glasgow
+5 Hull -> London
+6 London -> Hull
+7 London -> Sheffield
+8 London -> Sheffield
+9 The Peaks (Bamford) -> Sheffield
+10 Sheffield -> Hull
+11 Sheffield -> Dublin -> Belfast
+    </pre>
   </body>
 </html>
