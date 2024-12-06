@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "6.1 London Gateway Services -> Ferrybridge"
+        "label": "6.1 London Gateway Services -> Ferrybridge",
+        "trip": "6"
       },
       "geometry": {
         "type": "MultiLineString",

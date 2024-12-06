@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "9.1 The Peaks (Bamford) -> Sheffield"
+        "label": "9.1 The Peaks (Bamford) -> Sheffield",
+        "trip": "9"
       },
       "geometry": {
         "type": "MultiLineString",

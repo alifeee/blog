@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.6 Northock Hall -> Bangor"
+        "label": "11.6 Northock Hall -> Bangor",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",

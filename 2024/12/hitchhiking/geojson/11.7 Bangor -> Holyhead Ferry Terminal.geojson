@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.7 Bangor -> Holyhead Ferry Terminal"
+        "label": "11.7 Bangor -> Holyhead Ferry Terminal",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",

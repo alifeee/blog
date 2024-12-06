@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "3.1 Frankley Northbound -> Hilton Northbound"
+        "label": "3.1 Frankley Northbound -> Hilton Northbound",
+        "trip": "3"
       },
       "geometry": {
         "type": "MultiLineString",

@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.1 Manchester Road -> Cutthroat Bridge"
+        "label": "11.1 Manchester Road -> Cutthroat Bridge",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",

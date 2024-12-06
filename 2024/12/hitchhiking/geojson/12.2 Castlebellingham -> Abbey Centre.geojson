@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "12.2 Castlebellingham -> Abbey Centre"
+        "label": "12.2 Castlebellingham -> Abbey Centre",
+        "trip": "12"
       },
       "geometry": {
         "type": "MultiLineString",

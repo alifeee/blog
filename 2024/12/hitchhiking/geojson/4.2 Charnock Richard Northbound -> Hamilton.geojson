@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "4.2 Charnock Richard Northbound -> Hamilton"
+        "label": "4.2 Charnock Richard Northbound -> Hamilton",
+        "trip": "4"
       },
       "geometry": {
         "type": "MultiLineString",

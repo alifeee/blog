@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "10.1 Sheffield Parkway -> Woodall Northbound"
+        "label": "10.1 Sheffield Parkway -> Woodall Northbound",
+        "trip": "10"
       },
       "geometry": {
         "type": "MultiLineString",

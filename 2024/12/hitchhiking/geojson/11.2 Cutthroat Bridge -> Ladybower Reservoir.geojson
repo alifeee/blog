@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir"
+        "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",

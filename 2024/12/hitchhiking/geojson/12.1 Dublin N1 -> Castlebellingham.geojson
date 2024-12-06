@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "12.1 Dublin N1 -> Castlebellingham"
+        "label": "12.1 Dublin N1 -> Castlebellingham",
+        "trip": "12"
       },
       "geometry": {
         "type": "MultiLineString",

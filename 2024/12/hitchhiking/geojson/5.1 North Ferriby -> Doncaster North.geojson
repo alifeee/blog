@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "5.1 North Ferriby -> Doncaster North"
+        "label": "5.1 North Ferriby -> Doncaster North",
+        "trip": "5"
       },
       "geometry": {
         "type": "MultiLineString",

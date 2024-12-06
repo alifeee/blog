@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "7.2 Trowell Northbound -> Sheffield (Meadowhell)"
+        "label": "7.2 Trowell Northbound -> Sheffield (Meadowhell)",
+        "trip": "7"
       },
       "geometry": {
         "type": "MultiLineString",

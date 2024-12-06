@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)"
+        "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)",
+        "trip": "8"
       },
       "geometry": {
         "type": "MultiLineString",

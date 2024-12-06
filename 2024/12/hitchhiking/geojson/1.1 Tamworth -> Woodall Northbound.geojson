@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "1.1 Tamworth -> Woodall Northbound"
+        "label": "1.1 Tamworth -> Woodall Northbound",
+        "trip": "1"
       },
       "geometry": {
         "type": "MultiLineString",

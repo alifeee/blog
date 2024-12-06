@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.5 Denton Rock -> Northock Hall"
+        "label": "11.5 Denton Rock -> Northock Hall",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",

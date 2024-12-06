@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "6.1 Ferrybridge -> Hull"
+        "label": "6.1 Ferrybridge -> Hull",
+        "trip": "6"
       },
       "geometry": {
         "type": "MultiLineString",

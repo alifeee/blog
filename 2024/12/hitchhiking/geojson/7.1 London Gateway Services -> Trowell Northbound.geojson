@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "7.1 London Gateway Services -> Trowell Northbound"
+        "label": "7.1 London Gateway Services -> Trowell Northbound",
+        "trip": "7"
       },
       "geometry": {
         "type": "MultiLineString",

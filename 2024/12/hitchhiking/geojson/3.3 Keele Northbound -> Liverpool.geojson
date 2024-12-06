@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "3.3 Keele Northbound -> Liverpool"
+        "label": "3.3 Keele Northbound -> Liverpool",
+        "trip": "3"
       },
       "geometry": {
         "type": "MultiLineString",

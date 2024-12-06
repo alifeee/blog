@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "2.2 Tibshelf Northbound -> Leeds"
+        "label": "2.2 Tibshelf Northbound -> Leeds",
+        "trip": "2"
       },
       "geometry": {
         "type": "MultiLineString",

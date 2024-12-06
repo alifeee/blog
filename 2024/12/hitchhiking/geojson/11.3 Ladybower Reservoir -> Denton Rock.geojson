@@ -11,7 +11,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.3 Ladybower Reservoir -> Denton Rock"
+        "label": "11.3 Ladybower Reservoir -> Denton Rock",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
