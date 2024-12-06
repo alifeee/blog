@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "12.1 Dublin N1 -> Castlebellingham"
+        "label": "12.1 Dublin N1 -> Castlebellingham",
+        "trip": "12"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -2457,7 +2458,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.4 Denton Rock -> Lymm"
+        "label": "11.4 Denton Rock -> Lymm",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5026,7 +5028,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "4.2 Charnock Richard Northbound -> Hamilton"
+        "label": "4.2 Charnock Richard Northbound -> Hamilton",
+        "trip": "4"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -16099,7 +16102,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir"
+        "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -16564,7 +16568,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "6.1 London Gateway Services -> Ferrybridge"
+        "label": "6.1 London Gateway Services -> Ferrybridge",
+        "trip": "6"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -28753,7 +28758,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)"
+        "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)",
+        "trip": "8"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -39334,7 +39340,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "7.1 London Gateway Services -> Trowell Northbound"
+        "label": "7.1 London Gateway Services -> Trowell Northbound",
+        "trip": "7"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -46639,7 +46646,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "10.2 Woodall Northbound -> Hull"
+        "label": "10.2 Woodall Northbound -> Hull",
+        "trip": "10"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -50036,7 +50044,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "12.2 Castlebellingham -> Abbey Centre"
+        "label": "12.2 Castlebellingham -> Abbey Centre",
+        "trip": "12"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -56785,7 +56794,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "2.2 Tibshelf Northbound -> Leeds"
+        "label": "2.2 Tibshelf Northbound -> Leeds",
+        "trip": "2"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -61878,7 +61888,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "10.1 Sheffield Parkway -> Woodall Northbound"
+        "label": "10.1 Sheffield Parkway -> Woodall Northbound",
+        "trip": "10"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -63731,7 +63742,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "7.2 Trowell Northbound -> Sheffield (Meadowhell)"
+        "label": "7.2 Trowell Northbound -> Sheffield (Meadowhell)",
+        "trip": "7"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -67168,7 +67180,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "9.1 The Peaks (Bamford) -> Sheffield"
+        "label": "9.1 The Peaks (Bamford) -> Sheffield",
+        "trip": "9"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -69413,7 +69426,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "2.1 Tamworth -> Tibshelf Northbound"
+        "label": "2.1 Tamworth -> Tibshelf Northbound",
+        "trip": "2"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -73814,7 +73828,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.1 Manchester Road -> Cutthroat Bridge"
+        "label": "11.1 Manchester Road -> Cutthroat Bridge",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -75187,7 +75202,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "6.1 Ferrybridge -> Hull"
+        "label": "6.1 Ferrybridge -> Hull",
+        "trip": "6"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -77740,7 +77756,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "1.2 Woodall Northbound -> Hull"
+        "label": "1.2 Woodall Northbound -> Hull",
+        "trip": "1"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -81137,7 +81154,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.6 Northock Hall -> Bangor"
+        "label": "11.6 Northock Hall -> Bangor",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -85538,7 +85556,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "1.1 Tamworth -> Woodall Northbound"
+        "label": "1.1 Tamworth -> Woodall Northbound",
+        "trip": "1"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -90647,7 +90666,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "5.1 North Ferriby -> Doncaster North"
+        "label": "5.1 North Ferriby -> Doncaster North",
+        "trip": "5"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -92568,7 +92588,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.7 Bangor -> Holyhead Ferry Terminal"
+        "label": "11.7 Bangor -> Holyhead Ferry Terminal",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -95633,7 +95654,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "3.1 Frankley Northbound -> Hilton Northbound"
+        "label": "3.1 Frankley Northbound -> Hilton Northbound",
+        "trip": "3"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -97154,7 +97176,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.5 Denton Rock -> Northock Hall"
+        "label": "11.5 Denton Rock -> Northock Hall",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -99995,7 +100018,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "4.1 Frankley Northbound -> Charnock Richard Northbound"
+        "label": "4.1 Frankley Northbound -> Charnock Richard Northbound",
+        "trip": "4"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -106148,7 +106172,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "3.2 Hilton Northbound -> Keele Northbound"
+        "label": "3.2 Hilton Northbound -> Keele Northbound",
+        "trip": "3"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -107925,7 +107950,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "11.3 Ladybower Reservoir -> Denton Rock"
+        "label": "11.3 Ladybower Reservoir -> Denton Rock",
+        "trip": "11"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -111874,7 +111900,8 @@
     {
       "type": "Feature",
       "properties": {
-        "label": "3.3 Keele Northbound -> Liverpool"
+        "label": "3.3 Keele Northbound -> Liverpool",
+        "trip": "3"
       },
       "geometry": {
         "type": "MultiLineString",
