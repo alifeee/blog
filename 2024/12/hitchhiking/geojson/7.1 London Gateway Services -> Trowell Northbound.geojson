@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 225,
         "label": "7.1 London Gateway Services -> Trowell Northbound",
         "trip": "7"
       },

@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 367,
         "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir",
         "trip": "11"
       },

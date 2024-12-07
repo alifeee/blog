@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 225,
         "label": "7.2 Trowell Northbound -> Sheffield (Meadowhell)",
         "trip": "7"
       },

@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 180,
         "label": "1.2 Woodall Northbound -> Hull",
         "trip": "1"
       },

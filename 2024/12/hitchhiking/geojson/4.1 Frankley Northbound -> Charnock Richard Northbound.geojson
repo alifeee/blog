@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 400,
         "label": "4.1 Frankley Northbound -> Charnock Richard Northbound",
         "trip": "4"
       },

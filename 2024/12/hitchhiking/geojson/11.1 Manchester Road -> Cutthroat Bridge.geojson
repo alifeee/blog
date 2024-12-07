@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 367,
         "label": "11.1 Manchester Road -> Cutthroat Bridge",
         "trip": "11"
       },

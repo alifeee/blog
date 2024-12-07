@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 367,
         "label": "11.6 Northock Hall -> Bangor",
         "trip": "11"
       },

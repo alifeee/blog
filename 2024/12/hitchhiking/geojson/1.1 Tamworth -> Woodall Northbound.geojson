@@ -11,8 +11,10 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 180,
         "label": "1.1 Tamworth -> Woodall Northbound",
-        "trip": "1"
+        "trip": "1",
+        "description": "this was my first hitch :)<br>with a lovely guy called Daniel<br><br>click more!"
       },
       "geometry": {
         "type": "MultiLineString",

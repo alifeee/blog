@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 166,
         "label": "12.1 Dublin N1 -> Castlebellingham",
         "trip": "12"
       },

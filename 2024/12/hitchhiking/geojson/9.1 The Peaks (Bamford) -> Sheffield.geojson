@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 16,
         "label": "9.1 The Peaks (Bamford) -> Sheffield",
         "trip": "9"
       },

@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 150,
         "label": "2.2 Tibshelf Northbound -> Leeds",
         "trip": "2"
       },

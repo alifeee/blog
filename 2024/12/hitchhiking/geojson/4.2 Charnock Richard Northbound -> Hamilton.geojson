@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 400,
         "label": "4.2 Charnock Richard Northbound -> Hamilton",
         "trip": "4"
       },

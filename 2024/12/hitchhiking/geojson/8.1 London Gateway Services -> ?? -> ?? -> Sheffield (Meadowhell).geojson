@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 225,
         "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)",
         "trip": "8"
       },

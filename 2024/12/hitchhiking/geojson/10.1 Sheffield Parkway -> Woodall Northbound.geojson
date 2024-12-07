@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 110,
         "label": "10.1 Sheffield Parkway -> Woodall Northbound",
         "trip": "10"
       },

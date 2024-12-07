@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 320,
         "label": "5.1 North Ferriby -> Doncaster North",
         "trip": "5"
       },

@@ -11,6 +11,7 @@
     {
       "type": "Feature",
       "properties": {
+        "total_distance_km": 125,
         "label": "3.2 Hilton Northbound -> Keele Northbound",
         "trip": "3"
       },
