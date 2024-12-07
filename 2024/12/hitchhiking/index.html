@@ -25,8 +25,11 @@
       }
     </style>
     <script>
+      let map;
+      let geojson;
+      let geojson_layers_and_labels;
       document.addEventListener("DOMContentLoaded", () => {
-        let map = L.map("map").setView([53.626, -3.209], 6); //5.98/53.626/-3.209
+        map = L.map("map").setView([53.626, -3.209], 7); //5.98/53.626/-3.209
 
         // tile providers: https://leaflet-extras.github.io/leaflet-providers/preview/
         // L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -114,79 +117,137 @@
         // ];
 
         const layerlabels = {
-          1: "Birmingham -> Hull",
-          2: "Birmingham -> Leeds",
-          3: "Birmingham -> Liverpool",
-          4: "Birmingham -> Glasgow",
-          5: "Hull -> London",
-          6: "London -> Hull",
-          7: "London -> Sheffield",
-          8: "London -> Sheffield",
-          9: "The Peaks (Bamford) -> Sheffield",
-          10: "Sheffield -> Hull",
-          11: "Sheffield -> Dublin",
-          12: "Dublin -> Belfast",
+          1: "1 Birmingham -> Hull",
+          2: "2 Birmingham -> Leeds",
+          3: "3 Birmingham -> Liverpool",
+          4: "4 Birmingham -> Glasgow",
+          5: "5 Hull -> London",
+          6: "6 London -> Hull",
+          7: "7 London -> Sheffield",
+          8: "8 London -> Sheffield",
+          9: "9 The Peaks (Bamford) -> Sheffield",
+          10: "10 Sheffield -> Hull",
+          11: "11 Sheffield -> Dublin",
+          12: "12 Dublin -> Belfast",
         };
-
-        function onEachFeature(feature, layer) {
-          // does this feature have a property named label?
-          if (feature.properties && feature.properties.label) {
-            layer.bindPopup(feature.properties.label);
-          }
-        }
 
         fetch("hitching.geojson")
           .then((data) => {
             return data.json();
           })
-          .then((geojson) => {
-            let big_collection = {
-              type: "FeatureCollection",
-              properties: {},
-              features: [],
-            };
-
-            geojson.features = geojson.features.toSorted(
-              (a, b) => Number(a.properties.trip) > Number(b.properties.trip)
-            );
-            geojson.features.forEach((feature) => {
-              let trip_number = feature.properties.trip;
-              // not in features
-              console.log(trip_number);
-              if (trip_number > big_collection.features.length) {
-                big_collection.features.push({
-                  type: "FeatureCollection",
-                  properties: { trip: String(trip_number) },
-                  features: [feature],
-                });
-              }
-              // in features
-              else {
-                big_collection.features[trip_number - 1].features.push(feature);
-              }
-            });
-
-            let geojson_layers_and_labels = [];
-            big_collection.features.forEach((trip) => {
-              let layer = L.geoJSON(trip, {
-                style: function (feature) {
-                  return {
-                    ...lineStyle,
-                    color: colorcycle[feature.properties.trip],
-                  };
-                },
-                onEachFeature: onEachFeature,
-              }).addTo(map);
-              geojson_layers_and_labels.push([layer, trip.properties.trip]);
-            });
-
-            let layerControl = L.control.layers().addTo(map);
-            geojson_layers_and_labels.forEach((layer) => {
-              console.log(layer);
-              layerControl.addOverlay(layer[0], layerlabels[layer[1]]);
-            });
+          .then((ret_geojson) => {
+            geojson = ret_geojson;
+            addtomap();
           });
+
+        function addtomap() {
+          let big_collection = {
+            type: "FeatureCollection",
+            properties: {},
+            features: [],
+          };
+
+          geojson.features = geojson.features.toSorted(
+            (a, b) => Number(a.properties.trip) > Number(b.properties.trip)
+          );
+          geojson.features.forEach((feature) => {
+            let trip_number = feature.properties.trip;
+            // not in features
+            if (trip_number > big_collection.features.length) {
+              big_collection.features.push({
+                type: "FeatureCollection",
+                properties: { trip: String(trip_number) },
+                features: [feature],
+              });
+            }
+            // in features
+            else {
+              big_collection.features[trip_number - 1].features.push(feature);
+            }
+          });
+
+          geojson_layers_and_labels = [];
+
+          big_collection.features.forEach((trip) => {
+            let layer = L.geoJSON(trip, {
+              style: function (feature) {
+                return {
+                  ...lineStyle,
+                  color: colorcycle[feature.properties.trip],
+                };
+              },
+              onEachFeature: function (feature, layer) {
+                // does this feature have a property named label?
+                content = "";
+                if (feature.properties && feature.properties.label) {
+                  content =
+                    content + "<h2>" + feature.properties.label + "</h2>";
+                }
+                if (feature.properties && feature.properties.description) {
+                  content =
+                    content + "<p>" + feature.properties.description + "</p>";
+                }
+                layer.bindPopup(content);
+              },
+            }).addTo(map);
+            geojson_layers_and_labels.push([layer, trip.properties.trip]);
+          });
+
+          let layerControl = L.control.layers([], [], {
+            position: "bottomleft",
+          });
+
+          geojson_layers_and_labels.forEach((layer) => {
+            layerControl.addOverlay(layer[0], layerlabels[layer[1]]);
+          });
+
+          //
+          let hideControl = L.Control.extend({
+            options: {
+              text: "N/A",
+              onclick: function () {
+                alert("did nothing");
+              },
+            },
+            onAdd: function (map) {
+              let container = L.DomUtil.create("input");
+              container.type = "button";
+              container.value = this.options.text;
+              container.onclick = this.options.onclick;
+              return container;
+            },
+          });
+          map.addControl(
+            new hideControl({
+              position: "bottomleft",
+              text: "show all",
+              onclick: showall,
+            })
+          );
+          map.addControl(
+            new hideControl({
+              position: "bottomleft",
+              text: "hide all",
+              onclick: hideall,
+            })
+          );
+          layerControl.addTo(map);
+
+          // open popup of journey 1.1 (first hitch!)
+          geojson_layers_and_labels[0][0].getLayers()[1].openPopup();
+        }
       });
+
+      function hideall() {
+        geojson_layers_and_labels.forEach(([layer, label]) => {
+          map.removeLayer(layer);
+        });
+      }
+      function showall() {
+        geojson_layers_and_labels.forEach(([layer, label]) => {
+          map.addLayer(layer);
+        });
+      }
     </script>
   </head>
   <body>
