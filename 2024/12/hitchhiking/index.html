@@ -250,11 +250,21 @@
           map.addLayer(layer);
         });
       }
+
+      function showonmap(feature_label) {
+        alert("showing " + feature_label + "\n currently does nothing...");
+        // hide all popups
+        // find relevant feature
+        // show popup
+        // scroll map into view
+      }
     </script>
   </head>
   <body>
     <h1>Hi :)</h1>
+    <h2>map</h2>
     <div id="map"></div>
+    <h2>trips</h2>
     <pre>
 1 Birmingham -> Hull
 2 Birmingham -> Leeds
@@ -268,5 +278,389 @@
 10 Sheffield -> Hull
 11 Sheffield -> Dublin -> Belfast
     </pre>
+    <h2>sub-trips</h2>
+    <!-- generated with -->
+    <!-- while read file; do cat "geojson/${file}" | jq -r '"<tr>\n <td>" + (.features[0].properties | [.trip, .label, .total_distance_km] | join("</td>\n" + " <td>") + "</td>\n<td><button type=\"button\" onclick=\"showonmap('"'"'" + (.[1]) + "'"'"')\">show on map</button></td>") + "\n</tr>\n"'; done <<< $(find geojson/ -type f | sed 's/geojson\///g' | sort -n) -->
+    <table>
+      <tr>
+        <th>trip number</th>
+        <th>trip label</th>
+        <th>total trip distance</th>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>1.1 Tamworth -> Woodall Northbound</td>
+        <td>180</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('1.1 Tamworth -> Woodall Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>1.2 Woodall Northbound -> Hull</td>
+        <td>180</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('1.2 Woodall Northbound -> Hull')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>2.1 Tamworth -> Tibshelf Northbound</td>
+        <td>150</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('2.1 Tamworth -> Tibshelf Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>2.2 Tibshelf Northbound -> Leeds</td>
+        <td>150</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('2.2 Tibshelf Northbound -> Leeds')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>3.1 Frankley Northbound -> Hilton Northbound</td>
+        <td>125</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('3.1 Frankley Northbound -> Hilton Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>3.2 Hilton Northbound -> Keele Northbound</td>
+        <td>125</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('3.2 Hilton Northbound -> Keele Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>3.3 Keele Northbound -> Liverpool</td>
+        <td>125</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('3.3 Keele Northbound -> Liverpool')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>4.1 Frankley Northbound -> Charnock Richard Northbound</td>
+        <td>400</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('4.1 Frankley Northbound -> Charnock Richard Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>4.2 Charnock Richard Northbound -> Hamilton</td>
+        <td>400</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('4.2 Charnock Richard Northbound -> Hamilton')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>5.1 North Ferriby -> Doncaster North</td>
+        <td>320</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('5.1 North Ferriby -> Doncaster North')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>6.1 London Gateway Services -> Ferrybridge</td>
+        <td>320</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('6.1 London Gateway Services -> Ferrybridge')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>6.1 Ferrybridge -> Hull</td>
+        <td>320</td>
+        <td>
+          <button type="button" onclick="showonmap('6.1 Ferrybridge -> Hull')">
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>7</td>
+        <td>7.1 London Gateway Services -> Trowell Northbound</td>
+        <td>225</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('7.1 London Gateway Services -> Trowell Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>7</td>
+        <td>7.2 Trowell Northbound -> Sheffield (Meadowhell)</td>
+        <td>225</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('7.2 Trowell Northbound -> Sheffield (Meadowhell)')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>8</td>
+        <td>
+          8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)
+        </td>
+        <td>225</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>9</td>
+        <td>9.1 The Peaks (Bamford) -> Sheffield</td>
+        <td>16</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('9.1 The Peaks (Bamford) -> Sheffield')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>10</td>
+        <td>10.1 Sheffield Parkway -> Woodall Northbound</td>
+        <td>110</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('10.1 Sheffield Parkway -> Woodall Northbound')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>10</td>
+        <td>10.2 Woodall Northbound -> Hull</td>
+        <td>110</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('10.2 Woodall Northbound -> Hull')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.1 Manchester Road -> Cutthroat Bridge</td>
+        <td>367</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('11.1 Manchester Road -> Cutthroat Bridge')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.2 Cutthroat Bridge -> Ladybower Reservoir</td>
+        <td>367</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('11.2 Cutthroat Bridge -> Ladybower Reservoir')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.3 Ladybower Reservoir -> Denton Rock</td>
+        <td>367</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('11.3 Ladybower Reservoir -> Denton Rock')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.4 Denton Rock -> Lymm</td>
+        <td>367</td>
+        <td>
+          <button type="button" onclick="showonmap('11.4 Denton Rock -> Lymm')">
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.5 Denton Rock -> Northock Hall</td>
+        <td>367</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('11.5 Denton Rock -> Northock Hall')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.6 Northock Hall -> Bangor</td>
+        <td>367</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('11.6 Northock Hall -> Bangor')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>11.7 Bangor -> Holyhead Ferry Terminal</td>
+        <td>367</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('11.7 Bangor -> Holyhead Ferry Terminal')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>12</td>
+        <td>12.1 Dublin N1 -> Castlebellingham</td>
+        <td>166</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('12.1 Dublin N1 -> Castlebellingham')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>12</td>
+        <td>12.2 Castlebellingham -> Abbey Centre</td>
+        <td>166</td>
+        <td>
+          <button
+            type="button"
+            onclick="showonmap('12.2 Castlebellingham -> Abbey Centre')"
+          >
+            show on map
+          </button>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
