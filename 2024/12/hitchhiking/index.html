@@ -23,6 +23,11 @@
       * {
         box-sizing: border-box;
       }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
       @font-face {
         font-family: "BogFace";
         src: url("../../../making-bogface/BogFace.woff");
@@ -33,6 +38,9 @@
       .leaflet-popup {
         font-family: "BogFace";
       }
+      body {
+        overflow-x: hidden;
+      }
       #mapcontainer {
         padding: 0 1rem 1rem 0;
         background-color: #fff2;
@@ -41,7 +49,8 @@
         resize: both;
         overflow: auto;
         height: 40rem;
-        width: max(80vw, 40rem);
+        max-height: 80vh;
+        width: min(100vw, 40rem);
       }
       #resizeme {
         position: relative;
@@ -794,5 +803,266 @@
         </tr>
       </tbody>
     </table>
+    <h2>Library</h2>
+    <section class="books">
+      <figure>
+        <a
+          class="perceived-dangers hover-area"
+          href="pdfs/How Hitchhikers Cope with the Pressures and Perceived Dangers of Hitchhiking by Society.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          How Hitchhikers Cope with the Pressures and Perceived Dangers of
+          Hitchhiking by Society
+          <br />
+          A Literature Review and Qualitative Interviews
+          <br />
+          Iris Veldwijk
+          <br />
+          <a href="https://mindofahitchhiker.com/thesis/">source</a>
+          <hr />
+          a book by
+          <a href="https://mindofahitchhiker.com/">mindofahitchhiker</a> that
+          talks about the false-or-not perception of the danger of hitching
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="informal-history-of-hitchhiking hover-area"
+          href="pdfs/An Informal History of Hitchhiking.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          An Informal History of Hitchhiking
+          <br />
+          JOHN T. SCHLEBECKER
+          <br />
+          <a
+            href="https://www.tandfonline.com/doi/abs/10.1111/j.1540-6563.1958.tb01838.x"
+            >source</a
+          >
+          <hr />
+          a very old paper from 1958,
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="cultural-inroads hover-area"
+          href="pdfs/Hitchhiking: Cultural Inroads.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          Hitchhiking
+          <br />
+          Cultural Inroads
+          <br />
+          Patrick Laviolette
+          <br />
+          <a href="https://link.springer.com/book/10.1007/978-3-030-48248-0"
+            >source</a
+          >
+          <hr />
+          a long monograph about hitchhiking by a particularly
+          sarcastic-sounding and long-word-loving academic,
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="travel-in-china hover-area"
+          href="pdfs/Hitchhiking travel in China: Gender, agency and vulnerability.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          Hitchhiking travel in China: Gender, agency and vulnerability
+          <br />
+          Xiongbin Gao, Scott Cohen, Paul Hanna
+          <br />
+          <a
+            href="https://www.sciencedirect.com/science/article/abs/pii/S0160738320301468"
+            >source</a
+          >
+          <hr />
+          an examination of hitchhiking in China,
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="staring-and-compliance hover-area"
+          href="pdfs/Staring and Compliance: A Field Experiment on Hitchhiking.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          Staring and Compliance:
+          <br />
+          A Field Experiment on Hitchhiking
+          <br />
+          MARK SNYDER, JOHN CKETHEK, AND KRISTINE KELLER
+          <br />
+          <a
+            href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1559-1816.1974.tb00666.x"
+            >source</a
+          >
+          <hr />
+          a short paper on the importance of eye contact while hitchhiking
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="hitchBOT hover-area"
+          href="pdfs/The Death and Lives of HitchBOT.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          THE DEATH AND LIVES OF HITCH BOT: THE DESIGN AND IMPLEMENTATION OF A
+          HITCHHIKING ROBOT
+          <br />
+          David Harris Smith, Frauke Zeller
+          <br />
+          <a
+            href="https://direct.mit.edu/leon/article-abstract/50/1/77/46258/The-Death-and-Lives-of-hitchBOT-The-Design-and"
+            >source</a
+          >
+          <hr />
+          a short paper about a little robot that could,
+        </figcaption>
+      </figure>
+
+      <style>
+        .books {
+          margin: 1rem;
+          padding: 1rem;
+          font-family: "Times New Roman", Times, serif;
+          color: black;
+          background-color: #cc8800;
+          background-image: url("images/wood-pattern.png");
+          display: flex;
+          flex-wrap: wrap;
+          align-items: start;
+          justify-content: space-around;
+          text-align: center;
+
+          border: 50px solid #cc8800;
+          border-image: url(https://attic.sh/hwb36h2i5f260r0dgbexwgq182t3) 83 /
+            50px / 0px stretch;
+          background-clip: padding-box;
+        }
+        .books > * {
+          max-width: 15rem;
+        }
+        /* mostly copied from https://codepen.io/alifeee/pen/vYzBBKy */
+        :root {
+          --zine-width: min(30vw, 200px);
+        }
+        .hover-area {
+          display: block;
+          margin: 0;
+          box-sizing: content-box;
+          width: var(--zine-width);
+          height: var(--zine-height);
+          padding-top: calc(var(--zine-width) * 0.13);
+          padding-bottom: calc(var(--zine-width) * 0.12);
+          padding-right: calc(var(--zine-width) * 0.05);
+          padding-left: calc(var(--zine-width) * 0.05);
+
+          cursor: pointer;
+        }
+        .zine {
+          position: absolute;
+          height: var(--zine-height);
+          width: var(--zine-width);
+
+          transform-origin: 0 0;
+          transition: transform 0.25s ease-out;
+
+          background-color: #fff;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .zine.front {
+          transform: skewY(4deg);
+        }
+        .zine.back {
+          transform: skewY(-5deg) scaleX(1.02);
+        }
+        .hover-area:hover > .zine.front {
+          transform: skewY(5deg);
+        }
+        .hover-area:hover > .zine.back {
+          transform: skewY(-8deg) scaleX(0.99);
+        }
+        .zine.front,
+        .zine.back {
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+        }
+
+        /* informal-history-of-hitchhiking */
+        .informal-history-of-hitchhiking {
+          --zine-height: calc(var(--zine-width) * (989 / 658));
+        }
+        .informal-history-of-hitchhiking .zine.front {
+          background-image: url("pdfs/An\ Informal\ History\ of\ Hitchhiking.png");
+        }
+
+        /* cultural-inroads */
+        .cultural-inroads {
+          --zine-height: calc(var(--zine-width) * (1033 / 745));
+        }
+        .cultural-inroads .zine.front {
+          background-image: url("pdfs/Hitchhiking:\ Cultural\ Inroads.png");
+        }
+
+        /* travel-in-china */
+        .travel-in-china {
+          --zine-height: calc(var(--zine-width) * (1033 / 794));
+        }
+        .travel-in-china .zine.front {
+          background-image: url("pdfs/Hitchhiking\ travel\ in\ China:\ Gender\,\ agency\ and\ vulnerability.png");
+        }
+
+        /* perceived-dangers */
+        .perceived-dangers {
+          --zine-height: calc(var(--zine-width) * (943 / 724));
+        }
+        .perceived-dangers .zine.front {
+          background-image: url("pdfs/How\ Hitchhikers\ Cope\ with\ the\ Pressures\ and\ Perceived\ Dangers\ of\ Hitchhiking\ by\ Society.png");
+        }
+
+        /* staring-and-compliance */
+        .staring-and-compliance {
+          --zine-height: calc(var(--zine-width) * (1020 / 728));
+        }
+        .staring-and-compliance .zine.front {
+          background-image: url("pdfs/Staring\ and\ Compliance:\ A\ Field\ Experiment\ on\ Hitchhiking.png");
+        }
+
+        /* hitchBOT */
+        .hitchBOT {
+          --zine-height: calc(var(--zine-width) * (1033 / 806));
+        }
+        .hitchBOT .zine.front {
+          background-image: url("pdfs/The\ Death\ and\ Lives\ of\ HitchBOT.png");
+        }
+      </style>
+    </section>
   </body>
 </html>
