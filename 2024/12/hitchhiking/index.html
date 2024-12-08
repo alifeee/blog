@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="hitchhiking!" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
-
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -70,6 +68,8 @@
     <script>
       let map;
       let geojson;
+      let big_collection;
+      let big_collection_flat; // just each trip which has .layer referencing the map layer
       let geojson_layers_and_labels;
       document.addEventListener("DOMContentLoaded", () => {
         map = L.map("map").setView([53.626, -3.209], 7); //5.98/53.626/-3.209
@@ -184,7 +184,7 @@
           });
 
         function addtomap() {
-          let big_collection = {
+          big_collection = {
             type: "FeatureCollection",
             properties: {},
             features: [],
@@ -233,8 +233,22 @@
                 layer.bindPopup(content);
               },
             }).addTo(map);
+            trip.properties.layer = layer;
+            trip.features.forEach((feature) => {
+              feature.properties.layer = layer;
+            });
             geojson_layers_and_labels.push([layer, trip.properties.trip]);
           });
+
+          big_collection_flat = big_collection.features.reduce(
+            (all_trips, current_trip) => {
+              current_trip.features.forEach((trip) => {
+                all_trips.push(trip);
+              });
+              return all_trips;
+            },
+            []
+          );
 
           let layerControl = L.control.layers([], [], {
             position: "bottomleft",
@@ -293,11 +307,26 @@
       }
 
       function showonmap(feature_label) {
-        alert("showing " + feature_label + "\n currently does nothing...");
-        // hide all popups
-        // find relevant feature
-        // show popup
-        // scroll map into view
+        console.log("showing " + feature_label);
+        let all_layers = geojson_layers_and_labels.reduce((prev, curr) => {
+          layers = curr[0].getLayers();
+          layers.forEach((l) => {
+            l.feature.properties.triplayer = curr[0];
+            prev.push(l);
+          });
+          return prev;
+        }, []);
+
+        all_layers.forEach((layer) => {
+          layer.closePopup();
+          if (layer.feature.properties.label == feature_label) {
+            map.addLayer(layer.feature.properties.triplayer);
+            // map.addLayer(layer);
+            layer.openPopup();
+          }
+        });
+
+        document.getElementById("map").scrollIntoView();
       }
     </script>
   </head>
