@@ -42,6 +42,10 @@
         font-family: "BogFace";
         font-size: 1rem;
       }
+      .leaflet-popup-content {
+        max-height: 30rem;
+        overflow: auto;
+      }
       body {
         overflow-x: hidden;
       }
@@ -366,7 +370,7 @@
           layerControl.addTo(map);
 
           // open popup of journey 1.1 (first hitch!)
-          geojson_layers_and_labels[0][0].getLayers()[1].openPopup();
+          geojson_layers_and_labels[0][0].getLayers()[0].openPopup();
         }
       });
 
