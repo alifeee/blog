@@ -12,7 +12,7 @@
       "type": "Feature",
       "properties": {
         "total_distance_km": 320,
-        "label": "6.1 Ferrybridge -> Hull",
+        "label": "6.2 Ferrybridge -> Hull",
         "trip": "6"
       },
       "geometry": {

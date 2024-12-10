@@ -27,3 +27,9 @@ while read file; do fname=$(basename "${file}"); cat "${file}" | jq '.features[0
 # combine geojson files
 find geojson/ -type f -print0 | xargs -0 geojson-merge > hitching.geojson
 ```
+
+turn some text into a json-compatible string:
+
+```bash
+getclip | tr '\n' '~' | sed 's/~/<br>/g' | sed 's/"/\\"/g' | setclip
+```
