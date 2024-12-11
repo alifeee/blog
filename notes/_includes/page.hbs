@@ -161,6 +161,19 @@
         a {
             word-break: break-word;
         }
+
+        details {
+            cursor: pointer;
+        }
+        details > *:not(summary) {
+            margin-left: 2rem;
+        }
+        details > pre[class*=language-] {
+            margin-left: 2rem;
+        }
+        summary {
+            display:list-item;
+        }
     </style>
     <script>
         // toggle full width - unset all max-width styles in this stylesheet
