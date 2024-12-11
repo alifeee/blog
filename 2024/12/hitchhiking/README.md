@@ -11,8 +11,6 @@ How to generate files:
 ## install required tools
 # for ogr2ogr (convert between gpx and geojson)
 sudo apt install gdal-bin
-# put https://github.com/mapbox/geojson-merge in /usr/bin/ then
-npm install -g geojson-merge
 
 # single conversion
 ogr2ogr 1-london-ferrybridge.geojson 1-london-ferrybridge.gpx tracks
@@ -25,7 +23,12 @@ while read file; do fname=$(basename "${file}"); cat "${file}" | jq '.features[0
 # add trip number as a property
 while read file; do fname=$(basename "${file}"); cat "${file}" | jq '.features[0].properties.trip = "'"$(echo "${fname}" | sed -E 's/(^[0-9]*)\..*/\1/')"'"' | sponge "${file}"; done <<< $(find geojson/ -type f)
 # combine geojson files
-find geojson/ -type f -print0 | xargs -0 geojson-merge > hitching.geojson
+
+while read file; do cat "${file}"; done <<< $(find geojson/ -type f | sort -t / -k 2 -n) | jq --slurp '{
+    "type": "FeatureCollection",
+    "name": "hitchhikes",
+    "features": ([.[] | .features[0]])
+}' > hitching.geojson
 ```
 
 turn some text into a json-compatible string:
