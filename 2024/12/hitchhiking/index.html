@@ -146,10 +146,12 @@
     </style>
     <script>
       let map;
-      let geojson;
-      let big_collection;
+      let geojson; // geojson of all subtrips
+      let trips_geojson; // list of geojson files of subtrips (list of trips)
       let big_collection_flat; // just each trip which has .layer referencing the map layer
       let geojson_layers_and_labels;
+      let layerControl;
+      let first_trip_layer;
       document.addEventListener("DOMContentLoaded", () => {
         map = L.map("map").setView([53.626, -3.209], 7); //5.98/53.626/-3.209
 
@@ -259,39 +261,42 @@
           })
           .then((ret_geojson) => {
             geojson = ret_geojson;
+            console.log("loaded geojson from network...", geojson);
             addtomap();
           });
 
         function addtomap() {
-          big_collection = {
-            type: "FeatureCollection",
-            properties: {},
-            features: [],
-          };
+          console.log("adding to map");
+          trips_geojson = [];
 
-          geojson.features = geojson.features.toSorted(
-            (a, b) => Number(a.properties.trip) > Number(b.properties.trip)
-          );
+          geojson.features = geojson.features.toSorted((a, b) => {
+            if (a.properties.trip == b.properties.trip) {
+              return a.properties.label.localeCompare(b.properties.label);
+            }
+            return Number(a.properties.trip) > Number(b.properties.trip);
+          });
+          console.log("sorted geojson.features...", geojson);
+
           geojson.features.forEach((feature) => {
             let trip_number = feature.properties.trip;
-            // not in features
-            if (trip_number > big_collection.features.length) {
-              big_collection.features.push({
+            // not in list
+            if (trip_number > trips_geojson.length) {
+              trips_geojson.push({
                 type: "FeatureCollection",
-                properties: { trip: String(trip_number) },
+                name: "trip " + String(trip_number),
                 features: [feature],
               });
             }
-            // in features
+            // in list
             else {
-              big_collection.features[trip_number - 1].features.push(feature);
+              trips_geojson[trip_number - 1].features.push(feature);
             }
           });
+          console.log("sorted into trips, trips_geojson", trips_geojson);
 
-          geojson_layers_and_labels = [];
-
-          big_collection.features.forEach((trip) => {
-            let layer = L.geoJSON(trip, {
+          trips_geojson.forEach((trip) => {
+            console.group("adding trip to map...", trip);
+            let layerGroup = L.geoJSON(trip, {
               style: function (feature) {
                 return {
                   ...lineStyle,
@@ -299,6 +304,8 @@
                 };
               },
               onEachFeature: function (feature, layer) {
+                feature.properties.layer = layer;
+
                 // does this feature have a property named label?
                 content = "";
                 if (feature.properties && feature.properties.label) {
@@ -309,32 +316,41 @@
                   content =
                     content + "<p>" + feature.properties.description + "</p>";
                 }
+                if (
+                  feature.properties.label.includes(
+                    "1.1 Tamworth -> Woodall Northbound"
+                  )
+                ) {
+                  first_trip_layer = layer;
+                }
+
                 layer.bindPopup(content);
               },
-            }).addTo(map);
-            trip.properties.layer = layer;
-            trip.features.forEach((feature) => {
-              feature.properties.layer = layer;
             });
-            geojson_layers_and_labels.push([layer, trip.properties.trip]);
+            console.log("created layerGroup...", layerGroup);
+
+            layerGroup.addTo(map);
+
+            console.log("added layerGroup to map...");
+
+            trip.features.forEach((feature) => {
+              feature.properties.layerGroup = layerGroup;
+            });
+            console.log("added layer reference to each feature");
+            console.groupEnd();
           });
 
-          big_collection_flat = big_collection.features.reduce(
-            (all_trips, current_trip) => {
-              current_trip.features.forEach((trip) => {
-                all_trips.push(trip);
-              });
-              return all_trips;
-            },
-            []
-          );
+          console.log("geojson object with layer references:", trips_geojson);
 
-          let layerControl = L.control.layers([], [], {
+          console.group("adding layer control");
+          layerControl = L.control.layers([], [], {
             position: "topright",
           });
 
-          geojson_layers_and_labels.forEach((layer) => {
-            layerControl.addOverlay(layer[0], layerlabels[layer[1]]);
+          trips_geojson.forEach((trip) => {
+            let layerGroup = trip.features[0].properties.layerGroup;
+            let trip_number = trip.features[0].properties.trip;
+            layerControl.addOverlay(layerGroup, layerlabels[trip_number]);
           });
 
           //
@@ -368,44 +384,47 @@
             })
           );
           layerControl.addTo(map);
+          console.log("final layer control", layerControl);
+
+          console.groupEnd();
 
           // open popup of journey 1.1 (first hitch!)
-          geojson_layers_and_labels[0][0].getLayers()[0].openPopup();
+          console.log("opening popup for trip", first_trip_layer);
+          first_trip_layer.openPopup();
         }
       });
 
       function hideall() {
-        geojson_layers_and_labels.forEach(([layer, label]) => {
-          map.removeLayer(layer);
+        trips_geojson.forEach((trip) => {
+          let layerGroup = trip.features[0].properties.layerGroup;
+          map.removeLayer(layerGroup);
         });
       }
       function showall() {
-        geojson_layers_and_labels.forEach(([layer, label]) => {
-          map.addLayer(layer);
+        trips_geojson.forEach((trip) => {
+          let layerGroup = trip.features[0].properties.layerGroup;
+          map.addLayer(layerGroup);
         });
       }
 
       function showonmap(feature_label) {
-        console.log("showing " + feature_label);
-        let all_layers = geojson_layers_and_labels.reduce((prev, curr) => {
-          layers = curr[0].getLayers();
-          layers.forEach((l) => {
-            l.feature.properties.triplayer = curr[0];
-            prev.push(l);
-          });
-          return prev;
-        }, []);
+        console.group("showing " + feature_label);
 
-        all_layers.forEach((layer) => {
-          layer.closePopup();
-          if (layer.feature.properties.label == feature_label) {
-            map.addLayer(layer.feature.properties.triplayer);
-            // map.addLayer(layer);
-            layer.openPopup();
-          }
+        trips_geojson.forEach((trip) => {
+          trip.features.forEach((subtrip) => {
+            subtrip.properties.layer.closePopup();
+
+            if (subtrip.properties.label == feature_label) {
+              console.log("found feature in trip", trip);
+              console.log("found subtrip", subtrip);
+              map.addLayer(subtrip.properties.layerGroup);
+              subtrip.properties.layer.openPopup();
+            }
+          });
         });
 
         document.getElementById("map").scrollIntoView();
+        console.groupEnd();
       }
       document.addEventListener("DOMContentLoaded", () => {
         let reload_timer;
