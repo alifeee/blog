@@ -27,6 +27,7 @@ So, I created a script in `/home/alifeee/.local/share/nautilus/scripts` called `
 ```bash
 #!/bin/bash
 # create new file within folder (only works if used on folder)
+# notify-send requires libnotify-bin -> `sudo apt install libnotify-bin`
 
 if [ -z "${1}" ]; then
   notify-send "did not get folder name. use script on folder!"
