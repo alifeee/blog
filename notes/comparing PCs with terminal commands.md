@@ -68,9 +68,9 @@ Then, I ran this command to generate a diff file to look at:
 echo "<html><head><style>html {background: black;color: white;}del {text-decoration: none;color: red;}ins {color: green;text-decoration: none;}</style></head><body>" > compare.html
 while read file; do
   f=$(echo "${file}" | sed 's/current\///')
-  git diff --no-index --word-diff "current/${f}" "new/${f}"
-    | sed 's/\[\-/<del>/g' | sed 's/-\]/<\/del>/g'
-    | sed -E 's/\{\+/<ins>/g' | sed -E 's/\+\}/<\/ins>/g'
+  git diff --no-index --word-diff "current/${f}" "new/${f}" \
+    | sed 's/\[\-/<del>/g' | sed 's/-\]/<\/del>/g' \
+    | sed -E 's/\{\+/<ins>/g' | sed -E 's/\+\}/<\/ins>/g' \
     | sed '1s/^/<pre>/' | sed '$a</pre>'
 done <<< $(find current/ -type f) >> compare.html
 echo "</body></html>" >> compare.html 
