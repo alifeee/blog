@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 400,
         "label": "4.2 Charnock Richard Northbound -> Hamilton",
-        "trip": "4"
+        "trip": "4",
+        "description": "At Charnock Richard, I stopped for lunch. Afterwards, I headed to the car exit to set up in my best staring-stance. I pulled my sign out of my bag (which said \"NORTH please! :)\"), and quite literally 3 seconds afterwards, a car beeped at me and pulled up. Inside was Robina (Robi if you know her well), who was driving up to near Inverness, and said she'd happily give me a lift to Glasgow.<br><br>She was driving up from Wales, where she was a retired occupational therapist. The journey was quite long (perhaps a few hours) so we talked a lot. The vibes that I gleamed (that I deemed important enough to note down) were that she lived in large expensive houses, she had three very successful sons, and that she had lots of opinions about death.<br><br>Robi said that my hairclip had caught her eye, and she was going so far North (as my sign had asked for) that she may as well pick me up. She dropped me off by a services on the M74, where my aunt (who I was visiting) - who worked nearby - picked me up."
       },
       "geometry": {
         "type": "MultiLineString",

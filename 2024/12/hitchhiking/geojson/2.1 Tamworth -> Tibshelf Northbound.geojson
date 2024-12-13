@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 150,
         "label": "2.1 Tamworth -> Tibshelf Northbound",
-        "trip": "2"
+        "trip": "2",
+        "description": "While I was stood at Tamworth, someone came over to chat to me about hitchhiking. While we were chatting, a car slowed and stopped, the person inside wound down the window and said \"I thought hitchhiking was illegal!\". I replied \"nope\", and she said \"oh. Would you like to get in, then?\".<br><br>I got in the back seat, because the front seat was occupied by Elsa, who was a dog. The driver was Shelley, a dog trainer. She was nice, and we chatted about lots of things including (according to my notes) the army, her time as an engineer, her opinions on antisocial behaviour, and the NHS. She dropped me at Tibshelf."
       },
       "geometry": {
         "type": "MultiLineString",

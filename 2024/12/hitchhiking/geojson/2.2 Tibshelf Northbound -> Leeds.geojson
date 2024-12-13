@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 150,
         "label": "2.2 Tibshelf Northbound -> Leeds",
-        "trip": "2"
+        "trip": "2",
+        "description": "At Tibshelf, John picked me up in his campervan. I think he was driving to Bradford, so he said he'd drop me somewhere near Leeds. He was very laid back, and his lifestyle seemed fun to me. He said he was some sort of artist, and played double bass. He dropped me near-ish the city centre, where I walked for 20 or 30 minutes to meet up with my then-girlfriend to go to a gig."
       },
       "geometry": {
         "type": "MultiLineString",

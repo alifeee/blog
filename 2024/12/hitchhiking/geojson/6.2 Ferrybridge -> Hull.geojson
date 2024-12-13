@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 320,
         "label": "6.2 Ferrybridge -> Hull",
-        "trip": "6"
+        "trip": "6",
+        "description": "We had lunch that we'd cooked the previous day, reheated in the service station microwave, then we set off outside to hopefully thumb our way to Hull.<br><br>After a few tens of minutes, a car drove by and slowed down, as if to inspect us. Then, it stopped, and invited us to Grimsby. We accepted, as we could probably try get a lift across the M180 over the Humber Bridge to Hull.<br><br>The car was a Tesla, so the doors opened vertically to reveal a man who introduced himself as Ola. He explained that he slowed down because he thought that he recognised us, but that was only because he'd also used the service station microwave, and saw us eating our food there. He tried to explain that he liked being economical and bringing leftovers to heat up, instead of buying food from Greggs/etc, but this didn't really go into my list of beliefs, as he was driving in a Tesla.<br><br>He'd lived in London, Bradford, and Grimsby and described them as less-and-less \"metropolitan\", in that order. He was just coming back from visiting family in Bradford, and regailed to us a trip to Marrakesh he'd been on a few months before with his 91-year-old mother in law, who dressed up as a princess, and other earthly delights.<br><br>He very much enjoyed chatting, and R was able to get him going with the most minimum of questions. After a while, he evidently decided he liked us, so he told us to \"speak your address out loud\" and pressed a button in his car. I spoke it, and the navigation re-routed to my house, to which he drove us right up to the door. Thanks Ola!"
       },
       "geometry": {
         "type": "MultiLineString",

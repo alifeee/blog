@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 180,
         "label": "1.2 Woodall Northbound -> Hull",
-        "trip": "1"
+        "trip": "1",
+        "description": "Chris picked me up from Woodall and said he was going to Goole to pick up some friends, and then go to watch Hull City play that afternoon. I said that sounded great, so I got in and we went on our adventure. I think he was from North Cave.<br><br>When we got to Goole, we drove to his wife's sister's house, to pick up his two brothers-in-law (two men married to his wife's two sisters), who were inexplicably also called Chris. As it was that me, Chris, Chris, and Chris drove from Goole to Hull, where they dropped me off near the KC/KCom/MKM stadium, only a short walk from my parents'. Thanks Chrises."
       },
       "geometry": {
         "type": "MultiLineString",

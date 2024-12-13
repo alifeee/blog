@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 225,
         "label": "7.1 London Gateway Services -> Trowell Northbound",
-        "trip": "7"
+        "trip": "7",
+        "description": "My waiting in London was punctured by a man in a flash car called Steve. He picked me up, and confessed that he'd driven by once, and come round again to pick me up because \"I'd be a right cunt if I didn't\". He was a barrister, so I found out a lot about the barrister profession, and his opinions on lots of things legality-related.<br><br>He'd just been to M&S and inexplicably bought about 7 meal deals, so he offered me a sandwich, a chocolate bar, and a drink, which I took out of the carrier bag at my feed and happily chomped.<br><br>He told me a lot about his life, his partner, and his second home in Wales. The only other thing I noted was \"likes a night out\"."
       },
       "geometry": {
         "type": "MultiLineString",

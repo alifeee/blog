@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 320,
         "label": "6.1 London Gateway Services -> Ferrybridge",
-        "trip": "6"
+        "trip": "6",
+        "description": "This was my first hitchhike with someone else (a lover). We waited together at the services, where they held the sign, so for the first time I didn't know what to do with my hands, and in memory, I was doing strange gestures and dances. Albeit, someone clomped over in his wellington boots and said he was going to Middlesborough and that he could give us a lift. He introduced himself as Frank, and we hopped into his large truck-style car.<br><br>He was in London as he was working doing \"film and TV stuff\" down there, which I don't remember or didn't gleam the full extent of, but in my memory was sort of \"walking around in wellies and moving stuff about\". In my notes, it says he also did \"electric stuff, generators\", which was perhaps related. He was nice, and grounded, and had a high Northern spirit of friendliness. He said he lived in a small cottage in a village up in Middlesborough; in a small enough place that if someone drove by outside after 7pm, it was a big event.<br><br>He dropped us off in Ferrybridge, where we stopped for lunch."
       },
       "geometry": {
         "type": "MultiLineString",

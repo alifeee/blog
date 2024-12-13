@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 125,
         "label": "3.1 Frankley Northbound -> Hilton Northbound",
-        "trip": "3"
+        "trip": "3",
+        "description": "At Frankley, I was picked up in a car by Ed. He was very nice, and was currently a hoover designer at Dyson. I don't remember much else, but I'm guessing we had some good engineering-inspired chats."
       },
       "geometry": {
         "type": "MultiLineString",

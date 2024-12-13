@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 110,
         "label": "10.1 Sheffield Parkway -> Woodall Northbound",
-        "trip": "10"
+        "trip": "10",
+        "description": "This was a hitch with a friend, and my first \"group hitch\", as we had three other friends who were also hitching the same journey at the same time as us.<br><br>After a lot of waiting in my first non-service-area waiting spot (a roundabout leading to Sheffield Parkway), we were ready to leave and try a new spot a 30-minute-walk down the road, so we agreed to let 10 more cars go past, and then depart. The 10th car stopped and picked us up, which felt very much like a divine intervention.<br><br>Chris/Dave/Peter (I can't remember his name) took us from our shoddy-spot to Woodall services, where our friends who were hitching at the same time had been trying to get a lift to (from our other friend with a car)."
       },
       "geometry": {
         "type": "MultiLineString",

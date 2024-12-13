@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 400,
         "label": "4.1 Frankley Northbound -> Charnock Richard Northbound",
-        "trip": "4"
+        "trip": "4",
+        "description": "At Frankley, Stephen picked me up. I very much enjoyed his philisophies. He was - long-term - a football kit manager, so he drove around a van full of \"football items\" for a local team of his. But, for the summer, he was - short-term - driving a van full of fresh oranges from Preston to Gloucester, and then driving back. I'd caught him at around 10 or 11am driving back, as he said he set off sometime in the morning around 2am. The oranges were for that bougie (or \"farm-shop\") service station, which after trying to find a post by<a href=\"https://mastodon.social/@motorway@mastodonapp.uk\">Motorway Services Online</a> about dual farm-shop-and-common services in one, I've instead <a href=\"https://motorwayservices.uk/Which_Magazine#2021_Survey\">found a post</a> calling Gloucester Services the number 1 top rated in 2021 by Which?.<br><br>Anyway, he said he enjoyed his temporary job because it paid alright and let him spend his spare time doing more of what he wanted. What more could one wish for. According to my notes, he said he was renovating a van in order to drive round Europe, and my notes also say, solely, \"mushrooms\".<br><br>Apparently, also, Stephen told me that the \"please\" on my sign made him pick me up. Politeness wins the day again."
       },
       "geometry": {
         "type": "MultiLineString",

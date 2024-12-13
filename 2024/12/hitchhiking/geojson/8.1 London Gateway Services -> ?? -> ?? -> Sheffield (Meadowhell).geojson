@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 225,
         "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)",
-        "trip": "8"
+        "trip": "8",
+        "description": "For this trip, I didn't write down the intermediary services, so you get a combined telling of the three lifts that it took to get to Sheffield.<br><br>Dominic/Jo/Madeline was a person/head of sixth form/civil service worker who seemed to want social change, but was just hoping for it/was not ready for death/was obsessed with overly long walks."
       },
       "geometry": {
         "type": "MultiLineString",

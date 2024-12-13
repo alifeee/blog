@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 125,
         "label": "3.3 Keele Northbound -> Liverpool",
-        "trip": "3"
+        "trip": "3",
+        "description": "At Keele, I was seeing a lot of English and British flags in cars, which was a curious sight until I remembered it was Eurovision in Liverpool, which was where I was heading, so a little bit of nationalism made some sense. A car drove by with two flags sticking up out the windows, and stopped to pick me up. Time to decide on my patriotism...<br><br>Elena (Swedish & Coventry), Kerry (Hospice worker), and Drew (who gets no clarifying information, as I wrote none down) offered to give me a lift to Liverpool. Neat! I spent the journey joining into their conversations, chatting about their days and lives, and occasionally listening to hit Eurovision songs from this and past years.<br><br>Near Liverpool, my usual task was to find a way into the city centre, but these guys were driving into a pretty central hotel (that they'd booked <i>well</i> in advance), so they agreed to drop me there. When I got out, I looked on my map (as I was meeting a friend), and they were... one street over! Maybe (getting dropped off outside my house nonwithstanding) one of my closest lifts. Thanks guys."
       },
       "geometry": {
         "type": "MultiLineString",

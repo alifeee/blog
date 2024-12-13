@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 16,
         "label": "9.1 The Peaks (Bamford) -> Sheffield",
-        "trip": "9"
+        "trip": "9",
+        "description": "This was a local hitch, as an alternative to getting the bus back. After some waiting, a small pub-break, and some more waiting, Helen picked up the four of us, and gave us a lift to Crookes (exactly where we were intending to go).<br><br>She was visiting her daughter after her part-time job-or-voluntary-position as a lifeguard at an outdoor pool in Hathersage. From this, we gleamed she liked swimming and asked her all about her opinions and knowledge of cold dips, to use in our own archives (featuring questions such as \"when should you get out of cold water?\")."
       },
       "geometry": {
         "type": "MultiLineString",

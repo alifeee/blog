@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 125,
         "label": "3.2 Hilton Northbound -> Keele Northbound",
-        "trip": "3"
+        "trip": "3",
+        "description": "A very old-looking car stopped for me at Hilton, which contained inside a being that called itself Jake.<br><br>Jake was driving from Birmingham to Stoke, where he'd just been at a Polyphia concert. In between him showing me songs and us silently listening, he told me of his adventures the night before (which, almost unsettlingly, was only about 6 hours before the present time). He'd gone from the gig to Subside, a bar in Birmingham that I very much liked the vibes of, and that I'd been to a couple of times (once by accident, by the hearing of interesting music eminating as I walked past on my way home from Birmingham's hackspace).<br><br>Halfway through the drive, Jake said he wanted a cig, so he started rolling one and steering the wheel with his knees. This didn't work very well, so I suggested I could roll it. This also didn't work very well (being perhaps only the 1st or 2nd cig I'd tried to roll ever), so the final solution was that I leant over and steered the car while he rolled. Perhaps it sounds dangerous, but to the person who gets to do the leaning and steering, it feels quite safe. I'm not sure how Jake felt."
       },
       "geometry": {
         "type": "MultiLineString",

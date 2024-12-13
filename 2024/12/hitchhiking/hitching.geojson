@@ -5119,7 +5119,8 @@
       "properties": {
         "total_distance_km": 180,
         "label": "1.2 Woodall Northbound -> Hull",
-        "trip": "1"
+        "trip": "1",
+        "description": "Chris picked me up from Woodall and said he was going to Goole to pick up some friends, and then go to watch Hull City play that afternoon. I said that sounded great, so I got in and we went on our adventure. I think he was from North Cave.<br><br>When we got to Goole, we drove to his wife's sister's house, to pick up his two brothers-in-law (two men married to his wife's two sisters), who were inexplicably also called Chris. As it was that me, Chris, Chris, and Chris drove from Goole to Hull, where they dropped me off near the KC/KCom/MKM stadium, only a short walk from my parents'. Thanks Chrises."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -8518,7 +8519,8 @@
       "properties": {
         "total_distance_km": 150,
         "label": "2.1 Tamworth -> Tibshelf Northbound",
-        "trip": "2"
+        "trip": "2",
+        "description": "While I was stood at Tamworth, someone came over to chat to me about hitchhiking. While we were chatting, a car slowed and stopped, the person inside wound down the window and said \"I thought hitchhiking was illegal!\". I replied \"nope\", and she said \"oh. Would you like to get in, then?\".<br><br>I got in the back seat, because the front seat was occupied by Elsa, who was a dog. The driver was Shelley, a dog trainer. She was nice, and we chatted about lots of things including (according to my notes) the army, her time as an engineer, her opinions on antisocial behaviour, and the NHS. She dropped me at Tibshelf."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -12921,7 +12923,8 @@
       "properties": {
         "total_distance_km": 150,
         "label": "2.2 Tibshelf Northbound -> Leeds",
-        "trip": "2"
+        "trip": "2",
+        "description": "At Tibshelf, John picked me up in his campervan. I think he was driving to Bradford, so he said he'd drop me somewhere near Leeds. He was very laid back, and his lifestyle seemed fun to me. He said he was some sort of artist, and played double bass. He dropped me near-ish the city centre, where I walked for 20 or 30 minutes to meet up with my then-girlfriend to go to a gig."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -18016,7 +18019,8 @@
       "properties": {
         "total_distance_km": 125,
         "label": "3.1 Frankley Northbound -> Hilton Northbound",
-        "trip": "3"
+        "trip": "3",
+        "description": "At Frankley, I was picked up in a car by Ed. He was very nice, and was currently a hoover designer at Dyson. I don't remember much else, but I'm guessing we had some good engineering-inspired chats."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -19539,7 +19543,8 @@
       "properties": {
         "total_distance_km": 125,
         "label": "3.2 Hilton Northbound -> Keele Northbound",
-        "trip": "3"
+        "trip": "3",
+        "description": "A very old-looking car stopped for me at Hilton, which contained inside a being that called itself Jake.<br><br>Jake was driving from Birmingham to Stoke, where he'd just been at a Polyphia concert. In between him showing me songs and us silently listening, he told me of his adventures the night before (which, almost unsettlingly, was only about 6 hours before the present time). He'd gone from the gig to Subside, a bar in Birmingham that I very much liked the vibes of, and that I'd been to a couple of times (once by accident, by the hearing of interesting music eminating as I walked past on my way home from Birmingham's hackspace).<br><br>Halfway through the drive, Jake said he wanted a cig, so he started rolling one and steering the wheel with his knees. This didn't work very well, so I suggested I could roll it. This also didn't work very well (being perhaps only the 1st or 2nd cig I'd tried to roll ever), so the final solution was that I leant over and steered the car while he rolled. Perhaps it sounds dangerous, but to the person who gets to do the leaning and steering, it feels quite safe. I'm not sure how Jake felt."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -21318,7 +21323,8 @@
       "properties": {
         "total_distance_km": 125,
         "label": "3.3 Keele Northbound -> Liverpool",
-        "trip": "3"
+        "trip": "3",
+        "description": "At Keele, I was seeing a lot of English and British flags in cars, which was a curious sight until I remembered it was Eurovision in Liverpool, which was where I was heading, so a little bit of nationalism made some sense. A car drove by with two flags sticking up out the windows, and stopped to pick me up. Time to decide on my patriotism...<br><br>Elena (Swedish & Coventry), Kerry (Hospice worker), and Drew (who gets no clarifying information, as I wrote none down) offered to give me a lift to Liverpool. Neat! I spent the journey joining into their conversations, chatting about their days and lives, and occasionally listening to hit Eurovision songs from this and past years.<br><br>Near Liverpool, my usual task was to find a way into the city centre, but these guys were driving into a pretty central hotel (that they'd booked <i>well</i> in advance), so they agreed to drop me there. When I got out, I looked on my map (as I was meeting a friend), and they were... one street over! Maybe (getting dropped off outside my house nonwithstanding) one of my closest lifts. Thanks guys."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -25709,7 +25715,8 @@
       "properties": {
         "total_distance_km": 400,
         "label": "4.1 Frankley Northbound -> Charnock Richard Northbound",
-        "trip": "4"
+        "trip": "4",
+        "description": "At Frankley, Stephen picked me up. I very much enjoyed his philisophies. He was - long-term - a football kit manager, so he drove around a van full of \"football items\" for a local team of his. But, for the summer, he was - short-term - driving a van full of fresh oranges from Preston to Gloucester, and then driving back. I'd caught him at around 10 or 11am driving back, as he said he set off sometime in the morning around 2am. The oranges were for that bougie (or \"farm-shop\") service station, which after trying to find a post by<a href=\"https://mastodon.social/@motorway@mastodonapp.uk\">Motorway Services Online</a> about dual farm-shop-and-common services in one, I've instead <a href=\"https://motorwayservices.uk/Which_Magazine#2021_Survey\">found a post</a> calling Gloucester Services the number 1 top rated in 2021 by Which?.<br><br>Anyway, he said he enjoyed his temporary job because it paid alright and let him spend his spare time doing more of what he wanted. What more could one wish for. According to my notes, he said he was renovating a van in order to drive round Europe, and my notes also say, solely, \"mushrooms\".<br><br>Apparently, also, Stephen told me that the \"please\" on my sign made him pick me up. Politeness wins the day again."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -31864,7 +31871,8 @@
       "properties": {
         "total_distance_km": 400,
         "label": "4.2 Charnock Richard Northbound -> Hamilton",
-        "trip": "4"
+        "trip": "4",
+        "description": "At Charnock Richard, I stopped for lunch. Afterwards, I headed to the car exit to set up in my best staring-stance. I pulled my sign out of my bag (which said \"NORTH please! :)\"), and quite literally 3 seconds afterwards, a car beeped at me and pulled up. Inside was Robina (Robi if you know her well), who was driving up to near Inverness, and said she'd happily give me a lift to Glasgow.<br><br>She was driving up from Wales, where she was a retired occupational therapist. The journey was quite long (perhaps a few hours) so we talked a lot. The vibes that I gleamed (that I deemed important enough to note down) were that she lived in large expensive houses, she had three very successful sons, and that she had lots of opinions about death.<br><br>Robi said that my hairclip had caught her eye, and she was going so far North (as my sign had asked for) that she may as well pick me up. She dropped me off by a services on the M74, where my aunt (who I was visiting) - who worked nearby - picked me up."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -42939,7 +42947,8 @@
       "properties": {
         "total_distance_km": 320,
         "label": "5.1 North Ferriby -> Doncaster North",
-        "trip": "5"
+        "trip": "5",
+        "description": "This is the only journey in a hitch full of disappointment. I'd started the morning by trying to get a lift from people who were getting off the ferry from Rotterdam to Hull, to no success, so I'd got a lift from my mum to the other side of town, to a small petrol station on the A63.<br><br>Here, a lovely Dutch woman of no-memorised-name picked me up in her campervan. She had been in Hull that morning, and was driving over to somewhere Westerly with her two children in the back. She was very nice, and seemed to be adventurous (in my notes, it says \"got to Cornwall on foot\" - since I either never found out where, or wrote it down - I leave it to you to guess where from to gauge how impressed you are). She'd bought the van from a friend, or borrowed it, but it was a labour-of-love kind of vehicle.<br><br>She gave me a lift to Doncaster North, and then continued herself westwards. I thought I'd be able to continue easily, but at Doncaster North, it rained heavily, I got shuffled around by workers (who thought they were doing me a service, suggesting I'd have better odds by the lorries), and nobody picked me up, nor nigh-on looked me in the eyes for four or five hours. Eventually (partly because the rain suggested it would never stop), I decided to abandon the trip and get a coach from a nearby town.<br><br>I asked a couple of workers in the services when they were getting off, and if I could get a lift home with them, but they weren't going the right way, so I ended up walking 40 minutes to a bus stop (in rain and wind that threatened to break my umbrella), getting a bus to Doncaster, getting a train to Sheffield (which, incidentally, was the first time I'd ever been to Sheffield), and getting a coach to London Victoria.<br><br>I think knowing when to give up is an important skill, and I think I gave up at a reasonable time this time. So far, this is my only attempt that has been futile."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -44862,7 +44871,8 @@
       "properties": {
         "total_distance_km": 320,
         "label": "6.1 London Gateway Services -> Ferrybridge",
-        "trip": "6"
+        "trip": "6",
+        "description": "This was my first hitchhike with someone else (a lover). We waited together at the services, where they held the sign, so for the first time I didn't know what to do with my hands, and in memory, I was doing strange gestures and dances. Albeit, someone clomped over in his wellington boots and said he was going to Middlesborough and that he could give us a lift. He introduced himself as Frank, and we hopped into his large truck-style car.<br><br>He was in London as he was working doing \"film and TV stuff\" down there, which I don't remember or didn't gleam the full extent of, but in my memory was sort of \"walking around in wellies and moving stuff about\". In my notes, it says he also did \"electric stuff, generators\", which was perhaps related. He was nice, and grounded, and had a high Northern spirit of friendliness. He said he lived in a small cottage in a village up in Middlesborough; in a small enough place that if someone drove by outside after 7pm, it was a big event.<br><br>He dropped us off in Ferrybridge, where we stopped for lunch."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -57053,7 +57063,8 @@
       "properties": {
         "total_distance_km": 320,
         "label": "6.2 Ferrybridge -> Hull",
-        "trip": "6"
+        "trip": "6",
+        "description": "We had lunch that we'd cooked the previous day, reheated in the service station microwave, then we set off outside to hopefully thumb our way to Hull.<br><br>After a few tens of minutes, a car drove by and slowed down, as if to inspect us. Then, it stopped, and invited us to Grimsby. We accepted, as we could probably try get a lift across the M180 over the Humber Bridge to Hull.<br><br>The car was a Tesla, so the doors opened vertically to reveal a man who introduced himself as Ola. He explained that he slowed down because he thought that he recognised us, but that was only because he'd also used the service station microwave, and saw us eating our food there. He tried to explain that he liked being economical and bringing leftovers to heat up, instead of buying food from Greggs/etc, but this didn't really go into my list of beliefs, as he was driving in a Tesla.<br><br>He'd lived in London, Bradford, and Grimsby and described them as less-and-less \"metropolitan\", in that order. He was just coming back from visiting family in Bradford, and regailed to us a trip to Marrakesh he'd been on a few months before with his 91-year-old mother in law, who dressed up as a princess, and other earthly delights.<br><br>He very much enjoyed chatting, and R was able to get him going with the most minimum of questions. After a while, he evidently decided he liked us, so he told us to \"speak your address out loud\" and pressed a button in his car. I spoke it, and the navigation re-routed to my house, to which he drove us right up to the door. Thanks Ola!"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -59608,7 +59619,8 @@
       "properties": {
         "total_distance_km": 225,
         "label": "7.1 London Gateway Services -> Trowell Northbound",
-        "trip": "7"
+        "trip": "7",
+        "description": "My waiting in London was punctured by a man in a flash car called Steve. He picked me up, and confessed that he'd driven by once, and come round again to pick me up because \"I'd be a right cunt if I didn't\". He was a barrister, so I found out a lot about the barrister profession, and his opinions on lots of things legality-related.<br><br>He'd just been to M&S and inexplicably bought about 7 meal deals, so he offered me a sandwich, a chocolate bar, and a drink, which I took out of the carrier bag at my feed and happily chomped.<br><br>He told me a lot about his life, his partner, and his second home in Wales. The only other thing I noted was \"likes a night out\"."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -66915,7 +66927,8 @@
       "properties": {
         "total_distance_km": 225,
         "label": "7.2 Trowell Northbound -> Sheffield (Meadowhell)",
-        "trip": "7"
+        "trip": "7",
+        "description": "In Trowell, a car decorated in stickers pulled up and asked if Leeds was any good. Leeds is further away than Sheffield, so I said \"yeah, great!\" and got in the car. It was being driven by Mohammed, who was on the way back from his brother or cousin or someone's house. Professionally, he was an Uber driver in Halifax, so we talked a bunch about that, and I pondered at the humour of getting a free lift in an Uber.<br><br>He had a big box of almonds in the car that we munched on the motorway while he told me about Pakistan, where he'd moved from a few years earlier. He said that I should go to visit, and that I could go \"without a hotel or any food\", as the people there would gladly offer me both in kind. Speaking of kind, he sounded it, as he was explaining that he has an agreement with his friends that he will give any of them a lift in his car for free, they must only give him a few days notice. He said this is because he lived in Halifax for a few years without a driving licence and knows what it's like, and knows how difficult the test can be.<br><br>He kindly dropped me at Meadowhell where I got a tram into Sheffield."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -70354,7 +70367,8 @@
       "properties": {
         "total_distance_km": 225,
         "label": "8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)",
-        "trip": "8"
+        "trip": "8",
+        "description": "For this trip, I didn't write down the intermediary services, so you get a combined telling of the three lifts that it took to get to Sheffield.<br><br>Dominic/Jo/Madeline was a person/head of sixth form/civil service worker who seemed to want social change, but was just hoping for it/was not ready for death/was obsessed with overly long walks."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -80937,7 +80951,8 @@
       "properties": {
         "total_distance_km": 16,
         "label": "9.1 The Peaks (Bamford) -> Sheffield",
-        "trip": "9"
+        "trip": "9",
+        "description": "This was a local hitch, as an alternative to getting the bus back. After some waiting, a small pub-break, and some more waiting, Helen picked up the four of us, and gave us a lift to Crookes (exactly where we were intending to go).<br><br>She was visiting her daughter after her part-time job-or-voluntary-position as a lifeguard at an outdoor pool in Hathersage. From this, we gleamed she liked swimming and asked her all about her opinions and knowledge of cold dips, to use in our own archives (featuring questions such as \"when should you get out of cold water?\")."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -83184,7 +83199,8 @@
       "properties": {
         "total_distance_km": 110,
         "label": "10.1 Sheffield Parkway -> Woodall Northbound",
-        "trip": "10"
+        "trip": "10",
+        "description": "This was a hitch with a friend, and my first \"group hitch\", as we had three other friends who were also hitching the same journey at the same time as us.<br><br>After a lot of waiting in my first non-service-area waiting spot (a roundabout leading to Sheffield Parkway), we were ready to leave and try a new spot a 30-minute-walk down the road, so we agreed to let 10 more cars go past, and then depart. The 10th car stopped and picked us up, which felt very much like a divine intervention.<br><br>Chris/Dave/Peter (I can't remember his name) took us from our shoddy-spot to Woodall services, where our friends who were hitching at the same time had been trying to get a lift to (from our other friend with a car)."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -85039,7 +85055,8 @@
       "properties": {
         "total_distance_km": 110,
         "label": "10.2 Woodall Northbound -> Hull",
-        "trip": "10"
+        "trip": "10",
+        "description": "At Woodall, we were on a (fun-based) timer, as we knew our other friends would arrive in an hour or so, being dropped off by our other friend halfway, and getting the bus to Woodall. We held up our sign penned \"Hull! (pretty please)\", and gave it a go. A fair few people seemed to show interest, but all pointed out the chairs, boxes, suitcases, children, and demon dogs in the back of their cars, and drove by.<br><br>After a few minutes, the Kendall Crew arrived, which was a van of around 5 lads who seemed to be having a raucus day. They shouted over at us and we responded, and after they came from lunch, one of their membership waddled over and told us they only had one spare seat. We said we could squeeze in, but the joke was a joke, and they went on their merry way. We only realised afterwards that it was not a van of 5 lads from Kendall doing a van-based job together, but instead a rental company called \"Kendall\" that they'd hired a van from. Sadder.<br><br>Anyway, soon after, a car across the car park beeped at us, and we walked over (after a few seconds of not being sure whether they were beeping at us or someone else, clarified by a wave and beckoning gesture) to greet them. They were going straight to Hull, which was perfect, so we dumped our backpacks in the boot and got in.<br><br>The car was then full to the brim, as we'd taken seats 4 and 5 of the tiny 5-seater. Seats 1, 2, and 3 were occupied by Malcolm, Elsie, and Elsie. Malcolm was Elsie's husband, and Elsie was Elsie and Malcom's friend. Tomorrow was Elsie's birthday, when she would become 94. After short trip to Malcolm and Elsie's friend's house to maybe-or-maybe-not pick up some wacky-baccy, they dropped us off on the \"other\" side of Hull Fair, which we walked through (and grabbed a liquorice rope) to get to my mum's house. Thanks gang."
       },
       "geometry": {
         "type": "MultiLineString",
