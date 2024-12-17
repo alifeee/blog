@@ -64,7 +64,7 @@
         border-image-width: 20px 20px 30px 20px;
         border-image-outset: 0px 0px 0px 0px;
         border-image-repeat: stretch stretch;
-        border-image-source: url("https://upload.wikimedia.org/wikipedia/commons/6/60/Map_sampler_made_at_Pleasent_Valley_Quaker_Boarding_School_MET_DP293006.jpg");
+        border-image-source: url("./images/fancy_map.jpg");
         border-style: solid;
       }
       #resizeme {
@@ -162,40 +162,42 @@
         //     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         // }).addTo(map);
 
-        let tilemap = 1;
+        tile_layer_1 = L.tileLayer(
+          "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.{ext}",
+          {
+            minZoom: 1,
+            maxZoom: 16,
+            attribution:
+              '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            ext: "jpg",
+            opacity: 0.5,
+          }
+        );
+        tile_layer_2 = L.tileLayer(
+          "https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.{ext}",
+          {
+            minZoom: 0,
+            maxZoom: 18,
+            attribution:
+              '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            ext: "png",
+          }
+        );
 
-        if (tilemap == 1) {
-          L.tileLayer(
-            "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.{ext}",
-            {
-              minZoom: 1,
-              maxZoom: 16,
-              attribution:
-                '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-              ext: "jpg",
-              opacity: 0.5,
-            }
-          ).addTo(map);
-        } else if (tilemap == 2) {
-          L.tileLayer(
-            "https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.{ext}",
-            {
-              minZoom: 0,
-              maxZoom: 18,
-              attribution:
-                '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-              ext: "png",
-            }
-          ).addTo(map);
-        } else if (tilemap == 3) {
-          L.tileLayer(
-            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-            {
-              attribution:
-                "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
-            }
-          ).addTo(map);
-        }
+        tile_layer_3 = L.tileLayer(
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution:
+              "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+          }
+        );
+
+        tile_layer_1.addTo(map);
+        let tile_layers = {
+          watercolour: tile_layer_1,
+          terrain: tile_layer_2,
+          imagery: tile_layer_3,
+        };
 
         const lineStyle = {
           weight: 9,
@@ -343,7 +345,7 @@
           console.log("geojson object with layer references:", trips_geojson);
 
           console.group("adding layer control");
-          layerControl = L.control.layers([], [], {
+          layerControl = L.control.layers(tile_layers, [], {
             position: "topright",
           });
 
@@ -527,7 +529,7 @@
 11 Sheffield -> Dublin -> Belfast</pre
       >
 
-      <p style="font-size: 1.5em">
+      <p>
         each of these is a separate trace on the above map. Click the "show on
         map" button to show the popup for each specific sub-trip.
       </p>
@@ -926,7 +928,26 @@
         </tbody>
       </table>
     </section>
-    <h2>Library</h2>
+    <script>
+      function infringe_copyright() {
+        console.log("infringing");
+        let library = document.querySelector("section.books");
+        console.log(library);
+        library.innerHTML =
+          '<div style="padding: 4rem 0;">I wasn\'t able to find any books as I am not currently at a University</div>';
+      }
+    </script>
+    <div style="margin: 1rem">
+      <h2>Library</h2>
+      <p>
+        Here are a few PDFs of academic research about hitchhiking. I provide it
+        as I have read some of each, and they are quite interesting.
+      </p>
+      <p>
+        If you work for a publishing company or are a big fan of copyright,
+        please click <button onclick="infringe_copyright()">this button</button>
+      </p>
+    </div>
     <section class="books">
       <figure>
         <a
@@ -1066,130 +1087,130 @@
           a short paper about a little robot that could,
         </figcaption>
       </figure>
-
-      <style>
-        .books {
-          margin: 1rem;
-          padding: 1rem;
-          font-family: "Times New Roman", Times, serif;
-          color: black;
-          background-color: #cc8800;
-          background-image: url("images/wood-pattern.png");
-          display: flex;
-          flex-wrap: wrap;
-          align-items: start;
-          justify-content: space-around;
-          text-align: center;
-
-          border: 50px solid #cc8800;
-          border-image: url("images/bookshelf.png") 83 / 50px / 0px stretch;
-          background-clip: padding-box;
-        }
-        .books > * {
-          max-width: 15rem;
-        }
-        /* mostly copied from https://codepen.io/alifeee/pen/vYzBBKy */
-        :root {
-          --zine-width: min(30vw, 200px);
-        }
-        .hover-area {
-          display: block;
-          margin: 0;
-          box-sizing: content-box;
-          width: var(--zine-width);
-          height: var(--zine-height);
-          padding-top: calc(var(--zine-width) * 0.13);
-          padding-bottom: calc(var(--zine-width) * 0.12);
-          padding-right: calc(var(--zine-width) * 0.05);
-          padding-left: calc(var(--zine-width) * 0.05);
-          width: 100%;
-          position: relative;
-
-          cursor: pointer;
-        }
-        .zine {
-          position: absolute;
-          height: var(--zine-height);
-          width: var(--zine-width);
-          left: 0;
-          right: 0;
-          margin: auto;
-
-          transform-origin: 0 0;
-          transition: transform 0.25s ease-out;
-
-          background-color: #fff;
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
-        .zine.front {
-          transform: skewY(4deg);
-        }
-        .zine.back {
-          transform: skewY(-5deg) scaleX(1.02);
-        }
-        .hover-area:hover > .zine.front {
-          transform: skewY(5deg);
-        }
-        .hover-area:hover > .zine.back {
-          transform: skewY(-8deg) scaleX(0.99);
-        }
-        .zine.front,
-        .zine.back {
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
-          border-bottom-left-radius: 5px;
-          border-top-left-radius: 5px;
-        }
-
-        /* informal-history-of-hitchhiking */
-        .informal-history-of-hitchhiking {
-          --zine-height: calc(var(--zine-width) * (989 / 658));
-        }
-        .informal-history-of-hitchhiking .zine.front {
-          background-image: url("pdfs/An\ Informal\ History\ of\ Hitchhiking.png");
-        }
-
-        /* cultural-inroads */
-        .cultural-inroads {
-          --zine-height: calc(var(--zine-width) * (1033 / 745));
-        }
-        .cultural-inroads .zine.front {
-          background-image: url("pdfs/Hitchhiking:\ Cultural\ Inroads.png");
-        }
-
-        /* travel-in-china */
-        .travel-in-china {
-          --zine-height: calc(var(--zine-width) * (1033 / 794));
-        }
-        .travel-in-china .zine.front {
-          background-image: url("pdfs/Hitchhiking\ travel\ in\ China:\ Gender\,\ agency\ and\ vulnerability.png");
-        }
-
-        /* perceived-dangers */
-        .perceived-dangers {
-          --zine-height: calc(var(--zine-width) * (943 / 724));
-        }
-        .perceived-dangers .zine.front {
-          background-image: url("pdfs/How\ Hitchhikers\ Cope\ with\ the\ Pressures\ and\ Perceived\ Dangers\ of\ Hitchhiking\ by\ Society.png");
-        }
-
-        /* staring-and-compliance */
-        .staring-and-compliance {
-          --zine-height: calc(var(--zine-width) * (1020 / 728));
-        }
-        .staring-and-compliance .zine.front {
-          background-image: url("pdfs/Staring\ and\ Compliance:\ A\ Field\ Experiment\ on\ Hitchhiking.png");
-        }
-
-        /* hitchBOT */
-        .hitchBOT {
-          --zine-height: calc(var(--zine-width) * (1033 / 806));
-        }
-        .hitchBOT .zine.front {
-          background-image: url("pdfs/The\ Death\ and\ Lives\ of\ HitchBOT.png");
-        }
-      </style>
     </section>
+
+    <style>
+      .books {
+        margin: 1rem;
+        padding: 1rem;
+        font-family: "Times New Roman", Times, serif;
+        color: black;
+        background-color: #cc8800;
+        background-image: url("images/wood-pattern.png");
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: space-around;
+        text-align: center;
+
+        border: 50px solid #cc8800;
+        border-image: url("images/bookshelf.png") 83 / 50px / 0px stretch;
+        background-clip: padding-box;
+      }
+      .books > * {
+        max-width: 15rem;
+      }
+      /* mostly copied from https://codepen.io/alifeee/pen/vYzBBKy */
+      :root {
+        --zine-width: min(30vw, 200px);
+      }
+      .hover-area {
+        display: block;
+        margin: 0;
+        box-sizing: content-box;
+        width: var(--zine-width);
+        height: var(--zine-height);
+        padding-top: calc(var(--zine-width) * 0.13);
+        padding-bottom: calc(var(--zine-width) * 0.12);
+        padding-right: calc(var(--zine-width) * 0.05);
+        padding-left: calc(var(--zine-width) * 0.05);
+        width: 100%;
+        position: relative;
+
+        cursor: pointer;
+      }
+      .zine {
+        position: absolute;
+        height: var(--zine-height);
+        width: var(--zine-width);
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        transform-origin: 0 0;
+        transition: transform 0.25s ease-out;
+
+        background-color: #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .zine.front {
+        transform: skewY(4deg);
+      }
+      .zine.back {
+        transform: skewY(-5deg) scaleX(1.02);
+      }
+      .hover-area:hover > .zine.front {
+        transform: skewY(5deg);
+      }
+      .hover-area:hover > .zine.back {
+        transform: skewY(-8deg) scaleX(0.99);
+      }
+      .zine.front,
+      .zine.back {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+      }
+
+      /* informal-history-of-hitchhiking */
+      .informal-history-of-hitchhiking {
+        --zine-height: calc(var(--zine-width) * (989 / 658));
+      }
+      .informal-history-of-hitchhiking .zine.front {
+        background-image: url("pdfs/An\ Informal\ History\ of\ Hitchhiking.png");
+      }
+
+      /* cultural-inroads */
+      .cultural-inroads {
+        --zine-height: calc(var(--zine-width) * (1033 / 745));
+      }
+      .cultural-inroads .zine.front {
+        background-image: url("pdfs/Hitchhiking:\ Cultural\ Inroads.png");
+      }
+
+      /* travel-in-china */
+      .travel-in-china {
+        --zine-height: calc(var(--zine-width) * (1033 / 794));
+      }
+      .travel-in-china .zine.front {
+        background-image: url("pdfs/Hitchhiking\ travel\ in\ China:\ Gender\,\ agency\ and\ vulnerability.png");
+      }
+
+      /* perceived-dangers */
+      .perceived-dangers {
+        --zine-height: calc(var(--zine-width) * (943 / 724));
+      }
+      .perceived-dangers .zine.front {
+        background-image: url("pdfs/How\ Hitchhikers\ Cope\ with\ the\ Pressures\ and\ Perceived\ Dangers\ of\ Hitchhiking\ by\ Society.png");
+      }
+
+      /* staring-and-compliance */
+      .staring-and-compliance {
+        --zine-height: calc(var(--zine-width) * (1020 / 728));
+      }
+      .staring-and-compliance .zine.front {
+        background-image: url("pdfs/Staring\ and\ Compliance:\ A\ Field\ Experiment\ on\ Hitchhiking.png");
+      }
+
+      /* hitchBOT */
+      .hitchBOT {
+        --zine-height: calc(var(--zine-width) * (1033 / 806));
+      }
+      .hitchBOT .zine.front {
+        background-image: url("pdfs/The\ Death\ and\ Lives\ of\ HitchBOT.png");
+      }
+    </style>
   </body>
 </html>
