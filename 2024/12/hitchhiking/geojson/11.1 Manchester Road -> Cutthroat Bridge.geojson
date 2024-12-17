@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.1 Manchester Road -> Cutthroat Bridge",
-        "trip": "11"
+        "trip": "11",
+        "description": "This was the start of Blummit, a charity hitchhike I did with 7 other friends, as 4 teams of 2. HHM and I got up the earliest out of anyone, and set off to try and get picked up from Manchester Road.<br><br>After waiting a while (and watching quite a nice sunrise), we were offered a short lift by Hamza, who was on his way to start his morning Uber rounds. He drove us a ways down the road to a lay-by on snake pass, which was not amazingly far but at least most people driving by now would be going to Manchester, and was not intra-Sheffield traffic."
       },
       "geometry": {
         "type": "MultiLineString",

@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.6 Northock Hall -> Bangor",
-        "trip": "11"
+        "trip": "11",
+        "description": "Just into Wales, we were offered a lift by a couple who were heading to the Lymm peninsula. After chatting about it (I went last Winter as well as visiting Bardsey Island), we finally asked their names which were Caroline and Simon. They were (your guess) an NHS manager, and a train driver teacher.<br><br>I finally got train driver teacher myth-or-not dispelled, and it was true (it's that there is a test to complete to become a train driver, that you can fail once, and retake, but if you fail twice you can never take it again), as well as chatting about management in the NHS (lots to say). At the end of the trip, they very kindly donated £20, giving it to HHM in cash."
       },
       "geometry": {
         "type": "MultiLineString",

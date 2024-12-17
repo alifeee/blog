@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.5 Denton Rock -> Northock Hall",
-        "trip": "11"
+        "trip": "11",
+        "description": "We'd known our friends were at Lymm just before us, and had been picked up, so we were doubtless also soon for the chopper (being picked up). However, no. We didn't get a lift for 2 hours, even as we stalked the slow roundabout that the cars <i>and</i> lorries were using to exit the services.<br><br>Eventually, a van stopped and offered to take us into Wales, which we took up. It was being driven by Polly and Sam, and not driven by their child. We got to sit right in the back, on a large bench, and HHM charged their phone for the journey. They seemed a rooted and grounded pair. They dropped us later on."
       },
       "geometry": {
         "type": "MultiLineString",

@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.4 Denton Rock -> Lymm",
-        "trip": "11"
+        "trip": "11",
+        "description": "At Denton Rock, the other team, HHM, and I wandered down to the ring road on-ramp, and separated. They hung back, and we thought a junction up ahead was a good chance.<br><br>I rewrote our sign to say \"M56 please\", which turned out to have been a pretty great move, as we managed to catch someone who'd flown right by our friends because of their slightly-more-vague sign, but stopped to pick us up. (there is also the chance that he'd raced by without thinking much, then had 15 seconds to consider \"hmmm, would I pick up hitchhikers next time?\", and then next time came a lot sooner than he'd figured).<br><br>Paul, the picker-upper, was a police insurer. He had a lot of opinions about youths, and seemed to shine well upon us. I asked a question about unions which led him into a 20 minute discussion about the coal strikes, before dropping us at Lymm services."
       },
       "geometry": {
         "type": "MultiLineString",

@@ -88455,7 +88455,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.1 Manchester Road -> Cutthroat Bridge",
-        "trip": "11"
+        "trip": "11",
+        "description": "This was the start of Blummit, a charity hitchhike I did with 7 other friends, as 4 teams of 2. HHM and I got up the earliest out of anyone, and set off to try and get picked up from Manchester Road.<br><br>After waiting a while (and watching quite a nice sunrise), we were offered a short lift by Hamza, who was on his way to start his morning Uber rounds. He drove us a ways down the road to a lay-by on snake pass, which was not amazingly far but at least most people driving by now would be going to Manchester, and was not intra-Sheffield traffic."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -89830,7 +89831,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir",
-        "trip": "11"
+        "trip": "11",
+        "description": "At cutthroat bridge, we got offered a lift by Hannah, who squeezed us into the car with two children and a dog, as she said our \"spot was bad\" and \"all the students usually waited in a better spot up the road\". The better spot was, in our opinion, worse, but what can you do. It did offer a great view of Ladybower Reservoir."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -90297,7 +90299,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.3 Ladybower Reservoir -> Denton Rock",
-        "trip": "11"
+        "trip": "11",
+        "description": "After being asked if we'd like a lift to Sheffield by someone who doesn't seem to know which side of the road means you're going which direction, nor could read our \"West please!\" sign, we were offered a list westwards by Charlotte. She lived in Sheffield, and worked in Manchester, at a proton therapy clinic. We learnt a bit about proton therapy, before whizzing past two of our friends! Charlotte (not us...) came up with the idea of picking them up too, so we did and we got as far as Denton Rock as a 4.<br><br>It seemed to take a toll on Charlotte, as she got more and more worried about being late to work."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -94248,7 +94251,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.4 Denton Rock -> Lymm",
-        "trip": "11"
+        "trip": "11",
+        "description": "At Denton Rock, the other team, HHM, and I wandered down to the ring road on-ramp, and separated. They hung back, and we thought a junction up ahead was a good chance.<br><br>I rewrote our sign to say \"M56 please\", which turned out to have been a pretty great move, as we managed to catch someone who'd flown right by our friends because of their slightly-more-vague sign, but stopped to pick us up. (there is also the chance that he'd raced by without thinking much, then had 15 seconds to consider \"hmmm, would I pick up hitchhikers next time?\", and then next time came a lot sooner than he'd figured).<br><br>Paul, the picker-upper, was a police insurer. He had a lot of opinions about youths, and seemed to shine well upon us. I asked a question about unions which led him into a 20 minute discussion about the coal strikes, before dropping us at Lymm services."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -96819,7 +96823,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.5 Denton Rock -> Northock Hall",
-        "trip": "11"
+        "trip": "11",
+        "description": "We'd known our friends were at Lymm just before us, and had been picked up, so we were doubtless also soon for the chopper (being picked up). However, no. We didn't get a lift for 2 hours, even as we stalked the slow roundabout that the cars <i>and</i> lorries were using to exit the services.<br><br>Eventually, a van stopped and offered to take us into Wales, which we took up. It was being driven by Polly and Sam, and not driven by their child. We got to sit right in the back, on a large bench, and HHM charged their phone for the journey. They seemed a rooted and grounded pair. They dropped us later on."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -99662,7 +99667,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.6 Northock Hall -> Bangor",
-        "trip": "11"
+        "trip": "11",
+        "description": "Just into Wales, we were offered a lift by a couple who were heading to the Lymm peninsula. After chatting about it (I went last Winter as well as visiting Bardsey Island), we finally asked their names which were Caroline and Simon. They were (your guess) an NHS manager, and a train driver teacher.<br><br>I finally got train driver teacher myth-or-not dispelled, and it was true (it's that there is a test to complete to become a train driver, that you can fail once, and retake, but if you fail twice you can never take it again), as well as chatting about management in the NHS (lots to say). At the end of the trip, they very kindly donated £20, giving it to HHM in cash."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -104065,7 +104071,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.7 Bangor -> Holyhead Ferry Terminal",
-        "trip": "11"
+        "trip": "11",
+        "description": "At this point we were extremely close to Holyhead, relative to where we started, and we were hoping we could get there for the ferry, which we'd been told was delayed \"a number of hours\".<br><br>As it started to rain, a car stopped for us, and inside was Heidi, who was studying medieval history nearby. She said that her boyfriend hitchhiked a lot, and she wouldn't be able to tell him that she'd seen some hitchhikers and <i>not</i> picked them up, so she said. She drove (very out of her way) to Holyhead and dropped us off at the ferry terminal, where we met up 2 other teams of our friends (the final team had gone via Scotland) to hang out until the ferry set off. Originally, we thought we'd have to be there by 13:40 to make the ferry, but there were later ferries <i>and</i> the one we were going to get was four hours delayed anyway.<br><br>On the ferry, we got chatting to someone who was wearing a COP-29 t-shirt, who'd heard us chatting earlier about not having a solid plan for a place to stay, and extremely kindly offered us a space in their house, which was near Dublin. Their big complaint of the day was that the ferry delay made them unable to vote in the Irish election that was happening that day, as the ferry got in at 10pm, just as the polls closed.<br><br>They lived in a small suburb nearby Dublin, which we got a lift to along with them and their parents, and had a wonderful evening and morning-after exploring the little town of castles and coasts."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -107132,7 +107139,8 @@
       "properties": {
         "total_distance_km": 166,
         "label": "12.1 Dublin N1 -> Castlebellingham",
-        "trip": "12"
+        "trip": "12",
+        "description": "After hitching a bus to the north of Dublin, we pitched up at a large crossroads with traffic lights, and flicked our attention and waving between streams of cars in tune with the lights. After ten minutes, a car stopped up the road from us, beeped at us, and we were on our way.<br><br>After moving a guitar out the way, we introduced ourselves to Padhraic, currently an architect, who was on his way to his hometown to meet very old friends. I was very tired at this point, so I was being quiet in the back while HHM chatted, but I was drawn in when Padhraic asked what I did at university, I replied \"physics\", and he launched into a conversation about the meaning of consciousness (that I did very much enjoy) and asked me to explain if or why quantum physics breaks the idea of determinism (an unanswerable question).<br><br>He dropped us about halfway to Belfast, putting us in the lead between us and our friends. Not that anyone was counting."
       },
       "geometry": {
         "type": "MultiLineString",
@@ -109587,7 +109595,8 @@
       "properties": {
         "total_distance_km": 166,
         "label": "12.2 Castlebellingham -> Abbey Centre",
-        "trip": "12"
+        "trip": "12",
+        "description": "We stopped for lunch, and drew a sign, in a services with a large soft play area. As we were sat, we saw someone who looked very interesting start walking back to their car, so we hopped up quickly in order to catch them. Instead, on the way to the car exit, we walked past two guys getting into their car, asked if they were going to Belfast, they said yes, asked if they'd give us a lift, and they also said yes. Interesting person: forget yourself.<br><br>Michelle and Ryan then drove us all the way to the north of Belfast, and dropped us nearby a shopping centre. They were two fascinating people; they seemed to know every small shopping centre in Belfast, and were very excited to go to B&M, which they didn't have in Dublin.<br><br>With that, our long hitch was complete, and we got a bus the final few minutes to where we were staying, about 2 hours earlier than anyone else, which handily meant we had time to use the sauna before heading back into Belfast to meet our friends."
       },
       "geometry": {
         "type": "MultiLineString",

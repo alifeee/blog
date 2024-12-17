@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.2 Cutthroat Bridge -> Ladybower Reservoir",
-        "trip": "11"
+        "trip": "11",
+        "description": "At cutthroat bridge, we got offered a lift by Hannah, who squeezed us into the car with two children and a dog, as she said our \"spot was bad\" and \"all the students usually waited in a better spot up the road\". The better spot was, in our opinion, worse, but what can you do. It did offer a great view of Ladybower Reservoir."
       },
       "geometry": {
         "type": "MultiLineString",

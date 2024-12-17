@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.7 Bangor -> Holyhead Ferry Terminal",
-        "trip": "11"
+        "trip": "11",
+        "description": "At this point we were extremely close to Holyhead, relative to where we started, and we were hoping we could get there for the ferry, which we'd been told was delayed \"a number of hours\".<br><br>As it started to rain, a car stopped for us, and inside was Heidi, who was studying medieval history nearby. She said that her boyfriend hitchhiked a lot, and she wouldn't be able to tell him that she'd seen some hitchhikers and <i>not</i> picked them up, so she said. She drove (very out of her way) to Holyhead and dropped us off at the ferry terminal, where we met up 2 other teams of our friends (the final team had gone via Scotland) to hang out until the ferry set off. Originally, we thought we'd have to be there by 13:40 to make the ferry, but there were later ferries <i>and</i> the one we were going to get was four hours delayed anyway.<br><br>On the ferry, we got chatting to someone who was wearing a COP-29 t-shirt, who'd heard us chatting earlier about not having a solid plan for a place to stay, and extremely kindly offered us a space in their house, which was near Dublin. Their big complaint of the day was that the ferry delay made them unable to vote in the Irish election that was happening that day, as the ferry got in at 10pm, just as the polls closed.<br><br>They lived in a small suburb nearby Dublin, which we got a lift to along with them and their parents, and had a wonderful evening and morning-after exploring the little town of castles and coasts."
       },
       "geometry": {
         "type": "MultiLineString",

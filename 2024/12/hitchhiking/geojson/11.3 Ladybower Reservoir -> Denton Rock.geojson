@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 367,
         "label": "11.3 Ladybower Reservoir -> Denton Rock",
-        "trip": "11"
+        "trip": "11",
+        "description": "After being asked if we'd like a lift to Sheffield by someone who doesn't seem to know which side of the road means you're going which direction, nor could read our \"West please!\" sign, we were offered a list westwards by Charlotte. She lived in Sheffield, and worked in Manchester, at a proton therapy clinic. We learnt a bit about proton therapy, before whizzing past two of our friends! Charlotte (not us...) came up with the idea of picking them up too, so we did and we got as far as Denton Rock as a 4.<br><br>It seemed to take a toll on Charlotte, as she got more and more worried about being late to work."
       },
       "geometry": {
         "type": "MultiLineString",

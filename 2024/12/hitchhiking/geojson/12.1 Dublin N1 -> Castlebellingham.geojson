@@ -13,7 +13,8 @@
       "properties": {
         "total_distance_km": 166,
         "label": "12.1 Dublin N1 -> Castlebellingham",
-        "trip": "12"
+        "trip": "12",
+        "description": "After hitching a bus to the north of Dublin, we pitched up at a large crossroads with traffic lights, and flicked our attention and waving between streams of cars in tune with the lights. After ten minutes, a car stopped up the road from us, beeped at us, and we were on our way.<br><br>After moving a guitar out the way, we introduced ourselves to Padhraic, currently an architect, who was on his way to his hometown to meet very old friends. I was very tired at this point, so I was being quiet in the back while HHM chatted, but I was drawn in when Padhraic asked what I did at university, I replied \"physics\", and he launched into a conversation about the meaning of consciousness (that I did very much enjoy) and asked me to explain if or why quantum physics breaks the idea of determinism (an unanswerable question).<br><br>He dropped us about halfway to Belfast, putting us in the lead between us and our friends. Not that anyone was counting."
       },
       "geometry": {
         "type": "MultiLineString",
