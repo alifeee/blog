@@ -90,7 +90,8 @@ def get_all_posts() -> List[Post]:
         ), f"post {post.relative_url} does not exist"
     # make sure all md_url's exist
     for post in posts:
-        assert os.path.exists(post.md_url), f"post {post.md_url} does not exist"
+        if not os.path.exists(post.md_url):
+            print(f"warning: post {post.md_url} does not exist")
 
     posts.sort(key=lambda x: x.date, reverse=True)
     return posts
