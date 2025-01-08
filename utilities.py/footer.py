@@ -27,7 +27,7 @@ def main():
             "icon": "linktree-logo-icon",
         },
         {
-            "to": "mailto:alifeee.web@outlook.com",
+            "to": "mailto:alifeee@alifeee.net",
             "text": "Email",
             "icon": "envelope-solid",
         },
