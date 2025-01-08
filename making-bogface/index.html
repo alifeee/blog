@@ -183,228 +183,584 @@
 
     <main>
       <section id="content" class="markdown-body">
-        <h1 id="making-my-own-font---bogface">Making my own Font - <span class="BogFace">BogFace</span></h1>
-<p><word-count parent=".markdown-body"></word-count></p>
-<p>I was told by a friend that they had never woken up and thought &quot;I want to make a font&quot;.</p>
-<p>However, I had done exactly that.</p>
-<span class="large centred BogFace">
+        <h1 id="making-my-own-font---bogface">
+          Making my own Font - <span class="BogFace">BogFace</span>
+        </h1>
+        <p><word-count parent=".markdown-body"></word-count></p>
+        <p>
+          I was told by a friend that they had never woken up and thought
+          &quot;I want to make a font&quot;.
+        </p>
+        <p>However, I had done exactly that.</p>
+        <span class="large centred BogFace">
+          <p>
+            BogFace, available for download
+            <a href="https://alifeee.co.uk/fonts">NOW</a>!
+          </p>
+        </span>
 
-<p>BogFace, available for download <a href="https://alifeee.co.uk/fonts">NOW</a>!</p>
-</span>
+        <!-- Rounded switch -->
+        <div class="view-in-bogface BogFace">
+          <fieldset>
+            <label for="bogswitch">Read this post in BogFace</label>
+            <label class="switch">
+              <input type="checkbox" name="bogswitch" id="bogswitch-1" />
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+        </div>
 
-<!-- Rounded switch -->
-<div class="view-in-bogface BogFace">
-    <fieldset>
-        <label for="bogswitch">Read this post in BogFace</label>
-        <label class="switch">
-            <input type="checkbox" name="bogswitch" id="bogswitch-1">
-            <span class="slider round"></span>
-        </label>
-    </fieldset>
-</div>
+        <ol>
+          <li>
+            <a href="#why">Why?</a>
+            <ol>
+              <li>
+                <a href="#moving-away-from-font-repositories-like-google-fonts"
+                  >Moving away from font repositories like Google Fonts</a
+                >
+              </li>
+            </ol>
+          </li>
+          <li>
+            <a href="#how-to-make-a-font">How to make a font?</a>
+            <ol>
+              <li>
+                <a href="#picking-a-tool-to-use">Picking a tool to use</a>
+              </li>
+              <li>
+                <a href="#learning-how-to-use-fontforge"
+                  >Learning how to use FontForge</a
+                >
+              </li>
+              <li>
+                <a href="#making-a-typeface">Making a typeface</a>
+                <ol>
+                  <li>
+                    <a
+                      href="#converting-hand-drawn-images-into-two-colour-bitmaps"
+                      >Converting hand-drawn images into two-colour bitmaps</a
+                    >
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <a href="#loading-in-the-bitmaps-to-fontforge"
+                  >Loading in the bitmaps to FontForge</a
+                >
+              </li>
+              <li>
+                <a href="#drawing-round-the-designs"
+                  >Drawing round the designs</a
+                >
+              </li>
+              <li>
+                <a href="#why-did-i-call-it-bogface"
+                  >Why did I call it BogFace?</a
+                >
+              </li>
+              <li><a href="#font-completion">Font completion!</a></li>
+              <li><a href="#adding-more-things">Adding more things</a></li>
+            </ol>
+          </li>
+          <li><a href="#the-leftovers">The leftovers</a></li>
+          <li><a href="#footnotes">Footnotes</a></li>
+          <li><a href="#resources">Resources</a></li>
+        </ol>
+        <h2 id="why">Why?</h2>
+        <p>
+          I think design is fascinating, and I have read a few books about
+          fonts. One is
+          <a href="https://www.goodreads.com/en/book/show/25658538"
+            >Why Fonts Matter</a
+          >,
+        </p>
+        <a
+          class="why-fonts-matter hover-area"
+          href="https://www.goodreads.com/en/book/show/25658538"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
 
-<ol>
-<li><a href="#why">Why?</a><ol>
-<li><a href="#moving-away-from-font-repositories-like-google-fonts">Moving away from font repositories like Google Fonts</a></li>
-</ol>
-</li>
-<li><a href="#how-to-make-a-font">How to make a font?</a><ol>
-<li><a href="#picking-a-tool-to-use">Picking a tool to use</a></li>
-<li><a href="#learning-how-to-use-fontforge">Learning how to use FontForge</a></li>
-<li><a href="#making-a-typeface">Making a typeface</a><ol>
-<li><a href="#converting-hand-drawn-images-into-two-colour-bitmaps">Converting hand-drawn images into two-colour bitmaps</a></li>
-</ol>
-</li>
-<li><a href="#loading-in-the-bitmaps-to-fontforge">Loading in the bitmaps to FontForge</a></li>
-<li><a href="#drawing-round-the-designs">Drawing round the designs</a></li>
-<li><a href="#why-did-i-call-it-bogface">Why did I call it BogFace?</a></li>
-<li><a href="#font-completion">Font completion!</a></li>
-<li><a href="#adding-more-things">Adding more things</a></li>
-</ol>
-</li>
-<li><a href="#the-leftovers">The leftovers</a></li>
-<li><a href="#footnotes">Footnotes</a></li>
-<li><a href="#resources">Resources</a></li>
-</ol>
-<h2 id="why">Why?</h2>
-<p>I think design is fascinating, and I have read a few books about fonts. One is <a href="https://www.goodreads.com/en/book/show/25658538">Why Fonts Matter</a>,</p>
-<a class="why-fonts-matter hover-area" href="https://www.goodreads.com/en/book/show/25658538">
-    <div class="zine back"></div>
-    <div class="zine front"></div>
-</a>
+        <p>
+          which posed a fun experiment of asking &quot;how many different fonts
+          am I exposed to in an hour?&quot;. I often remember this, and look
+          around, and it&#39;s often <em>a lot</em> of fonts.
+        </p>
+        <p>
+          Another book, which I still own, is
+          <a href="https://www.goodreads.com/book/show/26246257-script-fonts"
+            >Script Fonts</a
+          >,
+        </p>
+        <a
+          class="script-fonts hover-area"
+          href="https://www.goodreads.com/book/show/26246257-script-fonts"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
 
-<p>which posed a fun experiment of asking &quot;how many different fonts am I exposed to in an hour?&quot;. I often remember this, and look around, and it&#39;s often <em>a lot</em> of fonts.</p>
-<p>Another book, which I still own, is <a href="https://www.goodreads.com/book/show/26246257-script-fonts">Script Fonts</a>,</p>
-<a class="script-fonts hover-area" href="https://www.goodreads.com/book/show/26246257-script-fonts">
-    <div class="zine back"></div>
-    <div class="zine front"></div>
-</a>
+        <p>
+          which is simply a list of many fonts. The fonts are put into
+          collections and each has a brief preface, but otherwise the book is...
+          just fonts. Plain and simple. It even comes with a CD containing all
+          the fonts! I don&#39;t have a CD drive.
+        </p>
+        <h3 id="moving-away-from-font-repositories-like-google-fonts">
+          Moving away from font repositories like Google Fonts
+        </h3>
+        <p>
+          I think using non-default fonts on websites is always fun, and I
+          recently started straying away from the fonts on Google Fonts and
+          similar sites. This was part of my broader departure from the
+          advertiser-filled, SEO-optimised, tracking-fueled Internet to the
+          cooler, calmer, and altogether more personable
+          <a href="https://indieweb.org/">IndieWeb</a>.
+        </p>
+        <p>
+          I enjoy
+          <a href="https://alifeee.co.uk/bookmarks/">many personal websites</a>,
+          and I knew of two that specifically had fonts:
+          <a href="http://fonts.tom7.com/">Tom7&#39;s fonts</a> (a website I
+          discovered via
+          <a href="https://www.youtube.com/@tom7">Tom7&#39;s YouTube channel</a
+          >),
+        </p>
+        <p>
+          <img src="images/tom7-fonts.png" alt="Screenshot of Tom7's fonts
+          website, showing "Fonts 1998-∞" and "Fonts 1993-1997"">
+        </p>
+        <figcaption>
+          <p><a href="http://fonts.tom7.com/">http://fonts.tom7.com/</a></p>
+        </figcaption>
 
-<p>which is simply a list of many fonts. The fonts are put into collections and each has a brief preface, but otherwise the book is... just fonts. Plain and simple. It even comes with a CD containing all the fonts! I don&#39;t have a CD drive.</p>
-<h3 id="moving-away-from-font-repositories-like-google-fonts">Moving away from font repositories like Google Fonts</h3>
-<p>I think using non-default fonts on websites is always fun, and I recently started straying away from the fonts on Google Fonts and similar sites. This was part of my broader departure from the advertiser-filled, SEO-optimised, tracking-fueled Internet to the cooler, calmer, and altogether more personable <a href="https://indieweb.org/">IndieWeb</a>.</p>
-<p>I enjoy <a href="https://alifeee.co.uk/bookmarks/">many personal websites</a>, and I knew of two that specifically had fonts: <a href="http://fonts.tom7.com/">Tom7&#39;s fonts</a> (a website I discovered via <a href="https://www.youtube.com/@tom7">Tom7&#39;s YouTube channel</a>),</p>
-<p><img src="images/tom7-fonts.png" alt="Screenshot of Tom7's fonts website, showing "Fonts 1998-∞" and "Fonts 1993-1997""></p>
-<figcaption>
+        <p>
+          ...and
+          <a href="http://clofont.free.fr/">Des polices de caracteres a Gogo</a>
+          (I found this site, a French website, mostly in French, with
+          <a href="https://alifeee.co.uk/i-am-having-a-good-blow-at-cheltenham/"
+            >Robyn</a
+          >
+          - I do not remember how or where, but it was probably browsing
+          <a href="https://alifeee.co.uk/bookmarks/#webrings">webrings</a>).
+        </p>
+        <p>
+          <img
+            src="images/clofonts.png"
+            alt="Screenshot of clofonts website, showing introduction"
+          />
+        </p>
+        <figcaption>
+          <p><a href="http://clofont.free.fr/">http://clofont.free.fr/</a></p>
+        </figcaption>
 
-<p><a href="http://fonts.tom7.com/">http://fonts.tom7.com/</a></p>
-</figcaption>
+        <p>
+          Tom7&#39;s site has two pages of fonts, with maybe 30 fonts total. The
+          second French site I have not yet found the bottom of, and has
+          seemingly hundreds and maybe thousands of fonts. Over a few weeks, I
+          found myself making
+          <a href="https://webring.alifeee.co.uk/">one</a> or
+          <a href="https://github.com/alifeee/invoice_template/">two</a> things,
+          and when I thought &quot;I should pick a font for this&quot;, the
+          natural choice was to use one from one of these personal sites. So,
+          that&#39;s what I did!
+        </p>
+        <h2 id="how-to-make-a-font">How to make a font?</h2>
+        <h3 id="picking-a-tool-to-use">Picking a tool to use</h3>
+        <p>
+          After that, fonts were on the mind, so I decided to learn how to make
+          them.
+          <a href="http://fonts.tom7.com/faq.html">Tom7&#39;s font FAQ</a>
+          (seemingly written over 20 years ago) suggested that making a font
+          might be quite inaccessible, requiring expensive, bespoke software.
+        </p>
+        <p>
+          <img src="images/tom7_faq.png" alt="Screenshot of Tom7's FAQ question
+          "How do I make my own fonts?"">
+        </p>
+        <figcaption>
+          <p>
+            FAQ from
+            <a href="http://fonts.tom7.com/faq.html">Tom7&#39;s font FAQs</a>.
+          </p>
+        </figcaption>
 
-<p>...and <a href="http://clofont.free.fr/">Des polices de caracteres a Gogo</a> (I found this site, a French website, mostly in French, with <a href="https://alifeee.co.uk/i-am-having-a-good-blow-at-cheltenham/">Robyn</a> - I do not remember how or where, but it was probably browsing <a href="https://alifeee.co.uk/bookmarks/#webrings">webrings</a>).</p>
-<p><img src="images/clofonts.png" alt="Screenshot of clofonts website, showing introduction"></p>
-<figcaption>
+        <p>
+          However, I googled around (using my all-too-common method of
+          prepending the phrase &quot;FLOSS open-source&quot; to whatever
+          premium experience I was after) and found
+          <a href="https://fontforge.org/en-US/">FontForge</a> and
+          <a href="https://birdfont.org/">Birdfont</a>. I decided I would use
+          the former, FontForge, as it seemed more mature (whatever that means).
+        </p>
+        <p>
+          <img
+            src="images/FontForge_banner.png"
+            alt="Screenshot of FontForge's main page"
+          />
+        </p>
+        <figcaption>
+          <p>
+            <a href="https://fontforge.org/en-US/">FontForge</a>&#39;s main
+            page.
+          </p>
+        </figcaption>
 
-<p><a href="http://clofont.free.fr/">http://clofont.free.fr/</a></p>
-</figcaption>
+        <h3 id="learning-how-to-use-fontforge">
+          Learning how to use FontForge
+        </h3>
+        <p>
+          With not much to do, I spent the better half of a Boneless Wednesday<a
+            href="#footnotes"
+            >¹</a
+          >
+          reading the
+          <a href="https://fontforge.org/en-US/documentation/"
+            >FontForge documentation</a
+          >. As well as teaching you how to use FontForge itself, there was a
+          lot of information about how typefaces in general are rendered by
+          computers, and the differences for different writing systems like
+          Arabic and Mandarin. It is interesting stuff, especially if you&#39;re
+          into typography (I have not decided whether I am or not, but evidence
+          would sway me towards being).
+        </p>
+        <h3 id="making-a-typeface">Making a typeface</h3>
+        <p>
+          I started by making hand-painted letters into part of a font with the
+          <a href="https://github.com/alifeee/kiran-builder-typeface"
+            >Kiran Builder Typeface</a
+          >
+          (currently incomplete), a font based on a painted garage in East
+          London. With that small project I developed a process for turning
+          images of hand-drawn letter forms into vector graphics, which is the
+          graphics format used for fonts. I will lay that process out here.
+        </p>
+        <h4 id="converting-hand-drawn-images-into-two-colour-bitmaps">
+          Converting hand-drawn images into two-colour bitmaps
+        </h4>
+        <p>
+          Fonts are single-colour, and then can be painted afterwards. So, to
+          get from an image to vector graphics, I first converted the image to a
+          2-color bitmap. For this I used
+          <a href="https://www.getpaint.net/">Paint.Net</a> (the program I use
+          for all raster image editing - think a more powerful MS Paint), and
+          used <code>Effects&gt;Colour&gt;Quantize</code> to turn my photos into
+          black-and-white PNGs (a simplified story. The extra steps were
+          cleaning up things like the lines from the lined paper I used and
+          other pen-marks.)
+        </p>
+        <p>
+          <img
+            src="images/letters_full_colour.png"
+            alt="Picture of hand-drawn letters"
+          />
+        </p>
+        <figcaption>
+          <p>
+            The uppercase letters that I drew on lined paper (use blank next
+            time) to use in my font.
+          </p>
+        </figcaption>
 
-<p>Tom7&#39;s site has two pages of fonts, with maybe 30 fonts total. The second French site I have not yet found the bottom of, and has seemingly hundreds and maybe thousands of fonts. Over a few weeks, I found myself making <a href="https://webring.alifeee.co.uk/">one</a> or <a href="https://github.com/alifeee/invoice_template/">two</a> things, and when I thought &quot;I should pick a font for this&quot;, the natural choice was to use one from one of these personal sites. So, that&#39;s what I did!</p>
-<h2 id="how-to-make-a-font">How to make a font?</h2>
-<h3 id="picking-a-tool-to-use">Picking a tool to use</h3>
-<p>After that, fonts were on the mind, so I decided to learn how to make them. <a href="http://fonts.tom7.com/faq.html">Tom7&#39;s font FAQ</a> (seemingly written over 20 years ago) suggested that making a font might be quite inaccessible, requiring expensive, bespoke software.</p>
-<p><img src="images/tom7_faq.png" alt="Screenshot of Tom7's FAQ question "How do I make my own fonts?""></p>
-<figcaption>
+        <p>
+          <img
+            src="images/letters_bitmap.png"
+            alt="Edited bitmap version of the above picture, with only 2 colours"
+          />
+        </p>
+        <figcaption>
+          <p>
+            A quantized version of the image above, after I cleaned it up in
+            Paint.Net.
+          </p>
+        </figcaption>
 
-<p>FAQ from <a href="http://fonts.tom7.com/faq.html">Tom7&#39;s font FAQs</a>.</p>
-</figcaption>
+        <p>
+          Then, I cropped each symbol into its own file, so that I could import
+          them into FontForge.
+        </p>
+        <p><img src="images/letters_b.png" alt="Image of the letter B" /></p>
+        <figcaption>
+          <p>B.</p>
+        </figcaption>
 
-<p>However, I googled around (using my all-too-common method of prepending the phrase &quot;FLOSS open-source&quot; to whatever premium experience I was after) and found <a href="https://fontforge.org/en-US/">FontForge</a> and <a href="https://birdfont.org/">Birdfont</a>. I decided I would use the former, FontForge, as it seemed more mature (whatever that means).</p>
-<p><img src="images/FontForge_banner.png" alt="Screenshot of FontForge's main page"></p>
-<figcaption>
+        <h3 id="loading-in-the-bitmaps-to-fontforge">
+          Loading in the bitmaps to FontForge
+        </h3>
+        <p>
+          I was sure I read a thing in the documentation about importing an
+          entire folder of files (&quot;a.png&quot;, &quot;b.png&quot;,
+          &quot;c.png&quot;, ...) in one go, but I couldn&#39;t re-find it (the
+          problem with reading documentation I guess?), so I just used the arrow
+          keys to go from letter to letter and <code>CTRL+SHIFT+I</code> to
+          import an image into each one.
+        </p>
+        <p>
+          <img
+            src="images/bogface_editing_b.png"
+            alt="Screenshot of the FontForge editor with the letter B"
+          />
+        </p>
+        <figcaption>
+          <p>
+            FontForge&#39;s
+            <a href="https://fontforge.org/docs/ui/mainviews/charview.html"
+              >outline window</a
+            >, with my hand-drawn <em><strong>b</strong></em> set to the
+            background image.
+          </p>
+        </figcaption>
 
-<p><a href="https://fontforge.org/en-US/">FontForge</a>&#39;s main page.</p>
-</figcaption>
+        <h3 id="drawing-round-the-designs">Drawing round the designs</h3>
+        <p>Then, I started manually tracing the images with Bézier curves.</p>
+        <p>
+          <img
+            src="images/fontforge_beziering_b.png"
+            alt="Screenshot of the FontForge editor with the letter B, traced"
+          />
+        </p>
+        <figcaption>
+          <p>
+            Look how neatly those Bézier points are placed around that letter.
+            Mmm.
+          </p>
+        </figcaption>
 
-<h3 id="learning-how-to-use-fontforge">Learning how to use FontForge</h3>
-<p>With not much to do, I spent the better half of a Boneless Wednesday<a href="#footnotes">¹</a> reading the <a href="https://fontforge.org/en-US/documentation/">FontForge documentation</a>. As well as teaching you how to use FontForge itself, there was a lot of information about how typefaces in general are rendered by computers, and the differences for different writing systems like Arabic and Mandarin. It is interesting stuff, especially if you&#39;re into typography (I have not decided whether I am or not, but evidence would sway me towards being).</p>
-<h3 id="making-a-typeface">Making a typeface</h3>
-<p>I started by making hand-painted letters into part of a font with the <a href="https://github.com/alifeee/kiran-builder-typeface">Kiran Builder Typeface</a> (currently incomplete), a font based on a painted garage in East London. With that small project I developed a process for turning images of hand-drawn letter forms into vector graphics, which is the graphics format used for fonts. I will lay that process out here.</p>
-<h4 id="converting-hand-drawn-images-into-two-colour-bitmaps">Converting hand-drawn images into two-colour bitmaps</h4>
-<p>Fonts are single-colour, and then can be painted afterwards. So, to get from an image to vector graphics, I first converted the image to a 2-color bitmap. For this I used <a href="https://www.getpaint.net/">Paint.Net</a> (the program I use for all raster image editing - think a more powerful MS Paint), and used <code>Effects&gt;Colour&gt;Quantize</code> to turn my photos into black-and-white PNGs (a simplified story. The extra steps were cleaning up things like the lines from the lined paper I used and other pen-marks.)</p>
-<p><img src="images/letters_full_colour.png" alt="Picture of hand-drawn letters"></p>
-<figcaption>
+        <p>
+          This took a while. After around 10 letters, I started using
+          <a href="https://potrace.sourceforge.net/"><code>potrace</code></a>
+          via the FontForge UI to automagically trace round my letters. Then, I
+          found a FontForge command called simply <code>simplify</code> which
+          removed most of the Bézier points, giving the final letter a cleaner
+          look. In the end, this process amounted to repeatedly pressing
+          <code>CTRL+SHIFT+T</code> (autotrace),
+          <code>CTRL+SHIFT+M</code> (simplify), <code>CTRL+M</code> a bunch
+          (removing points), and then <code>CTRL+[</code> (go to next
+          character).
+        </p>
+        <p>
+          <img
+            src="images/fontforge_beziering_k.png"
+            alt="Screenshot of the FontForge editor with the letter k, traced"
+          />
+        </p>
+        <figcaption>
+          <p>
+            This one looks a lot more scruffy. But it did only take about 20
+            seconds to make.
+          </p>
+        </figcaption>
 
-<p>The uppercase letters that I drew on lined paper (use blank next time) to use in my font.</p>
-</figcaption>
+        <p>This worked fine for me for two reasons:</p>
+        <ul>
+          <li>
+            I was just tracing a hand-drawn font, rather than designing a font
+            on a PC. This would involve a lot more fiddling around.
+          </li>
+          <li>
+            I did not care about consistent letter sizes/thicknesses/widths.
+            This would involve a lot more fiddling around.
+          </li>
+        </ul>
+        <h3 id="why-did-i-call-it-bogface">Why did I call it BogFace?</h3>
+        <p>
+          When I started doing lowercase letters, I had to decide a few things:
+        </p>
+        <ul>
+          <li>the height of small letters (i.e., o, e, r, etc.)</li>
+          <li>the height of &quot;ascenders&quot; (i.e., h, b, l)</li>
+          <li>
+            the &quot;height&quot; of &quot;descenders&quot; (i.e.,
+            &quot;y&quot;)
+          </li>
+        </ul>
+        <p>
+          I pulled in three letters to my font-window to decide this: o, g, and
+          b. Since I was doing this at the
+          <a href="https://blog.alifeee.co.uk/hackspace-adventures/"
+            >hackspace</a
+          >
+          (I was working on it on-and-off over a few days), someone leaned over
+          and read out the three large letters on my screen, which I was too
+          busy thinking about ascenders and descenders to parse.
+        </p>
+        <p>&quot;<strong>bog?</strong>&quot;, they inquired.</p>
+        <p>&quot;yes&quot;, I replied.</p>
+        <p>
+          <img src="images/bog_metrics_window.png" alt="Screenshot of the
+          FontForge metrics window, with "bog" written">
+        </p>
+        <figcaption>
+          <p>bog.</p>
+        </figcaption>
 
-<p><img src="images/letters_bitmap.png" alt="Edited bitmap version of the above picture, with only 2 colours"></p>
-<figcaption>
+        <p>
+          This, combined with the facts that &quot;I thought the font looked a
+          little boggy&quot;, and &quot;I fell in a bog on a
+          <a href="https://alifeee.co.uk/scotland-trip/">trip to Scotland</a>
+          this summer&quot; solidified what I was going to call my
+          as-yet-unnamed typeface: <span class="BogFace">BogFace</span>.
+        </p>
+        <p>
+          (I only check this as of writing (if you want to make something:
+          don&#39;t google it to check if it exists - just make it), but it
+          <a href="https://www.google.com/search?q=%22bogface%22+font"
+            >seems like</a
+          >
+          there was not already a typeface on the Internet called the same.)
+        </p>
+        <h3 id="font-completion">Font completion!</h3>
+        <p>
+          Eventually, I made all 26 Latin uppercase and lowercase letters. I
+          also made some symbols.
+        </p>
+        <p>
+          <img
+            src="images/bogface_all_chars.png"
+            alt="Screenshot of FontForge, showing all of BogFace in its glory"
+          />
+        </p>
+        <figcaption>
+          <p>
+            This is the main window of FontForge when you are editing your font.
+            I think it looks quite nice.
+          </p>
+        </figcaption>
 
-<p>A quantized version of the image above, after I cleaned it up in Paint.Net.</p>
-</figcaption>
+        <p>Play with it here! :)</p>
+        <textarea class="BogFace textarea">bog-me-up</textarea>
 
-<p>Then, I cropped each symbol into its own file, so that I could import them into FontForge.</p>
-<p><img src="images/letters_b.png" alt="Image of the letter B"></p>
-<figcaption>
+        <h3 id="adding-more-things">Adding more things</h3>
+        <p>
+          After using BogFace for a bit (including a period of
+          <a href="./images/wikipedia_bogged.png"
+            >turning every website to use BogFace by default</a
+          >), I realised that I wanted numbers, and also that the font looked
+          smaller than normal. This second point was caused by me having a large
+          descender size. Apparently, hand drawn letters naturally have massive
+          descenders, and fonts do not,
+        </p>
+        <p>
+          <img src="images/bogface_vs_arial.png" alt="Screenshot of "bog" and
+          "bog", the first in BogFace, and the second in Arial. The BogFace g
+          extends much further than the Arial.">
+        </p>
+        <figcaption>
+          <p>
+            See how much lower my hand-drawn g descends, compared to a g from a
+            standard font like Arial.
+          </p>
+        </figcaption>
 
-<p>B.</p>
-</figcaption>
+        <p>
+          ...so in accommodating my massive descenders, I have made the overall
+          font smaller. This is because there is no way to specify the height of
+          a font (from the &quot;bottom&quot; of a letter to the top). Programs
+          which draw fonts just decide the line-height is the bottom to the top,
+          including the descender. This meant that for BogFace, the normal
+          letters were small because of the extended descender.
+        </p>
+        <p>
+          <img src="images/bogface_shrinkened.png" alt="Screenshot of "bog" and
+          "bog" in BogFace and Arial. Now, they are shrunk to be the same
+          size.">
+        </p>
+        <figcaption>
+          <p>
+            When you shrink BogFace to be the same size as a normal font, the
+            extended g&#39;s make it look a lot smaller than a normal font.
+            It&#39;s especially noticeable at smaller font sizes.
+          </p>
+        </figcaption>
 
-<h3 id="loading-in-the-bitmaps-to-fontforge">Loading in the bitmaps to FontForge</h3>
-<p>I was sure I read a thing in the documentation about importing an entire folder of files (&quot;a.png&quot;, &quot;b.png&quot;, &quot;c.png&quot;, ...) in one go, but I couldn&#39;t re-find it (the problem with reading documentation I guess?), so I just used the arrow keys to go from letter to letter and <code>CTRL+SHIFT+I</code> to import an image into each one.</p>
-<p><img src="images/bogface_editing_b.png" alt="Screenshot of the FontForge editor with the letter B"></p>
-<figcaption>
+        <p>
+          So, I lowered the descender height of the font, and to stop the
+          <em>loooong</em> letters having a fight with letters on the line
+          below, also made them shorter graphically.
+        </p>
+        <p>
+          <img src="images/bogface_vs_bogface_less_descent.png" alt="Screenshot
+          of "bog" and "bog", now both in BogFace. In the latter, the g descends
+          less far.">
+        </p>
+        <figcaption>
+          <p>
+            This change technically reduces the &quot;authenticity&quot; of the
+            font, but a) who was counting, and b) I drew the letters first-try
+            with no design direction anyway.
+          </p>
+        </figcaption>
 
-<p>FontForge&#39;s <a href="https://fontforge.org/docs/ui/mainviews/charview.html">outline window</a>, with my hand-drawn <em><strong>b</strong></em> set to the background image.</p>
-</figcaption>
+        <h2 id="the-leftovers">The leftovers</h2>
+        <p>
+          That was it! I tagged it as
+          <a href="https://github.com/alifeee/bogface/releases/tag/v1.0.0"
+            >&quot;release 1.0.0&quot;</a
+          >, and if I play with making fonts again, it will be on a new font!
+        </p>
+        <p>It&#39;s fun to have my own font.</p>
+        <p>
+          After I while (believe it or not), I got tired of having to read every
+          website in BogFace. However, I left it as the default font, but still
+          allowed sites to override it. That means that most of the time, I see
+          sites how they were designed. However, sometimes sites leave certain
+          sections unstyled, intentional or not, so every day I get to play an
+          Easter egg hunt to find BogFace on the Internet.
+        </p>
+        <p>
+          <img
+            src="images/internet_bogface_easter_eggs.png"
+            alt="Screenshot of some places I've found BogFace"
+          />
+        </p>
+        <figcaption>
+          <p>
+            Some places I&#39;ve come across my own font in the wild include
+            RightMove and random other websites.
+          </p>
+        </figcaption>
 
-<h3 id="drawing-round-the-designs">Drawing round the designs</h3>
-<p>Then, I started manually tracing the images with Bézier curves.</p>
-<p><img src="images/fontforge_beziering_b.png" alt="Screenshot of the FontForge editor with the letter B, traced"></p>
-<figcaption>
-
-<p>Look how neatly those Bézier points are placed around that letter. Mmm.</p>
-</figcaption>
-
-<p>This took a while. After around 10 letters, I started using <a href="https://potrace.sourceforge.net/"><code>potrace</code></a> via the FontForge UI to automagically trace round my letters. Then, I found a FontForge command called simply <code>simplify</code> which removed most of the Bézier points, giving the final letter a cleaner look. In the end, this process amounted to repeatedly pressing <code>CTRL+SHIFT+T</code> (autotrace), <code>CTRL+SHIFT+M</code> (simplify), <code>CTRL+M</code> a bunch (removing points), and then <code>CTRL+[</code> (go to next character).</p>
-<p><img src="images/fontforge_beziering_k.png" alt="Screenshot of the FontForge editor with the letter k, traced"></p>
-<figcaption>
-
-<p>This one looks a lot more scruffy. But it did only take about 20 seconds to make.</p>
-</figcaption>
-
-<p>This worked fine for me for two reasons:</p>
-<ul>
-<li>I was just tracing a hand-drawn font, rather than designing a font on a PC. This would involve a lot more fiddling around.</li>
-<li>I did not care about consistent letter sizes/thicknesses/widths. This would involve a lot more fiddling around.</li>
-</ul>
-<h3 id="why-did-i-call-it-bogface">Why did I call it BogFace?</h3>
-<p>When I started doing lowercase letters, I had to decide a few things:</p>
-<ul>
-<li>the height of small letters (i.e., o, e, r, etc.)</li>
-<li>the height of &quot;ascenders&quot; (i.e., h, b, l)</li>
-<li>the &quot;height&quot; of &quot;descenders&quot; (i.e., &quot;y&quot;)</li>
-</ul>
-<p>I pulled in three letters to my font-window to decide this: o, g, and b. Since I was doing this at the <a href="https://blog.alifeee.co.uk/hackspace-adventures/">hackspace</a> (I was working on it on-and-off over a few days), someone leaned over and read out the three large letters on my screen, which I was too busy thinking about ascenders and descenders to parse.</p>
-<p>&quot;<strong>bog?</strong>&quot;, they inquired.</p>
-<p>&quot;yes&quot;, I replied.</p>
-<p><img src="images/bog_metrics_window.png" alt="Screenshot of the FontForge metrics window, with "bog" written"></p>
-<figcaption>
-
-<p>bog.</p>
-</figcaption>
-
-<p>This, combined with the facts that &quot;I thought the font looked a little boggy&quot;, and &quot;I fell in a bog on a <a href="https://alifeee.co.uk/scotland-trip/">trip to Scotland</a> this summer&quot; solidified what I was going to call my as-yet-unnamed typeface: <span class="BogFace">BogFace</span>.</p>
-<p>(I only check this as of writing (if you want to make something: don&#39;t google it to check if it exists - just make it), but it <a href="https://www.google.com/search?q=%22bogface%22+font">seems like</a> there was not already a typeface on the Internet called the same.)</p>
-<h3 id="font-completion">Font completion!</h3>
-<p>Eventually, I made all 26 Latin uppercase and lowercase letters. I also made some symbols.</p>
-<p><img src="images/bogface_all_chars.png" alt="Screenshot of FontForge, showing all of BogFace in its glory"></p>
-<figcaption>
-
-<p>This is the main window of FontForge when you are editing your font. I think it looks quite nice.</p>
-</figcaption>
-
-<p>Play with it here! :)</p>
-<textarea class="BogFace textarea">bog-me-up</textarea>
-
-<h3 id="adding-more-things">Adding more things</h3>
-<p>After using BogFace for a bit (including a period of <a href="./images/wikipedia_bogged.png">turning every website to use BogFace by default</a>), I realised that I wanted numbers, and also that the font looked smaller than normal. This second point was caused by me having a large descender size. Apparently, hand drawn letters naturally have massive descenders, and fonts do not,</p>
-<p><img src="images/bogface_vs_arial.png" alt="Screenshot of "bog" and "bog", the first in BogFace, and the second in Arial. The BogFace g extends much further than the Arial."></p>
-<figcaption>
-
-<p>See how much lower my hand-drawn g descends, compared to a g from a standard font like Arial.</p>
-</figcaption>
-
-<p>...so in accommodating my massive descenders, I have made the overall font smaller. This is because there is no way to specify the height of a font (from the &quot;bottom&quot; of a letter to the top). Programs which draw fonts just decide the line-height is the bottom to the top, including the descender. This meant that for BogFace, the normal letters were small because of the extended descender.</p>
-<p><img src="images/bogface_shrinkened.png" alt="Screenshot of "bog" and "bog" in BogFace and Arial. Now, they are shrunk to be the same size."></p>
-<figcaption>
-
-<p>When you shrink BogFace to be the same size as a normal font, the extended g&#39;s make it look a lot smaller than a normal font. It&#39;s especially noticeable at smaller font sizes.</p>
-</figcaption>
-
-<p>So, I lowered the descender height of the font, and to stop the <em>loooong</em> letters having a fight with letters on the line below, also made them shorter graphically.</p>
-<p><img src="images/bogface_vs_bogface_less_descent.png" alt="Screenshot of "bog" and "bog", now both in BogFace. In the latter, the g descends less far."></p>
-<figcaption>
-
-<p>This change technically reduces the &quot;authenticity&quot; of the font, but a) who was counting, and b) I drew the letters first-try with no design direction anyway.</p>
-</figcaption>
-
-<h2 id="the-leftovers">The leftovers</h2>
-<p>That was it! I tagged it as <a href="https://github.com/alifeee/bogface/releases/tag/v1.0.0">&quot;release 1.0.0&quot;</a>, and if I play with making fonts again, it will be on a new font!</p>
-<p>It&#39;s fun to have my own font.</p>
-<p>After I while (believe it or not), I got tired of having to read every website in BogFace. However, I left it as the default font, but still allowed sites to override it. That means that most of the time, I see sites how they were designed. However, sometimes sites leave certain sections unstyled, intentional or not, so every day I get to play an Easter egg hunt to find BogFace on the Internet.</p>
-<p><img src="images/internet_bogface_easter_eggs.png" alt="Screenshot of some places I've found BogFace"></p>
-<figcaption>
-
-<p>Some places I&#39;ve come across my own font in the wild include RightMove and random other websites.</p>
-</figcaption>
-
-<p>It&#39;s also nice to be able to know that if I need a whimsical typeface, I have one at my fingertips (for example for an <a href="https://liputenpo.alifeee.co.uk/">online newsletter</a> written entirely in <a href="https://tokipona.org/">toki pona</a> (link probably broken))</p>
-<p>I have not spoken about kerning. It is and was an entire ordeal. I hope you enjoy dealing with it if you choose to make a font.</p>
-<p>I will probably make more fonts. If I do make another font, I would like to spend more time designing it, and spend a bit more effort on it beyond &quot;trace a hand-drawn image&quot;.</p>
-<p><span class="BogFace">FIN.</span></p>
-<h2 id="footnotes">Footnotes</h2>
-<ol>
-<li>Phoneless Wednesday</li>
-</ol>
-<h2 id="resources">Resources</h2>
-<ul>
-<li><p>My new fonts section on my website</p>
-<p>  <a href="https://alifeee.co.uk/fonts/">https://alifeee.co.uk/fonts/</a></p>
-</li>
-<li><p>FontForge, a free, open-source app for creating fonts</p>
-<p>  <a href="https://fontforge.org/en-US/">https://fontforge.org/en-US/</a></p>
-</li>
-</ul>
+        <p>
+          It&#39;s also nice to be able to know that if I need a whimsical
+          typeface, I have one at my fingertips (for example for an
+          <a href="https://liputenpo.alifeee.co.uk/">online newsletter</a>
+          written entirely in
+          <a href="https://tokipona.org/">toki pona</a> (link probably broken))
+        </p>
+        <p>
+          I have not spoken about kerning. It is and was an entire ordeal. I
+          hope you enjoy dealing with it if you choose to make a font.
+        </p>
+        <p>
+          I will probably make more fonts. If I do make another font, I would
+          like to spend more time designing it, and spend a bit more effort on
+          it beyond &quot;trace a hand-drawn image&quot;.
+        </p>
+        <p><span class="BogFace">FIN.</span></p>
+        <h2 id="footnotes">Footnotes</h2>
+        <ol>
+          <li>Phoneless Wednesday</li>
+        </ol>
+        <h2 id="resources">Resources</h2>
+        <ul>
+          <li>
+            <p>My new fonts section on my website</p>
+            <p>
+              <a href="https://alifeee.co.uk/fonts/"
+                >https://alifeee.co.uk/fonts/</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>FontForge, a free, open-source app for creating fonts</p>
+            <p>
+              <a href="https://fontforge.org/en-US/"
+                >https://fontforge.org/en-US/</a
+              >
+            </p>
+          </li>
+        </ul>
       </section>
       <hr />
 
@@ -412,7 +768,7 @@
         <h2>Comments</h2>
         <p>
           Email me →
-          <a href="mailto:alifeee.web@outlook.com">alifeee.web@outlook.com</a>
+          <a href="mailto:alifeee@alifeee.net">alifeee@alifeee.net</a>
           :)
         </p>
         <p>
@@ -432,7 +788,7 @@
           <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
           <span class="text">Linktree</span>
         </a>
-        <a href="mailto:alifeee.web@outlook.com">
+        <a href="mailto:alifeee@alifeee.net">
           <img alt="_Email_" src="../icons/envelope-solid.svg" />
           <span class="text">Email</span>
         </a>
