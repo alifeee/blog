@@ -13,7 +13,7 @@ tags:
 to
 
 ```text
-@thentrythis@mastodon.thentrythis.org
+@thentrythis@thentrythis.org
 ```
 
 to understand how this works (because [I like understanding the ActivityPub protocol](https://blog.alifeee.co.uk/notes/tagged/ActivityPub/)), I tried to find how my Mastodon client would find the new account.
