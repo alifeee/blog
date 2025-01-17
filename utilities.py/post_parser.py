@@ -67,10 +67,14 @@ def get_all_posts() -> List[Post]:
         date = date.replace(tzinfo=ZoneInfo("Etc/UTC"))
 
         index_path = f"{relative_url}/index.html"
-        with open(index_path, "r", encoding="utf-8") as file:
-            post_soup = BeautifulSoup(file, "html.parser")
-        title = post_soup.find("meta", property="og:title")["content"]
-        description = post_soup.find("meta", property="og:description")["content"]
+        if os.path.exists(index_path):
+            with open(index_path, "r", encoding="utf-8") as file:
+                post_soup = BeautifulSoup(file, "html.parser")
+            title = post_soup.find("meta", property="og:title")["content"]
+            description = post_soup.find("meta", property="og:description")["content"]
+        else:
+            title = post.find("h2").get_text()
+            description = title
 
         posts.append(
             Post(
@@ -85,13 +89,9 @@ def get_all_posts() -> List[Post]:
 
     # make sure all relative_url's exist
     for post in posts:
-        assert os.path.exists(
+        assert post.relative_url.startswith("https") or os.path.exists(
             post.relative_url
         ), f"post {post.relative_url} does not exist"
-    # make sure all md_url's exist
-    for post in posts:
-        if not os.path.exists(post.md_url):
-            print(f"warning: post {post.md_url} does not exist")
 
     posts.sort(key=lambda x: x.date, reverse=True)
     return posts
