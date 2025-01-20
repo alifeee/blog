@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - {{template}}</title>
+
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{template}}" />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="{{template}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta property="og:url" content="https://blog.alifeee.co.uk/{{template}}" />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/{{template}}"
+    />
+    <meta property="og:description" content="{{template}}" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- RSS link -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for blog.alifeee.co.uk"
+      href="/feed.xml"
+    />
+
+    <!-- link to mastodon -->
+    <meta property="fediverse:creator" content="@alifeee@mastodon.social" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- libraries -->
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs -->
+    <script type="module">
+      import "/anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
+      });
+    </script>
+    <!-- prismjs https://github.com/PrismJS/prism -->
+    <!-- from https://cdn.jsdelivr.net/gh/PrismJS/prism@1/prism.min.js -->
+    <!-- from https://cdn.jsdelivr.net/gh/PrismJS/prism@1/themes/prism.min.css -->
+    <!-- <link rel="stylesheet" href="/prism.min.css" /> -->
+    <!-- <script src="/prism.min.js"></script> -->
+
+    <!-- stuff specific to this page -->
+    <script></script>
+    <style>
+      html {
+        max-width: 100vw;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        max-width: 40rem;
+      }
+      #content > * {
+        overflow: auto;
+      }
+      img {
+        max-height: 20rem;
+        max-width: 100%;
+      }
+      pre {
+        padding: 0 0 1rem 0;
+      }
+      ol li {
+        margin: 0.25rem 0;
+      }
+    </style>
+    <style>
+      table {
+        margin: 2rem 0;
+        padding: 0 0 1rem 0;
+        max-width: 100%;
+        overflow-x: auto;
+        display: block;
+        width: min-content;
+      }
+      table td {
+        width: fit-content;
+        white-space: nowrap;
+        text-wrap: nowrap;
+      }
+      /* Default Table Style */
+      table {
+        color: #333;
+        background: white;
+        border: 1px solid grey;
+        font-size: 12pt;
+        border-collapse: collapse;
+      }
+      table thead th,
+      table tfoot th {
+        color: #777;
+        background: rgba(0, 0, 0, 0.1);
+      }
+      table caption {
+        padding: 0.5em;
+      }
+      table th,
+      table td {
+        padding: 0.5em;
+        border: 1px solid lightgrey;
+      }
+      /* Zebra Table Style */
+      tbody tr:nth-of-type(odd) {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="/" style="font-size: 2rem">alifeee's blog</a>
+    </header>
+    <hr />
+    <main>
+      <section id="content">
+        <!-- !!start content!! -->
+<span class=words>1894 words, 9 mins @ 200 <abbr title='words per minute'>wpm</abbr></span>
+<h1>Moratorium of a book club</h1>
+<p>For a short time I ran a book club with my friends. After a couple of years, I stopped being so active in organising the meeting, and as such, the book club slowed and stopped.</p>
+<p>This is fine, all things pass. More importantly, this was during an era where I loved writing stuff down. So, I ended up with several <em>facts</em> and <em>statistics</em>. Here they are.</p>
+<ol>
+<li><a href="#the-data">The data</a><ol>
+<li><a href="#books">Books</a></li>
+<li><a href="#meetings">Meetings</a></li>
+<li><a href="#reading-list">Reading list</a></li>
+</ol>
+</li>
+<li><a href="#we-read-14-books">We read 14 books</a></li>
+</ol>
+<h2>The data</h2>
+<p>First, the data. I was keeping track of stuff using <a href="https://www.notion.com/">Notion</a>, with all sorts of funky database structures. They were not worth the hassle. I now use <a href="https://blog.alifeee.co.uk/notes/tagged/obsidian/">Obsidian</a>.</p>
+<h3>Books</h3>
+<p>First, a table of the books that we read, from <a href="./books.csv"><code>books.csv</code></a>. It has the books, the reading date, and a review score if the person gave it one. Each book has about 4 or 5 reviews, meaning about 4 or 5 people read (some of) it or turned up to a book club and rated it from the Wikipedia summary.</p>
+<p>I made the markdown for this from the CSV using a command, which prints the CSV as a TSV (Tab-Separated Values), and then replaces tabs with pipes <code>|</code>, and then adds the second row which is needed by markdown.</p>
+<pre><code class="language-bash">cols=$(csvtool width books.csv)
+cat books.csv | csvtool paste -u TAB - | sed &#39;s/\t/ | /g&#39; | sed &#39;s/^/| /&#39; | sed &#39;s/$/ |/&#39; | awk &#39;NR==2 { for (i=1;i&lt;=&#39;&quot;${cols}&quot;&#39;;i++) {printf &quot;| --- &quot;}; print &quot; |&quot; } {print}&#39;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Author</th>
+<th>Genre</th>
+<th>Status</th>
+<th>Reading Date</th>
+<th>Suggestor</th>
+<th>alifeee</th>
+<th>P1</th>
+<th>P2</th>
+<th>P3</th>
+<th>P4</th>
+<th>P5</th>
+<th>P6</th>
+<th>P7</th>
+<th>P8</th>
+<th>P9</th>
+<th>P10</th>
+<th>Total review count</th>
+<th>Total review points</th>
+<th>Review</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I Have No Mouth and I Must Scream</td>
+<td>Harlan Ellison</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>September 27, 2022 → October 25, 2022</td>
+<td>P4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>Quichotte</td>
+<td>Salman Rushdie</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>October 25, 2022 → November 29, 2022</td>
+<td>P7</td>
+<td>7.5</td>
+<td>8.5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>3</td>
+<td>24</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Around the World in 80 Days</td>
+<td>Jules Verne</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>November 29, 2022 → January 31, 2023</td>
+<td>alifeee</td>
+<td>9</td>
+<td>9</td>
+<td>5</td>
+<td></td>
+<td>6</td>
+<td></td>
+<td>8</td>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>43</td>
+<td>7.17</td>
+</tr>
+<tr>
+<td>Freakonomics</td>
+<td>Steven Levitt &amp; Stephen J Dubner</td>
+<td>Non-fiction</td>
+<td>Read</td>
+<td>January 31, 2023 → February 28, 2023</td>
+<td>P2</td>
+<td>3</td>
+<td>5</td>
+<td>6.5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td>4</td>
+<td>19.5</td>
+<td>4.88</td>
+</tr>
+<tr>
+<td>Flowers for Algernon</td>
+<td>Daniel Keyes</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>February 28, 2023 → March 28, 2023</td>
+<td>alifeee</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td></td>
+<td>9</td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+<td>4</td>
+<td>33</td>
+<td>8.25</td>
+</tr>
+<tr>
+<td>The Hitchhiker&#39;s Guide to the Galaxy</td>
+<td>Douglas Adams</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>March 29, 2023 → May 31, 2023</td>
+<td>alifeee</td>
+<td>8</td>
+<td>8.5</td>
+<td></td>
+<td>7.5</td>
+<td></td>
+<td>7</td>
+<td></td>
+<td>8.8</td>
+<td></td>
+<td>7</td>
+<td></td>
+<td>6</td>
+<td>46.8</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>The Spy Who Came In From The Cold</td>
+<td>John Le Carre</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>May 31, 2023 → June 28, 2023</td>
+<td>P7</td>
+<td>4</td>
+<td></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td></td>
+<td>4.5</td>
+<td></td>
+<td>4</td>
+<td>18.5</td>
+<td>4.63</td>
+</tr>
+<tr>
+<td>And Then We Grew Up</td>
+<td>Rachel Friedman</td>
+<td>Non-fiction</td>
+<td>Read</td>
+<td>July 26, 2023 → August 2, 2023</td>
+<td>alifeee</td>
+<td>4</td>
+<td></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td>3.5</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td>4.5</td>
+<td></td>
+<td>5</td>
+<td>19</td>
+<td>3.8</td>
+</tr>
+<tr>
+<td>The Time Machine</td>
+<td>H G Wells</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>August 2, 2023 → August 30, 2023</td>
+<td>alifeee</td>
+<td>4</td>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>6.5</td>
+<td></td>
+<td>7.5</td>
+<td>8.75</td>
+<td>6</td>
+<td>36.75</td>
+<td>6.13</td>
+</tr>
+<tr>
+<td>Invisible Women- Exposing Data Bias in a World Designed for Men</td>
+<td>Caroline Criado-Perez</td>
+<td>Non-fiction</td>
+<td>Read</td>
+<td>August 30, 2023 → October 27, 2023</td>
+<td>alifeee</td>
+<td>9</td>
+<td>9.5</td>
+<td></td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td></td>
+<td>6</td>
+<td>8</td>
+<td>6</td>
+<td>48.5</td>
+<td>8.08</td>
+</tr>
+<tr>
+<td>Normal People</td>
+<td>Sally Rooney</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>October 27, 2023 → November 29, 2023</td>
+<td>alifeee</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>3.4</td>
+<td>2.5</td>
+<td></td>
+<td>4</td>
+<td>11.9</td>
+<td>2.98</td>
+</tr>
+<tr>
+<td>Four Lost Cities- A Secret History of the Urban Age</td>
+<td>Annalee Newitz</td>
+<td>Fiction</td>
+<td>Read</td>
+<td>January 3, 2024 → January 31, 2024</td>
+<td>alifeee</td>
+<td></td>
+<td></td>
+<td></td>
+<td>8.5</td>
+<td></td>
+<td>8.5</td>
+<td></td>
+<td></td>
+<td>8.5</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>25.5</td>
+<td>8.5</td>
+</tr>
+<tr>
+<td>bad karma</td>
+<td>Paul Wilson</td>
+<td>Non-fiction</td>
+<td>Reading</td>
+<td>February 1, 2024 → …</td>
+<td>P4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Meetings</h3>
+<p>From <a href="./meetings.csv"><code>meetings.csv</code></a>; not very interesting.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Date</th>
+<th>📕 Book</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Initial</td>
+<td>September 27, 2022</td>
+<td></td>
+</tr>
+<tr>
+<td>October</td>
+<td>October 25, 2022</td>
+<td>I Have No Mouth and I Must Scream</td>
+</tr>
+<tr>
+<td>November</td>
+<td>November 29, 2022</td>
+<td>Quichotte</td>
+</tr>
+<tr>
+<td>Christmas</td>
+<td>January 3, 2023</td>
+<td></td>
+</tr>
+<tr>
+<td>January</td>
+<td>February 1, 2023</td>
+<td>Around the World in 80 Days</td>
+</tr>
+<tr>
+<td>February</td>
+<td>February 28, 2023</td>
+<td>Ode to Tomatoes, Every Day You Play, I Explain Some Things, and others</td>
+</tr>
+<tr>
+<td>March</td>
+<td>March 29, 2023</td>
+<td>Flowers for Algernon</td>
+</tr>
+<tr>
+<td>May</td>
+<td>May 31, 2023</td>
+<td>The Hitchhiker&#39;s Guide to the Galaxy</td>
+</tr>
+<tr>
+<td>June</td>
+<td>June 28, 2023</td>
+<td>The Spy Who Came In From The Cold/The Spy Who Came In From The Cold</td>
+</tr>
+<tr>
+<td>July</td>
+<td>August 2, 2023</td>
+<td>And Then We Grew Up</td>
+</tr>
+<tr>
+<td>August</td>
+<td>September 4, 2023</td>
+<td>The Time Machine/The Time Machine</td>
+</tr>
+<tr>
+<td>October</td>
+<td>October 27, 2023</td>
+<td>Invisible Women- Exposing Data Bias in a World Designed for Men</td>
+</tr>
+<tr>
+<td>November</td>
+<td>November 29, 2023</td>
+<td>Normal People</td>
+</tr>
+<tr>
+<td>January</td>
+<td>January 31, 2024</td>
+<td>Four Lost Cities- A Secret History of the Urban Age</td>
+</tr>
+</tbody></table>
+<h3>Reading list</h3>
+<p>From <a href="./book_suggestions.csv"><code>book_suggestions.csv</code></a>. Mostly, we would take the next book to read off of this list. Sometimes, it would come from thin air.</p>
+<p>As you can see, this is somewhat of &quot;alifeee&#39;s personal reading list&quot;, as I had suggested a lot of titles. My new &quot;I want to read this&quot; book list lies offline, on my Obsidian, but you can see a snapshot <a href="./to_read_2025-01-20.txt">here</a>. Other people suggested some other things, they are labelled the same as in the above books table.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Author</th>
+<th>Genre</th>
+<th>Suggestor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cannery Row</td>
+<td>John Steinbeck</td>
+<td>Fiction</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Chavs- The Demonisation of the Working Class</td>
+<td>Owen Jones</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>The Count of Monte Cristo</td>
+<td>Alexandre Dumas</td>
+<td>Fiction</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Inglorious Empire- What the British Did to India</td>
+<td>Shashi Tharoor</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>How To Do Nothing- Resisting the Attention Economy</td>
+<td>Jenny Odell</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Slaughterhouse 5</td>
+<td>Kurt Vonnegut</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Your Head is a Houseboat- A Chaotic Guide to Mental Clarity</td>
+<td>Campbell Walker</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>There Are No Accidents- The Deadly Rise of Injury and Disaster--Who Profits and Who Pays the Price</td>
+<td>Jessie Singer</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Harlem Shuffle</td>
+<td>Colson Whitehead</td>
+<td>Fiction</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>What&#39;s Our Problem</td>
+<td>Tim Urban</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>One Hundred Years of Solitude</td>
+<td>Gabriel García Márquez</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Finntopia- What We Can Learn From the World&#39;s Happiest Country</td>
+<td>Danny Dorling</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Children of Time</td>
+<td>Adrian Tchaikovsky</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Sapiens</td>
+<td>Yuval Noah Harari</td>
+<td>Non-fiction</td>
+<td>P7</td>
+</tr>
+<tr>
+<td>Metamorphosis</td>
+<td>Franz Kafka</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Dante&#39;s Inferno</td>
+<td>Dante?</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Beautiful world where are you</td>
+<td>Sally Rooney</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>How to be an anticapitalist in the twenty-first century</td>
+<td>Erik Olin Wright</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>The Third Door- The Wild Quest to Uncover How the World&#39;s Most Successful People Launched Their Careers</td>
+<td>Alex Banayan</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Vagabonding- An Uncommon Guide to the Art of Long-Term World Travel</td>
+<td>Rolf Potts</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>All About Love 2</td>
+<td>Bell Hooks</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>The Bell Jar</td>
+<td>Sylvia Plath</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>East West Street</td>
+<td>Philippe Sands</td>
+<td>Non-fiction</td>
+<td>P3</td>
+</tr>
+<tr>
+<td>Ayoade on Top</td>
+<td>Richard Ayoade</td>
+<td>Non-fiction</td>
+<td>P3</td>
+</tr>
+<tr>
+<td>Stepford Wives</td>
+<td>Ira Levin</td>
+<td>Fiction</td>
+<td>P3</td>
+</tr>
+<tr>
+<td>The Intellectual Life of the British Working Classes</td>
+<td>Jonathan Rose</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Jillian</td>
+<td>Halle Butler</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>20,000 Leagues Under the Sea</td>
+<td>Jules Verne</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>The Metamorphosis</td>
+<td>Franz Kafka</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Name of Author by Title of Book</td>
+<td>Tom Murphy 7</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Blood in the Machine</td>
+<td>Brian Merchant</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Bullshit Jobs 2</td>
+<td>David Graeber</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Sometimes a Great Notion</td>
+<td>Ken Kesey</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>The Situtation is Hopeless But Not Serious</td>
+<td>Paul Watzlawick</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>All About Love</td>
+<td>Bell Hooks</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Mutual Aid- Building Solidarity During this Crisis (and the Next)</td>
+<td>Dean Spade</td>
+<td>Non-fiction</td>
+<td>P8</td>
+</tr>
+<tr>
+<td>Ronia, the Robber’s Daughter</td>
+<td>Astrid Lindgren</td>
+<td>Fiction</td>
+<td>P8</td>
+</tr>
+<tr>
+<td>What is Life</td>
+<td>Addy Pross</td>
+<td>Non-fiction</td>
+<td>P8</td>
+</tr>
+<tr>
+<td>Ringworld</td>
+<td>Larry Niven</td>
+<td>Fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>The Psychopath Test</td>
+<td>Jon Ronson</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+<tr>
+<td>Pastoralia</td>
+<td>George Saunders</td>
+<td>Fiction</td>
+<td>P7</td>
+</tr>
+<tr>
+<td>Tomorrow, and Tomorrow, and Tomorrow</td>
+<td>Gabrielle Zevin</td>
+<td>Fiction</td>
+<td>P7</td>
+</tr>
+<tr>
+<td>Bullshit Jobs</td>
+<td>David Graeber</td>
+<td>Non-fiction</td>
+<td>alifeee</td>
+</tr>
+</tbody></table>
+<h2>We read 14 books</h2>
+<p>Well, that&#39;s how many unique books that at least one person read. Personally, I read 11 of the books.</p>
+<p>Counting everyone</p>
+<div class="books">
+    <ul>
+        <li>
+
+<pre><code>    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</div>
+        <!-- !!end content!! -->
+      </section>
+    </main>
+    <hr />
+    <footer>
+      <a class="backlink" href="/">Back to main page</a>
+    </footer>
+  </body>
+</html>
