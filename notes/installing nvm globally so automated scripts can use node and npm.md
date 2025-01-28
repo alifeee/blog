@@ -31,7 +31,7 @@ export NVM_DIR=/usr/alifeee/.nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 # install npm version you want
 nvm install 20
-npm use 20
+nvm use 20
 ```
 
 Then, I can use `nvm` because it's sourced in my `~/.bashrc` (as before), but importantly, any user can use `npm` and Node by running:
