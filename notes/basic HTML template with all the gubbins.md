@@ -5,7 +5,7 @@ tags: html
 ---
 I create a lot of websites. I'm also a big fan of very performant, very accessible websites. I'm also a big fan of the phrase "the important thing first is for a webpage to exist, then after that to look nice".
 
-ith that in mind, this is the HTML template I usually start with to make a new webpage. It's made to manually replace the things in curly brackets, but also has the bonus that you could use it with a templating language like <https://handlebarsjs.com/> (my favourite).
+With that in mind, this is the HTML template I usually start with to make a new webpage. It's made to manually replace the things in curly brackets, but also has the bonus that you could use it with a templating language like <https://handlebarsjs.com/> (my favourite).
 
 ```html
 <!DOCTYPE html>
