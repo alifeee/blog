@@ -4,12 +4,20 @@
 
 <title>alifeee's blog</title>
 <link href='https://blog.alifeee.co.uk' rel='self' />
-<updated>2024-09-23T00:00:00+00:00</updated>
+<updated>2024-12-27T00:00:00+00:00</updated>
 <author>
   <name>alifeee</name>
 </author>
 <id>https://blog.alifeee.co.uk/</id>
 <icon>https://blog.alifeee.co.uk/og-image.png</icon>
+
+<entry>
+  <title>Hitchhiking!</title>
+  <link href='https://blog.alifeee.co.uk/2024/12/hitchhiking/' />
+  <id>https://blog.alifeee.co.uk//2024/12/hitchhiking/</id>
+  <updated>2024-12-27T00:00:00+00:00</updated>
+  <summary>all my hitchhiking trips so far</summary>
+</entry>
 
 <entry>
   <title>Sellotape Dispenser</title>
@@ -49,6 +57,14 @@
   <id>https://blog.alifeee.co.uk//font-workshop</id>
   <updated>2024-03-09T00:00:00+00:00</updated>
   <summary>What did people make and what did I learn?</summary>
+</entry>
+
+<entry>
+  <title>How to create a blog (gist)</title>
+  <link href='https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478' />
+  <id>https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478</id>
+  <updated>2024-01-17T00:00:00+00:00</updated>
+  <summary>How to create a blog (gist)</summary>
 </entry>
 
 <entry>

@@ -69,115 +69,290 @@
 
     <main>
       <section id="content" class="markdown-body">
-        <h1 id="ring-populations-how-to-compare-cities-more-agnostically">Ring populations: how to compare cities more agnostically</h1>
-<p><word-count parent=".markdown-body"></word-count></p>
-<ol>
-<li><a href="#internet-inconsistencies">Internet-Inconsistencies</a></li>
-<li><a href="#lets-concentrize">Let&#39;s concentrize!</a><ol>
-<li><a href="#what-does-10-km-look-like">What does 10 km look like?</a></li>
-</ol>
-</li>
-<li><a href="#cities-sorted">Cities, sorted</a></li>
-<li><a href="#appendix">Appendix</a></li>
-</ol>
-<p>I love comparing the population of cities. I hate that every city is seemingly measured differently.</p>
-<p>How am I supposed to answer my pressing questions like: <a href="https://en.wikipedia.org/wiki/Leeds_Supertram">is Leeds big enough to deserve a tram</a>?</p>
-<h2 id="internet-inconsistencies">Internet-Inconsistencies</h2>
-<p>There would exist no problem if I could search &quot;Birmingham, Alabama population&quot;, then &quot;the real Birmingham population&quot; to back up my arguments of why I shouldn&#39;t be seeing results for American towns when I&#39;m trying to find a map of bus routes in the real Birmingham (for the results of this search, see lower down).
-However, with almost every city I search for population, the top results are from different sources, and the search engines (trying to shave precious seconds off my day) seem to pull their &quot;summary&quot; figure from a different one of these websites for every city.</p>
-<p><img src="images/bham_pop_comparison_websites.svg" alt="Bar chart of population vs source. They vary."></p>
-<figcaption>
+        <h1 id="ring-populations-how-to-compare-cities-more-agnostically">
+          Ring populations: how to compare cities more agnostically
+        </h1>
+        <p><word-count parent=".markdown-body"></word-count></p>
+        <ol>
+          <li>
+            <a href="#internet-inconsistencies">Internet-Inconsistencies</a>
+          </li>
+          <li>
+            <a href="#lets-concentrize">Let&#39;s concentrize!</a>
+            <ol>
+              <li>
+                <a href="#what-does-10-km-look-like"
+                  >What does 10 km look like?</a
+                >
+              </li>
+            </ol>
+          </li>
+          <li><a href="#cities-sorted">Cities, sorted</a></li>
+          <li><a href="#appendix">Appendix</a></li>
+        </ol>
+        <p>
+          I love comparing the population of cities. I hate that every city is
+          seemingly measured differently.
+        </p>
+        <p>
+          How am I supposed to answer my pressing questions like:
+          <a href="https://en.wikipedia.org/wiki/Leeds_Supertram"
+            >is Leeds big enough to deserve a tram</a
+          >?
+        </p>
+        <h2 id="internet-inconsistencies">Internet-Inconsistencies</h2>
+        <p>
+          There would exist no problem if I could search &quot;Birmingham,
+          Alabama population&quot;, then &quot;the real Birmingham
+          population&quot; to back up my arguments of why I shouldn&#39;t be
+          seeing results for American towns when I&#39;m trying to find a map of
+          bus routes in the real Birmingham (for the results of this search, see
+          lower down). However, with almost every city I search for population,
+          the top results are from different sources, and the search engines
+          (trying to shave precious seconds off my day) seem to pull their
+          &quot;summary&quot; figure from a different one of these websites for
+          every city.
+        </p>
+        <p>
+          <img
+            src="images/bham_pop_comparison_websites.svg"
+            alt="Bar chart of population vs source. They vary."
+          />
+        </p>
+        <figcaption>
+          <p>
+            &quot;Population of Birmingham&quot; from the first few sources I
+            could find on Google. Presumably the identical ones all use ONS&#39;
+            data, and the others are more &#39;international&#39; statistics.
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring-populations/data/birmingham_pop_from_sources.ipynb"
+              >Source</a
+            >.
+          </p>
+        </figcaption>
 
-<p>&quot;Population of Birmingham&quot; from the first few sources I could find on Google. Presumably the identical ones all use ONS&#39; data, and the others are more &#39;international&#39; statistics.
-<a href="https://github.com/alifeee/blog/blob/main/ring-populations/data/birmingham_pop_from_sources.ipynb">Source</a>.</p>
-</figcaption>
+        <h2 id="lets-concentrize">Let&#39;s concentrize!</h2>
+        <p>
+          The solution to this problem of inconsistency... is to introduce
+          consistency! Sociologists, anthropologists, and geographists will
+          berate me for this, but my idea was just to draw a circle around the
+          centre<a href="#footnotes">†</a> of the city and count how many people
+          are inside it.
+        </p>
+        <p>
+          Here is where I <em>would</em> explain the efforts I went through, the
+          technological tools I learnt, and the troubles I faced in writing a
+          simple-to-use website to find the population within a circle. However,
+          the good <a href="https://www.tomforth.co.uk/">Tom Forth</a> already
+          made this, with his page:
+          <a href="https://www.tomforth.co.uk/circlepopulations/"
+            >Circle Populations</a
+          >. Let&#39;s use this to take a look at Birmingham.
+        </p>
+        <p>
+          <img
+            src="images/bham-pop-vs-area.svg"
+            alt="Two graphs. One of total population below vs area. It displays a log-looking plot. The other of population density around an area. It looks like exponential decay."
+          />
+        </p>
+        <figcaption>
+          <p>
+            As you increase the area you&#39;re measuring, population increases,
+            and density decreases! Revolutionary!
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring-populations/data/birminghampop-vs-km.ipynb"
+              >Source</a
+            >.
+          </p>
+        </figcaption>
 
-<h2 id="lets-concentrize">Let&#39;s concentrize!</h2>
-<p>The solution to this problem of inconsistency... is to introduce consistency! Sociologists, anthropologists, and geographists will berate me for this, but my idea was just to draw a circle around the centre<a href="#footnotes">†</a> of the city and count how many people are inside it.</p>
-<p>Here is where I <em>would</em> explain the efforts I went through, the technological tools I learnt, and the troubles I faced in writing a simple-to-use website to find the population within a circle. However, the good <a href="https://www.tomforth.co.uk/">Tom Forth</a> already made this, with his page: <a href="https://www.tomforth.co.uk/circlepopulations/">Circle Populations</a>. Let&#39;s use this to take a look at Birmingham.</p>
-<p><img src="images/bham-pop-vs-area.svg" alt="Two graphs. One of total population below vs area. It displays a log-looking plot. The other of population density around an area. It looks like exponential decay."></p>
-<figcaption>
+        <p>
+          Comparing this with the original plot above, it seems like 10 km is
+          about inline with the ONS data.
+        </p>
+        <p>
+          <img
+            src="images/bham_pop_comparison_websites_and_rings.svg"
+            alt="Bar chart of population vs source. This time with ring populations included. They vary. <10 km ring is closest to average."
+          />
+        </p>
+        <figcaption>
+          <p>
+            The same graph from above! This time with the population within a
+            5/10/15/20 km ring around Birmingham. New insights? Or content
+            padding?
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring-populations/data/birmingham_pop_from_sources.ipynb"
+              >Source</a
+            >.
+          </p>
+        </figcaption>
 
-<p>As you increase the area you&#39;re measuring, population increases, and density decreases! Revolutionary!
-<a href="https://github.com/alifeee/blog/blob/main/ring-populations/data/birminghampop-vs-km.ipynb">Source</a>.</p>
-</figcaption>
+        <p>
+          Thus, I&#39;ll stick with 10 km as my favourite circle size. Easy to
+          remember. This may be showing a bit of decimal favouritism, as 10 km
+          seems a nice default type if you use base 10. If the world were ruled
+          by jan Misali, maybe we would end up using 6 km (10 in
+          <a href="https://www.seximal.net/">seximal</a>). If the world were
+          ruled by the Mayans, we might use 12 km (10 in
+          <a href="https://en.wikipedia.org/wiki/Duodecimal">duo-decimal</a>).
+          In the end, the world was ruled by the French, so 10 it is.
+        </p>
+        <h3 id="what-does-10-km-look-like">What does 10 km look like?</h3>
+        <p>
+          If you&#39;re aware of &quot;The North&quot;, here are some of its
+          gems with a 10 km overlay (and of course, Birmingham). By my eye, it
+          looks like a bigger circle could be misleading in terms of the
+          population it represents, but a smaller one might miss out the context
+          of the city.
+        </p>
+        <p>
+          For example, I like Newcastle&#39;s region including Sunderland, as
+          they&#39;re nicely connected by metro. As for Leeds, Bradford, and
+          Wakefield. Well... they <em>could</em> be nicely connected by metro.
+        </p>
+        <p>
+          <img
+            src="images/ring_comparison.png"
+            alt="Maps displaying a 10 km ring around Manchester, Leeds, Birmingham, and Newcastle."
+          />
+        </p>
+        <figcaption>
+          <p>
+            Here. Find a city you know a bit. Does 10 km seem a good measure?
+            Would your city be improved with a giant, imposing 10 km circle in
+            the sky? Screenshots from Tom Forth&#39;s
+            <a href="https://www.tomforth.co.uk/circlepopulations/"
+              >Circle Populations</a
+            >
+            (circle your own city
+            <a href="https://www.tomforth.co.uk/circlepopulations/">there!</a>).
+          </p>
+        </figcaption>
 
-<p>Comparing this with the original plot above, it seems like 10 km is about inline with the ONS data.</p>
-<p><img src="images/bham_pop_comparison_websites_and_rings.svg" alt="Bar chart of population vs source. This time with ring populations included. They vary. <10 km ring is closest to average."></p>
-<figcaption>
+        <h2 id="cities-sorted">Cities, sorted</h2>
+        <p>
+          With a metric decided, we can see what the cities of the UK look like!
+          London is, naturally, excluded.
+        </p>
+        <p>
+          <img src="images/ukcities.svg" alt="Bar chart showing population of
+          the top 20 UK cities, by population. Shown is the population from
+          "world cities", and then 5/10/20 km rings.">
+        </p>
+        <figcaption>
+          <p>
+            Ring populations! Tag yourself.
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring-populations/data/ukcities.ipynb"
+              >Source</a
+            >.
+          </p>
+        </figcaption>
 
-<p>The same graph from above!
-This time with the population within a 5/10/15/20 km ring around Birmingham.
-New insights? Or content padding?
-<a href="https://github.com/alifeee/blog/blob/main/ring-populations/data/birmingham_pop_from_sources.ipynb">Source</a>.</p>
-</figcaption>
+        <p>Nice! Conclusions are free for you to draw.</p>
+        <h2 id="appendix">Appendix</h2>
+        <h3 id="birmingham-vs-birmingham">Birmingham vs Birmingham</h3>
+        <p>
+          <a href="#internet-inconsistencies">Above</a>, I complained about
+          Birmingham, Alabama vs Birmingham England. With the search terms
+          above, this is what I find the populations to be:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Birmingham, AL</th>
+              <th>Birmingham, UK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google</td>
+              <td>198,000</td>
+              <td>2,660,000</td>
+            </tr>
+            <tr>
+              <td>Within 10 km</td>
+              <td>267,000</td>
+              <td>1,420,000</td>
+            </tr>
+          </tbody>
+        </table>
+        <figcaption>
+          <p>
+            Google&#39;s population result vs using
+            <a href="https://www.tomforth.co.uk/circlepopulations/"
+              >Circle Populations</a
+            >.
+          </p>
+        </figcaption>
 
-<p>Thus, I&#39;ll stick with 10 km as my favourite circle size. Easy to remember. This may be showing a bit of decimal favouritism, as 10 km seems a nice default type if you use base 10. If the world were ruled by jan Misali, maybe we would end up using 6 km (10 in <a href="https://www.seximal.net/">seximal</a>). If the world were ruled by the Mayans, we might use 12 km (10 in <a href="https://en.wikipedia.org/wiki/Duodecimal">duo-decimal</a>). In the end, the world was ruled by the French, so 10 it is.</p>
-<h3 id="what-does-10-km-look-like">What does 10 km look like?</h3>
-<p>If you&#39;re aware of &quot;The North&quot;, here are some of its gems with a 10 km overlay (and of course, Birmingham). By my eye, it looks like a bigger circle could be misleading in terms of the population it represents, but a smaller one might miss out the context of the city.</p>
-<p>For example, I like Newcastle&#39;s region including Sunderland, as they&#39;re nicely connected by metro. As for Leeds, Bradford, and Wakefield. Well... they <em>could</em> be nicely connected by metro.</p>
-<p><img src="images/ring_comparison.png" alt="Maps displaying a 10 km ring around Manchester, Leeds, Birmingham, and Newcastle."></p>
-<figcaption>
-
-<p>Here. Find a city you know a bit. Does 10 km seem a good measure? Would your city be improved with a giant, imposing 10 km circle in the sky?
-Screenshots from Tom Forth&#39;s <a href="https://www.tomforth.co.uk/circlepopulations/">Circle Populations</a> (circle your own city <a href="https://www.tomforth.co.uk/circlepopulations/">there!</a>).</p>
-</figcaption>
-
-<h2 id="cities-sorted">Cities, sorted</h2>
-<p>With a metric decided, we can see what the cities of the UK look like! London is, naturally, excluded.</p>
-<p><img src="images/ukcities.svg" alt="Bar chart showing population of the top 20 UK cities, by population. Shown is the population from "world cities", and then 5/10/20 km rings."></p>
-<figcaption>
-
-<p>Ring populations! Tag yourself.
-<a href="https://github.com/alifeee/blog/blob/main/ring-populations/data/ukcities.ipynb">Source</a>.</p>
-</figcaption>
-
-<p>Nice! Conclusions are free for you to draw.</p>
-<h2 id="appendix">Appendix</h2>
-<h3 id="birmingham-vs-birmingham">Birmingham vs Birmingham</h3>
-<p><a href="#internet-inconsistencies">Above</a>, I complained about Birmingham, Alabama vs Birmingham England. With the search terms above, this is what I find the populations to be:</p>
-<table>
-<thead>
-<tr>
-<th>Source</th>
-<th>Birmingham, AL</th>
-<th>Birmingham, UK</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Google</td>
-<td>198,000</td>
-<td>2,660,000</td>
-</tr>
-<tr>
-<td>Within 10 km</td>
-<td>267,000</td>
-<td>1,420,000</td>
-</tr>
-</tbody></table>
-<figcaption>
-
-<p>Google&#39;s population result vs using <a href="https://www.tomforth.co.uk/circlepopulations/">Circle Populations</a>.</p>
-</figcaption>
-
-<h3 id="extra-stuff">Extra stuff</h3>
-<ul>
-<li><a href="https://www.tomforth.co.uk/circlepopulations/">Circle Populations</a> <em>also</em> shows you how many bus, tram, and train/metro stops are in a circle. Very nice for complaining about your city not having trams yet.</li>
-<li><a href="https://www.tomforth.co.uk/">Tom Forth</a> has also made <a href="https://www.tomforth.co.uk/ringpopulations/">Ring Populations</a>, which is a similar idea to <a href="https://www.tomforth.co.uk/circlepopulations/">Circle Populations</a>, but shows the change in population densities and ring populations since 2001 (UK only).</li>
-<li>Colours for the cover image generated with <a href="https://colordesigner.io/gradient-generator/">ColorDesigner.io</a></li>
-</ul>
-<h3 id="data">Data</h3>
-<p>You can view the code to make the above graphs in the <a href="https://github.com/alifeee/blog/tree/main/ring_populations">GitHub repository</a>! In particular, check out these Jupyter notebooks:</p>
-<ul>
-<li><a href="https://github.com/alifeee/blog/blob/main/ring_populations/data/ukcities.ipynb">ukcities.ipynb</a></li>
-<li><a href="https://github.com/alifeee/blog/blob/main/ring_populations/data/birminghampop-vs-km.ipynb">birminghampop-vs-km.ipynb</a></li>
-<li><a href="https://github.com/alifeee/blog/blob/main/ring_populations/data/birmingham_pop_from_sources.ipynb">birmingham_pop_from_sources.ipynb</a></li>
-</ul>
-<p>You can open and play with these notebooks on <a href="https://mybinder.org/v2/gh/alifeee/blog/HEAD">Binder</a>.</p>
-<h3 id="footnotes">Footnotes</h3>
-<p>† - the &#39;centre&#39; of a city is a pretty arbitrary term, but with the sizes of circles we&#39;re working with, and the population density drop-off from the centre, it doesn&#39;t really make a difference to the final population count.</p>
-
-
+        <h3 id="extra-stuff">Extra stuff</h3>
+        <ul>
+          <li>
+            <a href="https://www.tomforth.co.uk/circlepopulations/"
+              >Circle Populations</a
+            >
+            <em>also</em> shows you how many bus, tram, and train/metro stops
+            are in a circle. Very nice for complaining about your city not
+            having trams yet.
+          </li>
+          <li>
+            <a href="https://www.tomforth.co.uk/">Tom Forth</a> has also made
+            <a href="https://www.tomforth.co.uk/ringpopulations/"
+              >Ring Populations</a
+            >, which is a similar idea to
+            <a href="https://www.tomforth.co.uk/circlepopulations/"
+              >Circle Populations</a
+            >, but shows the change in population densities and ring populations
+            since 2001 (UK only).
+          </li>
+          <li>
+            Colours for the cover image generated with
+            <a href="https://colordesigner.io/gradient-generator/"
+              >ColorDesigner.io</a
+            >
+          </li>
+        </ul>
+        <h3 id="data">Data</h3>
+        <p>
+          You can view the code to make the above graphs in the
+          <a href="https://github.com/alifeee/blog/tree/main/ring_populations"
+            >GitHub repository</a
+          >! In particular, check out these Jupyter notebooks:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring_populations/data/ukcities.ipynb"
+              >ukcities.ipynb</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring_populations/data/birminghampop-vs-km.ipynb"
+              >birminghampop-vs-km.ipynb</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/alifeee/blog/blob/main/ring_populations/data/birmingham_pop_from_sources.ipynb"
+              >birmingham_pop_from_sources.ipynb</a
+            >
+          </li>
+        </ul>
+        <p>
+          You can open and play with these notebooks on
+          <a href="https://mybinder.org/v2/gh/alifeee/blog/HEAD">Binder</a>.
+        </p>
+        <h3 id="footnotes">Footnotes</h3>
+        <p>
+          † - the &#39;centre&#39; of a city is a pretty arbitrary term, but
+          with the sizes of circles we&#39;re working with, and the population
+          density drop-off from the centre, it doesn&#39;t really make a
+          difference to the final population count.
+        </p>
       </section>
       <hr />
 
@@ -185,7 +360,7 @@ Screenshots from Tom Forth&#39;s <a href="https://www.tomforth.co.uk/circlepopul
         <h2>Comments</h2>
         <p>
           Email me →
-          <a href="mailto:alifeee.web@outlook.com">alifeee.web@outlook.com</a>
+          <a href="mailto:alifeee@alifeee.net">alifeee@alifeee.net</a>
           :)
         </p>
         <p>
@@ -205,7 +380,7 @@ Screenshots from Tom Forth&#39;s <a href="https://www.tomforth.co.uk/circlepopul
           <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
           <span class="text">Linktree</span>
         </a>
-        <a href="mailto:alifeee.web@outlook.com">
+        <a href="mailto:alifeee@alifeee.net">
           <img alt="_Email_" src="../icons/envelope-solid.svg" />
           <span class="text">Email</span>
         </a>

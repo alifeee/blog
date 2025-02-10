@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - hitchhiking</title>
+
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="all my hitchhiking trips so far" />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="Hitchhiking!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.co.uk/2024/12/hitchhiking/"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/2024/12/hitchhiking/og-image.jpg"
+    />
+    <meta property="og:description" content="all my hitchhiking trips so far" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- RSS link -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for blog.alifeee.co.uk"
+      href="/feed.xml"
+    />
+
+    <!-- link to mastodon -->
+    <meta property="fediverse:creator" content="@alifeee@mastodon.social" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" -->
+    <link
+      rel="stylesheet"
+      href="leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <!-- src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" -->
+    <script
+      src="leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @font-face {
+        font-family: "BogFace";
+        src: url("../../../making-bogface/BogFace.woff");
+      }
+      html {
+        font-family: "BogFace";
+        /* font-size: 1.5em; */
+      }
+      .leaflet-popup {
+        font-family: "BogFace";
+        font-size: 1rem;
+      }
+      .leaflet-popup-content {
+        max-height: 30rem;
+        overflow: auto;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      #mapcontainer {
+        padding: 17px 17px 27px 17px;
+        background-color: #fff2;
+        display: block;
+        position: relative;
+        resize: both;
+        overflow: auto;
+        height: min(60rem, 80vh);
+        /* max-height: 80vh; */
+        width: min(100vw, 80rem);
+
+        border-image-slice: 205 203 212 199;
+        border-image-width: 20px 20px 30px 20px;
+        border-image-outset: 0px 0px 0px 0px;
+        border-image-repeat: stretch stretch;
+        border-image-source: url("./images/fancy_map.jpg");
+        border-style: solid;
+      }
+      #resizeme {
+        position: relative;
+        display: inline-block;
+      }
+      @media (width >= 90rem) {
+        #resizeme::after {
+          content: "<-- resize me!";
+          position: absolute;
+          bottom: 1.5rem;
+          right: -7rem;
+          rotate: -25deg;
+        }
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        inset: 0;
+        background-image: url("./images/collage.webp");
+        background-attachment: scroll;
+        background-origin: 0 0;
+        background-position: -20rem -10rem;
+        background-repeat: repeat;
+        background-size: 40rem;
+        opacity: 0.1;
+      }
+      table.hitches {
+        border-spacing: 5rem;
+        border-collapse: collapse;
+        font-size: 0.75rem;
+        font-family: "Courier New", Courier, monospace;
+        overflow: auto;
+        max-width: 100vw;
+        display: block;
+      }
+      table.hitches td,
+      table.hitches th {
+        border: 1px solid #999;
+        padding: 0.25rem;
+        text-align: left;
+      }
+      table.hitches th {
+        padding: 0.5rem;
+      }
+      table.hitches thead tr {
+        background: #a6aa;
+      }
+      table.hitches tbody tr {
+        background: #c8ca;
+      }
+      /* total entries: 12 */
+      table.hitches tbody tr:nth-child(n + 3):nth-last-child(n + 24) {
+        background: #d9da;
+      }
+      table.hitches tbody tr:nth-child(n + 8):nth-last-child(n + 19) {
+        background: #d9da;
+      }
+      table.hitches tbody tr:nth-child(n + 11):nth-last-child(n + 16) {
+        background: #d9da;
+      }
+      table.hitches tbody tr:nth-child(n + 15):nth-last-child(n + 13) {
+        background: #d9da;
+      }
+      table.hitches tbody tr:nth-child(n + 17):nth-last-child(n + 10) {
+        background: #d9da;
+      }
+      table.hitches tbody tr:nth-child(n + 26):nth-last-child(n + 0) {
+        background: #d9da;
+      }
+    </style>
+    <script>
+      let map;
+      let geojson; // geojson of all subtrips
+      let trips_geojson; // list of geojson files of subtrips (list of trips)
+      let big_collection_flat; // just each trip which has .layer referencing the map layer
+      let geojson_layers_and_labels;
+      let layerControl;
+      let first_trip_layer;
+      document.addEventListener("DOMContentLoaded", () => {
+        map = L.map("map").setView([53.626, -3.209], 7); //5.98/53.626/-3.209
+
+        // tile providers: https://leaflet-extras.github.io/leaflet-providers/preview/
+        // L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        //   maxZoom: 19,
+        //   attribution:
+        //     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        // }).addTo(map);
+
+        tile_layer_1 = L.tileLayer(
+          "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.{ext}",
+          {
+            minZoom: 1,
+            maxZoom: 16,
+            attribution:
+              '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            ext: "jpg",
+            opacity: 0.5,
+          }
+        );
+        tile_layer_2 = L.tileLayer(
+          "https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.{ext}",
+          {
+            minZoom: 0,
+            maxZoom: 18,
+            attribution:
+              '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            ext: "png",
+          }
+        );
+
+        tile_layer_3 = L.tileLayer(
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution:
+              "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+          }
+        );
+
+        tile_layer_1.addTo(map);
+        let tile_layers = {
+          watercolour: tile_layer_1,
+          terrain: tile_layer_2,
+          imagery: tile_layer_3,
+        };
+
+        const lineStyle = {
+          weight: 9,
+          opacity: 0.6,
+        };
+
+        const colours = [
+          //
+          "#0000ff",
+          "#8800ff",
+          "#0088ff",
+          "#00ffff",
+          "#ff0000",
+        ];
+        const colorcycle = {
+          1: colours[0],
+          2: colours[0],
+          3: colours[0],
+          4: colours[0],
+          5: colours[1],
+          6: colours[2],
+          7: colours[2],
+          8: colours[2],
+          9: colours[3],
+          10: colours[4],
+          11: colours[4],
+          12: colours[4],
+        };
+        // const colorcycle = [
+        //   "#000000",
+        //   "#ff0000",
+        //   "#00ff00",
+        //   "#0000ff",
+        //   "#ffff00",
+        //   "#ff00ff",
+        //   "#00ffff",
+        //   "#ff8800",
+        //   "#ff0088",
+        //   "#00ff88",
+        //   "#0088ff",
+        //   "#88ff00",
+        //   "#8800ff",
+        // ];
+
+        const layerlabels = {
+          1: "1 Birmingham -> Hull",
+          2: "2 Birmingham -> Leeds",
+          3: "3 Birmingham -> Liverpool",
+          4: "4 Birmingham -> Glasgow",
+          5: "5 Hull -> London",
+          6: "6 London -> Hull",
+          7: "7 London -> Sheffield",
+          8: "8 London -> Sheffield",
+          9: "9 The Peaks (Bamford) -> Sheffield",
+          10: "10 Sheffield -> Hull",
+          11: "11 Sheffield -> Dublin",
+          12: "12 Dublin -> Belfast",
+        };
+
+        fetch("hitching.geojson")
+          .then((data) => {
+            return data.json();
+          })
+          .then((ret_geojson) => {
+            geojson = ret_geojson;
+            console.log("loaded geojson from network...", geojson);
+            addtomap();
+          });
+
+        function addtomap() {
+          console.log("adding to map");
+          trips_geojson = [];
+
+          geojson.features = geojson.features.toSorted((a, b) => {
+            if (a.properties.trip == b.properties.trip) {
+              return a.properties.label.localeCompare(b.properties.label);
+            }
+            return Number(a.properties.trip) > Number(b.properties.trip);
+          });
+          console.log("sorted geojson.features...", geojson);
+
+          geojson.features.forEach((feature) => {
+            let trip_number = feature.properties.trip;
+            // not in list
+            if (trip_number > trips_geojson.length) {
+              trips_geojson.push({
+                type: "FeatureCollection",
+                name: "trip " + String(trip_number),
+                features: [feature],
+              });
+            }
+            // in list
+            else {
+              trips_geojson[trip_number - 1].features.push(feature);
+            }
+          });
+          console.log("sorted into trips, trips_geojson", trips_geojson);
+
+          trips_geojson.forEach((trip) => {
+            console.group("adding trip to map...", trip);
+            let layerGroup = L.geoJSON(trip, {
+              style: function (feature) {
+                return {
+                  ...lineStyle,
+                  color: colorcycle[feature.properties.trip],
+                };
+              },
+              onEachFeature: function (feature, layer) {
+                feature.properties.layer = layer;
+
+                // does this feature have a property named label?
+                content = "";
+                if (feature.properties && feature.properties.label) {
+                  content =
+                    content + "<h2>" + feature.properties.label + "</h2>";
+                }
+                if (feature.properties && feature.properties.description) {
+                  content =
+                    content + "<p>" + feature.properties.description + "</p>";
+                }
+                if (
+                  feature.properties.label.includes(
+                    "1.1 Tamworth -> Woodall Northbound"
+                  )
+                ) {
+                  first_trip_layer = layer;
+                }
+
+                layer.bindPopup(content);
+              },
+            });
+            console.log("created layerGroup...", layerGroup);
+
+            layerGroup.addTo(map);
+
+            console.log("added layerGroup to map...");
+
+            trip.features.forEach((feature) => {
+              feature.properties.layerGroup = layerGroup;
+            });
+            console.log("added layer reference to each feature");
+            console.groupEnd();
+          });
+
+          console.log("geojson object with layer references:", trips_geojson);
+
+          console.group("adding layer control");
+          layerControl = L.control.layers(tile_layers, [], {
+            position: "topright",
+          });
+
+          trips_geojson.forEach((trip) => {
+            let layerGroup = trip.features[0].properties.layerGroup;
+            let trip_number = trip.features[0].properties.trip;
+            layerControl.addOverlay(layerGroup, layerlabels[trip_number]);
+          });
+
+          //
+          let hideControl = L.Control.extend({
+            options: {
+              text: "N/A",
+              onclick: function () {
+                alert("did nothing");
+              },
+            },
+            onAdd: function (map) {
+              let container = L.DomUtil.create("input");
+              container.type = "button";
+              container.value = this.options.text;
+              container.onclick = this.options.onclick;
+              return container;
+            },
+          });
+          map.addControl(
+            new hideControl({
+              position: "topright",
+              text: "show all",
+              onclick: showall,
+            })
+          );
+          map.addControl(
+            new hideControl({
+              position: "topright",
+              text: "hide all",
+              onclick: hideall,
+            })
+          );
+          layerControl.addTo(map);
+          console.log("final layer control", layerControl);
+
+          console.groupEnd();
+
+          // open popup of journey 1.1 (first hitch!)
+          console.log("opening popup for trip", first_trip_layer);
+          first_trip_layer.openPopup();
+        }
+      });
+
+      function hideall() {
+        trips_geojson.forEach((trip) => {
+          let layerGroup = trip.features[0].properties.layerGroup;
+          map.removeLayer(layerGroup);
+        });
+      }
+      function showall() {
+        trips_geojson.forEach((trip) => {
+          let layerGroup = trip.features[0].properties.layerGroup;
+          map.addLayer(layerGroup);
+        });
+      }
+
+      function showonmap(feature_label) {
+        console.group("showing " + feature_label);
+
+        trips_geojson.forEach((trip) => {
+          trip.features.forEach((subtrip) => {
+            subtrip.properties.layer.closePopup();
+
+            if (subtrip.properties.label == feature_label) {
+              console.log("found feature in trip", trip);
+              console.log("found subtrip", subtrip);
+              map.addLayer(subtrip.properties.layerGroup);
+              subtrip.properties.layer.openPopup();
+            }
+          });
+        });
+
+        document.getElementById("resizeme").scrollIntoView();
+        console.groupEnd();
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        let reload_timer;
+        let mapcontainer = document.getElementById("mapcontainer");
+        const observer = new ResizeObserver(function (mutations) {
+          console.log("mutations:", mutations);
+          clearTimeout(reload_timer);
+          reload_timer = setTimeout(function () {
+            console.log("timedout");
+            map.invalidateSize();
+          }, 400);
+        });
+        observer.observe(mapcontainer);
+      });
+    </script>
+  </head>
+  <body>
+    <a style="padding: 0.5rem; display: block" href="/">back to blog</a>
+    <h1 style="text-align: center; font-size: 3rem; max-width: 60rem">
+      hitchhiking!?
+    </h1>
+    <section class="introduction">
+      <h2>What is it? What's going on?</h2>
+      <div class="thumb-hr">
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+      </div>
+      <p>
+        I hitched for the first time in 2022. At the time, people I asked either
+        said "it won't work", or "you'll get killed". I'm writing this blog post
+        to inform everyone that I am not dead.
+      </p>
+      <div class="thumb-hr">
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+      </div>
+      <p>
+        Generically, hitchhiking (or in French, "le Stop") is asking strangers
+        for lifts. Usually, by standing at the side of the road with your thumb
+        out, sometimes with a sign expressing where you want to go (important
+        for longer journeys).
+      </p>
+      <p>
+        Rather than trying to summarise my thoughts into a quotable statement,
+        or boiled down retrospective on my hitchhiking adventures, I thought
+        it'd be fun to let you explore them. I've made a clickable map, filled
+        it with the journeys I've taken (only in the UK so far!), and written a
+        bit for each stage of the journey about who picked me up. Hopefully,
+        from clicking around, you get some ideas about hitchhiking, whether
+        society is (still) kind, and about talking to strangers in general.
+      </p>
+      <div class="thumb-hr">
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+        <img src="images/thumbs-up.svg" height="20" width="20" alt="thumbs up" />
+      </div>
+      <p>
+        So... here's the map!
+        <a style="opacity: 0.5" href="#resizeme">(scroll into view)</a>
+      </p>
+      <style>
+        .introduction {
+          padding: 1rem;
+          background: #fff8;
+          max-width: 60rem;
+          border-radius: 1rem;
+          font-size: 1.5em;
+        }
+        .thumb-hr {
+          display: flex;
+          justify-content: center;
+        }
+      </style>
+    </section>
+    <div id="resizeme">
+      <div id="mapcontainer">
+        <div id="map"></div>
+      </div>
+    </div>
+    <section id="trips" style="font-size: 1.5em; margin: 1rem">
+      <h2>list of trips</h2>
+      <pre>
+1 Birmingham -> Hull
+2 Birmingham -> Leeds
+3 Birmingham -> Liverpool
+4 Birmingham -> Glasgow
+5 Hull -> London
+6 London -> Hull
+7 London -> Sheffield
+8 London -> Sheffield
+9 The Peaks (Bamford) -> Sheffield
+10 Sheffield -> Hull
+11 Sheffield -> Dublin -> Belfast</pre
+      >
+
+      <p>
+        each of these is a separate trace on the above map. Click the "show on
+        map" button to show the popup for each specific sub-trip.
+      </p>
+      <!-- generated with -->
+      <!-- while read file; do cat "geojson/${file}" | jq -r '"<tr>\n <td>" + (.features[0].properties | [.trip, .label, .total_distance_km] | join("</td>\n" + " <td>") + "</td>\n<td><button type=\"button\" onclick=\"showonmap('"'"'" + (.[1]) + "'"'"')\">show on map</button></td>") + "\n</tr>\n"'; done <<< $(find geojson/ -type f | sed 's/geojson\///g' | sort -n) -->
+      <table class="hitches">
+        <thead>
+          <tr>
+            <th></th>
+            <th>trip label</th>
+            <th>total trip distance (km)</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>1.1 Tamworth -> Woodall Northbound</td>
+            <td>180</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('1.1 Tamworth -> Woodall Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>1.2 Woodall Northbound -> Hull</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('1.2 Woodall Northbound -> Hull')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>2.1 Tamworth -> Tibshelf Northbound</td>
+            <td>150</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('2.1 Tamworth -> Tibshelf Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>2.2 Tibshelf Northbound -> Leeds</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('2.2 Tibshelf Northbound -> Leeds')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>3.1 Frankley Northbound -> Hilton Northbound</td>
+            <td>125</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('3.1 Frankley Northbound -> Hilton Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>3.2 Hilton Northbound -> Keele Northbound</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('3.2 Hilton Northbound -> Keele Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>3.3 Keele Northbound -> Liverpool</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('3.3 Keele Northbound -> Liverpool')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>4.1 Frankley Northbound -> Charnock Richard Northbound</td>
+            <td>400</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('4.1 Frankley Northbound -> Charnock Richard Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>4.2 Charnock Richard Northbound -> Hamilton</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('4.2 Charnock Richard Northbound -> Hamilton')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>5.1 North Ferriby -> Doncaster North</td>
+            <td>320</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('5.1 North Ferriby -> Doncaster North')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>6.1 London Gateway Services -> Ferrybridge</td>
+            <td>320</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('6.1 London Gateway Services -> Ferrybridge')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>6.2 Ferrybridge -> Hull</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('6.2 Ferrybridge -> Hull')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>7.1 London Gateway Services -> Trowell Northbound</td>
+            <td>225</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('7.1 London Gateway Services -> Trowell Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>7.2 Trowell Northbound -> Sheffield (Meadowhell)</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('7.2 Trowell Northbound -> Sheffield (Meadowhell)')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>
+              8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)
+            </td>
+            <td>225</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('8.1 London Gateway Services -> ?? -> ?? -> Sheffield (Meadowhell)')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>9.1 The Peaks (Bamford) -> Sheffield</td>
+            <td>16</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('9.1 The Peaks (Bamford) -> Sheffield')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td>10.1 Sheffield Parkway -> Woodall Northbound</td>
+            <td>110</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('10.1 Sheffield Parkway -> Woodall Northbound')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>10.2 Woodall Northbound -> Hull</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('10.2 Woodall Northbound -> Hull')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>11</td>
+            <td>11.1 Manchester Road -> Cutthroat Bridge</td>
+            <td>367</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.1 Manchester Road -> Cutthroat Bridge')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>11.2 Cutthroat Bridge -> Ladybower Reservoir</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.2 Cutthroat Bridge -> Ladybower Reservoir')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>11.3 Ladybower Reservoir -> Denton Rock</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.3 Ladybower Reservoir -> Denton Rock')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>11.4 Denton Rock -> Lymm</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.4 Denton Rock -> Lymm')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>11.5 Denton Rock -> Northock Hall</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.5 Denton Rock -> Northock Hall')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>11.6 Northock Hall -> Bangor</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.6 Northock Hall -> Bangor')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>11.7 Bangor -> Holyhead Ferry Terminal</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('11.7 Bangor -> Holyhead Ferry Terminal')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>12</td>
+            <td>12.1 Dublin N1 -> Castlebellingham</td>
+            <td>166</td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('12.1 Dublin N1 -> Castlebellingham')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>12.2 Castlebellingham -> Abbey Centre</td>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                onclick="showonmap('12.2 Castlebellingham -> Abbey Centre')"
+              >
+                show on map
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <script>
+      function infringe_copyright() {
+        console.log("infringing");
+        let library = document.querySelector("section.books");
+        console.log(library);
+        library.innerHTML =
+          '<div style="padding: 4rem 0;">I wasn\'t able to find any books as I am not currently at a University</div>';
+      }
+    </script>
+    <div style="margin: 1rem">
+      <h2>Library</h2>
+      <p>
+        Here are a few PDFs of academic research about hitchhiking. I provide it
+        as I have read some of each, and they are quite interesting.
+      </p>
+      <p>
+        If you work for a publishing company or are a big fan of copyright,
+        please click <button onclick="infringe_copyright()">this button</button>
+      </p>
+    </div>
+    <section class="books">
+      <figure>
+        <a
+          class="perceived-dangers hover-area"
+          href="pdfs/How Hitchhikers Cope with the Pressures and Perceived Dangers of Hitchhiking by Society.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          How Hitchhikers Cope with the Pressures and Perceived Dangers of
+          Hitchhiking by Society
+          <br />
+          A Literature Review and Qualitative Interviews
+          <br />
+          Iris Veldwijk
+          <br />
+          <a href="https://mindofahitchhiker.com/thesis/">source</a>
+          <hr />
+          a book by
+          <a href="https://mindofahitchhiker.com/">mindofahitchhiker</a> that
+          talks about the false-or-not perception of the danger of hitching
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="informal-history-of-hitchhiking hover-area"
+          href="pdfs/An Informal History of Hitchhiking.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          An Informal History of Hitchhiking
+          <br />
+          JOHN T. SCHLEBECKER
+          <br />
+          <a
+            href="https://www.tandfonline.com/doi/abs/10.1111/j.1540-6563.1958.tb01838.x"
+            >source</a
+          >
+          <hr />
+          a very old paper from 1958,
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="cultural-inroads hover-area"
+          href="pdfs/Hitchhiking: Cultural Inroads.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          Hitchhiking
+          <br />
+          Cultural Inroads
+          <br />
+          Patrick Laviolette
+          <br />
+          <a href="https://link.springer.com/book/10.1007/978-3-030-48248-0"
+            >source</a
+          >
+          <hr />
+          a long monograph about hitchhiking by a particularly
+          sarcastic-sounding and long-word-loving academic,
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="travel-in-china hover-area"
+          href="pdfs/Hitchhiking travel in China: Gender, agency and vulnerability.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          Hitchhiking travel in China: Gender, agency and vulnerability
+          <br />
+          Xiongbin Gao, Scott Cohen, Paul Hanna
+          <br />
+          <a
+            href="https://www.sciencedirect.com/science/article/abs/pii/S0160738320301468"
+            >source</a
+          >
+          <hr />
+          an examination of hitchhiking in China,
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="staring-and-compliance hover-area"
+          href="pdfs/Staring and Compliance: A Field Experiment on Hitchhiking.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          Staring and Compliance:
+          <br />
+          A Field Experiment on Hitchhiking
+          <br />
+          MARK SNYDER, JOHN CKETHEK, AND KRISTINE KELLER
+          <br />
+          <a
+            href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1559-1816.1974.tb00666.x"
+            >source</a
+          >
+          <hr />
+          a short paper on the importance of eye contact while hitchhiking
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a
+          class="hitchBOT hover-area"
+          href="pdfs/The Death and Lives of HitchBOT.pdf"
+        >
+          <div class="zine back"></div>
+          <div class="zine front"></div>
+        </a>
+        <figcaption>
+          THE DEATH AND LIVES OF HITCH BOT: THE DESIGN AND IMPLEMENTATION OF A
+          HITCHHIKING ROBOT
+          <br />
+          David Harris Smith, Frauke Zeller
+          <br />
+          <a
+            href="https://direct.mit.edu/leon/article-abstract/50/1/77/46258/The-Death-and-Lives-of-hitchBOT-The-Design-and"
+            >source</a
+          >
+          <hr />
+          a short paper about a little robot that could,
+        </figcaption>
+      </figure>
+    </section>
+
+    <style>
+      .books {
+        margin: 1rem;
+        padding: 1rem;
+        font-family: "Times New Roman", Times, serif;
+        color: black;
+        background-color: #cc8800;
+        background-image: url("images/wood-pattern.png");
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: space-around;
+        text-align: center;
+
+        border: 50px solid #cc8800;
+        border-image: url("images/bookshelf.png") 83 / 50px / 0px stretch;
+        background-clip: padding-box;
+      }
+      .books > * {
+        max-width: 15rem;
+      }
+      /* mostly copied from https://codepen.io/alifeee/pen/vYzBBKy */
+      :root {
+        --zine-width: min(30vw, 200px);
+      }
+      .hover-area {
+        display: block;
+        margin: 0;
+        box-sizing: content-box;
+        width: var(--zine-width);
+        height: var(--zine-height);
+        padding-top: calc(var(--zine-width) * 0.13);
+        padding-bottom: calc(var(--zine-width) * 0.12);
+        padding-right: calc(var(--zine-width) * 0.05);
+        padding-left: calc(var(--zine-width) * 0.05);
+        width: 100%;
+        position: relative;
+
+        cursor: pointer;
+      }
+      .zine {
+        position: absolute;
+        height: var(--zine-height);
+        width: var(--zine-width);
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        transform-origin: 0 0;
+        transition: transform 0.25s ease-out;
+
+        background-color: #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .zine.front {
+        transform: skewY(4deg);
+      }
+      .zine.back {
+        transform: skewY(-5deg) scaleX(1.02);
+      }
+      .hover-area:hover > .zine.front {
+        transform: skewY(5deg);
+      }
+      .hover-area:hover > .zine.back {
+        transform: skewY(-8deg) scaleX(0.99);
+      }
+      .zine.front,
+      .zine.back {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+      }
+
+      /* informal-history-of-hitchhiking */
+      .informal-history-of-hitchhiking {
+        --zine-height: calc(var(--zine-width) * (989 / 658));
+      }
+      .informal-history-of-hitchhiking .zine.front {
+        background-image: url("pdfs/An\ Informal\ History\ of\ Hitchhiking.png");
+      }
+
+      /* cultural-inroads */
+      .cultural-inroads {
+        --zine-height: calc(var(--zine-width) * (1033 / 745));
+      }
+      .cultural-inroads .zine.front {
+        background-image: url("pdfs/Hitchhiking:\ Cultural\ Inroads.png");
+      }
+
+      /* travel-in-china */
+      .travel-in-china {
+        --zine-height: calc(var(--zine-width) * (1033 / 794));
+      }
+      .travel-in-china .zine.front {
+        background-image: url("pdfs/Hitchhiking\ travel\ in\ China:\ Gender\,\ agency\ and\ vulnerability.png");
+      }
+
+      /* perceived-dangers */
+      .perceived-dangers {
+        --zine-height: calc(var(--zine-width) * (943 / 724));
+      }
+      .perceived-dangers .zine.front {
+        background-image: url("pdfs/How\ Hitchhikers\ Cope\ with\ the\ Pressures\ and\ Perceived\ Dangers\ of\ Hitchhiking\ by\ Society.png");
+      }
+
+      /* staring-and-compliance */
+      .staring-and-compliance {
+        --zine-height: calc(var(--zine-width) * (1020 / 728));
+      }
+      .staring-and-compliance .zine.front {
+        background-image: url("pdfs/Staring\ and\ Compliance:\ A\ Field\ Experiment\ on\ Hitchhiking.png");
+      }
+
+      /* hitchBOT */
+      .hitchBOT {
+        --zine-height: calc(var(--zine-width) * (1033 / 806));
+      }
+      .hitchBOT .zine.front {
+        background-image: url("pdfs/The\ Death\ and\ Lives\ of\ HitchBOT.png");
+      }
+    </style>
+    <a style="padding: 0.5rem; display: block" href="/">back to blog</a>
+  </body>
+</html>

@@ -76,3 +76,18 @@ cat file.txt | decodeHTML
 ```
 
 instead of the massive `php -r 'while ($f = fgets(STDIN)){ echo html_entity_decode($f); }'`.
+
+## Python
+
+(2025-02-10 edit) I have also found a nice way to do this using the Python html library's `escape` and `unescape` (because that's what I had installed in [my workflow](https://github.com/alifeee/alifeee.github.io/tree/main/.github/workflows) and I couldn't be bothered to install PHP)
+
+```bash
+$ cat file.txt | python3 -c 'import sys;from html import unescape;print(unescape(sys.stdin.read()),end="")'
+Children's event,
+Wildlife & Nature,
+peddler-market-nº-88,
+Artists’ Circle,
+surface – Breaking
+woodland walk. (nbsp)
+Justin Adams & Mauro Durante
+```

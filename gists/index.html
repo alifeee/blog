@@ -98,128 +98,521 @@
 
     <main>
       <section id="content" class="markdown-body">
-        <h1 id="why-i-like-github-gists-and-a-short-tour-through-ones-i-have-created">Why I like (GitHub) gists and a short tour through ones I have created</h1>
-<p><word-count parent=".markdown-body"></word-count></p>
-<p>I like sharing code and instructions. Thus, I like gists.</p>
-<ol>
-<li><a href="#what-are-gists">What are gists?</a></li>
-<li><a href="#why-i-like-creating-gists">Why I like creating gists</a><ol>
-<li><a href="#i-can-share-them-with-people">I can share them with people</a></li>
-<li><a href="#i-can-share-them-with-myself-in-the-future">I can share them with myself in the future</a></li>
-<li><a href="#the-ramblings-of-my-existence-can-end-up-in-the-same-place">The ramblings of my existence can end up in the same place</a></li>
-</ol>
-</li>
-<li><a href="#why-i-like-finding-other-peoples-gists">Why I like finding other people&#39;s gists</a><ol>
-<li><a href="#someone-else-has-probably-done-what-i-want-to-do-before">Someone else has probably done what I want to do before</a></li>
-</ol>
-</li>
-<li><a href="#i-could-or-should-put-things-elsewhere-not-on-github">I could or should put things elsewhere (not on GitHub)</a></li>
-<li><a href="#my-gists-or-the-gist-list">My gists, or &quot;the gist-list&quot;</a><ol>
-<li><a href="#blog-posts"><strong>BLOG POSTS</strong></a><ol>
-<li><a href="#1-how-to-start-blogging">1. how to start blogging</a></li>
-<li><a href="#2-a-hat-blog">2. a hat blog</a></li>
-</ol>
-</li>
-<li><a href="#just-data"><strong>JUST DATA</strong></a><ol>
-<li><a href="#data-i-manually-made"><strong>DATA I MANUALLY MADE</strong></a><ol>
-<li><a href="#3-my-spotify-wrapped-2023">3. my spotify wrapped 2023</a></li>
-<li><a href="#4-a-toki-pona-word-list">4. a toki pona word list</a></li>
-<li><a href="#5-my-vscode-extension-list">5. my vscode extension list</a></li>
-</ol>
-</li>
-<li><a href="#data-thats-automatically-updated"><strong>DATA THAT&#39;S AUTOMATICALLY UPDATED</strong></a><ol>
-<li><a href="#6-my-json-resume">6. my json resume</a></li>
-<li><a href="#7-my-web-bookmarks">7. my web bookmarks</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><a href="#how-tos"><strong>HOW-TOS</strong></a><ol>
-<li><a href="#things-i-wanted-to-do-multiple-times"><strong>THINGS I WANTED TO DO MULTIPLE TIMES</strong></a><ol>
-<li><a href="#8-how-to-generate-and-host-a-factorio-map">8. how to generate and host a Factorio map</a></li>
-<li><a href="#9-how-to-download-data-from-toggls-api">9. how to download data from Toggl&#39;s api</a></li>
-<li><a href="#10-reusable-ffmpeg-commands">10. reusable ffmpeg commands</a></li>
-<li><a href="#11-how-to-make-bar-charts-in-bash">11. how to make bar charts in bash</a></li>
-<li><a href="#12-how-to-make-graphs-in-bash">12. how to make graphs in bash</a></li>
-</ol>
-</li>
-<li><a href="#things-that-other-people-could-want-to-do"><strong>THINGS THAT OTHER PEOPLE COULD WANT TO DO</strong></a><ol>
-<li><a href="#13-a-script-to-remove-all-styles-from-an-html-file">13. a script to remove all styles from an html file</a></li>
-<li><a href="#14-common-rss-extensions">14. common RSS extensions</a></li>
-<li><a href="#15-a-script-to-combine-squarespace-rss-feeeds">15. a script to combine Squarespace RSS feeeds</a></li>
-<li><a href="#16-a-script-to-convert-font-files-to-css-styles">16. a script to convert font files to css styles</a></li>
-<li><a href="#17-a-script-to-convert-gpl-files-to-css-styles">17. a script to convert gpl files to css styles</a></li>
-</ol>
-</li>
-<li><a href="#how-to-set-up-things-on-a-linux-server"><strong>HOW TO SET UP THINGS ON A LINUX SERVER</strong></a><ol>
-<li><a href="#18-how-to-set-up-rsa-encryption-keys">18. how to set up rsa encryption keys</a></li>
-<li><a href="#19-how-to-set-up-nginx">19. how to set up nginx</a></li>
-<li><a href="#20-how-to-transfer-folders-over-scp">20. how to transfer folders over scp</a></li>
-<li><a href="#21-how-to-run-a-program-as-a-service-with-systemd">21. how to run a program as a service with systemd</a></li>
-<li><a href="#22-how-to-set-up-a-mumble-server">22. how to set up a mumble server</a></li>
-<li><a href="#23-how-to-install-ruby-and-jekyll-on-linux">23. how to install ruby and jekyll on linux</a></li>
-<li><a href="#24-how-to-set-up-ftp-on-linux">24. how to set up ftp on linux</a></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><a href="#the-end">The end</a></li>
-</ol>
-<h2 id="what-are-gists">What are gists?</h2>
-<p><a href="https://gist.github.com/">GitHub Gists</a> are &quot;some text on the Internet&quot;. Usually, people put code snippets or Markdown in them, and then can share a link to anyone. It&#39;s like <a href="https://pastebin.com/">Pastebin</a> but without (explicit) ads. Here&#39;s <a href="https://gist.github.com/alifeee/586b92e21f912dde7f74cd498b7cbb56">an example gist</a> and here&#39;s <a href="https://pastebin.com/i7U9KSEu">the same on Pastebin</a>.</p>
-<p>Gists can be used for blog posts, or just to share copied text, or to host a single-branch version controlled script or code snippet. They are also often used to host data which is automatically updated from elsewhere, and can be referenced as the most up-to-date version of that data, for example by ideas like <a href="https://jsonresume.org/">https://jsonresume.org/</a>.</p>
-<p>Anyone with a GitHub account can make a gist. It&#39;s a very easy way to share nicely formatted text (for example in Markdown), which is why it&#39;s the first - and most simple - thing I suggest in my <a href="https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478">&quot;how to blog&quot; guide</a>.</p>
-<p>There are <a href="https://liputenpo.org/toki/nanpa-tenpo/o-kepeken-ala-ilo-ike-ni/">good reasons</a> you may not want to support GitHub. There are other ways to share snippets, with <a href="https://github.com/thomiceli/opengist">other gist tools</a>, <a href="https://pastebin.com/">Pastebin</a>, and other options. However, a lot of other code- or text-sharing websites seem fleeting, have ads, and do not look as nice (honourable mention here to <a href="https://wormhole.app/">https://wormhole.app/</a>, a website for sharing files that looks incredible.)</p>
-<h2 id="why-i-like-creating-gists">Why I like creating gists</h2>
-<p>I like creating gists because they make text easy to share with two groups of people. Those two groups are...</p>
-<h3 id="i-can-share-them-with-people">I can share them with people</h3>
-<p>The first group of people is &quot;other people&quot;, either specifically for someone, or just information or code I share a lot, so I like having a quick link to it. Gists I&#39;ve made in this category include:</p>
-<ul>
-<li><a href="https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478">how to create a blog?</a> - I share this one with people whenever they muse about blogging and talk about using some complicated- or expensive-sounding tool, to try and convince them that they need not take on such an undertaking, and can just &quot;put text on the Internet&quot;.</li>
-<li><a href="https://gist.github.com/alifeee/75df204c2be3815806e1d4be47e54d08">Remove all CSS styles from HTML files with bash</a> - this is a bash script I wrote and shared for <a href="https://css-naked-day.github.io/">CSS Naked Day 2024</a>. There were lots of ways of removing styles for site-builders and site-backends, but none for pure HTML.</li>
-<li><a href="https://gist.github.com/alifeee/829344ed02efb0952e81fc35c445df18">How to use Ruby and Jekyll on Linux</a> - when I set up Jekyll to edit a website for the first time, it was really confusing, partly because I&#39;d never used Ruby before.</li>
-</ul>
-<h3 id="i-can-share-them-with-myself-in-the-future">I can share them with myself in the future</h3>
-<p>The second group of people is really just one person, and they are &quot;me in the future&quot;. Most of my usage of gists has been to remember how I did some specific thing with code or how I installed something. Writing it down in the first place help future me <em>a lot</em> to remember, because all I have to remember is in what context I did the thing, and then I can find out exactly how by reading the gist. Some examples of gists that have been very helpful to future- (well, now past-) me are:</p>
-<ul>
-<li><a href="https://gist.github.com/alifeee/2f4be232f6b9c4b384f4c020a5bc10a1">How to setup RSA keys for automatic SSH login</a> - I found cryptography and keys confusing for a long time. Writing down what I did helped me set it up and get more confident doing so in future.</li>
-<li><a href="https://gist.github.com/alifeee/2e1ea8ad5290a553316e715f658f1fd7">Plot graphs using the terminal (bash)</a> - I often <code>cat</code> data out to the terminal. It&#39;s nice to graph it. This is a way of doing so <em>in</em> the terminal, so doesn&#39;t require a UI library.</li>
-<li><a href="https://gist.github.com/alifeee/8342d9677c436e2353233f68f34cfe19">Common RSS URL extensions</a> - is what it says on the tin</li>
-</ul>
-<h3 id="the-ramblings-of-my-existence-can-end-up-in-the-same-place">The ramblings of my existence can end up in the same place</h3>
-<p>I make a lot of random scripts. In another world, they would end up either buried in random repositories on GitHub, or buried in random folders on my computer or laptop. They would get lost.</p>
-<p>Gists make it easy to paste a script somewhere, and then find it later, as they are all (I&#39;m sure much to GitHub&#39;s enjoyment) in the same place.</p>
-<h2 id="why-i-like-finding-other-peoples-gists">Why I like finding other people&#39;s gists</h2>
-<p>More than just being able to share my own code, I like gists because other people have the same ideas as me!</p>
-<h3 id="someone-else-has-probably-done-what-i-want-to-do-before">Someone else has probably done what I want to do before</h3>
-<p>If I&#39;d like to accomplish a small scripting task, understand something self-contained, or find a code snippet for a specific task, I often search for it on the web. Unfortunately, in our Lord&#39;s year 2024, pages and pages of whatever search I make are mostly AI garbage (<a href="https://www.theverge.com/2023/6/26/23773914/ai-large-language-models-data-scraping-generation-remaking-web">here</a> is an article I have not read to pretend to verify my point). One help here is independent search engines like <a href="https://search.marginalia.nu/">Marginalia Search</a> or <a href="https://wiby.me/about/">Wiby</a>. While they are fun for exploring a more indie version of the web, I also find adding <code>&quot;site:gist.github.com&quot;</code> to my web search often results in finding exactly what I want to do.</p>
-<p>For example, here is a small list of gists from my Internet history that I&#39;ve found to be useful recently (and as a by-product, an eye into my life and desires for the past several months).</p>
-<ul>
-<li><a href="https://gist.github.com/andrewstiefel/57a0a400aa2deb6c9fe18c6da4e16e0f">Simple XSL boilerplate for styling Atom feeds</a></li>
-<li><a href="https://gist.github.com/mitchellh/319019b1b8aac9110fcfb1862e0c97fb">Git&#39;s Merge vs. Rebase vs. Squash</a></li>
-<li><a href="https://gist.github.com/veltman/f2b2a06d4ffa62f4d39d5ebac5ceeef0">CSS Train Departure board</a></li>
-<li><a href="https://gist.github.com/tjsudarsan/f2bfe4c4d567243e302cf8ba40e1c7e5">Change End of Line Sequence from CRLF to LF to all files in a project</a></li>
-<li><a href="https://gist.github.com/natmchugh/18e82761dbce52fa284c87c190dc926f">How to copy, read and write Paxton fobs and cards with an RFIDler</a></li>
-<li><a href="https://gist.github.com/madc/4474559">Simple Morse en- &amp; decoding for Arduino</a></li>
-<li><a href="https://gist.github.com/carljdp/e6a3f5a11edea63c2c14312b534f4e53">Getting started with the D1 mini (ESP8266)</a></li>
-<li><a href="https://gist.github.com/JaimeStill/8adb695ee46425f1ee9830357cd9c6bb">Globally install FFmpeg and convert video to GIF</a></li>
-<li><a href="https://gist.github.com/peeweek/55d6c2eb006d11c7da01fde974325f33">RevealJS cheat sheet</a></li>
-<li><a href="https://gist.github.com/bennadel/9760604">Decoding Morse Code With JavaScript</a></li>
-<li><a href="https://gist.github.com/JeffPaine/3145490">Make an issue on GitHub using API V3 and Python</a></li>
-<li><a href="https://gist.github.com/kgodard/5072573">how to print Avery labels with only a .csv and a web browser</a></li>
-<li><a href="https://gist.github.com/bmcbride/62600e48274961819084">how to make a Google Form → GitHub issue Google Apps Script</a></li>
-</ul>
-<h2 id="i-could-or-should-put-things-elsewhere-not-on-github">I could or should put things elsewhere (not on GitHub)</h2>
-<p>The existence of GitHub in the above has mainly been a sidenote. The main thing that excites me about gists is the collaborative nature of them. This is not something that GitHub must have control over, and indeed something that they probably <em>shouldn&#39;t</em> have control over.</p>
-<p>I&#39;ve been reading recently a lot about self- or community-hosted alternatives to different things like Git servers (like <a href="https://sourcehut.org/">sourcehut</a>) and, I use <a href="https://joinmastodon.org/">Mastodon</a> (talking of self-hosting, I&#39;d like to find an instance that&#39;s not <a href="https://mastodon.social/">mastodon.social</a>) a lot.</p>
-<p>I could put my snippets on my website, or something more free. But, I haven&#39;t. Yet.</p>
-<h2 id="my-gists-or-the-gist-list">My gists, or &quot;the gist-list&quot;</h2>
-<p>The list is long. I keep comments brief. I have categorised them as to my whims. The code blocks show either the full gist, or - if you see &quot;<code>...</code>&quot; - a snippet or section of it.</p>
-<h3 id="blog-posts"><strong>BLOG POSTS</strong></h3>
-<h4 id="1-how-to-start-blogging">1. <a href="https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478">how to start blogging</a></h4>
-<pre><code class="language-md"># How to start blogging
+        <h1
+          id="why-i-like-github-gists-and-a-short-tour-through-ones-i-have-created"
+        >
+          Why I like (GitHub) gists and a short tour through ones I have created
+        </h1>
+        <p><word-count parent=".markdown-body"></word-count></p>
+        <p>I like sharing code and instructions. Thus, I like gists.</p>
+        <ol>
+          <li><a href="#what-are-gists">What are gists?</a></li>
+          <li>
+            <a href="#why-i-like-creating-gists">Why I like creating gists</a>
+            <ol>
+              <li>
+                <a href="#i-can-share-them-with-people"
+                  >I can share them with people</a
+                >
+              </li>
+              <li>
+                <a href="#i-can-share-them-with-myself-in-the-future"
+                  >I can share them with myself in the future</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#the-ramblings-of-my-existence-can-end-up-in-the-same-place"
+                  >The ramblings of my existence can end up in the same place</a
+                >
+              </li>
+            </ol>
+          </li>
+          <li>
+            <a href="#why-i-like-finding-other-peoples-gists"
+              >Why I like finding other people&#39;s gists</a
+            >
+            <ol>
+              <li>
+                <a
+                  href="#someone-else-has-probably-done-what-i-want-to-do-before"
+                  >Someone else has probably done what I want to do before</a
+                >
+              </li>
+            </ol>
+          </li>
+          <li>
+            <a href="#i-could-or-should-put-things-elsewhere-not-on-github"
+              >I could or should put things elsewhere (not on GitHub)</a
+            >
+          </li>
+          <li>
+            <a href="#my-gists-or-the-gist-list"
+              >My gists, or &quot;the gist-list&quot;</a
+            >
+            <ol>
+              <li>
+                <a href="#blog-posts"><strong>BLOG POSTS</strong></a>
+                <ol>
+                  <li>
+                    <a href="#1-how-to-start-blogging"
+                      >1. how to start blogging</a
+                    >
+                  </li>
+                  <li><a href="#2-a-hat-blog">2. a hat blog</a></li>
+                </ol>
+              </li>
+              <li>
+                <a href="#just-data"><strong>JUST DATA</strong></a>
+                <ol>
+                  <li>
+                    <a href="#data-i-manually-made"
+                      ><strong>DATA I MANUALLY MADE</strong></a
+                    >
+                    <ol>
+                      <li>
+                        <a href="#3-my-spotify-wrapped-2023"
+                          >3. my spotify wrapped 2023</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#4-a-toki-pona-word-list"
+                          >4. a toki pona word list</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#5-my-vscode-extension-list"
+                          >5. my vscode extension list</a
+                        >
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="#data-thats-automatically-updated"
+                      ><strong>DATA THAT&#39;S AUTOMATICALLY UPDATED</strong></a
+                    >
+                    <ol>
+                      <li><a href="#6-my-json-resume">6. my json resume</a></li>
+                      <li>
+                        <a href="#7-my-web-bookmarks">7. my web bookmarks</a>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <a href="#how-tos"><strong>HOW-TOS</strong></a>
+                <ol>
+                  <li>
+                    <a href="#things-i-wanted-to-do-multiple-times"
+                      ><strong>THINGS I WANTED TO DO MULTIPLE TIMES</strong></a
+                    >
+                    <ol>
+                      <li>
+                        <a href="#8-how-to-generate-and-host-a-factorio-map"
+                          >8. how to generate and host a Factorio map</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#9-how-to-download-data-from-toggls-api"
+                          >9. how to download data from Toggl&#39;s api</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#10-reusable-ffmpeg-commands"
+                          >10. reusable ffmpeg commands</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#11-how-to-make-bar-charts-in-bash"
+                          >11. how to make bar charts in bash</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#12-how-to-make-graphs-in-bash"
+                          >12. how to make graphs in bash</a
+                        >
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="#things-that-other-people-could-want-to-do"
+                      ><strong
+                        >THINGS THAT OTHER PEOPLE COULD WANT TO DO</strong
+                      ></a
+                    >
+                    <ol>
+                      <li>
+                        <a
+                          href="#13-a-script-to-remove-all-styles-from-an-html-file"
+                          >13. a script to remove all styles from an html
+                          file</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#14-common-rss-extensions"
+                          >14. common RSS extensions</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#15-a-script-to-combine-squarespace-rss-feeeds"
+                          >15. a script to combine Squarespace RSS feeeds</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#16-a-script-to-convert-font-files-to-css-styles"
+                          >16. a script to convert font files to css styles</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#17-a-script-to-convert-gpl-files-to-css-styles"
+                          >17. a script to convert gpl files to css styles</a
+                        >
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="#how-to-set-up-things-on-a-linux-server"
+                      ><strong
+                        >HOW TO SET UP THINGS ON A LINUX SERVER</strong
+                      ></a
+                    >
+                    <ol>
+                      <li>
+                        <a href="#18-how-to-set-up-rsa-encryption-keys"
+                          >18. how to set up rsa encryption keys</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#19-how-to-set-up-nginx"
+                          >19. how to set up nginx</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#20-how-to-transfer-folders-over-scp"
+                          >20. how to transfer folders over scp</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#21-how-to-run-a-program-as-a-service-with-systemd"
+                          >21. how to run a program as a service with systemd</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#22-how-to-set-up-a-mumble-server"
+                          >22. how to set up a mumble server</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#23-how-to-install-ruby-and-jekyll-on-linux"
+                          >23. how to install ruby and jekyll on linux</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#24-how-to-set-up-ftp-on-linux"
+                          >24. how to set up ftp on linux</a
+                        >
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#the-end">The end</a></li>
+        </ol>
+        <h2 id="what-are-gists">What are gists?</h2>
+        <p>
+          <a href="https://gist.github.com/">GitHub Gists</a> are &quot;some
+          text on the Internet&quot;. Usually, people put code snippets or
+          Markdown in them, and then can share a link to anyone. It&#39;s like
+          <a href="https://pastebin.com/">Pastebin</a> but without (explicit)
+          ads. Here&#39;s
+          <a
+            href="https://gist.github.com/alifeee/586b92e21f912dde7f74cd498b7cbb56"
+            >an example gist</a
+          >
+          and here&#39;s
+          <a href="https://pastebin.com/i7U9KSEu">the same on Pastebin</a>.
+        </p>
+        <p>
+          Gists can be used for blog posts, or just to share copied text, or to
+          host a single-branch version controlled script or code snippet. They
+          are also often used to host data which is automatically updated from
+          elsewhere, and can be referenced as the most up-to-date version of
+          that data, for example by ideas like
+          <a href="https://jsonresume.org/">https://jsonresume.org/</a>.
+        </p>
+        <p>
+          Anyone with a GitHub account can make a gist. It&#39;s a very easy way
+          to share nicely formatted text (for example in Markdown), which is why
+          it&#39;s the first - and most simple - thing I suggest in my
+          <a
+            href="https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478"
+            >&quot;how to blog&quot; guide</a
+          >.
+        </p>
+        <p>
+          There are
+          <a
+            href="https://liputenpo.org/toki/nanpa-tenpo/o-kepeken-ala-ilo-ike-ni/"
+            >good reasons</a
+          >
+          you may not want to support GitHub. There are other ways to share
+          snippets, with
+          <a href="https://github.com/thomiceli/opengist">other gist tools</a>,
+          <a href="https://pastebin.com/">Pastebin</a>, and other options.
+          However, a lot of other code- or text-sharing websites seem fleeting,
+          have ads, and do not look as nice (honourable mention here to
+          <a href="https://wormhole.app/">https://wormhole.app/</a>, a website
+          for sharing files that looks incredible.)
+        </p>
+        <h2 id="why-i-like-creating-gists">Why I like creating gists</h2>
+        <p>
+          I like creating gists because they make text easy to share with two
+          groups of people. Those two groups are...
+        </p>
+        <h3 id="i-can-share-them-with-people">I can share them with people</h3>
+        <p>
+          The first group of people is &quot;other people&quot;, either
+          specifically for someone, or just information or code I share a lot,
+          so I like having a quick link to it. Gists I&#39;ve made in this
+          category include:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478"
+              >how to create a blog?</a
+            >
+            - I share this one with people whenever they muse about blogging and
+            talk about using some complicated- or expensive-sounding tool, to
+            try and convince them that they need not take on such an
+            undertaking, and can just &quot;put text on the Internet&quot;.
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/alifeee/75df204c2be3815806e1d4be47e54d08"
+              >Remove all CSS styles from HTML files with bash</a
+            >
+            - this is a bash script I wrote and shared for
+            <a href="https://css-naked-day.github.io/">CSS Naked Day 2024</a>.
+            There were lots of ways of removing styles for site-builders and
+            site-backends, but none for pure HTML.
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/alifeee/829344ed02efb0952e81fc35c445df18"
+              >How to use Ruby and Jekyll on Linux</a
+            >
+            - when I set up Jekyll to edit a website for the first time, it was
+            really confusing, partly because I&#39;d never used Ruby before.
+          </li>
+        </ul>
+        <h3 id="i-can-share-them-with-myself-in-the-future">
+          I can share them with myself in the future
+        </h3>
+        <p>
+          The second group of people is really just one person, and they are
+          &quot;me in the future&quot;. Most of my usage of gists has been to
+          remember how I did some specific thing with code or how I installed
+          something. Writing it down in the first place help future me
+          <em>a lot</em> to remember, because all I have to remember is in what
+          context I did the thing, and then I can find out exactly how by
+          reading the gist. Some examples of gists that have been very helpful
+          to future- (well, now past-) me are:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://gist.github.com/alifeee/2f4be232f6b9c4b384f4c020a5bc10a1"
+              >How to setup RSA keys for automatic SSH login</a
+            >
+            - I found cryptography and keys confusing for a long time. Writing
+            down what I did helped me set it up and get more confident doing so
+            in future.
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/alifeee/2e1ea8ad5290a553316e715f658f1fd7"
+              >Plot graphs using the terminal (bash)</a
+            >
+            - I often <code>cat</code> data out to the terminal. It&#39;s nice
+            to graph it. This is a way of doing so <em>in</em> the terminal, so
+            doesn&#39;t require a UI library.
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/alifeee/8342d9677c436e2353233f68f34cfe19"
+              >Common RSS URL extensions</a
+            >
+            - is what it says on the tin
+          </li>
+        </ul>
+        <h3 id="the-ramblings-of-my-existence-can-end-up-in-the-same-place">
+          The ramblings of my existence can end up in the same place
+        </h3>
+        <p>
+          I make a lot of random scripts. In another world, they would end up
+          either buried in random repositories on GitHub, or buried in random
+          folders on my computer or laptop. They would get lost.
+        </p>
+        <p>
+          Gists make it easy to paste a script somewhere, and then find it
+          later, as they are all (I&#39;m sure much to GitHub&#39;s enjoyment)
+          in the same place.
+        </p>
+        <h2 id="why-i-like-finding-other-peoples-gists">
+          Why I like finding other people&#39;s gists
+        </h2>
+        <p>
+          More than just being able to share my own code, I like gists because
+          other people have the same ideas as me!
+        </p>
+        <h3 id="someone-else-has-probably-done-what-i-want-to-do-before">
+          Someone else has probably done what I want to do before
+        </h3>
+        <p>
+          If I&#39;d like to accomplish a small scripting task, understand
+          something self-contained, or find a code snippet for a specific task,
+          I often search for it on the web. Unfortunately, in our Lord&#39;s
+          year 2024, pages and pages of whatever search I make are mostly AI
+          garbage (<a
+            href="https://www.theverge.com/2023/6/26/23773914/ai-large-language-models-data-scraping-generation-remaking-web"
+            >here</a
+          >
+          is an article I have not read to pretend to verify my point). One help
+          here is independent search engines like
+          <a href="https://search.marginalia.nu/">Marginalia Search</a> or
+          <a href="https://wiby.me/about/">Wiby</a>. While they are fun for
+          exploring a more indie version of the web, I also find adding
+          <code>&quot;site:gist.github.com&quot;</code> to my web search often
+          results in finding exactly what I want to do.
+        </p>
+        <p>
+          For example, here is a small list of gists from my Internet history
+          that I&#39;ve found to be useful recently (and as a by-product, an eye
+          into my life and desires for the past several months).
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://gist.github.com/andrewstiefel/57a0a400aa2deb6c9fe18c6da4e16e0f"
+              >Simple XSL boilerplate for styling Atom feeds</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/mitchellh/319019b1b8aac9110fcfb1862e0c97fb"
+              >Git&#39;s Merge vs. Rebase vs. Squash</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/veltman/f2b2a06d4ffa62f4d39d5ebac5ceeef0"
+              >CSS Train Departure board</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/tjsudarsan/f2bfe4c4d567243e302cf8ba40e1c7e5"
+              >Change End of Line Sequence from CRLF to LF to all files in a
+              project</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/natmchugh/18e82761dbce52fa284c87c190dc926f"
+              >How to copy, read and write Paxton fobs and cards with an
+              RFIDler</a
+            >
+          </li>
+          <li>
+            <a href="https://gist.github.com/madc/4474559"
+              >Simple Morse en- &amp; decoding for Arduino</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/carljdp/e6a3f5a11edea63c2c14312b534f4e53"
+              >Getting started with the D1 mini (ESP8266)</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/JaimeStill/8adb695ee46425f1ee9830357cd9c6bb"
+              >Globally install FFmpeg and convert video to GIF</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://gist.github.com/peeweek/55d6c2eb006d11c7da01fde974325f33"
+              >RevealJS cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="https://gist.github.com/bennadel/9760604"
+              >Decoding Morse Code With JavaScript</a
+            >
+          </li>
+          <li>
+            <a href="https://gist.github.com/JeffPaine/3145490"
+              >Make an issue on GitHub using API V3 and Python</a
+            >
+          </li>
+          <li>
+            <a href="https://gist.github.com/kgodard/5072573"
+              >how to print Avery labels with only a .csv and a web browser</a
+            >
+          </li>
+          <li>
+            <a href="https://gist.github.com/bmcbride/62600e48274961819084"
+              >how to make a Google Form → GitHub issue Google Apps Script</a
+            >
+          </li>
+        </ul>
+        <h2 id="i-could-or-should-put-things-elsewhere-not-on-github">
+          I could or should put things elsewhere (not on GitHub)
+        </h2>
+        <p>
+          The existence of GitHub in the above has mainly been a sidenote. The
+          main thing that excites me about gists is the collaborative nature of
+          them. This is not something that GitHub must have control over, and
+          indeed something that they probably <em>shouldn&#39;t</em> have
+          control over.
+        </p>
+        <p>
+          I&#39;ve been reading recently a lot about self- or community-hosted
+          alternatives to different things like Git servers (like
+          <a href="https://sourcehut.org/">sourcehut</a>) and, I use
+          <a href="https://joinmastodon.org/">Mastodon</a> (talking of
+          self-hosting, I&#39;d like to find an instance that&#39;s not
+          <a href="https://mastodon.social/">mastodon.social</a>) a lot.
+        </p>
+        <p>
+          I could put my snippets on my website, or something more free. But, I
+          haven&#39;t. Yet.
+        </p>
+        <h2 id="my-gists-or-the-gist-list">
+          My gists, or &quot;the gist-list&quot;
+        </h2>
+        <p>
+          The list is long. I keep comments brief. I have categorised them as to
+          my whims. The code blocks show either the full gist, or - if you see
+          &quot;<code>...</code>&quot; - a snippet or section of it.
+        </p>
+        <h3 id="blog-posts"><strong>BLOG POSTS</strong></h3>
+        <h4 id="1-how-to-start-blogging">
+          1.
+          <a
+            href="https://gist.github.com/alifeee/c857bfb45bfd260a9b9dd9c45e4f7478"
+            >how to start blogging</a
+          >
+        </h4>
+        <pre><code class="language-md"># How to start blogging
 
 You might not think you should blog. I think you should.
 
@@ -240,25 +633,39 @@ for example on &lt;https://gist.github.com&gt;
 
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I created this for one person who asked me &quot;how do I start a
+            blog&quot;. Since I made it a gist, I have shared it with many
+            people.
+          </p>
+        </figcaption>
 
-<p>I created this for one person who asked me &quot;how do I start a blog&quot;. Since I made it a gist, I have shared it with many people.</p>
-</figcaption>
-
-<h4 id="2-a-hat-blog">2. <a href="https://gist.github.com/alifeee/48f83a302205772e1a911ac889ae6212">a hat blog</a></h4>
-<pre><code class="language-md">I love hats
+        <h4 id="2-a-hat-blog">
+          2.
+          <a
+            href="https://gist.github.com/alifeee/48f83a302205772e1a911ac889ae6212"
+            >a hat blog</a
+          >
+        </h4>
+        <pre><code class="language-md">I love hats
 
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>This is a blog about hats.</p>
+        </figcaption>
 
-<p>This is a blog about hats.</p>
-</figcaption>
-
-<h3 id="just-data"><strong>JUST DATA</strong></h3>
-<h4 id="data-i-manually-made"><strong>DATA I MANUALLY MADE</strong></h4>
-<h5 id="3-my-spotify-wrapped-2023">3. <a href="https://gist.github.com/alifeee/075086b13fe5cec4c86d0f051973a960">my spotify wrapped 2023</a></h5>
-<pre><code class="language-toml"># ...
+        <h3 id="just-data"><strong>JUST DATA</strong></h3>
+        <h4 id="data-i-manually-made"><strong>DATA I MANUALLY MADE</strong></h4>
+        <h5 id="3-my-spotify-wrapped-2023">
+          3.
+          <a
+            href="https://gist.github.com/alifeee/075086b13fe5cec4c86d0f051973a960"
+            >my spotify wrapped 2023</a
+          >
+        </h5>
+        <pre><code class="language-toml"># ...
 [totals]
 minutes = 60_724
 songs = 7_309
@@ -269,35 +676,69 @@ date = &quot;2023-7-08&quot;
 minutes = 861
 # ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I started using <a href="https://toml.io/en/">TOML</a> for lots of
+            things around the same time Spotify Wrapped came out last year. It
+            was fun to think of a way of putting it into TOML format. TOML is
+            fun.
+          </p>
+        </figcaption>
 
-<p>I started using <a href="https://toml.io/en/">TOML</a> for lots of things around the same time Spotify Wrapped came out last year. It was fun to think of a way of putting it into TOML format. TOML is fun.</p>
-</figcaption>
-
-<h5 id="4-a-toki-pona-word-list">4. <a href="https://gist.github.com/alifeee/7afeac3587624d66d7b370fe23882252">a toki pona word list</a></h5>
-<pre><code class="language-bash">#...
+        <h5 id="4-a-toki-pona-word-list">
+          4.
+          <a
+            href="https://gist.github.com/alifeee/7afeac3587624d66d7b370fe23882252"
+            >a toki pona word list</a
+          >
+        </h5>
+        <pre><code class="language-bash">#...
 cat words.txt | awk -F&#39;[^a-zA-Z]&#39; &#39;BEGIN {delete wds} { if (length($0) &gt; 0 &amp;&amp; length($0) &lt; 10) { if (!($1 in wds)) {print $1; wds[$1]}  } }&#39; &gt; nimi-ale-pi-toki-pona.txt
 #...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I wanted a <a href="https://tokipona.org/">toki pona</a> word list
+            for something. I can&#39;t remember what, but it was probably
+            <a href="https://liputenpo.org/">lipu tenpo</a> related. I put the
+            command and generated list into a gist because I spent some time
+            tinkering with <code>awk</code> to create the command, and I was
+            proud of it. You may spot that theme continuing on.
+          </p>
+        </figcaption>
 
-<p>I wanted a <a href="https://tokipona.org/">toki pona</a> word list for something. I can&#39;t remember what, but it was probably <a href="https://liputenpo.org/">lipu tenpo</a> related. I put the command and generated list into a gist because I spent some time tinkering with <code>awk</code> to create the command, and I was proud of it. You may spot that theme continuing on.</p>
-</figcaption>
-
-<h5 id="5-my-vscode-extension-list">5. <a href="https://gist.github.com/alifeee/d46f1f41189b13bb44c2c32f84f69edc">my vscode extension list</a></h5>
-<pre><code class="language-json">{
+        <h5 id="5-my-vscode-extension-list">
+          5.
+          <a
+            href="https://gist.github.com/alifeee/d46f1f41189b13bb44c2c32f84f69edc"
+            >my vscode extension list</a
+          >
+        </h5>
+        <pre><code class="language-json">{
   &quot;name&quot;: &quot;newprofile1&quot;,
   &quot;extensions&quot;: &quot;[{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;bbenoist.doxygen\&quot;,\&quot;uuid\&quot;:\&quot;aab644b7-f446-4774-87fc-2cce8f0d5a4f\&quot;}},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;cschlosser.doxdocgen\&quot;,\&quot;uuid\&quot;:\&quot;da7e26d5-d57c-4742-ab47-d77fb189e195\&quot;},\&quot;displayName\&quot;:\&quot;Doxygen Documentation Generator\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;davidanson.vscode-markdownlint\&quot;,\&quot;uuid\&quot;:\&quot;daf8b44d-8aae-4da2-80c5-1f770219f643\&quot;},\&quot;displayName\&quot;:\&quot;markdownlint\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;eamodio.gitlens\&quot;,\&quot;uuid\&quot;:\&quot;4de763bd-505d-4978-9575-2b7696ecf94e\&quot;},\&quot;displayName\&quot;:\&quot;GitLens — Git supercharged\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;esbenp.prettier-vscode\&quot;,\&quot;uuid\&quot;:\&quot;96fa4707-6983-4489-b7c5-d5ffdfdcce90\&quot;},\&quot;displayName\&quot;:\&quot;Prettier - Code formatter\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;formulahendry.auto-rename-tag\&quot;,\&quot;uuid\&quot;:\&quot;6e440e71-8ed9-4f25-bb78-4b13096b8a03\&quot;},\&quot;displayName\&quot;:\&quot;Auto Rename Tag\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;github.copilot\&quot;,\&quot;uuid\&quot;:\&quot;23c4aeee-f844-43cd-b53e-1113e483f1a6\&quot;},\&quot;displayName\&quot;:\&quot;GitHub Copilot\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;github.vscode-github-actions\&quot;,\&quot;uuid\&quot;:\&quot;04f49bfc-8330-4eee-8237-ea938fb755ef\&quot;},\&quot;displayName\&quot;:\&quot;GitHub Actions\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;github.vscode-pull-request-github\&quot;,\&quot;uuid\&quot;:\&quot;69ddd764-339a-4ecc-97c1-9c4ece58e36d\&quot;},\&quot;displayName\&quot;:\&quot;GitHub Pull Requests and Issues\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;jock.svg\&quot;,\&quot;uuid\&quot;:\&quot;4ae6dc82-7981-4f10-bd81-2d72aec37f39\&quot;},\&quot;displayName\&quot;:\&quot;SVG\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;leonhard-s.python-sphinx-highlight\&quot;,\&quot;uuid\&quot;:\&quot;a0f17d96-c9f3-4ce4-92b7-27b8c936835b\&quot;},\&quot;displayName\&quot;:\&quot;Python Sphinx Highlighter\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;mhutchie.git-graph\&quot;,\&quot;uuid\&quot;:\&quot;438221f8-1107-4ccd-a6fe-f3b7fe0856b7\&quot;},\&quot;displayName\&quot;:\&quot;Git Graph\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-python.black-formatter\&quot;,\&quot;uuid\&quot;:\&quot;859e640c-c157-47da-8699-9080b81c8371\&quot;},\&quot;displayName\&quot;:\&quot;Black Formatter\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-python.pylint\&quot;,\&quot;uuid\&quot;:\&quot;8dc47276-5882-4c5f-903d-7eef7b9d1584\&quot;},\&quot;displayName\&quot;:\&quot;Pylint\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-python.python\&quot;,\&quot;uuid\&quot;:\&quot;f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5\&quot;},\&quot;displayName\&quot;:\&quot;Python\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-python.vscode-pylance\&quot;,\&quot;uuid\&quot;:\&quot;364d2426-116a-433a-a5d8-a5098dc3afbd\&quot;},\&quot;displayName\&quot;:\&quot;Pylance\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-toolsai.jupyter\&quot;,\&quot;uuid\&quot;:\&quot;6c2f1801-1e7f-45b2-9b5c-7782f1e076e8\&quot;},\&quot;displayName\&quot;:\&quot;Jupyter\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-toolsai.jupyter-keymap\&quot;,\&quot;uuid\&quot;:\&quot;9f6dc8db-620c-4844-b8c5-e74914f1be27\&quot;},\&quot;displayName\&quot;:\&quot;Jupyter Keymap\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-toolsai.jupyter-renderers\&quot;,\&quot;uuid\&quot;:\&quot;b15c72f8-d5fe-421a-a4f7-27ed9f6addbf\&quot;},\&quot;displayName\&quot;:\&quot;Jupyter Notebook Renderers\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-toolsai.vscode-jupyter-cell-tags\&quot;,\&quot;uuid\&quot;:\&quot;ab4fb32a-befb-4102-adf9-1652d0cd6a5e\&quot;},\&quot;displayName\&quot;:\&quot;Jupyter Cell Tags\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-toolsai.vscode-jupyter-slideshow\&quot;,\&quot;uuid\&quot;:\&quot;e153ca70-b543-4865-b4c5-b31d34185948\&quot;},\&quot;displayName\&quot;:\&quot;Jupyter Slide Show\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-vscode.cpptools\&quot;,\&quot;uuid\&quot;:\&quot;690b692e-e8a9-493f-b802-8089d50ac1b2\&quot;},\&quot;displayName\&quot;:\&quot;C/C++\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-vscode.cpptools-extension-pack\&quot;,\&quot;uuid\&quot;:\&quot;3957b2f6-f086-49b5-a7b4-5da772123130\&quot;},\&quot;displayName\&quot;:\&quot;C/C++ Extension Pack\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-vscode.cpptools-themes\&quot;,\&quot;uuid\&quot;:\&quot;99b17261-8f6e-45f0-9ad5-a69c6f509a4f\&quot;},\&quot;displayName\&quot;:\&quot;C/C++ Themes\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-vscode.powershell\&quot;,\&quot;uuid\&quot;:\&quot;40d39ce9-c381-47a0-80c8-a6661f731eab\&quot;},\&quot;displayName\&quot;:\&quot;PowerShell\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ms-vscode.vscode-typescript-next\&quot;,\&quot;uuid\&quot;:\&quot;15305aca-2588-4ca0-8147-ab2c64730b82\&quot;},\&quot;displayName\&quot;:\&quot;JavaScript and TypeScript Nightly\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;mushan.vscode-paste-image\&quot;,\&quot;uuid\&quot;:\&quot;ffaf4ec8-f001-4f02-b671-705ecf079cde\&quot;},\&quot;displayName\&quot;:\&quot;Paste Image\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;naumovs.color-highlight\&quot;,\&quot;uuid\&quot;:\&quot;121396ad-85a1-45ec-9fd1-d95028a847f5\&quot;},\&quot;displayName\&quot;:\&quot;Color Highlight\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;njpwerner.autodocstring\&quot;,\&quot;uuid\&quot;:\&quot;2d6fea35-f68e-461d-9b7b-5cd05be99451\&quot;},\&quot;displayName\&quot;:\&quot;autoDocstring - Python Docstring Generator\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;rangav.vscode-thunder-client\&quot;,\&quot;uuid\&quot;:\&quot;2fd56207-78ef-49d4-95d2-9b801eee4dbf\&quot;},\&quot;displayName\&quot;:\&quot;Thunder Client\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;ritwickdey.liveserver\&quot;,\&quot;uuid\&quot;:\&quot;b63c44fd-0457-4696-99e9-dbfdf70d77de\&quot;},\&quot;displayName\&quot;:\&quot;Live Server\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;tumido.cron-explained\&quot;,\&quot;uuid\&quot;:\&quot;6ee451cb-7b81-4520-9eb4-059db43a1431\&quot;},\&quot;displayName\&quot;:\&quot;Cron Explained\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;usernamehw.errorlens\&quot;,\&quot;uuid\&quot;:\&quot;9d8c32ab-354c-4daf-a9bf-20b633734435\&quot;},\&quot;displayName\&quot;:\&quot;Error Lens\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;valentjn.vscode-ltex\&quot;,\&quot;uuid\&quot;:\&quot;840e9c85-0e99-42ce-aa62-81088245e699\&quot;},\&quot;displayName\&quot;:\&quot;LTeX – LanguageTool grammar/spell checking\&quot;},{\&quot;identifier\&quot;:{\&quot;id\&quot;:\&quot;yzhang.markdown-all-in-one\&quot;,\&quot;uuid\&quot;:\&quot;98790d67-10fa-497c-9113-f6c7489207b2\&quot;},\&quot;displayName\&quot;:\&quot;Markdown All in One\&quot;}]&quot;
 }
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            When I originally made this, it was human-readable: you could see a
+            nice, multi-line list of my VSCode extensions. They have since
+            changed how the export/import works, so now it looks very ugly. I no
+            longer find this useful.
+          </p>
+        </figcaption>
 
-<p>When I originally made this, it was human-readable: you could see a nice, multi-line list of my VSCode extensions. They have since changed how the export/import works, so now it looks very ugly. I no longer find this useful.</p>
-</figcaption>
-
-<h4 id="data-thats-automatically-updated"><strong>DATA THAT&#39;S AUTOMATICALLY UPDATED</strong></h4>
-<h5 id="6-my-json-resume">6. <a href="https://gist.github.com/alifeee/97f9ac1642b1c46cf66942c3f079a42f">my json resume</a></h5>
-<pre><code class="language-json">#...
+        <h4 id="data-thats-automatically-updated">
+          <strong>DATA THAT&#39;S AUTOMATICALLY UPDATED</strong>
+        </h4>
+        <h5 id="6-my-json-resume">
+          6.
+          <a
+            href="https://gist.github.com/alifeee/97f9ac1642b1c46cf66942c3f079a42f"
+            >my json resume</a
+          >
+        </h5>
+        <pre><code class="language-json">#...
 &quot;references&quot;: [
   {
     &quot;reference&quot;: &quot;\&quot;This is very neat thank you for this contribution.\&quot;&quot;,
@@ -311,13 +752,34 @@ cat words.txt | awk -F&#39;[^a-zA-Z]&#39; &#39;BEGIN {delete wds} { if (length($
   },
 #...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            This is auto-updated by my
+            <a href="https://github.com/alifeee/json-resume">CV repository</a>.
+            I used to use <a href="https://jsonresume.org/">json-resume</a> a
+            bit more, but I stopped doing the themes how they did it and made it
+            myself. I still use the schema, though, and still update this gist,
+            so I can view my CV in
+            <a href="https://registry.jsonresume.org/alifeee?theme=elegant"
+              >many</a
+            >
+            <a href="https://registry.jsonresume.org/alifeee?theme=macchiato"
+              >different</a
+            >
+            <a href="https://registry.jsonresume.org/alifeee?theme=rickosborne"
+              >styles</a
+            >. Neat!
+          </p>
+        </figcaption>
 
-<p>This is auto-updated by my <a href="https://github.com/alifeee/json-resume">CV repository</a>. I used to use <a href="https://jsonresume.org/">json-resume</a> a bit more, but I stopped doing the themes how they did it and made it myself. I still use the schema, though, and still update this gist, so I can view my CV in <a href="https://registry.jsonresume.org/alifeee?theme=elegant">many</a> <a href="https://registry.jsonresume.org/alifeee?theme=macchiato">different</a> <a href="https://registry.jsonresume.org/alifeee?theme=rickosborne">styles</a>. Neat!</p>
-</figcaption>
-
-<h5 id="7-my-web-bookmarks">7. <a href="https://gist.github.com/alifeee/5d84396d0404a879bb41329ec5afa9d3">my web bookmarks</a></h5>
-<pre><code class="language-json">{
+        <h5 id="7-my-web-bookmarks">
+          7.
+          <a
+            href="https://gist.github.com/alifeee/5d84396d0404a879bb41329ec5afa9d3"
+            >my web bookmarks</a
+          >
+        </h5>
+        <pre><code class="language-json">{
     &quot;last_modified&quot;: &quot;2024-03-25T00:44:15.551843Z&quot;,
     &quot;bookmarks&quot;: {
         &quot;TOP 10 personal websites/blogs&quot;: [
@@ -335,16 +797,38 @@ cat words.txt | awk -F&#39;[^a-zA-Z]&#39; &#39;BEGIN {delete wds} { if (length($
             },
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            After making my CV automatically push to a gist, it was easy to do
+            similar when I was making my
+            <a href="https://github.com/alifeee/firefox-bookmarks"
+              >Firefox bookmark exporter</a
+            >. I don&#39;t really use this gist, but I guess having the data in
+            machine-readable format is nice. Although
+            <a href="https://alifeee.co.uk/bookmarks/"
+              >alifeee.co.uk/bookmarks</a
+            >
+            probably already fills that role.
+          </p>
+        </figcaption>
 
-<p>After making my CV automatically push to a gist, it was easy to do similar when I was making my <a href="https://github.com/alifeee/firefox-bookmarks">Firefox bookmark exporter</a>. I don&#39;t really use this gist, but I guess having the data in machine-readable format is nice. Although <a href="https://alifeee.co.uk/bookmarks/">alifeee.co.uk/bookmarks</a> probably already fills that role.</p>
-</figcaption>
-
-<h3 id="how-tos"><strong>HOW-TOS</strong></h3>
-<h4 id="things-i-wanted-to-do-multiple-times"><strong>THINGS I WANTED TO DO MULTIPLE TIMES</strong></h4>
-<p>Most of these gists exist because I spent a while figuring out how to do a process, and I thought that I would want to repeat the process in the future.</p>
-<h5 id="8-how-to-generate-and-host-a-factorio-map">8. <a href="https://gist.github.com/alifeee/fb16acc9b4cc8b6d52e4f3226cc10197">how to generate and host a Factorio map</a></h5>
-<pre><code class="language-md">...
+        <h3 id="how-tos"><strong>HOW-TOS</strong></h3>
+        <h4 id="things-i-wanted-to-do-multiple-times">
+          <strong>THINGS I WANTED TO DO MULTIPLE TIMES</strong>
+        </h4>
+        <p>
+          Most of these gists exist because I spent a while figuring out how to
+          do a process, and I thought that I would want to repeat the process in
+          the future.
+        </p>
+        <h5 id="8-how-to-generate-and-host-a-factorio-map">
+          8.
+          <a
+            href="https://gist.github.com/alifeee/fb16acc9b4cc8b6d52e4f3226cc10197"
+            >how to generate and host a Factorio map</a
+          >
+        </h5>
+        <pre><code class="language-md">...
 ## To create maps
 
 With:
@@ -365,18 +849,38 @@ py auto.py --dayonly multplayer &quot;multplayer start&quot; &quot;multplayer 1&
 ​```
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p><em>why did I make it?</em></p>
+          <p>
+            I played a big multiplayer Factorio world once a week for ten weeks,
+            and I used
+            <a href="https://github.com/L0laapk3/FactorioMaps"
+              ><code>FactorioMaps</code></a
+            >
+            to create an interactive map of the save after every week. You can
+            (maybe) see the final map on
+            <a href="https://server.alifeee.co.uk/factorio/"
+              >https://server.alifeee.co.uk/factorio/</a
+            >.
+          </p>
+          <p><em>who is it for?</em></p>
+          <p>
+            Myself. It took a few hours to set this up the first time, and I was
+            doing it every week, so making a gist helped me do it repeatedly and
+            more mindlessly.
+          </p>
+          <p><em>have I come back to it?</em></p>
+          <p>Every week for ten weeks when I was generating the maps often.</p>
+        </figcaption>
 
-<p><em>why did I make it?</em></p>
-<p>I played a big multiplayer Factorio world once a week for ten weeks, and I used <a href="https://github.com/L0laapk3/FactorioMaps"><code>FactorioMaps</code></a> to create an interactive map of the save after every week. You can (maybe) see the final map on <a href="https://server.alifeee.co.uk/factorio/">https://server.alifeee.co.uk/factorio/</a>.</p>
-<p><em>who is it for?</em></p>
-<p>Myself. It took a few hours to set this up the first time, and I was doing it every week, so making a gist helped me do it repeatedly and more mindlessly.</p>
-<p><em>have I come back to it?</em></p>
-<p>Every week for ten weeks when I was generating the maps often.</p>
-</figcaption>
-
-<h5 id="9-how-to-download-data-from-toggls-api">9. <a href="https://gist.github.com/alifeee/5ccfdff391f1bfc894f6e21beb78996d">how to download data from Toggl&#39;s api</a></h5>
-<pre><code class="language-bash">...
+        <h5 id="9-how-to-download-data-from-toggls-api">
+          9.
+          <a
+            href="https://gist.github.com/alifeee/5ccfdff391f1bfc894f6e21beb78996d"
+            >how to download data from Toggl&#39;s api</a
+          >
+        </h5>
+        <pre><code class="language-bash">...
 KEYS=&quot;${TOGGL_KEYS:-.id, .workspace_id, .project_id, .task_id, .billable, .start, .stop, .duration, .description, .duronly, .at, .server_deleted_at, .user_id, .uid, .wid, .pid}&quot;
 
 # print CSV headers
@@ -385,13 +889,25 @@ echo $KEYS | awk -F&#39;, &#39; &#39;{for (i=1; i&lt;NF; i++) {printf &quot;%s,&
 # print CSV content (parse JSON with jq)
 cat $1 | jq -r &#39;.[] | [&#39;&quot;${KEYS}&quot;&#39;] | @csv&#39;
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I track time using
+            <a href="https://toggl.com/">https://toggl.com/</a>. I do not pay
+            for it, so they do not keep my data past 3 months. So, every month I
+            download the month&#39;s data. Rather than remembering which buttons
+            to press on the UI, I wrote a script that I can run. I thought it
+            might be nice to accidentally come across it if you were a netizen.
+          </p>
+        </figcaption>
 
-<p>I track time using <a href="https://toggl.com/">https://toggl.com/</a>. I do not pay for it, so they do not keep my data past 3 months. So, every month I download the month&#39;s data. Rather than remembering which buttons to press on the UI, I wrote a script that I can run. I thought it might be nice to accidentally come across it if you were a netizen.</p>
-</figcaption>
-
-<h5 id="10-reusable-ffmpeg-commands">10. <a href="https://gist.github.com/alifeee/9e968dbf9f380ab4b15cda8d05d2a89e">reusable ffmpeg commands</a></h5>
-<pre><code class="language-md"># FFmpeg Commands
+        <h5 id="10-reusable-ffmpeg-commands">
+          10.
+          <a
+            href="https://gist.github.com/alifeee/9e968dbf9f380ab4b15cda8d05d2a89e"
+            >reusable ffmpeg commands</a
+          >
+        </h5>
+        <pre><code class="language-md"># FFmpeg Commands
 
 ## Turn mp4 into gif
 
@@ -401,13 +917,23 @@ Used [here](https://github.com/sheffieldhackspace/train-signs). From [here](http
 ffmpeg -y -i input.mp4 -filter_complex &quot;fps=5,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=32[p];[s1][p]paletteuse=dither=bayer&quot; output.gif
 ​```
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I thought I&#39;d use this one more, but I haven&#39;t. I made it
+            because I love writing an FFmpeg command for a repeatable task, as
+            it&#39;s so easy to do something again the same way later on. But, I
+            haven&#39;t really been doing much video/audio stuff recently.
+          </p>
+        </figcaption>
 
-<p>I thought I&#39;d use this one more, but I haven&#39;t. I made it because I love writing an FFmpeg command for a repeatable task, as it&#39;s so easy to do something again the same way later on. But, I haven&#39;t really been doing much video/audio stuff recently.</p>
-</figcaption>
-
-<h5 id="11-how-to-make-bar-charts-in-bash">11. <a href="https://gist.github.com/alifeee/a6f14aad9caed6b8a861df0e2850aa10">how to make bar charts in bash</a></h5>
-<pre><code class="language-bash">...
+        <h5 id="11-how-to-make-bar-charts-in-bash">
+          11.
+          <a
+            href="https://gist.github.com/alifeee/a6f14aad9caed6b8a861df0e2850aa10"
+            >how to make bar charts in bash</a
+          >
+        </h5>
+        <pre><code class="language-bash">...
 # &gt; ./bar.sh 25 100 12
 # ███░░░░░░░░░
 awk -v prog=$1 -v TOTAL=$2 -v TOTSEG=$3 &#39;BEGIN {
@@ -422,13 +948,29 @@ awk -v prog=$1 -v TOTAL=$2 -v TOTSEG=$3 &#39;BEGIN {
     }
 }&#39;
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I love bash, I love awk, and I love statistics. This combines them
+            wonderfully. I use this vaguely regularly when I want to visually
+            compare numbers, such as for
+            <a href="https://github.com/alifeee/advent-of-code-2023"
+              >my Advent of Code statistics</a
+            >, or
+            <a
+              href="https://github.com/lipu-tenpo/liputenpo.org/blob/main/scripts/release_differences.py"
+              >comparing magazine release date differences</a
+            >.
+          </p>
+        </figcaption>
 
-<p>I love bash, I love awk, and I love statistics. This combines them wonderfully. I use this vaguely regularly when I want to visually compare numbers, such as for <a href="https://github.com/alifeee/advent-of-code-2023">my Advent of Code statistics</a>, or <a href="https://github.com/lipu-tenpo/liputenpo.org/blob/main/scripts/release_differences.py">comparing magazine release date differences</a>.</p>
-</figcaption>
-
-<h5 id="12-how-to-make-graphs-in-bash">12. <a href="https://gist.github.com/alifeee/2e1ea8ad5290a553316e715f658f1fd7">how to make graphs in bash</a></h5>
-<pre><code class="language-md">...
+        <h5 id="12-how-to-make-graphs-in-bash">
+          12.
+          <a
+            href="https://gist.github.com/alifeee/2e1ea8ad5290a553316e715f658f1fd7"
+            >how to make graphs in bash</a
+          >
+        </h5>
+        <pre><code class="language-md">...
 Plot graphs using the terminal. E.g.,
 &gt; cat sensor.txt | awk -F &#39;:| *&#39; &#39;{print $2}&#39; | eplot -d -t CO2 2&gt; /dev/null
 
@@ -458,29 +1000,65 @@ Plot graphs using the terminal. E.g.,
 &gt; cat sensor.txt | awk -F &#39;:| *&#39; &#39;{print $2}&#39; | eplot -d -t CO2 2&gt; /dev/null
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            As I said already, I love statistics. I made this when I was setting
+            up a
+            <a href="https://github.com/alifeee/CO2-monitoring">CO2 monitor</a>,
+            to sanity check the results I was getting. I had it set up to just
+            send numbers through serial, so I found out how to graph it to be
+            able to better compare those numbers to one another.
+          </p>
+          <p>
+            I wanted to do it in bash, so I could do it interactively, and watch
+            the graph change in real time. If I wanted a pretty graph, I&#39;d
+            use Matplotlib.
+          </p>
+        </figcaption>
 
-<p>As I said already, I love statistics. I made this when I was setting up a <a href="https://github.com/alifeee/CO2-monitoring">CO2 monitor</a>, to sanity check the results I was getting. I had it set up to just send numbers through serial, so I found out how to graph it to be able to better compare those numbers to one another.</p>
-<p>I wanted to do it in bash, so I could do it interactively, and watch the graph change in real time. If I wanted a pretty graph, I&#39;d use Matplotlib.</p>
-</figcaption>
-
-<h4 id="things-that-other-people-could-want-to-do"><strong>THINGS THAT OTHER PEOPLE COULD WANT TO DO</strong></h4>
-<p>These are things that I did once, or do repeatedly and remember how to do. But, I put them into gists so that I could share with people how I do common things, or so people with very specific google searches might stumble across something useful.</p>
-<h5 id="13-a-script-to-remove-all-styles-from-an-html-file">13. <a href="https://gist.github.com/alifeee/75df204c2be3815806e1d4be47e54d08">a script to remove all styles from an html file</a></h5>
-<pre><code class="language-bash">...
+        <h4 id="things-that-other-people-could-want-to-do">
+          <strong>THINGS THAT OTHER PEOPLE COULD WANT TO DO</strong>
+        </h4>
+        <p>
+          These are things that I did once, or do repeatedly and remember how to
+          do. But, I put them into gists so that I could share with people how I
+          do common things, or so people with very specific google searches
+          might stumble across something useful.
+        </p>
+        <h5 id="13-a-script-to-remove-all-styles-from-an-html-file">
+          13.
+          <a
+            href="https://gist.github.com/alifeee/75df204c2be3815806e1d4be47e54d08"
+            >a script to remove all styles from an html file</a
+          >
+        </h5>
+        <pre><code class="language-bash">...
 # to change lots of files, use `find` and `xargs`
 #  e.g., find all files ending with &quot;.html&quot; and replace them with the output of this script
 #   find . -name &quot;*.html&quot; -print0 | xargs -0 -i bash -c &#39;./scripts/naked.sh &quot;{}&quot; &gt; &quot;{}.temp&quot; &amp;&amp; mv &quot;{}.temp&quot; &quot;{}&quot;&#39;
 
 cat &quot;$1&quot; | perl -0777pe &#39;s|&lt;link[^&gt;]*rel=&quot;stylesheet&quot;[^&gt;]*/&gt;||gms&#39; | perl -0777pe &#39;s|&lt;style&gt;.*?&lt;/style&gt;||gms&#39; | perl -0777pe &#39;s|style=&quot;[^&quot;]*&quot;||gms&#39;
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I made this to make it easy for me to participate in
+            <a href="https://css-naked-day.github.io/">CSS Naked Day 2024</a>. I
+            shared it so that anyone else could do the same. There were many
+            ways of removing styles on the
+            <a href="https://css-naked-day.github.io/">homepage</a>, but they
+            were all for PHP, or Django, or Perl, or ... etc. Nothing for
+            &quot;just HTML&quot;, so I added it.
+          </p>
+        </figcaption>
 
-<p>I made this to make it easy for me to participate in <a href="https://css-naked-day.github.io/">CSS Naked Day 2024</a>. I shared it so that anyone else could do the same. There were many ways of removing styles on the <a href="https://css-naked-day.github.io/">homepage</a>, but they were all for PHP, or Django, or Perl, or ... etc. Nothing for &quot;just HTML&quot;, so I added it.</p>
-</figcaption>
-
-<h5 id="14-common-rss-extensions">14. <a href="https://gist.github.com/alifeee/8342d9677c436e2353233f68f34cfe19">common RSS extensions</a></h5>
-<pre><code class="language-md"># Common RSS URL extensions
+        <h5 id="14-common-rss-extensions">
+          14.
+          <a
+            href="https://gist.github.com/alifeee/8342d9677c436e2353233f68f34cfe19"
+            >common RSS extensions</a
+          >
+        </h5>
+        <pre><code class="language-md"># Common RSS URL extensions
 
 I like blogs. I like RSS feeds. Often, blogs don&#39;t have an RSS feed link. Often, these blogs *do* have an RSS feed, thanks to whatever site generator they use.
 
@@ -505,13 +1083,27 @@ For example, [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk/) -&gt; [`blog.al
 ./index.xml
 ​```
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            As the gist says, I like RSS. You should
+            <a href="https://blog.alifeee.co.uk/feed.xml">use it</a> to keep up
+            with your <a href="https://blog.alifeee.co.uk/">favourite blogs</a>.
+            Whenever I was on a blog and I couldn&#39;t find a link to an RSS
+            feed, I would find myself trying a random combination of the above.
+            I wrote it down so that now I can be more systematic about it, and
+            so that now I can keep up to date with my favourite random personal
+            websites!
+          </p>
+        </figcaption>
 
-<p>As the gist says, I like RSS. You should <a href="https://blog.alifeee.co.uk/feed.xml">use it</a> to keep up with your <a href="https://blog.alifeee.co.uk/">favourite blogs</a>. Whenever I was on a blog and I couldn&#39;t find a link to an RSS feed, I would find myself trying a random combination of the above. I wrote it down so that now I can be more systematic about it, and so that now I can keep up to date with my favourite random personal websites!</p>
-</figcaption>
-
-<h5 id="15-a-script-to-combine-squarespace-rss-feeeds">15. <a href="https://gist.github.com/alifeee/2eb9ac2296a698dc8a05d4ed531d8d36">a script to combine Squarespace RSS feeeds</a></h5>
-<pre><code class="language-bash">...
+        <h5 id="15-a-script-to-combine-squarespace-rss-feeeds">
+          15.
+          <a
+            href="https://gist.github.com/alifeee/2eb9ac2296a698dc8a05d4ed531d8d36"
+            >a script to combine Squarespace RSS feeeds</a
+          >
+        </h5>
+        <pre><code class="language-bash">...
 # fetch the file
     rss=$(curl -s &quot;${baseurl}&amp;${querystring}&quot; | tr -d &#39;\n&#39;) 
     # remove header with &quot;&lt;\?xml.*?&lt;\/description&gt;&quot;
@@ -525,13 +1117,25 @@ For example, [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk/) -&gt; [`blog.al
     all_rss=&quot;$all_rss$rss&quot;
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            More RSS love. This was made in frustration at Squarespace only
+            offering an RSS feed for each month of the calendar, and no
+            &quot;all&quot; option I could see. Thus, I made a script to combine
+            RSS feeds of the next few months so that I could stay up to date. I
+            thought it might be useful if someone encountered the same issue
+            with a different Squarespace site.
+          </p>
+        </figcaption>
 
-<p>More RSS love. This was made in frustration at Squarespace only offering an RSS feed for each month of the calendar, and no &quot;all&quot; option I could see. Thus, I made a script to combine RSS feeds of the next few months so that I could stay up to date. I thought it might be useful if someone encountered the same issue with a different Squarespace site.</p>
-</figcaption>
-
-<h5 id="16-a-script-to-convert-font-files-to-css-styles">16. <a href="https://gist.github.com/alifeee/8607c787a0c60684827b5f07bbb95a5d">a script to convert font files to css styles</a></h5>
-<pre><code class="language-bash">...
+        <h5 id="16-a-script-to-convert-font-files-to-css-styles">
+          16.
+          <a
+            href="https://gist.github.com/alifeee/8607c787a0c60684827b5f07bbb95a5d"
+            >a script to convert font files to css styles</a
+          >
+        </h5>
+        <pre><code class="language-bash">...
 name_without_spaces=$(echo $name | tr &#39;[:upper:]&#39; &#39;[:lower:]&#39; | tr &#39; &#39; &#39;-&#39;)
 
 echo &#39;@font-face {
@@ -543,13 +1147,30 @@ echo &#39;@font-face {
 }
 &#39;
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            For my
+            <a href="https://blog.alifeee.co.uk/font-workshop/"
+              >font-workshop</a
+            >
+            and
+            <a href="https://alifeee.co.uk/talks-and-workshops/">font-talk</a>,
+            I wanted to make a couple of CSS rules for around 100 or more fonts.
+            This was a fun challenge to do using bash, and I ended up with a
+            nice script. It&#39;s another one that I only put online because it
+            was easy to do so, and again so that if someone came at Google with
+            a very niche ask, they might find help here.
+          </p>
+        </figcaption>
 
-<p>For my <a href="https://blog.alifeee.co.uk/font-workshop/">font-workshop</a> and <a href="https://alifeee.co.uk/talks-and-workshops/">font-talk</a>, I wanted to make a couple of CSS rules for around 100 or more fonts. This was a fun challenge to do using bash, and I ended up with a nice script. It&#39;s another one that I only put online because it was easy to do so, and again so that if someone came at Google with a very niche ask, they might find help here.</p>
-</figcaption>
-
-<h5 id="17-a-script-to-convert-gpl-files-to-css-styles">17. <a href="https://gist.github.com/alifeee/586b92e21f912dde7f74cd498b7cbb56">a script to convert gpl files to css styles</a></h5>
-<pre><code class="language-bash">...
+        <h5 id="17-a-script-to-convert-gpl-files-to-css-styles">
+          17.
+          <a
+            href="https://gist.github.com/alifeee/586b92e21f912dde7f74cd498b7cbb56"
+            >a script to convert gpl files to css styles</a
+          >
+        </h5>
+        <pre><code class="language-bash">...
 cat $1 | awk -F &#39; &#39; &#39;
 BEGIN {
   printf &quot;:root {\n&quot;
@@ -563,16 +1184,49 @@ BEGIN {
   printf &quot;}\n&quot;
 }&#39;
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            Similar to the above, this is a script for converting a gimp colour
+            palette to CSS styles. I used it for turning a
+            <a
+              href="https://github.com/lipu-tenpo/selo/blob/main/lipu-tenpo.gpl"
+              >colour palette for typesetting lipu tenpo</a
+            >
+            into
+            <a
+              href="https://github.com/lipu-tenpo/liputenpo.org/blob/main/public/stylesheet.css"
+              >CSS</a
+            >
+            for the <a href="https://liputenpo.org/">lipu tenpo website</a>.
+            Again, who&#39;s to say, but it&#39;s nice to imagine that someone
+            could be attempting this specific thing in future and stumble across
+            this gist.
+          </p>
+        </figcaption>
 
-<p>Similar to the above, this is a script for converting a gimp colour palette to CSS styles. I used it for turning a <a href="https://github.com/lipu-tenpo/selo/blob/main/lipu-tenpo.gpl">colour palette for typesetting lipu tenpo</a> into <a href="https://github.com/lipu-tenpo/liputenpo.org/blob/main/public/stylesheet.css">CSS</a> for the <a href="https://liputenpo.org/">lipu tenpo website</a>. Again, who&#39;s to say, but it&#39;s nice to imagine that someone could be attempting this specific thing in future and stumble across this gist.</p>
-</figcaption>
-
-<h4 id="how-to-set-up-things-on-a-linux-server"><strong>HOW TO SET UP THINGS ON A LINUX SERVER</strong></h4>
-<p>Having and doing things on a Linux server is an entire world in itself. When I started doing it, lots was confusing. Lots is still confusing. Whenever I do something describable, I try and write it down so that I can build upon my knowledge, rather than having to re-find-out how to do it every time I do something.</p>
-<p>I have come back to most of these quite a lot because they contain a lot of POSIX/bash/shell commands that I remember using, but have forgotten how to use, or what they were called.</p>
-<h5 id="18-how-to-set-up-rsa-encryption-keys">18. <a href="https://gist.github.com/alifeee/2f4be232f6b9c4b384f4c020a5bc10a1">how to set up rsa encryption keys</a></h5>
-<pre><code class="language-md">...
+        <h4 id="how-to-set-up-things-on-a-linux-server">
+          <strong>HOW TO SET UP THINGS ON A LINUX SERVER</strong>
+        </h4>
+        <p>
+          Having and doing things on a Linux server is an entire world in
+          itself. When I started doing it, lots was confusing. Lots is still
+          confusing. Whenever I do something describable, I try and write it
+          down so that I can build upon my knowledge, rather than having to
+          re-find-out how to do it every time I do something.
+        </p>
+        <p>
+          I have come back to most of these quite a lot because they contain a
+          lot of POSIX/bash/shell commands that I remember using, but have
+          forgotten how to use, or what they were called.
+        </p>
+        <h5 id="18-how-to-set-up-rsa-encryption-keys">
+          18.
+          <a
+            href="https://gist.github.com/alifeee/2f4be232f6b9c4b384f4c020a5bc10a1"
+            >how to set up rsa encryption keys</a
+          >
+        </h5>
+        <pre><code class="language-md">...
 ### Add key to `~/.ssh/authorised_keys`
 
 ```bash
@@ -593,13 +1247,24 @@ Host server
 ​```
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I made this gist because I really didn&#39;t understand what RSA
+            keys or SSH keys were, or how they worked, so I spent a while
+            figuring out my understanding of it, and I wrote it down. I came
+            back to it a lot over time to remind myself how to generate keys,
+            where to put them for SSH, and how to edit my SSH config.
+          </p>
+        </figcaption>
 
-<p>I made this gist because I really didn&#39;t understand what RSA keys or SSH keys were, or how they worked, so I spent a while figuring out my understanding of it, and I wrote it down. I came back to it a lot over time to remind myself how to generate keys, where to put them for SSH, and how to edit my SSH config.</p>
-</figcaption>
-
-<h5 id="19-how-to-set-up-nginx">19. <a href="https://gist.github.com/alifeee/92defe5a02a2e1dd17cb517135e80ffe">how to set up nginx</a></h5>
-<pre><code class="language-md">...
+        <h5 id="19-how-to-set-up-nginx">
+          19.
+          <a
+            href="https://gist.github.com/alifeee/92defe5a02a2e1dd17cb517135e80ffe"
+            >how to set up nginx</a
+          >
+        </h5>
+        <pre><code class="language-md">...
 ## Config examples
 
 ### subdomain redirect
@@ -644,15 +1309,39 @@ This redirects requests to `https://server.alifeee.co.uk/factorio` to `/var/www/
 ​```
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I&#39;ve come back to this one a lot. Installing nginx was one of
+            the first services I installed on my server, so it was useful
+            whenever I installed new services to remind myself of the commands
+            for running them. It was also useful for some more basic concepts
+            like <code>scp</code>.
+          </p>
+          <p>
+            Sharing files as a web server is one of the more exciting things to
+            do on a server, and there are many ways to do it, which are each
+            subtly different. For example, the quote above shows three different
+            ways of setting up a server and location for slightly different use
+            cases.
+          </p>
+          <p>
+            The gist also serves as a backup for my nginx config, in case I lose
+            access to my server. I have spent a lot of time in that file editing
+            it to do exactly what I want. It should probably be multiple
+            &quot;sites-enabled&quot; files, as people usually do web server
+            setups, but this works for me at the moment, so that&#39;s how it
+            will be. ;)
+          </p>
+        </figcaption>
 
-<p>I&#39;ve come back to this one a lot. Installing nginx was one of the first services I installed on my server, so it was useful whenever I installed new services to remind myself of the commands for running them. It was also useful for some more basic concepts like <code>scp</code>.</p>
-<p>Sharing files as a web server is one of the more exciting things to do on a server, and there are many ways to do it, which are each subtly different. For example, the quote above shows three different ways of setting up a server and location for slightly different use cases.</p>
-<p>The gist also serves as a backup for my nginx config, in case I lose access to my server. I have spent a lot of time in that file editing it to do exactly what I want. It should probably be multiple &quot;sites-enabled&quot; files, as people usually do web server setups, but this works for me at the moment, so that&#39;s how it will be. ;)</p>
-</figcaption>
-
-<h5 id="20-how-to-transfer-folders-over-scp">20. <a href="https://gist.github.com/alifeee/4a6cead6cd3e79a6620100ea00de5e42">how to transfer folders over scp</a></h5>
-<pre><code class="language-md"># Transfer Folders over SCP
+        <h5 id="20-how-to-transfer-folders-over-scp">
+          20.
+          <a
+            href="https://gist.github.com/alifeee/4a6cead6cd3e79a6620100ea00de5e42"
+            >how to transfer folders over scp</a
+          >
+        </h5>
+        <pre><code class="language-md"># Transfer Folders over SCP
 
 With tar + zip
 
@@ -675,13 +1364,28 @@ scp ./&lt;nameoftar&gt;.tar.gz &lt;user&gt;@&lt;server&gt;:&lt;filelocation&gt;
 tar -xvzf &lt;nameoftar&gt;.tar.gz
 ​```
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I made this because I was struggling with using FTP or other ways of
+            moving files around. Once I worked it out, <code>scp</code> was
+            useful. I have since found out that you can use
+            <code>scp</code> recursively, so there&#39;s no real need to use
+            <code>tar</code> to tar zip the folder before sending it, you can
+            just use <code>scp *</code>. But, learning <code>scp</code> and
+            writing this gist means that I got an appreciation for the syntax of
+            both <code>scp</code> and <code>tar</code>, which I&#39;ve used a
+            few times since then.
+          </p>
+        </figcaption>
 
-<p>I made this because I was struggling with using FTP or other ways of moving files around. Once I worked it out, <code>scp</code> was useful. I have since found out that you can use <code>scp</code> recursively, so there&#39;s no real need to use <code>tar</code> to tar zip the folder before sending it, you can just use <code>scp *</code>. But, learning <code>scp</code> and writing this gist means that I got an appreciation for the syntax of both <code>scp</code> and <code>tar</code>, which I&#39;ve used a few times since then.</p>
-</figcaption>
-
-<h5 id="21-how-to-run-a-program-as-a-service-with-systemd">21. <a href="https://gist.github.com/alifeee/606ffd2cefaceeeff92a037e797e5458">how to run a program as a service with systemd</a></h5>
-<pre><code class="language-md">...
+        <h5 id="21-how-to-run-a-program-as-a-service-with-systemd">
+          21.
+          <a
+            href="https://gist.github.com/alifeee/606ffd2cefaceeeff92a037e797e5458"
+            >how to run a program as a service with systemd</a
+          >
+        </h5>
+        <pre><code class="language-md">...
 ## An example service file
 
 For an application stored in `/root/go/webring-go/serve` that serves files over HTTP, an example service file is
@@ -714,14 +1418,33 @@ sudo systemctl status webring.service
 ​```
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            This was a very useful gist for me to write. As it says in
+            <a
+              href="https://gist.github.com/alifeee/606ffd2cefaceeeff92a037e797e5458"
+              >the gist preamble</a
+            >, I was running bots and programs (daemons) on my server in a very
+            volatile way, so that I couldn&#39;t restart the server, or I would
+            have to go and manually start
+            <a href="https://server.alifeee.co.uk/">4 or 5 different programs</a
+            >.
+          </p>
+          <p>
+            Working out how to use <code>systemd</code> with very simple use
+            cases felt very handy, so I wrote it up because it was difficult for
+            me to find good information on how to do it.
+          </p>
+        </figcaption>
 
-<p>This was a very useful gist for me to write. As it says in <a href="https://gist.github.com/alifeee/606ffd2cefaceeeff92a037e797e5458">the gist preamble</a>, I was running bots and programs (daemons) on my server in a very volatile way, so that I couldn&#39;t restart the server, or I would have to go and manually start <a href="https://server.alifeee.co.uk/">4 or 5 different programs</a>.</p>
-<p>Working out how to use <code>systemd</code> with very simple use cases felt very handy, so I wrote it up because it was difficult for me to find good information on how to do it.</p>
-</figcaption>
-
-<h5 id="22-how-to-set-up-a-mumble-server">22. <a href="https://gist.github.com/alifeee/2b8831d503438ff147fb8df6c01858c4">how to set up a mumble server</a></h5>
-<pre><code class="language-md"># Mumble Server setup
+        <h5 id="22-how-to-set-up-a-mumble-server">
+          22.
+          <a
+            href="https://gist.github.com/alifeee/2b8831d503438ff147fb8df6c01858c4"
+            >how to set up a mumble server</a
+          >
+        </h5>
+        <pre><code class="language-md"># Mumble Server setup
 
 ## Setup
 
@@ -746,14 +1469,31 @@ sudo service mumble-server restart
 ​```
 ...
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            I mainly wrote this one because it seemed like a lot of
+            configuration when I was setting up the Mumble Server, so I wanted
+            to be able to do it again with the same configuration.
+          </p>
+          <p>
+            I was also a little worried that when I first used Mumble (to play
+            the
+            <a href="https://blog.alifeee.co.uk/factorio-proximity-chat/"
+              >Factorio game</a
+            >), I might have to do some &quot;live&quot; restarting or checking
+            of the server if it broke, and writing down how to do that would
+            make it a lot easier and less stressful.
+          </p>
+        </figcaption>
 
-<p>I mainly wrote this one because it seemed like a lot of configuration when I was setting up the Mumble Server, so I wanted to be able to do it again with the same configuration.</p>
-<p>I was also a little worried that when I first used Mumble (to play the <a href="https://blog.alifeee.co.uk/factorio-proximity-chat/">Factorio game</a>), I might have to do some &quot;live&quot; restarting or checking of the server if it broke, and writing down how to do that would make it a lot easier and less stressful.</p>
-</figcaption>
-
-<h5 id="23-how-to-install-ruby-and-jekyll-on-linux">23. <a href="https://gist.github.com/alifeee/829344ed02efb0952e81fc35c445df18">how to install ruby and jekyll on linux</a></h5>
-<pre><code class="language-md">### Using Ruby on Linux
+        <h5 id="23-how-to-install-ruby-and-jekyll-on-linux">
+          23.
+          <a
+            href="https://gist.github.com/alifeee/829344ed02efb0952e81fc35c445df18"
+            >how to install ruby and jekyll on linux</a
+          >
+        </h5>
+        <pre><code class="language-md">### Using Ruby on Linux
 
 #### Install Ruby + Gems
 
@@ -770,13 +1510,24 @@ bundle install
 bundle exec jekyll serve --watch
 ​```
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            For whatever reason, I struggled to install Ruby &amp; Jekyll
+            locally on my computer. I imagine the struggle is similar to
+            installing Python and pip, and not really understanding how to use
+            them &quot;properly&quot;. I also wrote it down because I wanted to
+            install it both on my PC and my laptop.
+          </p>
+        </figcaption>
 
-<p>For whatever reason, I struggled to install Ruby &amp; Jekyll locally on my computer. I imagine the struggle is similar to installing Python and pip, and not really understanding how to use them &quot;properly&quot;. I also wrote it down because I wanted to install it both on my PC and my laptop.</p>
-</figcaption>
-
-<h5 id="24-how-to-set-up-ftp-on-linux">24. <a href="https://gist.github.com/alifeee/f11e7295659576c236869079a3105025">how to set up ftp on linux</a></h5>
-<pre><code class="language-md"># How to set up FTP on Ubuntu
+        <h5 id="24-how-to-set-up-ftp-on-linux">
+          24.
+          <a
+            href="https://gist.github.com/alifeee/f11e7295659576c236869079a3105025"
+            >how to set up ftp on linux</a
+          >
+        </h5>
+        <pre><code class="language-md"># How to set up FTP on Ubuntu
 
 Mainly following &lt;https://gist.github.com/CloudLinuxDeveloper/ec801e51c0a3917555c01d8b064e7f9a&gt;
 
@@ -809,14 +1560,28 @@ sudo nano /etc/vsftpd.conf
 sudo service vsftpd restart
 ​```
 </code></pre>
-<figcaption>
+        <figcaption>
+          <p>
+            This is not really a gist I have come back to, nor one that I used
+            properly. After I set up FTP, I decided I didn&#39;t want to use it,
+            so I un-set it up. But, if I ever want it again, I can follow my own
+            instructions, which maybe contain parts of my own personality as
+            commands.
+          </p>
+        </figcaption>
 
-<p>This is not really a gist I have come back to, nor one that I used properly. After I set up FTP, I decided I didn&#39;t want to use it, so I un-set it up. But, if I ever want it again, I can follow my own instructions, which maybe contain parts of my own personality as commands.</p>
-</figcaption>
-
-<h2 id="the-end">The end</h2>
-<p>I hope you enjoyed a skim through the gist-list. Some are boring, but that&#39;s because I didn&#39;t hold out, and included every gist, so you could have a fair judgement of how many are actually useful and how many end up not being.</p>
-<p>Maybe next time you write a small script, or spend a couple of hours figuring out how to do something, you&#39;d consider writing it down and putting it somewhere?...</p>
+        <h2 id="the-end">The end</h2>
+        <p>
+          I hope you enjoyed a skim through the gist-list. Some are boring, but
+          that&#39;s because I didn&#39;t hold out, and included every gist, so
+          you could have a fair judgement of how many are actually useful and
+          how many end up not being.
+        </p>
+        <p>
+          Maybe next time you write a small script, or spend a couple of hours
+          figuring out how to do something, you&#39;d consider writing it down
+          and putting it somewhere?...
+        </p>
       </section>
       <hr />
 
@@ -824,7 +1589,7 @@ sudo service vsftpd restart
         <h2>Comments</h2>
         <p>
           Email me →
-          <a href="mailto:alifeee.web@outlook.com">alifeee.web@outlook.com</a>
+          <a href="mailto:alifeee@alifeee.net">alifeee@alifeee.net</a>
           :)
         </p>
         <p>
@@ -844,7 +1609,7 @@ sudo service vsftpd restart
           <img alt="_Linktree_" src="../icons/linktree-logo-icon.svg" />
           <span class="text">Linktree</span>
         </a>
-        <a href="mailto:alifeee.web@outlook.com">
+        <a href="mailto:alifeee@alifeee.net">
           <img alt="_Email_" src="../icons/envelope-solid.svg" />
           <span class="text">Email</span>
         </a>

@@ -68,9 +68,9 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("fmt_date", (dateObj) => {
     let date = new Date(dateObj);
-    return `${date.getUTCFullYear()}-${("0" + date.getUTCMonth()).slice(-2)}-${(
-      "0" + date.getUTCDate()
-    ).slice(-2)}`;
+    return `${date.getUTCFullYear()}-${("0" + (date.getUTCMonth() + 1)).slice(
+      -2
+    )}-${("0" + date.getUTCDate()).slice(-2)}`;
   });
   // current date for rss feed
   eleventyConfig.addFilter("getNowDate", () => {
