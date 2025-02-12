@@ -144,7 +144,7 @@
 <p>For my library, these are my four most recently played games. For yours, it&#39;s your four most played (<a href="https://github.com/alifeee/steam_collage_api/issues/20">recent is broken</a>). <del>This is HTTP content on an HTTPS page, so it may also not work if you are on Chrome - see above.</del></p>
 </figcaption>
 
-<p>This is created fresh every time you reload the page, and comes from <a href="http://server.alifeee.co.uk">my server</a>.</p>
+<p>This is created fresh every time you reload the page, and comes from <a href="http://server.alifeee.net">my server</a>.</p>
 <p>Is being able to have a live image like that worth the considerable (as you will unearth below) pain?
 Maybe. I think it&#39;s neat!</p>
 <p>I consider myself a visual person, and as such I like to always have an image to use in combination with text (as you see on <a href=".."><em>this blog&#39;s homepage</em></a> any <a href="https://linktr.ee/liputenpo">lipu tenpo posts</a>, and any Notion page I have [unfortunately] made you subscribe to). In the past for these things I have used Python and <a href="https://python-pillow.org/">Pillow</a> to make collages, such as this <a href="https://linktr.ee/liputenpo">lipu tenpo</a> collage:</p>
@@ -310,7 +310,7 @@ def games():
     return send_file(collage_bytes, mimetype=&quot;image/jpeg&quot;)
 </code></pre>
 <p>With that, it&#39;s made! And to get the image, it&#39;s as simple as changing the <a href="https://en.wikipedia.org/wiki/Query_string">query parameters</a> on the URL. For example, the default image at the top of this post uses the URL:</p>
-<pre><code class="language-url">http://server.alifeee.co.uk/steamcollage/games
+<pre><code class="language-url">https://steamcollage.alifeee.co.uk/steamcollage/games
   ?id=alifeee
   &amp;rows=2
   &amp;cols=2

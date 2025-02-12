@@ -321,7 +321,7 @@ py auto.py --dayonly multplayer "multplayer start" "multplayer 1" "multplayer 2"
 
 *why did I make it?*
 
-I played a big multiplayer Factorio world once a week for ten weeks, and I used [`FactorioMaps`] to create an interactive map of the save after every week. You can (maybe) see the final map on <https://server.alifeee.co.uk/factorio/>.
+I played a big multiplayer Factorio world once a week for ten weeks, and I used [`FactorioMaps`] to create an interactive map of the save after every week. You can (maybe) see the final map on <https://server.alifeee.net/factorio/>.
 
 [`FactorioMaps`]: https://github.com/L0laapk3/FactorioMaps
 
@@ -591,7 +591,7 @@ Add the following to `~/.ssh/config`
 
 ```text
 Host server
-  HostName server.alifeee.co.uk
+  HostName server.alifeee.net
   User root
   IdentityFile ~/.ssh/alifeeePC
 ​```
@@ -642,7 +642,7 @@ server {
 
 ### Folder alias
 
-This redirects requests to `https://server.alifeee.co.uk/factorio` to `/var/www/factorio` instead of `/var/www/server_homepage/factorio`
+This redirects requests to `https://server.alifeee.net/factorio` to `/var/www/factorio` instead of `/var/www/server_homepage/factorio`
 
 ```nginx
   location /factorio {
@@ -735,7 +735,7 @@ sudo systemctl status webring.service
 
 <figcaption>
 
-This was a very useful gist for me to write. As it says in [the gist preamble][how to run a program as a service with systemd], I was running bots and programs (daemons) on my server in a very volatile way, so that I couldn't restart the server, or I would have to go and manually start [4 or 5 different programs](https://server.alifeee.co.uk/).
+This was a very useful gist for me to write. As it says in [the gist preamble][how to run a program as a service with systemd], I was running bots and programs (daemons) on my server in a very volatile way, so that I couldn't restart the server, or I would have to go and manually start [4 or 5 different programs](https://server.alifeee.net/).
 
 Working out how to use `systemd` with very simple use cases felt very handy, so I wrote it up because it was difficult for me to find good information on how to do it.
 

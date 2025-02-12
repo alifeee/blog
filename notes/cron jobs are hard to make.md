@@ -20,7 +20,7 @@ I've now developed a process (when making something work that's super annoying, 
 
 before I did this, I was making sure that the scripts I made worked when called from any directory (i.e., by making each call to a file use `"${root_directory}/${file}"`). This was kind of annoying and I much prefer the "just `cd` into the directory before running the script" method.
 
-Here are all of my current cron jobs on my [server](https://server.alifeee.co.uk) currently:
+Here are all of my current cron jobs on my [server](https://server.alifeee.net) currently:
 
 ```crontab
 0 10 * * * /home/alifeee/scripts/combine_treehouse.sh >> /home/alifeee/scripts/cron.log 2>&1

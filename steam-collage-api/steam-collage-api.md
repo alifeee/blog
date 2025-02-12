@@ -270,7 +270,7 @@ def games():
 With that, it's made! And to get the image, it's as simple as changing the [query parameters] on the URL. For example, the default image at the top of this post uses the URL:
 
 ```url
-http://server.alifeee.co.uk/steamcollage/games
+https://steamcollage.alifeee.co.uk/steamcollage/games
   ?id=alifeee
   &rows=2
   &cols=2
@@ -300,7 +300,7 @@ Have a play on [the frontend][frontend]!
 <!-- links -->
 
 [*this blog's homepage*]: ..
-[my server]: http://server.alifeee.co.uk
+[my server]: http://server.alifeee.net
 [lipu tenpo]: https://linktr.ee/liputenpo
 [Pillow]: https://python-pillow.org/
 [toki pona]: https://en.wikipedia.org/wiki/Toki_Pona
