@@ -21,5 +21,6 @@ I also searched the web, searching for "fonts for the web" - which didn't turn u
 - lots of web fonts: <https://humantooth.neocities.org/freefonts>
 - organised lists of Google fonts, grouped by vibe: <https://solaria.neocities.org/fonts>
 - list of lists of fonts: <https://nuxill.neocities.org/resources#fonts>
+- list of freee fonts: <https://goblin-heart.net/sadgrl/webmastery/downloads/fonts>
 
 Never forget, you could also spend way too much time… [making your own font](https://blog.alifeee.co.uk/making-bogface/).
