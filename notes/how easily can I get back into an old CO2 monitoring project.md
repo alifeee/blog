@@ -1,5 +1,5 @@
 ---
-title: how easily can I get back into an old CO2 monitoring project?
+title: how easily can I get back into an old CO2 monitoring project
 date: 2024-11-25
 tags:
   - documentation
