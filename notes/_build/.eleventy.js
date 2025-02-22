@@ -3,6 +3,7 @@ import handlebarsPlugin from "@11ty/eleventy-plugin-handlebars";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+import markdownIt_deflist from "markdown-it-deflist";
 import slugify from "./node_modules/@sindresorhus/slugify/index.js";
 import memoize from "memoize";
 
@@ -32,7 +33,9 @@ export default function (eleventyConfig) {
     "../../prism-components/*": "/prism-components/",
   });
 
-  const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
+  const markdownLib = markdownIt({ html: true })
+    .use(markdownItAnchor)
+    .use(markdownIt_deflist);
   eleventyConfig.setLibrary("md", markdownLib);
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
