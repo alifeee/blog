@@ -96,7 +96,7 @@ export default function (eleventyConfig) {
       return content;
     }
     // match e.g., "<h3 ..." at the start of a line
-    const r1 = (hl) => new RegExp(`\n<${hl}`, "g");
+    const r1 = (hl) => new RegExp(`(\n|^)<${hl}`, "g");
     const l1 = (hl) => `\n<${hl}`;
     // match e.g., "... </h3>" at the end of a line
     const r2 = (hl) => new RegExp(`<\/${hl}>\n`, "g");
