@@ -3,7 +3,7 @@
 from post_parser import get_all_posts, Post
 
 SUMMARY_TITLE = "alifeee's blog"
-SUMMARY_LINK = "https://blog.alifeee.co.uk"
+SUMMARY_LINK = "https://blog.alifeee.co.uk/feed.xml"
 SUMMARY_AUTHOR = "alifeee"
 SUMMARY_ID = "https://blog.alifeee.co.uk/"
 SUMMARY_ICON = "https://blog.alifeee.co.uk/og-image.png"
