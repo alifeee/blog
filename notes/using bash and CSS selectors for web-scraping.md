@@ -4,6 +4,7 @@ title: using bash and CSS selectors for web-scraping
 tags:
   - bash
   - web-scraping
+  - html
 ---
 I do a lot of web scraping.
 
