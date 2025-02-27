@@ -3,7 +3,7 @@
 from post_parser import get_all_posts, Post
 
 SUMMARY_TITLE = "alifeee's blog"
-SUMMARY_LINK = "https://blog.alifeee.co.uk/feed.xml"
+SUMMARY_LINK = "https://blog.alifeee.co.uk"
 SUMMARY_AUTHOR = "alifeee"
 SUMMARY_ID = "https://blog.alifeee.co.uk/"
 SUMMARY_ICON = "https://blog.alifeee.co.uk/og-image.png"
@@ -39,7 +39,7 @@ feed += "<?xml version='1.0' encoding='UTF-8'?>\n"
 feed += '<?xml-stylesheet href="/feed.xsl" type="text/xsl"?>\n'
 feed += '<feed xmlns="http://www.w3.org/2005/Atom">\n\n'
 feed += f"<title>{SUMMARY_TITLE}</title>\n"
-feed += f"<link href='{SUMMARY_LINK}' rel='self' />\n"
+feed += f"<link href='{SUMMARY_LINK}/feed.xml' rel='self' />\n"
 feed += f"<updated>{posts[0].date.isoformat()}</updated>\n"
 feed += "<author>\n"
 feed += f"  <name>{SUMMARY_AUTHOR}</name>\n"
