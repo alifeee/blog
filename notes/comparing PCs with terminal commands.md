@@ -4,7 +4,7 @@ date: 2024-12-12
 tags:
   - pc-building
   - scripting
-  - visualisation
+  - git-diff
 ---
 I was given an old computer. I'd quite like to make a computer to use in my studio, and take my tower PC home to play video games (mainly/only local coop games like [Wilmot's Warehouse](https://www.wilmotswarehouse.com/), [Towerfall Ascension](https://maddymakesgamesinc.itch.io/towerfall), or [Unrailed](https://unrailed-game.com/unrailed.html), and occasionally [Gloomhaven](https://store.steampowered.com/app/780290/Gloomhaven/)).
 
