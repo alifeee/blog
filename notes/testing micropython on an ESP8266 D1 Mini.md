@@ -71,21 +71,21 @@ It works! Neat! The REPL (Read-Evaluate-Print-Loop) is really nice to quickly de
 I also tried connecting to WiFi and using the Web-REPL, so you can execute Python commands over the air! With...
 
 ```bash
-import network
-wlan = network.WLAN(network.WLAN.IF_STA)
-wlan.active(True)
-wlan.scan()
-wlan.isconnected()
-wlan.connect("ssid", "key")
-# wait a bit
-wlan.isconnected()
-# or use function from https://docs.micropython.org/en/latest/esp8266/quickref.html#networking
+>>> import network
+>>> wlan = network.WLAN(network.WLAN.IF_STA)
+>>> wlan.active(True)
+>>> wlan.scan()
+>>> wlan.isconnected()
+>>> wlan.connect("ssid", "key")
+>>> # wait a bit
+>>> wlan.isconnected()
+>>> # or use function from https://docs.micropython.org/en/latest/esp8266/quickref.html#networking
 ```
 
 Then you can configure `webrepl` with:
 
 ```bash
-import webrepl_setup
+>>> import webrepl_setup
 ```
 
 …and it will print out an IP that you can connect to and use the REPL from your browser! Very nice.
