@@ -95,6 +95,8 @@ waydroid app install Firefox Fast & Private Browser_136.0.2_APKPure.apk
 
 …installed some apps and filled one of my screens with a big Android display.
 
+I found the APKs on either [F-Droid](https://f-droid.org/en/), which just has them available for download (sweet) or by searching the web and downloading them from sketchy sites.
+
 It seems to work well!
 
 I suppose there's a lot you can do with Waydroid, if you want. I don't think I want.
