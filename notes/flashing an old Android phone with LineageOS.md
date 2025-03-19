@@ -2,7 +2,7 @@
 title: flashing an old Android phone with LineageOS
 date: 2025-02-22
 tags:
-- LineageOS
+- lineageos
 - android
 - hacking
 ---

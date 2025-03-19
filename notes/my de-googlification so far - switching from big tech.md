@@ -5,13 +5,13 @@ tags:
 - software
 - ethical
 - big-tech
-- Obsidian
+- obsidian
 - email
 - syncthing
-- OpenStreetMap
-- Linux
-- GitHub
-- Android
+- openstreetmap
+- linux
+- github
+- android
 ---
 I think it's a great idea to use ethical alternatives to free software made by mega-corporations with profit-maximising motives.
 

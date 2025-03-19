@@ -2,7 +2,7 @@
 title: testing micropython on an ESP8266 D1 Mini
 date: 2025-03-13
 tags:
-- MicroPython
+- micropython
 - microcontrollers
 ---
 I've toyed for a while with microcontrollers, and only really used Arduino/C/C++. Sometimes, I've heard talk of MicroPython, but I've never tried it out.

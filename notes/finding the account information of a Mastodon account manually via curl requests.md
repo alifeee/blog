@@ -2,7 +2,7 @@
 title: "finding the account information of a Mastodon account manually via curl requests"
 date: 2025-01-12
 tags:
-  - ActivityPub
+  - activitypub
 ---
 [Then Try This](https://thentrythis.org/), a non-profit research group, recently changed their mastodon handle from
 

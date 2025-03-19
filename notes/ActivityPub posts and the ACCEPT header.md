@@ -2,7 +2,7 @@
 title: ActivityPub posts and the ACCEPT header
 date: 2024-11-02
 tags:
-- ActivityPub
+- activitypub
 ---
 This note was made to investigate how ActivityPub worked for getting information about posts, as a small investigation into <https://gitlab.com/edent/activity-bot/-/issues/2>.
 

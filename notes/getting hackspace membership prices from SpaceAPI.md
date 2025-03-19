@@ -2,7 +2,7 @@
 title: getting hackspace membership prices from SpaceAPI
 date: 2025-02-21
 tags:
-- SpaceAPI
+- spaceapi
 - scripting
 ---
 [SpaceAPI](https://spaceapi.io/) is a project to convince hackspaces to maintain a simple JSON file self-describing themselves.
