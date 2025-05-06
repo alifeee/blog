@@ -499,7 +499,7 @@ Oh, and: take the Caledonian Sleeper before it's too late.
 [railcards#veterans]: https://www.veterans-railcard.co.uk/
 [wikipedia#railcards]: https://en.wikipedia.org/wiki/Concessionary_fares_on_the_British_railway_network
 [wikipedia#nationalrailcard]: https://en.wikipedia.org/wiki/Concessionary_fares_on_the_British_railway_network#Campaign_for_a_National_Railcard
-[britrail]: https://britrail.net/
+[britrail]: https://uktrainpass.com/
 [interrail]: https://www.interrail.eu/en
 [BahnCard]: https://int.bahn.de/en/offers/bahncard
 [tnc#16-25]: https://www.16-25railcard.co.uk/help/railcard-terms-conditions/
