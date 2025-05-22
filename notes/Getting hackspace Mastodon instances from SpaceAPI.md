@@ -28,7 +28,7 @@ $ curl -s "https://www.sheffieldhackspace.org.uk/spaceapi.json" | jq '.contact'
 
 Once again, I start by downloading the JSON files, so that (in theory) I can make only one request to each SpaceAPI endpoint, and then work with the data locally (instead of requesting the JSON from the web every time I interact with it).
 
-This script is modified from [last time I did it](./getting-hackspace-membership-prices-from-space-api/), adding some better feedback of why some endpoints fail.
+This script is modified from [last time I did it](/getting-hackspace-membership-prices-from-space-api/), adding some better feedback of why some endpoints fail.
 
 ```bash
 # download spaces
@@ -79,7 +79,7 @@ echo "removed ${rem} malformed json files"
 
 ## Extracting contact information
 
-This is basically copied from [last time I did it](./getting-hackspace-membership-prices-from-space-api/), changing `membership_plans?` to `contact?`, and changing the `jq` format afterwards.
+This is basically copied from [last time I did it](/getting-hackspace-membership-prices-from-space-api/), changing `membership_plans?` to `contact?`, and changing the `jq` format afterwards.
 
 ```bash
 # parse contact info
