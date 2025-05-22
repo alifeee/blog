@@ -22,6 +22,8 @@ layout: page
     &nbsp;<a class="source" href="#top">top</a>
   </h2>
   <p class="tags">
+    {{fmt_date data.date}}
+    •
     tags:
     {{~#each data.tags~}}
     {{#unless @first}},{{/unless}}

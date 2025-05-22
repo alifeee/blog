@@ -12,6 +12,8 @@ max_tags: 10
         <a class="source" href="/{{relpath page.inputPath}}">source</a>
     </h2>
     <p class="tags">
+        {{fmt_date date}}
+        •
         tags:
         {{~#each tags~}}
         {{#unless @first}},{{/unless}}
