@@ -4,6 +4,8 @@ date: 2025-02-21
 tags:
 - spaceapi
 - scripting
+- hackspaces
+- json
 ---
 [SpaceAPI](https://spaceapi.io/) is a project to convince hackspaces to maintain a simple JSON file self-describing themselves.
 

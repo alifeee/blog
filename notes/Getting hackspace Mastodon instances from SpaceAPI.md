@@ -6,6 +6,7 @@ tags:
 - spaceapi
 - mastodon
 - hackspaces
+- json
 ---
 We're back on the [SpaceAPI](https://spaceapi.io/) grind.
 
