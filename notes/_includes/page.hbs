@@ -191,6 +191,26 @@
         summary {
             display:list-item;
         }
+
+        .alert {
+            width: fit-content;
+            background: orange;
+            padding: 0.5rem 1rem 0.5rem 2.25rem;
+            border-radius: 1rem;
+            border: 0.25rem dashed brown;
+            position: relative;
+        }
+        .alert::before {
+            content: "⚠";
+            font-size: 2rem;
+            position: absolute;
+            left: 0.25rem;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     </style>
     <script>
         // toggle full width - unset all max-width styles in this stylesheet

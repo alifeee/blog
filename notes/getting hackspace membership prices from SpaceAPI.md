@@ -13,6 +13,12 @@ For example, see Sheffield Hackspace's on <https://www.sheffieldhackspace.org.uk
 
 I wanted to know which hackspaces published their membership prices using SpaceAPI, and what those rates were. Here are a few bash scripts to do just that:
 
+<div class="alert">
+
+There is an updated version of this script in the [newer note about SpaceAPI](/getting-hackspace-mastodon-instances-from-space-api/).
+
+</div>
+
 ```bash
 # get the directory of SpaceAPIs
 mkdir -p ~/temp/spaceapi/spaces
