@@ -104,6 +104,10 @@
             text-decoration: underline dotted;
         }
 
+        #contents .tag, #contents .tag:visited {
+            color: #000;
+        }
+
         .full-width {
             padding-top: 0;
             padding-bottom: 0;
@@ -254,7 +258,7 @@
                 <span class="tags source">
                     {{~#each data.tags}}
                     {{~#unless @first}}, {{/unless}}
-                    <span class="tag">{{this}}</span>
+                    <a class="tag" href="tagged/{{.}}">{{.}}</a>
                     {{~/each}}
 
                 </span>
