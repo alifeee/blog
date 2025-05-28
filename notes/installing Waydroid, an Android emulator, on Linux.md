@@ -3,7 +3,7 @@ title: installing Waydroid, an Android emulator, on Linux
 date: 2025-03-19
 tags:
 - linux
-- Android
+- android
 - installation
 ---
 I wanted to use Android on Linux, so I searched the web and found <https://waydro.id/>.
