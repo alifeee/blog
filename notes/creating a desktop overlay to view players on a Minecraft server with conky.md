@@ -95,7 +95,7 @@ Now, I can change the script to use the above Minecraft server status JSON infor
 ```bash
 #!/bin/bash
 #~/temp/minecraft/check.sh
-json=$(~/temp/minecraft/env/bin/python -m mcstatus mc.alifeee.net json)
+json=$(~/temp/minecraft/env/bin/python -m mcstatus $SERVER_IP json)
 online=$(echo "${json}" | jq -r '.status.players.online')
 players=$(echo "${json}" | jq -r '.status.players.sample[] | .name')
 
