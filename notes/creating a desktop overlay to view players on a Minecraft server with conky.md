@@ -13,6 +13,8 @@ It's Vanilla with a [proximity voice chat mod](https://www.curseforge.com/minecr
 
 Today, I wanted to have an overlay (think Discord voice chat overlay, or when you pop-out a video in Firefox, or when you use chat heads on mobile) which showed me who was online on the server.
 
+## Querying the Minecraft server status
+
 After seeing an "[enable status](https://minecraft.wiki/w/Server.properties#enable-status)" option in the server's `server.properties` file, and searching up what it meant (it allows services to "query the status of the server), I'd used <https://mcsrvstat.us/> before to check the status of the server, which shows you the player list in a browser.
 
 But a local overlay would need a local way to query the server status. So I did some web searching, found a [Python script](https://github.com/vertecx/nagios-plugins/blob/master/check_minecraft.py) which wasn't great (and written for Python 2), then a [self-hostable server status API](https://github.com/chooper/minecraftstatus-api), which led me to [mcstatus](https://github.com/py-mine/mcstatus), a Python API (with command line tool) for fetching server status.
@@ -28,9 +30,13 @@ $ ./env/bin/python -m mcstatus $SERVER_IP json
 
 Neat!
 
+## How to make an overlay on Linux
+
 Next, a way of having an overlay. Searching for "linux x simple text overlay" led me to `xmessage`, which can show simple windows, but they're more like confirmation windows, not like long-lasting status windows (i.e., it's hard to update the text).
 
 I was also led to discover [conky](https://github.com/brndnmtthws/conky), which – if nothing else – has a great name. It's designed to be a "system monitor", i.e., a thing wot shows you your CPU temperature, uptime, RAM usage, et cetera. The configuration is also written in Lua, which is super neat! I still want to get more into Lua.
+
+### Using conky
 
 By modifying the default configuration (in `/etc/conky/conky.conf`) like so:
 
@@ -90,6 +96,8 @@ index 44053d5..cc319e1 100644
 
 I use Pop!\_OS, which uses Gnome/X for all the windows. With that (by default), I can right click the top bar of a window and click "Always on Top", which effectively makes the little window into an overlay, as it always displays on top of other windows, with the added bonus that I can easily drag it around.
 
+## Writing a script for conky to use
+
 Now, I can change the script to use the above Minecraft server status JSON information to output something which `conky` can use as an input, like:
 
 ```bash
@@ -118,6 +126,8 @@ echo "${players}" \
 
 The fancy `awk` is just to make each player be a different colour, and to randomly generate the colours from the ASCII values of the player's username.
 
+## The final output
+
 The final output looks like:
 
 <pre>
@@ -136,6 +146,8 @@ The final output looks like:
 </pre>
 
 …which I can drag anywhere on my screen. When people join or leave the server, I can see a flash of change out of the corner of my eye.
+
+## Conclusions
 
 Is this useful? Should I – instead – just have been playing the game? Do I use too many en-dashes? The world only knows.
 
