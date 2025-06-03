@@ -122,16 +122,16 @@ The final output looks like:
 
 <pre>
  ——————————————————+x
- | <span style="color:aaaa99">8 players online</span> |
+ | <span style="color:#aaaa99">8 players online</span> |
  | ---              |
- | <span style="color:A5E1BB">Kick_Flip_Barry</span>  |
- | <span style="color:89F5D7">Blue_Outburst</span>    |
- | <span style="color:DEC6E2">Kboy8082</span>         |
- | <span style="color:AED692">lele2102</span>         |
- | <span style="color:ADC9B3">Compostmelon101</span>  |
- | <span style="color:CCDCB4">Nobody808</span>        |
- | <span style="color:87DB99">Kaithefrog</span>       |
- | <span style="color:DCACA4">BrinnanTheThird</span>  |
+ | <span style="color:#A5E1BB">Kick_Flip_Barry</span>  |
+ | <span style="color:#89F5D7">Blue_Outburst</span>    |
+ | <span style="color:#DEC6E2">Kboy8082</span>         |
+ | <span style="color:#AED692">lele2102</span>         |
+ | <span style="color:#ADC9B3">Compostmelon101</span>  |
+ | <span style="color:#CCDCB4">Nobody808</span>        |
+ | <span style="color:#87DB99">Kaithefrog</span>       |
+ | <span style="color:#DCACA4">BrinnanTheThird</span>  |
  |__________________|
 </pre>
 
