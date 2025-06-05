@@ -41,6 +41,12 @@
     </script>
 
     <style>
+        .dns {
+            /* makes copying headings to clipboard via double-click 
+            easier by disabling extra info */
+            user-select: none;
+        }
+
         header {
             margin: 1rem;
         }
@@ -54,6 +60,10 @@
             border-radius: 50%;
             vertical-align: middle;
             margin-top: -10px;
+            margin-left: 0.5rem;
+        }
+        header h1 .source {
+            margin-left: 0.5rem;
         }
 
         header .return {
@@ -168,6 +178,11 @@
             padding-bottom: 0;
         }
 
+        main article>h2 .source,
+        main article>h2 .hashlink {
+            margin-left: 0.5rem;
+        }
+
         main article>h2.sticky {
             position: sticky;
             top: env(safe-area-inset-top);
@@ -268,11 +283,10 @@
 <body id="top">
     <header>
         <h1 id="all">
-            {{#if (neq page.url "/")}}<a href="/">{{/if~}}
-                notes{{#if (neq page.url "/")}}</a>{{/if}} by alifeee <img alt="profile picture" src="/og-image.png">
+            {{~#if (neq page.url "/")}}<a href="/">{{/if~}}
+                notes{{#if (neq page.url "/")}}</a>{{/if}} by alifeee<img class="dns" alt="profile picture" src="/og-image.png">
             {{~#if (neq tag "all")}} tagged <span class="tag">{{tag}}</span> ({{length (objget collections tag)}})
-            {{~/if}} <a class="source" href="/feed.xml">rss</a>
-        </h1>
+            {{~/if}}<a class="source dns" href="/feed.xml">rss</a></h1>
         <p class="return">
             return to <a href="/">notes</a> / <a href="https://blog.alifeee.co.uk">blog</a> / <a
                 href="https://alifeee.co.uk">website</a> /

@@ -7,9 +7,11 @@ max_tags: 10
 <span class="source" style="display:block;width:100%; text-align:center;margin:0 0 1rem 0">viewing a single note</span>
 <article id="note">
     <h2>
-        {{title}}
-        <a href="#note">#</a>
-        <a class="source" href="/{{relpath page.inputPath}}">source</a>
+        {{~title~}}
+        <a class="hashlink dns" href="#note">#</a>
+        {{~noop~}}
+        <a class="source dns" href="/{{relpath page.inputPath}}">source</a>
+        {{~noop~}}
     </h2>
     <p class="tags">
         {{fmt_date date}}

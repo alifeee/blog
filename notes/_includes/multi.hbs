@@ -4,22 +4,23 @@ layout: page
 {{#each (limit (reverse_collections (objget collections tag)) max_notes)}}
 <article id="{{slugify data.title}}">
   <h2 class="sticky">
-    {{data.title}}
-    <a href="#{{slugify data.title}}">#</a>&nbsp;
+    {{~data.title~}}
+    <a class="hashlink dns" href="#{{slugify data.title}}">#</a>
     {{~#if @first~}}
-    <span class="source">prev</span>
+    <span class="source dns">prev</span>
     {{~else~}}
-    <a class="source"
+    <a class="source dns"
       href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index -1)))}}">prev</a>
     {{~/if~}}
-    &nbsp;<a class="source" href="{{this.url}}#note">single</a>&nbsp;
+    <a class="source dns" href="{{this.url}}#note">single</a>
     {{~#if @last~}}
-    <span class="source">next</span>
+    <span class="source dns">next</span>
     {{~else~}}
-    <a class="source"
+    <a class="source dns"
       href="#{{slugify (getdatatitle (lookup (reverse_collections (objget ../collections ../tag)) (add @index 1)))}}">next</a>
     {{~/if~}}
-    &nbsp;<a class="source" href="#top">top</a>
+    <a class="source dns" href="#top">top</a>
+    {{~noop~}}
   </h2>
   <p class="tags">
     {{fmt_date data.date}}
