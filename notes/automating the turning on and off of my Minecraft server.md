@@ -1,4 +1,4 @@
----
+https://github.com/alifeee/blog/commits/main/---
 title: automating the turning on and off of my Minecraft server
 date: 2025-06-10
 tags:
@@ -139,7 +139,7 @@ $ cat tmux_make.sh
 date
 session="minecraft"
 echo "making tmux session ${session}"
-tmux new-session -d -s "${session}"
+tmux new-session -d -s "${session}" -c "/home/alifeee/minecraft"
 echo "sending run"
 tmux send-keys -t "${session}" './run' 'C-m'
 echo "created !"
