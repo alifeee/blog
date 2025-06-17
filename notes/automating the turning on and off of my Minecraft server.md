@@ -1,4 +1,4 @@
-https://github.com/alifeee/blog/commits/main/---
+---
 title: automating the turning on and off of my Minecraft server
 date: 2025-06-10
 tags:
