@@ -34,7 +34,7 @@ see link feed 🟩🚙
 can mute for a period of time 🟩📸🚙👁️‍🗨️  
 can share to it easily 🟩📸🚙👁️‍🗨️  
 can pin messages 🟩†🚙  
-can forward multiple messages at once 🟩🚙
+can forward multiple messages at once 🟩🚙👁️‍🗨️  
 custom reactions 🟩📸👁️‍🗨️  
 polls 🟩🚙  
 formatting (italics/bold/etc) 🟩🚙👁️‍🗨️  
