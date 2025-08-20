@@ -185,11 +185,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("wordcount", (content) => {
     let words = content.match(/\w+/g);
     let nwords = words.length;
+    let reading_time_s = Math.round((nwords / 200) * 60, 0);
+    let reading_time_m = (nwords / 200).toFixed(1);
     return (
       nwords +
       " 'words', " +
-      Math.round((nwords / 200) * 60, 0) +
-      " secs @ 200wpm"
+      (reading_time_s < 180
+        ? reading_time_s + " secs"
+        : reading_time_m + " mins") +
+      " @ 200wpm"
     );
   });
 }
