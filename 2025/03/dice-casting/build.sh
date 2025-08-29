@@ -40,6 +40,9 @@ num_words=$(cat "${CONTENT_FILE}" | wc -w)
 read_speed=200
 read_time=$(($num_words / $read_speed))
 
+# date (from last git modified date)
+date=$(git log -1 --pretty="format:%aI" . | cut -b "1-7")
+
 has_template=$(echo "${original_html}" | grep '{{.*}}')
 if [ ! -z "${has_template}" ]; then
   echo "{{template}}s found in file. They should be removed soon..."
@@ -57,7 +60,7 @@ fi
 
 rm -f $TEMP_FILE
 echo "${original_html}" | awk 'NR <= '"${start}"'' >> $TEMP_FILE
-echo "<span class="words">${num_words} words, ${read_time} mins @ ${read_speed} <abbr title='words per minute'>wpm</abbr></span>" >> $TEMP_FILE
+echo "<span>${date}</span> · <span class="words">${num_words} words, ${read_time} mins @ ${read_speed} <abbr title='words per minute'>wpm</abbr></span>" >> $TEMP_FILE
 echo "${html}" >> $TEMP_FILE
 echo "${original_html}" | awk 'NR >= '"${end}"'' >> $TEMP_FILE
 
