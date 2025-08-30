@@ -42,7 +42,21 @@ jobs:
           cache-dependency-path: "notes/_build/package-lock.json"
       - name: Install dependencies
         run: (cd notes/_build; npm ci)
-      - name: Build
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Make RSS Feed with Python
+        run: |
+          python ./utilities.py/rss_feed.py
+
+      - name: Build notes
         run: (cd notes/_build; npm run build)
 
       - name: Upload artifact
@@ -53,3 +67,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        file_pattern: 'feed.xml'
