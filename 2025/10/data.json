@@ -1,0 +1,72 @@
+[
+    {
+        "mainimage": "1_carambar.jpg",
+        "subimage": null,
+        "name": "carambar",
+        "from": "myself",
+        "tradeaim": "non-consumable item"
+    },
+    {
+        "mainimage": "2_earring.jpg",
+        "subimage": "2_1.jpg",
+        "name": "lego stud",
+        "from": "@judith.gao.79",
+        "tradeaim": "something larger"
+    },
+    {
+        "mainimage": "3_crab.jpg",
+        "subimage": "3_2.jpg",
+        "name": "crab",
+        "from": "@robynbedforrd",
+        "tradeaim": "a tool"
+    },
+    {
+        "mainimage": "4_glasses.jpg",
+        "subimage": "4_3.jpg",
+        "name": "sunglasses",
+        "from": "@isabelleblexill",
+        "tradeaim": "something metal"
+    },
+    {
+        "mainimage": "5_bin.jpg",
+        "subimage": "5_4.jpg",
+        "name": "wheelie bin",
+        "from": "@fiddes.j",
+        "tradeaim": "something multicoloured"
+    },
+    {
+        "mainimage": "6_benchy.jpg",
+        "subimage": "6_5.jpg",
+        "name": "benchy",
+        "from": "@john.f.e.dunlop",
+        "tradeaim": "something soft"
+    },
+    {
+        "mainimage": "7_car.jpg",
+        "subimage": "7_6.jpg",
+        "name": "car",
+        "from": "@s4ul.howard",
+        "tradeaim": "something wearable"
+    },
+    {
+        "mainimage": "8_bananagrams.jpg",
+        "subimage": "8_7.jpg",
+        "name": "bananagrams",
+        "from": "@karenlouisehall212",
+        "tradeaim": "something that folds"
+    },
+    {
+        "mainimage": "9_headtorch.jpg",
+        "subimage": "9_8.jpg",
+        "name": "headtorch (bright)",
+        "from": "@ekulrf",
+        "tradeaim": "something that could be conflated as an orange"
+    },
+    {
+        "mainimage": "10_jacket.jpg",
+        "subimage": "10_9.jpeg",
+        "name": "jacket",
+        "from": "@oscar.welford",
+        "tradeaim": "something rigid"
+    }
+]

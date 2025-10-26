@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alifeee - THE GREAT CARAMBAR SWAP!</title>
+
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Seeing what I can swap for what I can swap for what I can swap for a carambar"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="Stabilising our wobbly bench" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.co.uk/2025/10/carambar-swap/"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.co.uk/2025/10/carambar-swap/image.png"
+    />
+    <meta
+      property="og:description"
+      content="Seeing what I can swap for what I can swap for what I can swap for a carambar"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- RSS link -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for blog.alifeee.co.uk"
+      href="/feed.xml"
+    />
+
+    <!-- link to mastodon -->
+    <meta property="fediverse:creator" content="@alifeee@mastodon.social" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- libraries -->
+    <!-- anchorjs: https://github.com/bryanbraun/anchorjs -->
+    <script type="module">
+      import "/anchor.min.js";
+      document.addEventListener("DOMContentLoaded", function (event) {
+        let tags = ["h2", "h3", "h4", "h5", "h6"];
+        anchors.add("#content " + tags.join(", #content "));
+      });
+    </script>
+
+    <!-- stuff specific to this page -->
+    <script>
+      function opend(idx) {
+        document.querySelectorAll("dialog").forEach((d) => d.close());
+        let modal = document.querySelector("dialog.d" + idx);
+        modal.showModal();
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.location.hash) {
+          opend(window.location.hash.substr(1));
+        }
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      header,
+      main,
+      footer {
+        padding: 0 1rem;
+      }
+
+      /* timeline */
+      #timeline button {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        border-radius: 0.5rem;
+        background-color: red;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      /* modals */
+      body {
+        position: relative;
+      }
+      dialog {
+        position: fixed;
+        inset: 0;
+        max-height: 90vh;
+        max-width: 95vw;
+      }
+      ::backdrop {
+        background-image: linear-gradient(
+          45deg,
+          magenta,
+          rebeccapurple,
+          dodgerblue,
+          green
+        );
+        opacity: 0.75;
+      }
+      /* top */
+      dialog .header {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+      }
+      /* middle */
+      .information {
+        display: grid;
+        grid-template-areas:
+          "mainimg desc"
+          "mainimg subimg";
+        grid-template-columns: 5fr 3fr;
+        grid-template-rows: auto auto;
+        --max-right-width: 10rem;
+        padding-bottom: 1rem;
+      }
+      .information .main {
+        grid-area: mainimg;
+        max-width: 20rem;
+        max-height: 80vh;
+      }
+      .information .sub {
+        grid-area: subimg;
+        max-width: var(--max-right-width);
+        align-self: end;
+        margin-left: -3rem;
+        margin-bottom: -1rem;
+      }
+      .information .notes {
+        grid-area: desc;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0.5rem;
+        max-width: var(--max-right-width);
+      }
+      .information img {
+        height: auto;
+        width: 100%;
+        background-color: grey;
+      }
+      /* bottom */
+      .buttons {
+        margin: 1rem 0 0 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+      .buttons button {
+        max-width: 10rem;
+        height: 2rem;
+        justify-self: end;
+        width: 100%;
+      }
+      .buttons button:last-child {
+        justify-self: start;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>THE GREAT CARAMBAR SWAP!</h1>
+      <p>I did this.</p>
+    </header>
+    <main>
+      <section id="timeline">
+        <button onclick="opend(1)">1</button> ->
+        <button onclick="opend(2)">2</button> ->
+        <button onclick="opend(3)">3</button> ->
+        <button onclick="opend(4)">4</button> ->
+        <button onclick="opend(5)">5</button> ->
+        <button onclick="opend(6)">6</button> ->
+        <button onclick="opend(7)">7</button> ->
+        <button onclick="opend(8)">8</button> ->
+        <button onclick="opend(9)">9</button> ->
+        <button onclick="opend(10)">10</button>
+      </section>
+    </main>
+    <br />
+    <footer>
+      <a class="backlink" href="/">Back to main page</a>
+    </footer>
+    <!-- !!start content!! -->
+    <dialog class="d1" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/1_carambar.jpg"
+        />
+        <div class="notes">
+          <span>NAME: carambar</span>
+          <span>FROM: myself</span>
+          <span>TRADE AIM: non-consumable item</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <div></div>
+        <button onclick="opend(2)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d2" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/2_earring.jpg"
+        />
+        <img class="sub" height="150" width="150" src="./images/2_1.jpg" />
+        <div class="notes">
+          <span>NAME: lego stud</span>
+          <span>FROM: @judith.gao.79</span>
+          <span>TRADE AIM: something larger</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(1)">prev</button
+        ><button onclick="opend(3)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d3" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img class="main" height="300" width="300" src="./images/3_crab.jpg" />
+        <img class="sub" height="150" width="150" src="./images/3_2.jpg" />
+        <div class="notes">
+          <span>NAME: crab</span>
+          <span>FROM: @robynbedforrd</span>
+          <span>TRADE AIM: a tool</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(2)">prev</button
+        ><button onclick="opend(4)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d4" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/4_glasses.jpg"
+        />
+        <img class="sub" height="150" width="150" src="./images/4_3.jpg" />
+        <div class="notes">
+          <span>NAME: sunglasses</span>
+          <span>FROM: @isabelleblexill</span>
+          <span>TRADE AIM: something metal</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(3)">prev</button
+        ><button onclick="opend(5)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d5" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img class="main" height="300" width="300" src="./images/5_bin.jpg" />
+        <img class="sub" height="150" width="150" src="./images/5_4.jpg" />
+        <div class="notes">
+          <span>NAME: wheelie bin</span>
+          <span>FROM: @fiddes.j</span>
+          <span>TRADE AIM: something multicoloured</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(4)">prev</button
+        ><button onclick="opend(6)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d6" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/6_benchy.jpg"
+        />
+        <img class="sub" height="150" width="150" src="./images/6_5.jpg" />
+        <div class="notes">
+          <span>NAME: benchy</span>
+          <span>FROM: @john.f.e.dunlop</span>
+          <span>TRADE AIM: something soft</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(5)">prev</button
+        ><button onclick="opend(7)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d7" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img class="main" height="300" width="300" src="./images/7_car.jpg" />
+        <img class="sub" height="150" width="150" src="./images/7_6.jpg" />
+        <div class="notes">
+          <span>NAME: car</span>
+          <span>FROM: @s4ul.howard</span>
+          <span>TRADE AIM: something wearable</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(6)">prev</button
+        ><button onclick="opend(8)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d8" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/8_bananagrams.jpg"
+        />
+        <img class="sub" height="150" width="150" src="./images/8_7.jpg" />
+        <div class="notes">
+          <span>NAME: bananagrams</span>
+          <span>FROM: @karenlouisehall212</span>
+          <span>TRADE AIM: something that folds</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(7)">prev</button
+        ><button onclick="opend(9)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d9" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/9_headtorch.jpg"
+        />
+        <img class="sub" height="150" width="150" src="./images/9_8.jpg" />
+        <div class="notes">
+          <span>NAME: headtorch (bright)</span>
+          <span>FROM: @ekulrf</span>
+          <span>TRADE AIM: something that could be conflated as an orange</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(8)">prev</button
+        ><button onclick="opend(10)">next</button>
+      </section>
+    </dialog>
+    <dialog class="d10" closedby="closerequest">
+      <form class="header" method="dialog">
+        <button>×</button>
+      </form>
+      <section class="information">
+        <img
+          class="main"
+          height="300"
+          width="300"
+          src="./images/10_jacket.jpg"
+        />
+        <img class="sub" height="150" width="150" src="./images/10_9.jpeg" />
+        <div class="notes">
+          <span>NAME: jacket</span>
+          <span>FROM: @oscar.welford</span>
+          <span>TRADE AIM: something rigid</span>
+        </div>
+      </section>
+      <section class="buttons">
+        <button onclick="opend(9)">prev</button>
+        <div></div>
+      </section>
+    </dialog>
+    <!-- !!end content!! -->
+  </body>
+</html>
