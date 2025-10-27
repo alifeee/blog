@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 52.916665 52.916668"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="svg_5.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     width="200px"
+     inkscape:zoom="2.2912738"
+     inkscape:cx="96.889337"
+     inkscape:cy="111.29181"
+     inkscape:window-width="1440"
+     inkscape:window-height="831"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="false" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="13.405257,32.902239"
+       end_point="13.405257,14.861248"
+       center_point="13.405257,23.881743"
+       id="path-effect3420"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="true"
+       split_open="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;fill-rule:nonzero;stroke-width:0.371282;stroke-linejoin:round"
+       id="rect4931"
+       width="24.86771"
+       height="37.672722"
+       x="11.028475"
+       y="10.345242"
+       transform="rotate(-4.6961679)"
+       ry="0.94576424" />
+    <ellipse
+       style="fill:#000000;fill-rule:nonzero;stroke-width:0.371282;stroke-linejoin:round"
+       id="path5035"
+       cx="35.422874"
+       cy="41.266804"
+       rx="6.4952984"
+       ry="6.2169237" />
+    <rect
+       style="fill:#000000;fill-rule:nonzero;stroke-width:0.371282;stroke-linejoin:round"
+       id="rect5139"
+       width="4.0827575"
+       height="23.754232"
+       x="28.371859"
+       y="19.5868"
+       transform="rotate(-22.249763)"
+       ry="0.71885526" />
+  </g>
+</svg>

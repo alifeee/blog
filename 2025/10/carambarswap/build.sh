@@ -39,9 +39,11 @@ html=$(
         />"
 + if .value.subimage then "        <img class=\"sub\" height=\"150\" width=\"150\" src=\"./images/\(.value.subimage)\" />" else "" end
 + "        <div class=\"notes\">
-          <span><span>NAME</span>: \(.value.name)</span>
-          <span><span>FROM</span>: \(.value.from)</span>
-          <span><span>TRADE AIM</span>: \(.value.tradeaim)</span>
+          <span><span class=tit>NAME</span>: \(.value.name)</span>
+          <span><span class=tit>FROM</span>: "
++ if (.value.from | contains("@")) then "<a href=\"https://instagram.com/\(.value.from[1:])\">\(.value.from)</a>" else "\(.value.from)" end
++ "</span>
+          <span><span class=tit>TRADE AIM</span>: \(.value.tradeaim)</span>
         </div>
       </section>"
       +
