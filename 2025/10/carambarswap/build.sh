@@ -39,9 +39,9 @@ html=$(
         />"
 + if .value.subimage then "        <img class=\"sub\" height=\"150\" width=\"150\" src=\"./images/\(.value.subimage)\" />" else "" end
 + "        <div class=\"notes\">
-          <span>NAME: \(.value.name)</span>
-          <span>FROM: \(.value.from)</span>
-          <span>TRADE AIM: \(.value.tradeaim)</span>
+          <span><span>NAME</span>: \(.value.name)</span>
+          <span><span>FROM</span>: \(.value.from)</span>
+          <span><span>TRADE AIM</span>: \(.value.tradeaim)</span>
         </div>
       </section>"
       +
