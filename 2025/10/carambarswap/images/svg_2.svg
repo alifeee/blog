@@ -7,7 +7,7 @@
    viewBox="0 0 52.916665 52.916668"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
    sodipodi:docname="svg_2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,42 +26,48 @@
      units="px"
      width="200px"
      inkscape:zoom="2.2912738"
-     inkscape:cx="96.01646"
+     inkscape:cx="96.23468"
      inkscape:cy="102.1266"
-     inkscape:window-width="1440"
-     inkscape:window-height="831"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     inkscape:snap-global="false" />
+     inkscape:snap-global="false"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#000000;fill-rule:evenodd;stroke-width:0.512704;stroke-linejoin:round"
-       id="rect1510"
-       width="27.664827"
-       height="28.46287"
-       x="17.597721"
-       y="15.933623" />
-    <ellipse
-       style="fill:#000000;fill-rule:evenodd;stroke-width:0.512704;stroke-linejoin:round"
-       id="path1614"
-       cx="13.699487"
-       cy="16.586433"
-       rx="8.1737022"
-       ry="8.7477646" />
-    <rect
-       style="fill:#000000;fill-rule:evenodd;stroke-width:0.356534;stroke-linejoin:round"
-       id="rect1718"
-       width="30.318743"
-       height="4.4517469"
-       x="20.877825"
-       y="1.7106458"
-       transform="matrix(0.67234705,0.74023607,-0.72635496,0.68731977,0,0)" />
+    <g
+       id="g1"
+       transform="matrix(0.55538468,0,0,0.55538468,12.272167,10.991024)">
+      <rect
+         style="fill:#000000;fill-rule:evenodd;stroke-width:0.512704;stroke-linejoin:round"
+         id="rect1510"
+         width="27.664827"
+         height="28.46287"
+         x="17.597721"
+         y="15.933623" />
+      <ellipse
+         style="fill:#000000;fill-rule:evenodd;stroke-width:0.512704;stroke-linejoin:round"
+         id="path1614"
+         cx="13.699487"
+         cy="16.586433"
+         rx="8.1737022"
+         ry="8.7477646" />
+      <rect
+         style="fill:#000000;fill-rule:evenodd;stroke-width:0.356534;stroke-linejoin:round"
+         id="rect1718"
+         width="30.318743"
+         height="4.4517469"
+         x="20.877825"
+         y="1.7106458"
+         transform="matrix(0.67234705,0.74023607,-0.72635496,0.68731977,0,0)" />
+    </g>
   </g>
 </svg>
