@@ -1,13 +1,15 @@
 # build required parts with npm and deploy to pages
 name: deploy to pages
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+# run never
+on: workflow_dispatch
+# on:
+#   # Runs on pushes targeting the default branch
+#   push:
+#     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
