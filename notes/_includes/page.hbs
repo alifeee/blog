@@ -24,8 +24,12 @@
     <meta name="fediverse:creator" content="@alifeee@mastodon.social" />
 
     <!-- rss -->
-    <link rel="alternate" type="application/rss+xml" title="alifeee's notes feed"
-        href="https://blog.alifeee.co.uk/notes/feed.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="alifeee's notes feed"
+      href="https://blog.alifeee.co.uk/notes/feed.xml"
+    />
 
     <!-- styling -->
     <!-- favicon -->
@@ -110,37 +114,8 @@
             text-decoration: underline dotted;
         }
 
-        #contents .tag,
-        #contents .tag:visited {
+        #contents .tag, #contents .tag:visited {
             color: #000;
-        }
-
-        header .guestbook {
-            max-width: 40rem;
-            position: relative;
-            padding-bottom: 1rem;
-            display: flex;
-            text-align: center;
-            font-family: cursive;
-        }
-
-        header .guestbook h2 {
-            font-size: 1.5rem;
-        }
-
-        header .guestbook p {
-            margin: 0;
-        }
-
-        header .guestbook iframe {
-            border: none;
-            height: 8rem;
-            min-height: 0;
-            width: auto;
-            min-width: 0;
-            flex-grow: 1;
-            flex-shrink: 1;
-            flex-basis: 1rem;
         }
 
         .full-width {
@@ -223,17 +198,14 @@
         details {
             cursor: pointer;
         }
-
-        details>*:not(summary) {
+        details > *:not(summary) {
             margin-left: 2rem;
         }
-
-        details>pre[class*=language-] {
+        details > pre[class*=language-] {
             margin-left: 2rem;
         }
-
         summary {
-            display: list-item;
+            display:list-item;
         }
 
         .alert {
@@ -244,7 +216,6 @@
             border: 0.25rem dashed brown;
             position: relative;
         }
-
         .alert::before {
             content: "⚠";
             font-size: 2rem;
@@ -336,16 +307,6 @@
             {{/if}}
         </ul>
         {{/unless}}
-        <section class="guestbook">
-            <div>
-                <h2>guestbook!</h2>
-                <p>
-                    <a href="https://guestbook.alifeee.net/notes/">show all</a> / <br> <a
-                        href="https://guestbook.alifeee.net/notes/">sign book</a>
-                </p>
-            </div>
-            <iframe src="https://guestbook.alifeee.net/notes/?messages=1"></iframe>
-        </section>
     </header>
     <main>
         {{{content}}}
