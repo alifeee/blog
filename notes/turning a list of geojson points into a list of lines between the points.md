@@ -6,9 +6,9 @@ tags:
   - scripting
   - jq
 ---
-I often turn lists of coordinates into a geojson file, so they can be easily shared and viewed on a map. See several examples on <https://alifeee.co.uk/maps/>.
+I often turn lists of coordinates into a geojson file, so they can be easily shared and viewed on a map. See several examples on <https://alifeee.net/maps/>.
 
-One thing I wanted to do recently was turn a list of points ("places I've been") into a list of straight lines connecting them, to show routes on a map. I made a script using [`jq`](https://jqlang.github.io/jq/) to do this, using the same data from [my note about making a geojson file from a CSV](https://blog.alifeee.co.uk/notes/making-a-geojson-file-from-a-csv/).
+One thing I wanted to do recently was turn a list of points ("places I've been") into a list of straight lines connecting them, to show routes on a map. I made a script using [`jq`](https://jqlang.github.io/jq/) to do this, using the same data from [my note about making a geojson file from a CSV](https://blog.alifeee.net/notes/making-a-geojson-file-from-a-csv/).
 
 Effectively, I want to turn these coordinates...
 

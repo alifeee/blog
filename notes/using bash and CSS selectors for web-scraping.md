@@ -22,7 +22,7 @@ Here are some annotated examples with this website:
 # install packages
 sudo apt install html-xml-utils jq
 # set URL
-url="https://blog.alifeee.co.uk/notes/"
+url="https://blog.alifeee.net/notes/"
 # save site to variable, normalised, otherwise hxselect complains about invalid HTML
 #   might have to manually change the HTML so it normalises nicely
 site=$(curl -s "${url}" | hxnormalize -x -l 240)
@@ -47,9 +47,9 @@ $ echo "${site}" | hxselect -s '\n' -c 'img::attr(src)'
 $ echo "${site}" | hxselect -s '\n' -c 'a::attr(href)' | head
 /notes/feed.xml
 /notes/
-https://blog.alifeee.co.uk
-https://alifeee.co.uk
-https://weeknotes.alifeee.co.uk
+https://blog.alifeee.net
+https://alifeee.net
+https://weeknotes.alifeee.net
 https://linktr.ee/alifeee
 https://github.com/alifeee/blog/tree/main/notes
 /notes/
@@ -127,4 +127,4 @@ A couple of things that come up a lot when you do this kind of web scraping are:
 - removing leading/trailing spaces - pipe into `| sed 's/^ *//' | sed 's/ *$//'`
 - removing new lines - pipe into `| tr -d '\n'`
 - replacing new lines with spaces - pipe into `| tr ' ' '\n'`
-- decoding HTML entities - pipe into `php -r 'while ($f = fgets(STDIN)){ echo html_entity_decode($f); }'` or replace manually with `sed` (see <https://blog.alifeee.co.uk/notes/converting-html-entities-to-normal-utf-8-in-bash/#note>)
+- decoding HTML entities - pipe into `php -r 'while ($f = fgets(STDIN)){ echo html_entity_decode($f); }'` or replace manually with `sed` (see <https://blog.alifeee.net/notes/converting-html-entities-to-normal-utf-8-in-bash/#note>)

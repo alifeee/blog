@@ -10,7 +10,7 @@ I was asked the question:
 
 - "how do I convince someone that we shouldn't use AI art to create promotion posters for our local event?"
 
-I wanted something a bit more "evidenced" than "[AI is for losers](https://alifeee.co.uk/favourites/images/ai-is-for-losers_fuller.jpeg)" (my usual response), so the below is compiled from that search.
+I wanted something a bit more "evidenced" than "[AI is for losers](https://alifeee.net/favourites/images/ai-is-for-losers_fuller.jpeg)" (my usual response), so the below is compiled from that search.
 
 ## Mastodon
 

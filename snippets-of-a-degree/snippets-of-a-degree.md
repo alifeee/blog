@@ -2,7 +2,7 @@
 
 <word-count parent=".markdown-body"></word-count>
 
-I did a [Physics degree at Durham University](https://alifeee.co.uk/durham_physics/). This blog comes as a result of a party I had just before final year exams, after everyone had finished their final-year dissertations and reports.
+I did a [Physics degree at Durham University](https://alifeee.net/durham_physics/). This blog comes as a result of a party I had just before final year exams, after everyone had finished their final-year dissertations and reports.
 
 To celebrate that we'd all spent half the year knee-deep inside a PDF, we had DICE (Dissertation Isdone Celebration Event)! As part of the party, I got people to write down a sentence or phrase from their dissertation, without context. We drew them out of a hat and made a game of guessing what the degree title was for each.
 

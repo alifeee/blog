@@ -36,10 +36,10 @@ I thought about using Google Slides to make a presentation. However, you can't u
 
 I went with [RevealJS](https://revealjs.com/), which I had seen one of my computer-loving lecturers use at university. It's quite neat to use, mainly because everything is written in HTML. I guess I am fate-bound to never use a WYSIWYG editor again.
 
-The presentation is hosted at <https://alifeee.co.uk/font-workshop/>, but since it is a website, I can also embed it here! Have a scuttle around (press space to ~~slow down~~ progress.)
+The presentation is hosted at <https://alifeee.net/font-workshop/>, but since it is a website, I can also embed it here! Have a scuttle around (press space to ~~slow down~~ progress.)
 
 <iframe
-  src="https://alifeee.co.uk/font-workshop/"
+  src="https://alifeee.net/font-workshop/"
   style="width: 100%; height: 100%; min-height: 20rem"
 ></iframe>
 
@@ -111,7 +111,7 @@ It was very fun to do, and I'd love to run another font workshop!
 
 ## Resources
 
-- My blog post about how I made a font: <https://blog.alifeee.co.uk/making-bogface/>
+- My blog post about how I made a font: <https://blog.alifeee.net/making-bogface/>
 - The presentation I used for this workshop: <https://github.com/alifeee/font-workshop/>
 - Another font I am halfway through making as of writing (repository contains some nice commands for working with traced images): <https://github.com/alifeee/kiran-builder-typeface>
 

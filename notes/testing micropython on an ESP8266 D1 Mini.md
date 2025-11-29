@@ -9,7 +9,7 @@ I've toyed for a while with microcontrollers, and only really used Arduino/C/C++
 
 Until today!
 
-I had a little experiment, and it seems promising. I might have a larger experiment soon (maybe try to retry some of my [hardware hacking](https://alifeee.co.uk/favourites/#hardware%20hacking)).
+I had a little experiment, and it seems promising. I might have a larger experiment soon (maybe try to retry some of my [hardware hacking](https://alifeee.net/favourites/#hardware%20hacking)).
 
 I'll share here my initial experiments! I'm running on a Linux computer, on Pop!\_OS.
 

@@ -19,11 +19,11 @@
     <meta property="og:site" content="alifeee's blog" />
     <meta
       property="og:url"
-      content="https://blog.alifeee.co.uk/steam-collage-api"
+      content="https://blog.alifeee.net/steam-collage-api"
     />
     <meta
       property="og:image"
-      content="https://blog.alifeee.co.uk/steam-collage-api/og-image.jpg"
+      content="https://blog.alifeee.net/steam-collage-api/og-image.jpg"
     />
     <meta
       property="og:description"
@@ -107,12 +107,12 @@
 <li><a href="#thoughts">Thoughts</a></li>
 </ol>
 <p>Below, you <em>should</em> see a lovely image of my four most recently played games on <a href="https://steamcommunity.com/id/alifeee/">Steam</a>. You can also change it to display your Steam account.</p>
-<p><del>If you use Firefox,</del> this should work. <del>If you use Chrome (or anything else), the <a href="https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html?m=1">images will be blocked</a>, as they are <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content">mixed media</a>. To fix this, you can allow mixed media on <code>blog.alifeee.co.uk</code>. If I <a href="https://github.com/alifeee/steam_collage_api/issues/21">add HTTPS in the future</a>, this should not be needed.</del> I added HTTPS (2024-02-19).</p>
+<p><del>If you use Firefox,</del> this should work. <del>If you use Chrome (or anything else), the <a href="https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html?m=1">images will be blocked</a>, as they are <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content">mixed media</a>. To fix this, you can allow mixed media on <code>blog.alifeee.net</code>. If I <a href="https://github.com/alifeee/steam_collage_api/issues/21">add HTTPS in the future</a>, this should not be needed.</del> I added HTTPS (2024-02-19).</p>
 <details>
 <summary><del>How to enable HTTP images on Chrome</del></summary>
 
 <ol>
-<li>Navigate to site settings for <code>blog.alifeee.co.uk</code>
+<li>Navigate to site settings for <code>blog.alifeee.net</code>
 <img src="images/chrome_site_settings.png" alt="Screenshot of Chrome site settings"></li>
 <li>Enable <code>Insecure content</code>
 <img src="images/chrome_insecure_content.png" alt="Screenshot of insecure content setting"></li>
@@ -122,7 +122,7 @@
 
 <figcaption>
 
-<p>API status: <img src="https://steamcollage.alifeee.co.uk/steamcollage/alive_img" onerror="this.src='./didnotload.png'" style="background-color: orange; display: inline-block; height: 1rem; width: 1rem; border-radius: 50%;" /></p>
+<p>API status: <img src="https://steamcollage.alifeee.net/steamcollage/alive_img" onerror="this.src='./didnotload.png'" style="background-color: orange; display: inline-block; height: 1rem; width: 1rem; border-radius: 50%;" /></p>
 </figcaption>
 
 <div
@@ -134,9 +134,9 @@
         <button>Go!</button>
     </div>
     <img
-        src="https://steamcollage.alifeee.co.uk/steamcollage/games?id=alifeee&cols=2&rows=2&sort=recent"
+        src="https://steamcollage.alifeee.net/steamcollage/games?id=alifeee&cols=2&rows=2&sort=recent"
         alt="Oops. It must have broken. Here *should* be alifeee's 4 most recently played Steam games."
-        :src="'https://steamcollage.alifeee.co.uk/steamcollage/games?id=' + user + '&cols=2&rows=2&sort=' + (user == 'alifeee' ? 'recent' : 'playtime')"
+        :src="'https://steamcollage.alifeee.net/steamcollage/games?id=' + user + '&cols=2&rows=2&sort=' + (user == 'alifeee' ? 'recent' : 'playtime')"
         :alt="'Oops. It must have broken. Here *should* be ' + user + 's library.'"
         >
     </img>
@@ -292,7 +292,7 @@ if __name__ == &quot;__main__&quot;:
 <p>When you visit <code>http://0.0.0.0:5000/steamcollage/Alive</code> on a web browser (or, for the more bold among you, make a Curl request...), you will be greeted with</p>
 <pre><code class="language-text">Alive
 </code></pre>
-<p>Since this example is also an <a href="https://github.com/alifeee/steam_collage_api/blob/5dd1bd9e44967719a7596f2b6987d42a9da1b68e/api/api.py#L21-L24">actual endpoint</a> for the server I set up, you can see it live <a href="https://steamcollage.alifeee.co.uk/steamcollage/alive">here</a>. With only a few lines of Python code you can make a lovely web server. At the moment, it&#39;s only HTTP, not HTTPS, which means <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content">I can only really use it to serve images</a>. But... that works fine for this!</p>
+<p>Since this example is also an <a href="https://github.com/alifeee/steam_collage_api/blob/5dd1bd9e44967719a7596f2b6987d42a9da1b68e/api/api.py#L21-L24">actual endpoint</a> for the server I set up, you can see it live <a href="https://steamcollage.alifeee.net/steamcollage/alive">here</a>. With only a few lines of Python code you can make a lovely web server. At the moment, it&#39;s only HTTP, not HTTPS, which means <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content">I can only really use it to serve images</a>. But... that works fine for this!</p>
 <p>You can see the full API code in <a href="https://github.com/alifeee/steam_collage_api/blob/master/api/api.py"><code>api.py</code></a>. Its function is to: take the steam ID, and required image size (rows/cols/sorting), and use the methods from the sections above to make an image and return it. Here is a briefened version of <a href="https://github.com/alifeee/steam_collage_api/blob/master/api/api.py">the code</a>:</p>
 <pre><code class="language-python">from steam_api import getGamesFromSteamId
 from images import makeCollage, bytesFromPilImage
@@ -313,13 +313,13 @@ def games():
     return send_file(collage_bytes, mimetype=&quot;image/jpeg&quot;)
 </code></pre>
 <p>With that, it&#39;s made! And to get the image, it&#39;s as simple as changing the <a href="https://en.wikipedia.org/wiki/Query_string">query parameters</a> on the URL. For example, the default image at the top of this post uses the URL:</p>
-<pre><code class="language-url">https://steamcollage.alifeee.co.uk/steamcollage/games
+<pre><code class="language-url">https://steamcollage.alifeee.net/steamcollage/games
   ?id=alifeee
   &amp;rows=2
   &amp;cols=2
   &amp;sort=recent
 </code></pre>
-<p>So, you can get any collage you want by just changing the URL in your browser. However, to make it easier, I also made a <a href="https://alifeee.co.uk/steam_mosaic/">simple webpage on my website</a>.</p>
+<p>So, you can get any collage you want by just changing the URL in your browser. However, to make it easier, I also made a <a href="https://alifeee.net/steam_mosaic/">simple webpage on my website</a>.</p>
 <p>That means with little effort, I can make great background images like this (all of my games on Steam):</p>
 <p><img src="./images/mosaic.jpeg" alt="Giant collage"></p>
 <h2 id="memory-issues">Memory issues</h2>
@@ -328,7 +328,7 @@ def games():
 <h2 id="thoughts">Thoughts</h2>
 <p>Overall, it was a neat little contained project to make. I know a lot more about APIs, HTTP vs HTTPS, and Docker deployments, as well as using a Test-Driven-Development style to write a lot of the code. If I were to build upon the project, I&#39;d want to add an image cache, improve the creation speed, and maybe add something funky like multithreading.</p>
 <p>I would also most likely not deploy it with Docker a second time around. It is an extremely small-in-scope hobby project, and does not need continuous deployment. I am fine to have to execute a couple of shell commands every time I want to redeploy it.</p>
-<p>Have a play on <a href="https://alifeee.co.uk/steam_mosaic/">the frontend</a>!</p>
+<p>Have a play on <a href="https://alifeee.net/steam_mosaic/">the frontend</a>!</p>
 <!-- links -->
       </section>
       <hr />

@@ -8,7 +8,7 @@ tags:
 ---
 Our house just got a new EPC certificate. You can (maybe) check yours on <https://www.gov.uk/find-energy-certificate>.
 
-I'm interested in easy ways to see change. Trying to compare the old and new webpages by eye is hard, which leads me to text-diffing. I can copy the contents of the website to a file and compare them that way. Let's. I did a similar thing a while ago [with computer benchmarks](https://blog.alifeee.co.uk/notes/comparing-pcs-with-terminal-commands/).
+I'm interested in easy ways to see change. Trying to compare the old and new webpages by eye is hard, which leads me to text-diffing. I can copy the contents of the website to a file and compare them that way. Let's. I did a similar thing a while ago [with computer benchmarks](https://blog.alifeee.net/notes/comparing-pcs-with-terminal-commands/).
 
 I manually create two files by copying the interesting bits of the webpage, called `1` and `2` (because who has time for `.txt` extensions). Then, I can run:
 

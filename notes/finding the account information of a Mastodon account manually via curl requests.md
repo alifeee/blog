@@ -16,7 +16,7 @@ to
 @thentrythis@thentrythis.org
 ```
 
-to understand how this works (because [I like understanding the ActivityPub protocol](https://blog.alifeee.co.uk/notes/tagged/ActivityPub/)), I tried to find how my Mastodon client would find the new account.
+to understand how this works (because [I like understanding the ActivityPub protocol](https://blog.alifeee.net/notes/tagged/ActivityPub/)), I tried to find how my Mastodon client would find the new account.
 
 When you open the original account profile, it opens on `social.thentrythis.org`, so there must be some path from `thentrythis.org` to there.
 

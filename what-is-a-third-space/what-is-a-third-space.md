@@ -163,5 +163,5 @@ The content here was produced from my own brain. Lots of other people over time 
 2. citation needed
 3. hitchhiking blogpost coming soon...
 
-[Robyn]: https://alifeee.co.uk/i-am-having-a-good-blow-at-cheltenham/
-[hackspace adventures]: https://blog.alifeee.co.uk/hackspace-adventures/
+[Robyn]: https://alifeee.net/i-am-having-a-good-blow-at-cheltenham/
+[hackspace adventures]: https://blog.alifeee.net/hackspace-adventures/

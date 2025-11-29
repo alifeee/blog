@@ -8,7 +8,7 @@ However, I had done exactly that.
 
 <span class="large centred BogFace">
 
-BogFace, available for download [NOW](https://alifeee.co.uk/fonts)!
+BogFace, available for download [NOW](https://alifeee.net/fonts)!
 
 </span>
 
@@ -63,7 +63,7 @@ which is simply a list of many fonts. The fonts are put into collections and eac
 
 I think using non-default fonts on websites is always fun, and I recently started straying away from the fonts on Google Fonts and similar sites. This was part of my broader departure from the advertiser-filled, SEO-optimised, tracking-fueled Internet to the cooler, calmer, and altogether more personable [IndieWeb](https://indieweb.org/).
 
-I enjoy [many personal websites](https://alifeee.co.uk/bookmarks/), and I knew of two that specifically had fonts: [Tom7's fonts](http://fonts.tom7.com/) (a website I discovered via [Tom7's YouTube channel](https://www.youtube.com/@tom7)),
+I enjoy [many personal websites](https://alifeee.net/bookmarks/), and I knew of two that specifically had fonts: [Tom7's fonts](http://fonts.tom7.com/) (a website I discovered via [Tom7's YouTube channel](https://www.youtube.com/@tom7)),
 
 ![Screenshot of Tom7's fonts website, showing "Fonts 1998-∞" and "Fonts 1993-1997"](images/tom7-fonts.png)
 
@@ -73,7 +73,7 @@ I enjoy [many personal websites](https://alifeee.co.uk/bookmarks/), and I knew o
 
 </figcaption>
 
-...and [Des polices de caracteres a Gogo](http://clofont.free.fr/) (I found this site, a French website, mostly in French, with [Robyn](https://alifeee.co.uk/i-am-having-a-good-blow-at-cheltenham/) - I do not remember how or where, but it was probably browsing [webrings](https://alifeee.co.uk/bookmarks/#webrings)).
+...and [Des polices de caracteres a Gogo](http://clofont.free.fr/) (I found this site, a French website, mostly in French, with [Robyn](https://alifeee.net/i-am-having-a-good-blow-at-cheltenham/) - I do not remember how or where, but it was probably browsing [webrings](https://alifeee.net/bookmarks/#webrings)).
 
 ![Screenshot of clofonts website, showing introduction](images/clofonts.png)
 
@@ -83,7 +83,7 @@ I enjoy [many personal websites](https://alifeee.co.uk/bookmarks/), and I knew o
 
 </figcaption>
 
-Tom7's site has two pages of fonts, with maybe 30 fonts total. The second French site I have not yet found the bottom of, and has seemingly hundreds and maybe thousands of fonts. Over a few weeks, I found myself making [one](https://webring.alifeee.co.uk/) or [two](https://github.com/alifeee/invoice_template/) things, and when I thought "I should pick a font for this", the natural choice was to use one from one of these personal sites. So, that's what I did!
+Tom7's site has two pages of fonts, with maybe 30 fonts total. The second French site I have not yet found the bottom of, and has seemingly hundreds and maybe thousands of fonts. Over a few weeks, I found myself making [one](https://webring.alifeee.net/) or [two](https://github.com/alifeee/invoice_template/) things, and when I thought "I should pick a font for this", the natural choice was to use one from one of these personal sites. So, that's what I did!
 
 ## How to make a font?
 
@@ -194,7 +194,7 @@ When I started doing lowercase letters, I had to decide a few things:
 - the height of "ascenders" (i.e., h, b, l)
 - the "height" of "descenders" (i.e., "y")
 
-I pulled in three letters to my font-window to decide this: o, g, and b. Since I was doing this at the [hackspace](https://blog.alifeee.co.uk/hackspace-adventures/) (I was working on it on-and-off over a few days), someone leaned over and read out the three large letters on my screen, which I was too busy thinking about ascenders and descenders to parse.
+I pulled in three letters to my font-window to decide this: o, g, and b. Since I was doing this at the [hackspace](https://blog.alifeee.net/hackspace-adventures/) (I was working on it on-and-off over a few days), someone leaned over and read out the three large letters on my screen, which I was too busy thinking about ascenders and descenders to parse.
 
 "**bog?**", they inquired.
 
@@ -208,7 +208,7 @@ bog.
 
 </figcaption>
 
-This, combined with the facts that "I thought the font looked a little boggy", and "I fell in a bog on a [trip to Scotland](https://alifeee.co.uk/scotland-trip/) this summer" solidified what I was going to call my as-yet-unnamed typeface: <span class="BogFace">BogFace</span>.
+This, combined with the facts that "I thought the font looked a little boggy", and "I fell in a bog on a [trip to Scotland](https://alifeee.net/scotland-trip/) this summer" solidified what I was going to call my as-yet-unnamed typeface: <span class="BogFace">BogFace</span>.
 
 (I only check this as of writing (if you want to make something: don't google it to check if it exists - just make it), but it [seems like](https://www.google.com/search?q=%22bogface%22+font) there was not already a typeface on the Internet called the same.)
 
@@ -276,7 +276,7 @@ Some places I've come across my own font in the wild include RightMove and rando
 
 </figcaption>
 
-It's also nice to be able to know that if I need a whimsical typeface, I have one at my fingertips (for example for an [online newsletter](https://liputenpo.alifeee.co.uk/) written entirely in [toki pona](https://tokipona.org/) (link probably broken))
+It's also nice to be able to know that if I need a whimsical typeface, I have one at my fingertips (for example for an [online newsletter](https://liputenpo.alifeee.net/) written entirely in [toki pona](https://tokipona.org/) (link probably broken))
 
 I have not spoken about kerning. It is and was an entire ordeal. I hope you enjoy dealing with it if you choose to make a font.
 
@@ -292,7 +292,7 @@ I will probably make more fonts. If I do make another font, I would like to spen
 
 - My new fonts section on my website
 
-    <https://alifeee.co.uk/fonts/>
+    <https://alifeee.net/fonts/>
 - FontForge, a free, open-source app for creating fonts
 
     <https://fontforge.org/en-US/>

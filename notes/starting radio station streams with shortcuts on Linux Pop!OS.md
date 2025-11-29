@@ -19,7 +19,7 @@ vlc "https://streamer.radio.co/s1afcca186/listen"
 vlc "https://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_6music/bbc_6music.isml/bbc_6music-audio%3d96000.norewind.m3u8"
 ```
 
-I'm enjoying [creating shortcuts on my computer](https://blog.alifeee.co.uk/notes/copy-my-most-recent-screenshot-on-pop-os-gnome-linux/), so I turned the above three commands into shortcuts. Now I can launch the radios in VLC with the push of a (well, four) button.
+I'm enjoying [creating shortcuts on my computer](https://blog.alifeee.net/notes/copy-my-most-recent-screenshot-on-pop-os-gnome-linux/), so I turned the above three commands into shortcuts. Now I can launch the radios in VLC with the push of a (well, four) button.
 
 ```text
 SUPER + CTRL + SHIFT + 4 --- "Four"-ge radio

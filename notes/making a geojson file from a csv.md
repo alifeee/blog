@@ -6,7 +6,7 @@ tags:
   - scripting
   - jq
 ---
-I like maps. I make a lot of maps. See some on <https://alifeee.co.uk/maps/>.
+I like maps. I make a lot of maps. See some on <https://alifeee.net/maps/>.
 
 I've gotten into a habit with map-making: my favourite format is `geojson`, and I've found some tools to help me screw around with it, namely <https://github.com/pvernier/csv2geojson> to create a `.geojson` file from a `.csv`, and <https://geojson.io/> to quickly and nicely view the geojson. `geojson.io` can also export as KML (used to import into Google Maps).
 

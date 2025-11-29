@@ -3,7 +3,7 @@ title: attempts to make a local archive of personal websites
 date: 2024-12-11
 tags: personal-websites, scripting
 ---
-I wanted to make a local archive of personal websites. This is because in the past I have searched my bookmarks for things like [fonts](https://alifeee.co.uk/font-talk/#/18) to see how many of them mention, talk about, or link to things about fonts. When I did this, I only looked at the homepages, so I've been wondering about a way to search a list of entire sites since.
+I wanted to make a local archive of personal websites. This is because in the past I have searched my bookmarks for things like [fonts](https://alifeee.net/font-talk/#/18) to see how many of them mention, talk about, or link to things about fonts. When I did this, I only looked at the homepages, so I've been wondering about a way to search a list of entire sites since.
 
 I came up with the idea of downloading the HTML files for my bookmarked sites, and using `grep` and...
 

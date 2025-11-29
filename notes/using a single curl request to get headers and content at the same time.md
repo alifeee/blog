@@ -10,7 +10,7 @@ I often make `curl` requests. I often want to see the HTTP headers and also the 
 Most of the time, you can just add `-i` or `--include` to include the headers in the printout
 
 ```bash
-curl -i https://alifeee.co.uk/
+curl -i https://alifeee.net/
 ```
 
 In writing this (and looking at `man curl`), you can also use `-v` or `--verbose` to *view* the headers.
@@ -19,7 +19,7 @@ But, if you want to *download* **both** the headers and the content in one reque
 
 ```bash
 # customisation
-url="https://alifeee.co.uk/"
+url="https://alifeee.net/"
 file="alifeee.html"
 filenom="${file%.*}"
 fileext="${file#*.}"

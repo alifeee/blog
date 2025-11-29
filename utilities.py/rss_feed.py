@@ -3,10 +3,10 @@
 from post_parser import get_all_posts, Post
 
 SUMMARY_TITLE = "alifeee's blog"
-SUMMARY_LINK = "https://blog.alifeee.co.uk"
+SUMMARY_LINK = "https://blog.alifeee.net"
 SUMMARY_AUTHOR = "alifeee"
-SUMMARY_ID = "https://blog.alifeee.co.uk/"
-SUMMARY_ICON = "https://blog.alifeee.co.uk/og-image.png"
+SUMMARY_ID = "https://blog.alifeee.net/"
+SUMMARY_ICON = "https://blog.alifeee.net/og-image.png"
 
 posts = get_all_posts()
 
@@ -15,22 +15,22 @@ posts.sort(key=lambda post: post.date, reverse=True)
 
 # list of posts to jank ID for
 jank_ids = [
-    "https://blog.alifeee.co.uk/2024/12/hitchhiking/",
-    "https://blog.alifeee.co.uk/2024/09/sellotape-dispenser/",
-    "https://blog.alifeee.co.uk/2024/09/fold-an-envelope/",
-    "https://blog.alifeee.co.uk/railcards",
-    "https://blog.alifeee.co.uk/gists",
-    "https://blog.alifeee.co.uk/font-workshop",
-    "https://blog.alifeee.co.uk/making-bogface",
-    "https://blog.alifeee.co.uk/what-is-a-third-space",
-    "https://blog.alifeee.co.uk/hackspace-adventures",
-    "https://blog.alifeee.co.uk/factorio-proximity-chat",
-    "https://blog.alifeee.co.uk/hull-bus-sign",
-    "https://blog.alifeee.co.uk/steam-collage-api",
-    "https://blog.alifeee.co.uk/snippets-of-a-degree",
-    "https://blog.alifeee.co.uk/sketch-your-society",
-    "https://blog.alifeee.co.uk/ring-populations",
-    "https://blog.alifeee.co.uk/bike-to-cambridge",
+    "https://blog.alifeee.net/2024/12/hitchhiking/",
+    "https://blog.alifeee.net/2024/09/sellotape-dispenser/",
+    "https://blog.alifeee.net/2024/09/fold-an-envelope/",
+    "https://blog.alifeee.net/railcards",
+    "https://blog.alifeee.net/gists",
+    "https://blog.alifeee.net/font-workshop",
+    "https://blog.alifeee.net/making-bogface",
+    "https://blog.alifeee.net/what-is-a-third-space",
+    "https://blog.alifeee.net/hackspace-adventures",
+    "https://blog.alifeee.net/factorio-proximity-chat",
+    "https://blog.alifeee.net/hull-bus-sign",
+    "https://blog.alifeee.net/steam-collage-api",
+    "https://blog.alifeee.net/snippets-of-a-degree",
+    "https://blog.alifeee.net/sketch-your-society",
+    "https://blog.alifeee.net/ring-populations",
+    "https://blog.alifeee.net/bike-to-cambridge",
 ]
 
 # generate feed

@@ -29,10 +29,10 @@ I got back to writing note about keyboards
 I linked to switching.software in the introduction, so...  
 I went to look if switching.software had any mention of android keyboards  
 there were none on the website, and none in the issues  
-I finished the note, and [linted it](https://blog.alifeee.co.uk/notes/linting-markdown-from-inside-obsidian/)  
+I finished the note, and [linted it](https://blog.alifeee.net/notes/linting-markdown-from-inside-obsidian/)  
 markdownlint complained about 4 spaces instead of 2 in lists, which is the default in Obsidian  
 so I found out how to write a json rule file for markdownlint to change rule from 4 spaces to 2 spaces  
-I posted the note to my website (<https://blog.alifeee.co.uk/notes/choosing-a-free-and-open-android-keyboard/>) and mastodon  
+I posted the note to my website (<https://blog.alifeee.net/notes/choosing-a-free-and-open-android-keyboard/>) and mastodon  
 I created a Codeberg account to post an issue to switching.software  
 I created [an issue](https://codeberg.org/swiso/website/issues/333) about Android keyboards in switching.software codeberg  
 I remembered what I initially set out to do (create a Christmas list) and that I had not done it  

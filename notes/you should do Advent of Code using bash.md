@@ -13,7 +13,7 @@ people often attempt it in a programming language which is new to them, so they 
 
 I learnt a lot about `sed` and `awk`, and more general things about bash like pipes, redirection, `stdout` and `stderr`, and reading from and editing files.
 
-Ever since, I've learnt more and more about the terminal and become more comfortable there, and now I feel comfortable doing some nice loops and commands, such that I process a lot of data purely on the terminal, like some of the [maps](https://alifeee.co.uk/maps/) I've been making recently.
+Ever since, I've learnt more and more about the terminal and become more comfortable there, and now I feel comfortable doing some nice loops and commands, such that I process a lot of data purely on the terminal, like some of the [maps](https://alifeee.net/maps/) I've been making recently.
 
 My Advent of Code 2023 solutions are in this GitHub repository: <https://github.com/alifeee/advent-of-code-2023>
 

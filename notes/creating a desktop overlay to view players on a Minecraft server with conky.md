@@ -9,7 +9,7 @@ tags:
 ---
 Currently, I'm hosting a Minecraft server weekly on Tuesdays. Sometimes I even play.
 
-It's Vanilla with a [proximity voice chat mod](https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat) (walk near people to hear them). Proximity voice chat is endlessly fun (see [Barotrauma](https://barotraumagame.com/), [Factorio](https://blog.alifeee.co.uk/factorio-proximity-chat/), et cetera…)
+It's Vanilla with a [proximity voice chat mod](https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat) (walk near people to hear them). Proximity voice chat is endlessly fun (see [Barotrauma](https://barotraumagame.com/), [Factorio](https://blog.alifeee.net/factorio-proximity-chat/), et cetera…)
 
 Today, I wanted to have an overlay (think Discord voice chat overlay, or when you pop-out a video in Firefox, or when you use chat heads on mobile) which showed me who was online on the server.
 

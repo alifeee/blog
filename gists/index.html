@@ -14,10 +14,10 @@
     <meta property="og:title" content="My GitHub Gists" />
     <meta property="og:type" content="website" />
     <meta property="og:site" content="alifeee's blog" />
-    <meta property="og:url" content="https://blog.alifeee.co.uk/gists/" />
+    <meta property="og:url" content="https://blog.alifeee.net/gists/" />
     <meta
       property="og:image"
-      content="https://blog.alifeee.co.uk/gists/og-image.png"
+      content="https://blog.alifeee.net/gists/og-image.png"
     />
     <meta
       property="og:description"
@@ -808,9 +808,7 @@ cat words.txt | awk -F&#39;[^a-zA-Z]&#39; &#39;BEGIN {delete wds} { if (length($
               >Firefox bookmark exporter</a
             >. I don&#39;t really use this gist, but I guess having the data in
             machine-readable format is nice. Although
-            <a href="https://alifeee.co.uk/bookmarks/"
-              >alifeee.co.uk/bookmarks</a
-            >
+            <a href="https://alifeee.net/bookmarks/">alifeee.net/bookmarks</a>
             probably already fills that role.
           </p>
         </figcaption>
@@ -1067,7 +1065,7 @@ I like blogs. I like RSS feeds. Often, blogs don&#39;t have an RSS feed link. Of
 
 Thus, I like to try and find the hidden feed. These are the URLs I usually put on the URL to try and find the feed.
 
-For example, [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk/) -&gt; [`blog.alifeee.co.uk/feed.xml`](https://blog.alifeee.co.uk/feed.xml)
+For example, [`blog.alifeee.net`](https://blog.alifeee.net/) -&gt; [`blog.alifeee.net/feed.xml`](https://blog.alifeee.net/feed.xml)
 
 ```text
 /feed
@@ -1089,8 +1087,8 @@ For example, [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk/) -&gt; [`blog.al
         <figcaption>
           <p>
             As the gist says, I like RSS. You should
-            <a href="https://blog.alifeee.co.uk/feed.xml">use it</a> to keep up
-            with your <a href="https://blog.alifeee.co.uk/">favourite blogs</a>.
+            <a href="https://blog.alifeee.net/feed.xml">use it</a> to keep up
+            with your <a href="https://blog.alifeee.net/">favourite blogs</a>.
             Whenever I was on a blog and I couldn&#39;t find a link to an RSS
             feed, I would find myself trying a random combination of the above.
             I wrote it down so that now I can be more systematic about it, and
@@ -1153,12 +1151,10 @@ echo &#39;@font-face {
         <figcaption>
           <p>
             For my
-            <a href="https://blog.alifeee.co.uk/font-workshop/"
-              >font-workshop</a
-            >
+            <a href="https://blog.alifeee.net/font-workshop/">font-workshop</a>
             and
-            <a href="https://alifeee.co.uk/talks-and-workshops/">font-talk</a>,
-            I wanted to make a couple of CSS rules for around 100 or more fonts.
+            <a href="https://alifeee.net/talks-and-workshops/">font-talk</a>, I
+            wanted to make a couple of CSS rules for around 100 or more fonts.
             This was a fun challenge to do using bash, and I ended up with a
             nice script. It&#39;s another one that I only put online because it
             was easy to do so, and again so that if someone came at Google with
@@ -1272,12 +1268,12 @@ Host server
 
 ### subdomain redirect
 
-This redirects `webring.alifeee.co.uk` to `localhost:8080`. Without this, you would have to access the endpoint with `webring.alifeee.co.uk:8080`, which looks ugly :(
+This redirects `webring.alifeee.net` to `localhost:8080`. Without this, you would have to access the endpoint with `webring.alifeee.net:8080`, which looks ugly :(
 
 ```nginx
 server {
   listen 80;
-  server_name webring.alifeee.co.uk;
+  server_name webring.alifeee.net;
   location / {
     proxy_pass http://localhost:8080;
   }
@@ -1480,7 +1476,7 @@ sudo service mumble-server restart
           <p>
             I was also a little worried that when I first used Mumble (to play
             the
-            <a href="https://blog.alifeee.co.uk/factorio-proximity-chat/"
+            <a href="https://blog.alifeee.net/factorio-proximity-chat/"
               >Factorio game</a
             >), I might have to do some &quot;live&quot; restarting or checking
             of the server if it broke, and writing down how to do that would

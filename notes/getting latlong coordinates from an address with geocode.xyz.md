@@ -5,7 +5,7 @@ tags:
 - scripting
 - maps
 ---
-I like maps. I make maps. Mostly from worse maps or data that is not in map form. See some of mine on <https://alifeee.co.uk/maps/>.
+I like maps. I make maps. Mostly from worse maps or data that is not in map form. See some of mine on <https://alifeee.net/maps/>.
 
 One thing I've been doing for a map recently is geocoding, which is turning an address (e.g., "Showroom Cinema, Paternoster Row, Sheffield") into latitude/longitude coordinates.
 

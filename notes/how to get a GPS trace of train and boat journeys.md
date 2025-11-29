@@ -7,7 +7,7 @@ tags:
 - gpx
 - maps
 ---
-I like sustainable travel. I also like [interrailing](https://www.interrail.eu/). I *also* like [maps](https://alifeee.co.uk/maps/).
+I like sustainable travel. I also like [interrailing](https://www.interrail.eu/). I *also* like [maps](https://alifeee.net/maps/).
 
 Let's combine all three! This winter I went via train from Sheffield to Hamburg (for [Chaos Computer Club](https://events.ccc.de/congress/2024/)), and then on to Lapland, and back.
 
@@ -43,7 +43,7 @@ I spent a long time trying to figure out how to combine `.gpx` files with [`ogrm
 
 However, I couldn't figure it out. `.gpx` is confusing, and everyone who uses it seems to use GUI tools like [arcgis](https://www.arcgis.com/index.html) or [qgis](https://qgis.org/), while I prefer to be able to do things with a command, which I can then repeat in future.
 
-In the end, I converted the files to `.geojson` (my one true love) with `ogr2ogr file111.geojson file111.gpx tracks` for each file, and then combined them. Handily, I'd already written [a note about combining `.geojson` files](https://blog.alifeee.co.uk/notes/combining-geojson-files-with-jq/)! I wish I stuck in `.geojson` the whole time. `.gpx` gives me headaches.
+In the end, I converted the files to `.geojson` (my one true love) with `ogr2ogr file111.geojson file111.gpx tracks` for each file, and then combined them. Handily, I'd already written [a note about combining `.geojson` files](https://blog.alifeee.net/notes/combining-geojson-files-with-jq/)! I wish I stuck in `.geojson` the whole time. `.gpx` gives me headaches.
 
 ## The End
 

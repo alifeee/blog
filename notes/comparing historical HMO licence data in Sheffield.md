@@ -14,7 +14,7 @@ Sheffield city council publishes a list of HMO (House in Multiple Occupation) li
 
 They provide a list of licences as an Excel spreadsheet (`.xlsx`). I've asked them before if they could (*also*) provide a CSV, but they told me that was technically impossible. I also asked if they had historical data (i.e., previous spreadsheets), but they said they deleted it every time they uploaded a new one.
 
-Therefore, as I'm interested in private renting in Sheffield, I've been archiving the data in a [GitHub repository](https://github.com/alifeee/hmo-licences-in-sheffield), as CSVs. I also add additional data like lat/long coordinates (via [geocoding](https://en.wikipedia.org/wiki/Address_geocoding)), and parse the data into geographical formats like `.geojson`, `.gpx`, and `.kml` (which can be viewed [on a map!](https://alifeee.co.uk/maps/#sheffield-hmo-licences)).
+Therefore, as I'm interested in private renting in Sheffield, I've been archiving the data in a [GitHub repository](https://github.com/alifeee/hmo-licences-in-sheffield), as CSVs. I also add additional data like lat/long coordinates (via [geocoding](https://en.wikipedia.org/wiki/Address_geocoding)), and parse the data into geographical formats like `.geojson`, `.gpx`, and `.kml` (which can be viewed [on a map!](https://alifeee.net/maps/#sheffield-hmo-licences)).
 
 ## Calculating statistics from the data
 
@@ -119,7 +119,7 @@ Again, draw your own conclusions (homework!), but some could be:
 
 ## Why is this interesting
 
-I started collecting HMO data originally because I wanted to visualise the licences [on a map](https://alifeee.co.uk/maps/#sheffield-hmo-licences). Over a short time, I have created my own archive of licence history (as the council do not provide such).
+I started collecting HMO data originally because I wanted to visualise the licences [on a map](https://alifeee.net/maps/#sheffield-hmo-licences). Over a short time, I have created my own archive of licence history (as the council do not provide such).
 
 Since I had multiple months of data, I could make some comparison, so I made these statistics. I don't find them incredibly useful, but there could be people who do.
 
@@ -131,4 +131,4 @@ Plus, I just wanted to do some shell-scripting ;]
 
 - Sheffield Council's HMO licences page: <https://www.sheffield.gov.uk/housing/houses-in-multiple-occupation>
 - my GitHub repository with historical data and scripts: <https://github.com/alifeee/hmo-licences-in-sheffield>
-- more about the mapping (including a custom Google maps map): <https://alifeee.co.uk/maps/#sheffield-hmo-licences>
+- more about the mapping (including a custom Google maps map): <https://alifeee.net/maps/#sheffield-hmo-licences>

@@ -8,7 +8,7 @@ tags:
 ---
 I write these notes in Obsidian. To upload, them, I *could* visit <https://github.com/alifeee/blog/tree/main/notes>, click "add file", and copy and paste the file contents. I probably *should* do that.
 
-But, instead, I wrote a shell script to upload them. Now, I can press "CTRL+P" to open the Obsidian command pallette, type "lint" (to [lint the note](https://blog.alifeee.co.uk/notes/linting-markdown-from-inside-obsidian/)), then open it again and type "upload" and upload the note. At this point, I *could* walk away and assume everything went fine, but what I normally do is open the [GitHub Actions tab](https://github.com/alifeee/blog/actions) to check that it worked properly.
+But, instead, I wrote a shell script to upload them. Now, I can press "CTRL+P" to open the Obsidian command pallette, type "lint" (to [lint the note](https://blog.alifeee.net/notes/linting-markdown-from-inside-obsidian/)), then open it again and type "upload" and upload the note. At this point, I *could* walk away and assume everything went fine, but what I normally do is open the [GitHub Actions tab](https://github.com/alifeee/blog/actions) to check that it worked properly.
 
 The process the script undertakes is:
 

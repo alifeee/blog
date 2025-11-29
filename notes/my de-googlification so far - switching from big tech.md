@@ -27,7 +27,7 @@ Gmail -> see below
 : see ["email"](#email) below
 
 Drive -> Cryptpad/Nextcloud or Syncthing
-: I replaced my Google Drive usage with a weird setup where I use [Syncthing](https://syncthing.net/) to sync several folders between [my devices](https://blog.alifeee.co.uk/notes/names-for-all-my-computing-devices/), and to share large files I either upload them to my server (bad advice, technical knowledge needed), or I upload them to [Wormhole](https://wormhole.app/) where they get deleted after 24 hours. I don't have much need to share files for a long time, but I'd consider Nextcloud.
+: I replaced my Google Drive usage with a weird setup where I use [Syncthing](https://syncthing.net/) to sync several folders between [my devices](https://blog.alifeee.net/notes/names-for-all-my-computing-devices/), and to share large files I either upload them to my server (bad advice, technical knowledge needed), or I upload them to [Wormhole](https://wormhole.app/) where they get deleted after 24 hours. I don't have much need to share files for a long time, but I'd consider Nextcloud.
 
 Photos -> ???
 : I thought about this a lot, but Google Photos is too good for me. Maybe another day.
@@ -69,7 +69,7 @@ GitHub -> sourcehut, codeberg, gitlab, etc
 ## Android
 
 Android -> [LineageOS](https://lineageos.org/) or [GrapheneOS](https://grapheneos.org/) or [CalyxOS](https://calyxos.org/) ([comparison](https://eylenburg.github.io/android_comparison.htm))
-: I looked into this one a lot, and talked to a few people I knew on Mastodon for advice. Ultimately, I discovered people's opinions and experiences that it was neat, but there were enough compatibility problems to be annoying. Particularly, that banking apps would semi-regularly break on non-stock-Android OSes, and that the banking app companies would say "we don't care". I use a very digital banking app where I only keep between £0 and £50 on my card, and it would be very annoying for me to not shuffle money around easily. I already have boneless Wednesday. I did enjoy [installing LineageOS on an old phone](https://blog.alifeee.co.uk/notes/flashing-an-old-android-phone-with-lineage-os/) though.
+: I looked into this one a lot, and talked to a few people I knew on Mastodon for advice. Ultimately, I discovered people's opinions and experiences that it was neat, but there were enough compatibility problems to be annoying. Particularly, that banking apps would semi-regularly break on non-stock-Android OSes, and that the banking app companies would say "we don't care". I use a very digital banking app where I only keep between £0 and £50 on my card, and it would be very annoying for me to not shuffle money around easily. I already have boneless Wednesday. I did enjoy [installing LineageOS on an old phone](https://blog.alifeee.net/notes/flashing-an-old-android-phone-with-lineage-os/) though.
 
 ## The rest
 

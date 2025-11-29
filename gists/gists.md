@@ -282,7 +282,7 @@ This is auto-updated by my [CV repository](https://github.com/alifeee/json-resum
 
 <figcaption>
 
-After making my CV automatically push to a gist, it was easy to do similar when I was making my [Firefox bookmark exporter](https://github.com/alifeee/firefox-bookmarks). I don't really use this gist, but I guess having the data in machine-readable format is nice. Although [alifeee.co.uk/bookmarks](https://alifeee.co.uk/bookmarks/) probably already fills that role.
+After making my CV automatically push to a gist, it was easy to do similar when I was making my [Firefox bookmark exporter](https://github.com/alifeee/firefox-bookmarks). I don't really use this gist, but I guess having the data in machine-readable format is nice. Although [alifeee.net/bookmarks](https://alifeee.net/bookmarks/) probably already fills that role.
 
 </figcaption>
 
@@ -471,7 +471,7 @@ I like blogs. I like RSS feeds. Often, blogs don't have an RSS feed link. Often,
 
 Thus, I like to try and find the hidden feed. These are the URLs I usually put on the URL to try and find the feed.
 
-For example, [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk/) -> [`blog.alifeee.co.uk/feed.xml`](https://blog.alifeee.co.uk/feed.xml)
+For example, [`blog.alifeee.net`](https://blog.alifeee.net/) -> [`blog.alifeee.net/feed.xml`](https://blog.alifeee.net/feed.xml)
 
 ```text
 /feed
@@ -493,7 +493,7 @@ For example, [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk/) -> [`blog.alife
 
 <figcaption>
 
-As the gist says, I like RSS. You should [use it](https://blog.alifeee.co.uk/feed.xml) to keep up with your [favourite blogs](https://blog.alifeee.co.uk/). Whenever I was on a blog and I couldn't find a link to an RSS feed, I would find myself trying a random combination of the above. I wrote it down so that now I can be more systematic about it, and so that now I can keep up to date with my favourite random personal websites!
+As the gist says, I like RSS. You should [use it](https://blog.alifeee.net/feed.xml) to keep up with your [favourite blogs](https://blog.alifeee.net/). Whenever I was on a blog and I couldn't find a link to an RSS feed, I would find myself trying a random combination of the above. I wrote it down so that now I can be more systematic about it, and so that now I can keep up to date with my favourite random personal websites!
 
 </figcaption>
 
@@ -539,7 +539,7 @@ echo '@font-face {
 
 <figcaption>
 
-For my [font-workshop](https://blog.alifeee.co.uk/font-workshop/) and [font-talk](https://alifeee.co.uk/talks-and-workshops/), I wanted to make a couple of CSS rules for around 100 or more fonts. This was a fun challenge to do using bash, and I ended up with a nice script. It's another one that I only put online because it was easy to do so, and again so that if someone came at Google with a very niche ask, they might find help here.
+For my [font-workshop](https://blog.alifeee.net/font-workshop/) and [font-talk](https://alifeee.net/talks-and-workshops/), I wanted to make a couple of CSS rules for around 100 or more fonts. This was a fun challenge to do using bash, and I ended up with a nice script. It's another one that I only put online because it was easy to do so, and again so that if someone came at Google with a very niche ask, they might find help here.
 
 </figcaption>
 
@@ -612,12 +612,12 @@ I made this gist because I really didn't understand what RSA keys or SSH keys we
 
 ### subdomain redirect
 
-This redirects `webring.alifeee.co.uk` to `localhost:8080`. Without this, you would have to access the endpoint with `webring.alifeee.co.uk:8080`, which looks ugly :(
+This redirects `webring.alifeee.net` to `localhost:8080`. Without this, you would have to access the endpoint with `webring.alifeee.net:8080`, which looks ugly :(
 
 ```nginx
 server {
   listen 80;
-  server_name webring.alifeee.co.uk;
+  server_name webring.alifeee.net;
   location / {
     proxy_pass http://localhost:8080;
   }
@@ -774,7 +774,7 @@ sudo service mumble-server restart
 
 I mainly wrote this one because it seemed like a lot of configuration when I was setting up the Mumble Server, so I wanted to be able to do it again with the same configuration.
 
-I was also a little worried that when I first used Mumble (to play the [Factorio game](https://blog.alifeee.co.uk/factorio-proximity-chat/)), I might have to do some "live" restarting or checking of the server if it broke, and writing down how to do that would make it a lot easier and less stressful.
+I was also a little worried that when I first used Mumble (to play the [Factorio game](https://blog.alifeee.net/factorio-proximity-chat/)), I might have to do some "live" restarting or checking of the server if it broke, and writing down how to do that would make it a lot easier and less stressful.
 
 </figcaption>
 

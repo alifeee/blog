@@ -1,6 +1,6 @@
 # alifeee's blog
 
-This repo contains blog stuff that I write, as well as any code used to generate it. It can be found on [`blog.alifeee.co.uk`](https://blog.alifeee.co.uk)
+This repo contains blog stuff that I write, as well as any code used to generate it. It can be found on [`blog.alifeee.net`](https://blog.alifeee.net)
 
 ## Markdown
 
@@ -28,7 +28,7 @@ sed -i '/import { marked } from /a import { gfmHeadingId } from "marked-gfm-head
 
 ## RSS Feed
 
-An RSS feed is generated using [Python](./utilities.py/rss_feed.py) via [workflow](./.github/workflows/rss.yml). You can find (and subscribe to it) here: <https://blog.alifeee.co.uk/feed.xml>.
+An RSS feed is generated using [Python](./utilities.py/rss_feed.py) via [workflow](./.github/workflows/rss.yml). You can find (and subscribe to it) here: <https://blog.alifeee.net/feed.xml>.
 
 ## Similar posts
 

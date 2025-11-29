@@ -8,7 +8,7 @@ tags:
 - cron
 - nginx
 ---
-I run a Minecraft server weekly on Tuesdays. [Sometimes, I even play on it](https://blog.alifeee.co.uk/notes/creating-a-desktop-overlay-to-view-players-on-a-minecraft-server-with-conky/).
+I run a Minecraft server weekly on Tuesdays. [Sometimes, I even play on it](https://blog.alifeee.net/notes/creating-a-desktop-overlay-to-view-players-on-a-minecraft-server-with-conky/).
 
 This describes automating the process for turning it on and off. Won't somebody at <https://ggservers.com/> please hire me /jk.
 

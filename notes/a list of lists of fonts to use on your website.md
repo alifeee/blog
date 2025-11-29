@@ -5,7 +5,7 @@ tags:
 - personal-websites
 - fonts
 ---
-Somebody asked me for a font. I don't know much about fonts. I do know a whole lot about [*making* fonts](https://alifeee.co.uk/fonts/). I also know a whole lot about surfing the web.
+Somebody asked me for a font. I don't know much about fonts. I do know a whole lot about [*making* fonts](https://alifeee.net/fonts/). I also know a whole lot about surfing the web.
 
 Sometimes, you choose to buy a pastry or a loaf from your local bakery instead of your nearly-local supermarket. In the same way, instead of loading up Google Fonts, you could consider picking a font from one of the lists on this page.
 
@@ -23,4 +23,4 @@ I also searched the web, searching for "fonts for the web" - which didn't turn u
 - list of lists of fonts: <https://nuxill.neocities.org/resources#fonts>
 - list of freee fonts: <https://goblin-heart.net/sadgrl/webmastery/downloads/fonts>
 
-Never forget, you could also spend way too much time… [making your own font](https://blog.alifeee.co.uk/making-bogface/).
+Never forget, you could also spend way too much time… [making your own font](https://blog.alifeee.net/making-bogface/).
