@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script defer src="slide.js"></script>
+<script>
+function show(showt) {
+  // set query param
+  const url = new URL(window.location)
+  url.searchParams.set("c", showt)
+  history.pushState(null, '', url);
+
+  document.querySelectorAll(
+    "article.cover,article.opacity,article.blinkers,article.hover"
+  ).forEach(e => e.classList.add("hidden"))
+  document.querySelectorAll(
+    "article." + showt
+  ).forEach(e => e.classList.remove("hidden"))
+}
+function slide(img1, img2) {
+  return function (e) {
+    // funky maths eh
+    let x = e.target.value ** (1/2);
+    img1.style.opacity = 2 * x - x ** 2;
+    img2.style.opacity = 1 - x ** 2;
+  };
+}
+let state = false;
+function swapblinkers() {
+  let images1 = document.querySelectorAll("img-blinker img:nth-child(1)");
+  let images2 = document.querySelectorAll("img-blinker img:nth-child(2)");
+  console.log("swapping!");
+
+  images1.forEach((img) => {
+    img.style.opacity = state ? 1 : 0;
+  });
+  images2.forEach((img) => {
+    img.style.opacity = state ? 0 : 1;
+  });
+
+  state = !state;
+
+  setTimeout(() => {
+    swapblinkers();
+  }, 500 + (state ? 0 : 100));
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const comparison = urlParams.get('c');
+  if (comparison) show(comparison);
+  document.querySelectorAll("img-opacity-slider").forEach((el) => {
+    let slider = el.querySelector("input.opacity-slider");
+    let img1 = el.querySelector("img:nth-child(1)");
+    let img2 = el.querySelector("img:nth-child(2)");
+    slider.addEventListener("input", slide(img1, img2));
+  });
+  swapblinkers();
+});
+</script>
+<link rel="stylesheet" href="slide.css"/>
+<style>
+@font-face {
+  font-family: "Minecraft";
+  src: url("MinecraftRegular-Bmg3.otf");
+}
+html, body {
+  background-color: black;
+  color: white;
+  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+header button {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+}
+img-comparison-slider img,
+img-opacity-slider img,
+img-blinker img,
+img-hover img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: min-content;
+  height: auto;
+  object-fit: cover;
+}
+img-opacity-slider,
+img-blinker,
+img-hover {
+  display: grid;
+  grid-template-areas: "images";
+  width: min-content;
+}
+img-opacity-slider img,
+img-blinker img,
+img-hover img {
+  grid-area: images;
+}
+img-opacity-slider img {
+  opacity: 0.75;
+}
+img-hover {
+  cursor: not-allowed;
+}
+img-hover:hover img:nth-child(2) {
+  opacity: 0;
+}
+input.opacity-slider {
+  max-width: 90vw;
+}
+.hidden {
+  display: none;
+}
+footer {
+  padding: 4rem 0;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Minecraft</h1>
+<p>
+Comparison type:
+<button onclick='show("cover")'>sliders (1)</button>
+<button onclick='show("opacity")'>sliders (2)</button>
+<button onclick='show("blinkers")'>blinking</button>
+<button onclick='show("hover")'>hover</button>
+</p>
+</header>
+<main>
+<section class="comparisons">
+<form autocomplete="off">
+<h2 id='clarices'>clarices <a href='#clarices'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+<input data-id="clarices" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+</img-hover>
+</article>
+<h2 id='pier'>pier <a href='#pier'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+<input data-id="pier" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+</img-hover>
+</article>
+<h2 id='icy-raceways'>icy-raceways <a href='#icy-raceways'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+<input data-id="icy-raceways" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+</img-hover>
+</article>
+<h2 id='sakura-garden'>sakura-garden <a href='#sakura-garden'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+<input data-id="sakura-garden" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+</img-hover>
+</article>
+<h2 id='pagoda'>pagoda <a href='#pagoda'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/pagoda.png" />
+<img slot="second" src="images/pagoda2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/pagoda.png" />
+<img slot="second" src="images/pagoda2.png" />
+<input data-id="pagoda" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/pagoda.png" />
+<img slot="second" src="images/pagoda2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/pagoda.png" />
+<img slot="second" src="images/pagoda2.png" />
+</img-hover>
+</article>
+<h2 id='qr-code'>qr-code <a href='#qr-code'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/qr-code.png" />
+<img slot="second" src="images/qr-code2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/qr-code.png" />
+<img slot="second" src="images/qr-code2.png" />
+<input data-id="qr-code" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/qr-code.png" />
+<img slot="second" src="images/qr-code2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/qr-code.png" />
+<img slot="second" src="images/qr-code2.png" />
+</img-hover>
+</article>
+<h2 id='cathedral-back'>cathedral-back <a href='#cathedral-back'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+<input data-id="cathedral-back" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+</img-hover>
+</article>
+<h2 id='railway-bridge'>railway-bridge <a href='#railway-bridge'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+<input data-id="railway-bridge" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+</img-hover>
+</article>
+<h2 id='volkswagen-mountain'>volkswagen-mountain <a href='#volkswagen-mountain'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+<input data-id="volkswagen-mountain" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+</img-hover>
+</article>
+<h2 id='anguses'>anguses <a href='#anguses'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+<input data-id="anguses" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+</img-hover>
+</article>
+</form>
+</section>
+</main>
+<footer></footer>
+</body>
