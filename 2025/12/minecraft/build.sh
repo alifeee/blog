@@ -10,114 +10,19 @@ cat << EOHTML > "${tempfile}"
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script defer src="slide.js"></script>
 <script>
-function show(showt) {
-  // set query param
-  const url = new URL(window.location)
-  url.searchParams.set("c", showt)
-  history.pushState(null, '', url);
+EOHTML
 
-  document.querySelectorAll(
-    "article.cover,article.opacity,article.blinkers,article.hover"
-  ).forEach(e => e.classList.add("hidden"))
-  document.querySelectorAll(
-    "article." + showt
-  ).forEach(e => e.classList.remove("hidden"))
-}
-function slide(img1, img2) {
-  return function (e) {
-    // funky maths eh
-    let x = e.target.value ** (1/2);
-    img1.style.opacity = 2 * x - x ** 2;
-    img2.style.opacity = 1 - x ** 2;
-  };
-}
-let state = false;
-function swapblinkers() {
-  let images1 = document.querySelectorAll("img-blinker img:nth-child(1)");
-  let images2 = document.querySelectorAll("img-blinker img:nth-child(2)");
-  console.log("swapping!");
+cat script.js >> "${tempfile}"
 
-  images1.forEach((img) => {
-    img.style.opacity = state ? 1 : 0;
-  });
-  images2.forEach((img) => {
-    img.style.opacity = state ? 0 : 1;
-  });
-
-  state = !state;
-
-  setTimeout(() => {
-    swapblinkers();
-  }, 500 + (state ? 0 : 100));
-}
-document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const comparison = urlParams.get('c');
-  if (comparison) show(comparison);
-  document.querySelectorAll("img-opacity-slider").forEach((el) => {
-    let slider = el.querySelector("input.opacity-slider");
-    let img1 = el.querySelector("img:nth-child(1)");
-    let img2 = el.querySelector("img:nth-child(2)");
-    slider.addEventListener("input", slide(img1, img2));
-  });
-  swapblinkers();
-});
+cat << EOHTML >> "${tempfile}"
 </script>
 <link rel="stylesheet" href="slide.css"/>
 <style>
-@font-face {
-  font-family: "Minecraft";
-  src: url("MinecraftRegular-Bmg3.otf");
-}
-html, body {
-  background-color: black;
-  color: white;
-  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-header button {
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
-}
-img-comparison-slider img,
-img-opacity-slider img,
-img-blinker img,
-img-hover img {
-  max-width: 90vw;
-  max-height: 85vh;
-  width: min-content;
-  height: auto;
-  object-fit: cover;
-}
-img-opacity-slider,
-img-blinker,
-img-hover {
-  display: grid;
-  grid-template-areas: "images";
-  width: min-content;
-}
-img-opacity-slider img,
-img-blinker img,
-img-hover img {
-  grid-area: images;
-}
-img-opacity-slider img {
-  opacity: 0.75;
-}
-img-hover {
-  cursor: not-allowed;
-}
-img-hover:hover img:nth-child(2) {
-  opacity: 0;
-}
-input.opacity-slider {
-  max-width: 90vw;
-}
-.hidden {
-  display: none;
-}
-footer {
-  padding: 4rem 0;
-}
+EOHTML
+
+cat style.css >> "${tempfile}"
+
+cat << EOHTML >> "${tempfile}"
 </style>
 </head>
 <body>
@@ -125,10 +30,10 @@ footer {
 <h1>Minecraft</h1>
 <p>
 Comparison type:
-<button onclick='show("cover")'>sliders (1)</button>
-<button onclick='show("opacity")'>sliders (2)</button>
-<button onclick='show("blinkers")'>blinking</button>
-<button onclick='show("hover")'>hover</button>
+<button id="btn-cover" onclick='show("cover")'>sliders (1)</button>
+<button id="btn-opacity" onclick='show("opacity")'>sliders (2)</button>
+<button id="btn-blinkers" onclick='show("blinkers")'>blinking</button>
+<button id="btn-hover" onclick='show("hover")'>hover</button>
 </p>
 </header>
 <main>

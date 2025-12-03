@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("MinecraftRegular-Bmg3.otf");
+}
+html,
+body {
+  background-color: black;
+  color: white;
+  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+header button {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+}
+header button.active {
+  background-color: lightgreen;
+}
+img-comparison-slider img,
+img-opacity-slider img,
+img-blinker img,
+img-hover img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: min-content;
+  height: auto;
+  object-fit: cover;
+}
+img-opacity-slider,
+img-blinker,
+img-hover {
+  display: grid;
+  grid-template-areas: "images";
+  width: min-content;
+}
+img-opacity-slider img,
+img-blinker img,
+img-hover img {
+  grid-area: images;
+}
+img-opacity-slider img {
+  opacity: 0.75;
+}
+img-hover {
+  cursor: not-allowed;
+}
+img-hover:hover img:nth-child(2) {
+  opacity: 0;
+}
+input.opacity-slider {
+  max-width: 90vw;
+}
+.hidden {
+  display: none;
+}
+footer {
+  padding: 4rem 0;
+}
