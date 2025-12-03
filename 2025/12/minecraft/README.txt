@@ -9,6 +9,8 @@ commands to ensure same time of day:
 
 make sure FOV is the same (creative flying/beacons etc)
 
+press F3+C to copy teleport command (which includes look direction)
+
 locations:
 
 volkswagen-mountain
