@@ -91,6 +91,7 @@ cat << EOHTML >> "${tempfile}"
 <p>I've overlayed the images below, I think it looks nice! Take a look at the different ways of comparing the images and let me know your favourite :] (press the buttons at the bottom)</p>
 
 </header>
+<hr>
 <main>
 <section id="buttons">
 <button id="btn-cover" onclick='show("cover")'>sliders 1</button>
