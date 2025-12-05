@@ -89,6 +89,7 @@ cat << EOHTML >> "${tempfile}"
 /execute in minecraft:overworld run tp @s 484.55 134.00 96.61 -154.35 17.55</code></p>
 <p>…which teleports you to an exact location – but more importantly – looking at an exact angle. The numbers in the command are are x-, y-, z-coordinates, and two parameters which encode viewing angle ("theta" and "phi").</p>
 <p>I've overlayed the images below, I think it looks nice! Take a look at the different ways of comparing the images and let me know your favourite :] (press the buttons at the bottom)</p>
+<p>My favourite is sliders 2. mmmm opacity</p>
 
 </header>
 <hr>
