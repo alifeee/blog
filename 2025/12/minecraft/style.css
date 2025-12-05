@@ -9,13 +9,24 @@ body {
   font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
 }
-header button {
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
+a,
+a:visited {
+  color: white;
 }
-header button.active {
-  background-color: lightgreen;
+
+header > p {
+  max-width: 40rem;
 }
+
+#custompic {
+  border: 1px solid white;
+  padding: 0.5rem;
+  width: max-content;
+}
+#custompic > * {
+  margin: 0.5rem 0;
+}
+
 img-comparison-slider img,
 img-opacity-slider img,
 img-blinker img,
@@ -55,4 +66,23 @@ input.opacity-slider {
 }
 footer {
   padding: 4rem 0;
+}
+#buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+#buttons button {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  flex: 1 1 10rem;
+  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+#buttons button.active {
+  background-color: lightgreen;
 }

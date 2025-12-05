@@ -13,10 +13,12 @@ function show(showt) {
     .querySelectorAll("article." + showt)
     .forEach((e) => e.classList.remove("hidden"));
 
-  document.querySelectorAll("header button").forEach((btn) => {
+  document.querySelectorAll("#buttons button").forEach((btn) => {
     btn.classList.remove("active");
   });
-  document.querySelector("header button#btn-" + showt).classList.add("active");
+  document
+    .querySelector("#buttons button#btn-" + showt)
+    .classList.add("active");
 }
 function slide(img1, img2) {
   return function (e) {
@@ -30,7 +32,6 @@ let state = false;
 function swapblinkers() {
   let images1 = document.querySelectorAll("img-blinker img:nth-child(1)");
   let images2 = document.querySelectorAll("img-blinker img:nth-child(2)");
-  console.log("swapping!");
 
   images1.forEach((img) => {
     img.style.opacity = state ? 1 : 0;
@@ -45,10 +46,52 @@ function swapblinkers() {
     swapblinkers();
   }, 500 + (state ? 0 : 100));
 }
+let n_custom = 1;
+function addcustompic(e) {
+  e.preventDefault();
+
+  // create comparison element
+  const comparisonTemplate = document.querySelector(".comparison.template");
+  let newComparison = comparisonTemplate.cloneNode(true);
+  newComparison.querySelector("h2").innerText = "Custom " + n_custom;
+  let imgs1 = newComparison.querySelectorAll('img[slot="first"]');
+  let imgs2 = newComparison.querySelectorAll('img[slot="second"]');
+  newComparison
+    .querySelector("input.opacity-slider")
+    .addEventListener("input", slide(imgs1[1], imgs2[1]));
+  newComparison.style.display = "unset";
+  document.querySelector(".custom-comparisons").append(newComparison);
+
+  // get form data (images)
+  const form = e.target;
+  const formData = new FormData(form);
+  let p1 = formData.get("custompic1");
+  let p2 = formData.get("custompic2");
+  const reader1 = new FileReader();
+  const reader2 = new FileReader();
+
+  // update images
+  reader1.onload = function (e) {
+    imgs1.forEach((img) => {
+      img.src = e.target.result;
+    });
+  };
+  reader2.onload = function (e) {
+    imgs2.forEach((img) => {
+      img.src = e.target.result;
+    });
+  };
+  reader1.readAsDataURL(p1);
+  reader2.readAsDataURL(p2);
+
+  n_custom++;
+}
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const comparison = urlParams.get("c");
-  if (comparison) show(comparison);
+  show(comparison ?? "cover");
+  console.log(`show(comparison ?? "cover");`);
+  console.log(`show(${comparison ?? "cover"});`);
 
   document.querySelectorAll("img-opacity-slider").forEach((el) => {
     let slider = el.querySelector("input.opacity-slider");
@@ -57,4 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.addEventListener("input", slide(img1, img2));
   });
   swapblinkers();
+
+  document.getElementById("custompic").addEventListener("submit", addcustompic);
 });

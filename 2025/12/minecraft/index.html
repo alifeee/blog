@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>alifeee - Pictures from a proximity voice chat Minecraft server</title>
+<!-- browser metas -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Side-by-side comparison pictures of a developed Minecraft world with the initial empty world"
+/>
+
+<!-- embed metas - https://ogp.me/ -->
+<meta property="og:title" content="Pictures from a proximity voice chat Minecraft server" />
+<meta property="og:type" content="website" />
+<meta property="og:site" content="alifeee's blog" />
+<meta
+  property="og:url"
+  content="https://blog.alifeee.net/2025/12/minecraft/"
+/>
+<meta
+  property="og:image"
+  content="https://blog.alifeee.net/2025/12/minecraft/og-image.webp"
+/>
+<meta
+  property="og:description"
+  content="Side-by-side comparison pictures of a developed Minecraft world with the initial empty world"
+/>
+<meta property="og:locale" content="en_GB" />
+
+<!-- RSS link -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="RSS Feed for blog.alifeee.net"
+  href="/feed.xml"
+/>
+
+<!-- link to mastodon -->
+<meta property="fediverse:creator" content="@alifeee@mastodon.social" />
+
+<!-- favicon -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script defer src="slide.js"></script>
 <script>
@@ -19,10 +60,12 @@ function show(showt) {
     .querySelectorAll("article." + showt)
     .forEach((e) => e.classList.remove("hidden"));
 
-  document.querySelectorAll("header button").forEach((btn) => {
+  document.querySelectorAll("#buttons button").forEach((btn) => {
     btn.classList.remove("active");
   });
-  document.querySelector("header button#btn-" + showt).classList.add("active");
+  document
+    .querySelector("#buttons button#btn-" + showt)
+    .classList.add("active");
 }
 function slide(img1, img2) {
   return function (e) {
@@ -36,7 +79,6 @@ let state = false;
 function swapblinkers() {
   let images1 = document.querySelectorAll("img-blinker img:nth-child(1)");
   let images2 = document.querySelectorAll("img-blinker img:nth-child(2)");
-  console.log("swapping!");
 
   images1.forEach((img) => {
     img.style.opacity = state ? 1 : 0;
@@ -51,10 +93,52 @@ function swapblinkers() {
     swapblinkers();
   }, 500 + (state ? 0 : 100));
 }
+let n_custom = 1;
+function addcustompic(e) {
+  e.preventDefault();
+
+  // create comparison element
+  const comparisonTemplate = document.querySelector(".comparison.template");
+  let newComparison = comparisonTemplate.cloneNode(true);
+  newComparison.querySelector("h2").innerText = "Custom " + n_custom;
+  let imgs1 = newComparison.querySelectorAll('img[slot="first"]');
+  let imgs2 = newComparison.querySelectorAll('img[slot="second"]');
+  newComparison
+    .querySelector("input.opacity-slider")
+    .addEventListener("input", slide(imgs1[1], imgs2[1]));
+  newComparison.style.display = "unset";
+  document.querySelector(".custom-comparisons").append(newComparison);
+
+  // get form data (images)
+  const form = e.target;
+  const formData = new FormData(form);
+  let p1 = formData.get("custompic1");
+  let p2 = formData.get("custompic2");
+  const reader1 = new FileReader();
+  const reader2 = new FileReader();
+
+  // update images
+  reader1.onload = function (e) {
+    imgs1.forEach((img) => {
+      img.src = e.target.result;
+    });
+  };
+  reader2.onload = function (e) {
+    imgs2.forEach((img) => {
+      img.src = e.target.result;
+    });
+  };
+  reader1.readAsDataURL(p1);
+  reader2.readAsDataURL(p2);
+
+  n_custom++;
+}
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const comparison = urlParams.get("c");
-  if (comparison) show(comparison);
+  show(comparison ?? "cover");
+  console.log(`show(comparison ?? "cover");`);
+  console.log(`show(${comparison ?? "cover"});`);
 
   document.querySelectorAll("img-opacity-slider").forEach((el) => {
     let slider = el.querySelector("input.opacity-slider");
@@ -63,6 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.addEventListener("input", slide(img1, img2));
   });
   swapblinkers();
+
+  document.getElementById("custompic").addEventListener("submit", addcustompic);
 });
 </script>
 <link rel="stylesheet" href="slide.css"/>
@@ -78,13 +164,24 @@ body {
   font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
 }
-header button {
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
+a,
+a:visited {
+  color: white;
 }
-header button.active {
-  background-color: lightgreen;
+
+header > p {
+  max-width: 40rem;
 }
+
+#custompic {
+  border: 1px solid white;
+  padding: 0.5rem;
+  width: max-content;
+}
+#custompic > * {
+  margin: 0.5rem 0;
+}
+
 img-comparison-slider img,
 img-opacity-slider img,
 img-blinker img,
@@ -125,230 +222,93 @@ input.opacity-slider {
 footer {
   padding: 4rem 0;
 }
+#buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+#buttons button {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  flex: 1 1 10rem;
+  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+#buttons button.active {
+  background-color: lightgreen;
+}
 </style>
 </head>
 <body>
 <header>
-<h1>Minecraft</h1>
-<p>
-Comparison type:
-<button id="btn-cover" onclick='show("cover")'>sliders (1)</button>
-<button id="btn-opacity" onclick='show("opacity")'>sliders (2)</button>
-<button id="btn-blinkers" onclick='show("blinkers")'>blinking</button>
-<button id="btn-hover" onclick='show("hover")'>hover</button>
-</p>
+<h1 id="top">Pictures from a proximity voice chat Minecraft server</h1>
+<p><a href="/">back to main page</a></p>
+<p>Table of Contents</p>
+<ul>
+<li><a href="#top">Introduction</a></li>
+<li><a href="#qr-code">Pictures</a></li>
+<li><a href="#custompic">Custom pictures</a></li>
+</ul>
+
+<p>I have fallen into a pattern of organising my group of friends to play a different video game each year with proximity chat. Sometimes proximity chat exists as a feature in the game. Sometimes <a href="/factorio-proximity-chat/">I have to mod it in</a>.</p>
+<p>This year, I hosted Minecraft; once a week for a few hours every Tuesday evening. Most people (including me) stopped playing after a few months, and a few people still log on every week.</p>
+<p>As well as providing an online <a href="https://github.com/webbukkit/dynmap">DynMap</a> on <a href="https://map.mc.alifeee.net/">map.mc.alifeee.net</a>, I took some time this week to take screenshots of a few areas in the world which have been built in, as well as taking the exact same screenshot of the fresh world.</p>
+<p>To do this, I loaded two worlds: the world as-is, and a fresh world generated with the same seed. I then made sure the time of day would be the same by running the Minecraft commands:</p>
+<p><code><pre>
+/gamerule DoDaylightCycle false
+/time set 2000</pre></code></p>
+<p>I then found some screenshot locations, and used a command shortcut that I knew existed, but couldn't find on the Internet: pressing <code>F3 and C</code> to copy the "teleport command" for that location — which also holds the current viewing angle. This results in a command like:</p>
+<p><code>
+/execute in minecraft:overworld run tp @s 484.55 134.00 96.61 -154.35 17.55</code></p>
+<p>…which teleports you to an exact location – but more importantly – looking at an exact angle. The numbers in the command are are x-, y-, z-coordinates, and two parameters which encode viewing angle ("theta" and "phi").</p>
+<p>I've overlayed the images below, I think it looks nice! Take a look at the different ways of comparing the images and let me know your favourite :] (press the buttons at the bottom)</p>
+
 </header>
 <main>
-<section class="comparisons">
+<section id="buttons">
+<button id="btn-cover" onclick='show("cover")'>sliders 1</button>
+<button id="btn-opacity" onclick='show("opacity")'>sliders 2</button>
+<button id="btn-blinkers" onclick='show("blinkers")'>blinking</button>
+<button id="btn-hover" onclick='show("hover")'>hover</button>
+</section>
 <form autocomplete="off">
-<h2 id='cathedral-back'>cathedral-back <a href='#cathedral-back'>#</a></h2>
+<section class="comparisons">
+<div class='comparison template
+hidden
+'>
+<h2 id='template'>template <a href='#template'>#</a></h2>
 <article class="cover">
 <img-comparison-slider>
-<img slot="first" src="images/cathedral-back.png" />
-<img slot="second" src="images/cathedral-back2.png" />
+<img slot="first" src="images/template.png" />
+<img slot="second" src="images/template2.png" />
 </img-comparison-slider>
 </article>
 <article class="opacity hidden">
 <img-opacity-slider>
-<img slot="first" src="images/cathedral-back.png" />
-<img slot="second" src="images/cathedral-back2.png" />
-<input data-id="cathedral-back" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+<img slot="first" src="images/template.png" />
+<img slot="second" src="images/template2.png" />
+<input data-id="template" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
 </img-opacity-slider>
 </article>
 <article class="blinkers hidden">
 <img-blinker>
-<img slot="first" src="images/cathedral-back.png" />
-<img slot="second" src="images/cathedral-back2.png" />
+<img slot="first" src="images/template.png" />
+<img slot="second" src="images/template2.png" />
 </img-blinker>
 </article>
 <article class="hover hidden">
 <img-hover>
-<img slot="first" src="images/cathedral-back.png" />
-<img slot="second" src="images/cathedral-back2.png" />
+<img slot="first" src="images/template.png" />
+<img slot="second" src="images/template2.png" />
 </img-hover>
 </article>
-<h2 id='clarices'>clarices <a href='#clarices'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/clarices.png" />
-<img slot="second" src="images/clarices2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/clarices.png" />
-<img slot="second" src="images/clarices2.png" />
-<input data-id="clarices" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/clarices.png" />
-<img slot="second" src="images/clarices2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/clarices.png" />
-<img slot="second" src="images/clarices2.png" />
-</img-hover>
-</article>
-<h2 id='icy-raceways'>icy-raceways <a href='#icy-raceways'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/icy-raceways.png" />
-<img slot="second" src="images/icy-raceways2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/icy-raceways.png" />
-<img slot="second" src="images/icy-raceways2.png" />
-<input data-id="icy-raceways" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/icy-raceways.png" />
-<img slot="second" src="images/icy-raceways2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/icy-raceways.png" />
-<img slot="second" src="images/icy-raceways2.png" />
-</img-hover>
-</article>
-<h2 id='pier'>pier <a href='#pier'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/pier.png" />
-<img slot="second" src="images/pier2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/pier.png" />
-<img slot="second" src="images/pier2.png" />
-<input data-id="pier" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/pier.png" />
-<img slot="second" src="images/pier2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/pier.png" />
-<img slot="second" src="images/pier2.png" />
-</img-hover>
-</article>
-<h2 id='railway-bridge'>railway-bridge <a href='#railway-bridge'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/railway-bridge.png" />
-<img slot="second" src="images/railway-bridge2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/railway-bridge.png" />
-<img slot="second" src="images/railway-bridge2.png" />
-<input data-id="railway-bridge" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/railway-bridge.png" />
-<img slot="second" src="images/railway-bridge2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/railway-bridge.png" />
-<img slot="second" src="images/railway-bridge2.png" />
-</img-hover>
-</article>
-<h2 id='anguses'>anguses <a href='#anguses'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/anguses.png" />
-<img slot="second" src="images/anguses2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/anguses.png" />
-<img slot="second" src="images/anguses2.png" />
-<input data-id="anguses" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/anguses.png" />
-<img slot="second" src="images/anguses2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/anguses.png" />
-<img slot="second" src="images/anguses2.png" />
-</img-hover>
-</article>
-<h2 id='volkswagen-mountain'>volkswagen-mountain <a href='#volkswagen-mountain'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/volkswagen-mountain.png" />
-<img slot="second" src="images/volkswagen-mountain2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/volkswagen-mountain.png" />
-<img slot="second" src="images/volkswagen-mountain2.png" />
-<input data-id="volkswagen-mountain" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/volkswagen-mountain.png" />
-<img slot="second" src="images/volkswagen-mountain2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/volkswagen-mountain.png" />
-<img slot="second" src="images/volkswagen-mountain2.png" />
-</img-hover>
-</article>
-<h2 id='sakura-garden'>sakura-garden <a href='#sakura-garden'>#</a></h2>
-<article class="cover">
-<img-comparison-slider>
-<img slot="first" src="images/sakura-garden.png" />
-<img slot="second" src="images/sakura-garden2.png" />
-</img-comparison-slider>
-</article>
-<article class="opacity hidden">
-<img-opacity-slider>
-<img slot="first" src="images/sakura-garden.png" />
-<img slot="second" src="images/sakura-garden2.png" />
-<input data-id="sakura-garden" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
-</img-opacity-slider>
-</article>
-<article class="blinkers hidden">
-<img-blinker>
-<img slot="first" src="images/sakura-garden.png" />
-<img slot="second" src="images/sakura-garden2.png" />
-</img-blinker>
-</article>
-<article class="hover hidden">
-<img-hover>
-<img slot="first" src="images/sakura-garden.png" />
-<img slot="second" src="images/sakura-garden2.png" />
-</img-hover>
-</article>
+</div>
+<div class='comparison qr-code
+'>
 <h2 id='qr-code'>qr-code <a href='#qr-code'>#</a></h2>
 <article class="cover">
 <img-comparison-slider>
@@ -375,6 +335,183 @@ Comparison type:
 <img slot="second" src="images/qr-code2.png" />
 </img-hover>
 </article>
+</div>
+<div class='comparison volkswagen-mountain
+'>
+<h2 id='volkswagen-mountain'>volkswagen-mountain <a href='#volkswagen-mountain'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+<input data-id="volkswagen-mountain" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/volkswagen-mountain.png" />
+<img slot="second" src="images/volkswagen-mountain2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison pier
+'>
+<h2 id='pier'>pier <a href='#pier'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+<input data-id="pier" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/pier.png" />
+<img slot="second" src="images/pier2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison clarices
+'>
+<h2 id='clarices'>clarices <a href='#clarices'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+<input data-id="clarices" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/clarices.png" />
+<img slot="second" src="images/clarices2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison cathedral-back
+'>
+<h2 id='cathedral-back'>cathedral-back <a href='#cathedral-back'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+<input data-id="cathedral-back" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/cathedral-back.png" />
+<img slot="second" src="images/cathedral-back2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison railway-bridge
+'>
+<h2 id='railway-bridge'>railway-bridge <a href='#railway-bridge'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+<input data-id="railway-bridge" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/railway-bridge.png" />
+<img slot="second" src="images/railway-bridge2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison anguses
+'>
+<h2 id='anguses'>anguses <a href='#anguses'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+<input data-id="anguses" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/anguses.png" />
+<img slot="second" src="images/anguses2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison pagoda
+'>
 <h2 id='pagoda'>pagoda <a href='#pagoda'>#</a></h2>
 <article class="cover">
 <img-comparison-slider>
@@ -401,8 +538,87 @@ Comparison type:
 <img slot="second" src="images/pagoda2.png" />
 </img-hover>
 </article>
+</div>
+<div class='comparison sakura-garden
+'>
+<h2 id='sakura-garden'>sakura-garden <a href='#sakura-garden'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+<input data-id="sakura-garden" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/sakura-garden.png" />
+<img slot="second" src="images/sakura-garden2.png" />
+</img-hover>
+</article>
+</div>
+<div class='comparison icy-raceways
+'>
+<h2 id='icy-raceways'>icy-raceways <a href='#icy-raceways'>#</a></h2>
+<article class="cover">
+<img-comparison-slider>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+</img-comparison-slider>
+</article>
+<article class="opacity hidden">
+<img-opacity-slider>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+<input data-id="icy-raceways" class="opacity-slider" type="range" min="0" max="1" step="0.001" value="0.25"/>
+</img-opacity-slider>
+</article>
+<article class="blinkers hidden">
+<img-blinker>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+</img-blinker>
+</article>
+<article class="hover hidden">
+<img-hover>
+<img slot="first" src="images/icy-raceways.png" />
+<img slot="second" src="images/icy-raceways2.png" />
+</img-hover>
+</article>
+</div>
 </form>
 </section>
+<hr>
+<h2>Custom Comparison Pictures</h2>
+<p>If that's not enough for you (or if you think my FOV is wacky), you can follow my instructions above and take your own screenshots. Upload them below to make a custom side-by-side comparison. Any custom comparisons will disappear when you refresh the page.</p>
+<section class="manualpics">
+<form id="custompic">
+<label for="custompic1">Custom picture 1:</label>
+<input type="file" id="custompic1" name="custompic1" accept="image/png, image/jpeg" required />
+<br>
+<label for="custompic2">Custom picture 2:</label>
+<input type="file" id="custompic2" name="custompic2" accept="image/png, image/jpeg" required />
+<br>
+<button type="submit">Add custom image comparison</button>
+</form>
+</section>
+<form autocomplete="off">
+<section class="custom-comparisons">
+</section>
+</form>
 </main>
-<footer></footer>
+<footer>
+<p><a href="/">back to main page</a></p>
+</footer>
 </body>
