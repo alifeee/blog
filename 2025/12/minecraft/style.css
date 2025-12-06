@@ -21,8 +21,16 @@ a:visited {
   color: white;
 }
 
-header > p {
+header .blurb {
+  max-width: max-content;
+}
+header .blurb > p {
   max-width: 40rem;
+}
+@media (min-width: 60rem) {
+  header .blurb {
+    columns: 2;
+  }
 }
 
 #custompic {

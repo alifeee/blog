@@ -176,8 +176,16 @@ a:visited {
   color: white;
 }
 
-header > p {
+header .blurb {
+  max-width: max-content;
+}
+header .blurb > p {
   max-width: 40rem;
+}
+@media (min-width: 60rem) {
+  header .blurb {
+    columns: 2;
+  }
 }
 
 #custompic {
@@ -253,13 +261,14 @@ footer {
 <body>
 <header>
 <h1 id="top">Pictures from a proximity voice chat Minecraft server</h1>
-<p><a href="/">back to main page</a></p>
+<section class="blurb">
 <p>Table of Contents</p>
 <ul>
 <li><a href="#top">Introduction</a></li>
 <li><a href="#qr-code">Pictures</a></li>
 <li><a href="#custompic">Custom pictures</a></li>
 </ul>
+<p><a href="/">back to main page</a></p>
 
 <p>I have fallen into a pattern of organising my group of friends to play a different video game each year with proximity chat. Sometimes proximity chat exists as a feature in the game. Sometimes <a href="/factorio-proximity-chat/">I have to mod it in</a>.</p>
 <p>This year, I hosted Minecraft; once a week for a few hours every Tuesday evening. Most people (including me) stopped playing after a few months, and a few people still log on every week.</p>
@@ -274,7 +283,7 @@ footer {
 <p>…which teleports you to an exact location – but more importantly – looking at an exact angle. The numbers in the command are are x-, y-, z-coordinates, and two parameters which encode viewing angle ("theta" and "phi").</p>
 <p>I've overlayed the images below, I think it looks nice! Take a look at the different ways of comparing the images and let me know your favourite :] (press the buttons at the bottom)</p>
 <p>My favourite is sliders 2. mmmm opacity</p>
-
+</section>
 </header>
 <hr>
 <main>
