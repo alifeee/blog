@@ -4,12 +4,20 @@
 
 <title>alifeee's blog</title>
 <link href='https://blog.alifeee.net/feed.xml' rel='self' />
-<updated>2025-10-31T00:00:00+00:00</updated>
+<updated>2025-12-06T00:00:00+00:00</updated>
 <author>
   <name>alifeee</name>
 </author>
 <id>https://blog.alifeee.net/</id>
 <icon>https://blog.alifeee.net/og-image.png</icon>
+
+<entry>
+  <title>Pictures from a proximity voice chat Minecraft server</title>
+  <link href='https://blog.alifeee.net/2025/12/minecraft/' />
+  <id>https://blog.alifeee.net/2025/12/minecraft/</id>
+  <updated>2025-12-06T00:00:00+00:00</updated>
+  <summary>Side-by-side comparison pictures of a developed Minecraft world with the initial empty world</summary>
+</entry>
 
 <entry>
   <title>The Great Carambar Swap</title>
@@ -38,7 +46,7 @@
 <entry>
   <title>Hitchhiking!</title>
   <link href='https://blog.alifeee.net/2024/12/hitchhiking/' />
-  <id>https://blog.alifeee.net//2024/12/hitchhiking/</id>
+  <id>https://blog.alifeee.net/2024/12/hitchhiking/</id>
   <updated>2024-12-27T00:00:00+00:00</updated>
   <summary>all my hitchhiking trips so far</summary>
 </entry>
@@ -46,7 +54,7 @@
 <entry>
   <title>Sellotape Dispenser</title>
   <link href='https://blog.alifeee.net/2024/09/sellotape-dispenser/' />
-  <id>https://blog.alifeee.net//2024/09/sellotape-dispenser/</id>
+  <id>https://blog.alifeee.net/2024/09/sellotape-dispenser/</id>
   <updated>2024-09-23T00:00:00+00:00</updated>
   <summary>3D printing a repair for my sellotape dispenser</summary>
 </entry>
@@ -54,7 +62,7 @@
 <entry>
   <title>Easy envelope</title>
   <link href='https://blog.alifeee.net/2024/09/fold-an-envelope/' />
-  <id>https://blog.alifeee.net//2024/09/fold-an-envelope/</id>
+  <id>https://blog.alifeee.net/2024/09/fold-an-envelope/</id>
   <updated>2024-09-08T00:00:00+00:00</updated>
   <summary>Folding an A4 sheet into its own envelope</summary>
 </entry>
@@ -62,7 +70,7 @@
 <entry>
   <title>UK Railcards</title>
   <link href='https://blog.alifeee.net/railcards' />
-  <id>https://blog.alifeee.net//railcards</id>
+  <id>https://blog.alifeee.net/railcards</id>
   <updated>2024-06-09T00:00:00+00:00</updated>
   <summary>UK Railcards and all the differences between the 16-25 and 26-30 Railcard</summary>
 </entry>
@@ -70,7 +78,7 @@
 <entry>
   <title>My GitHub Gists</title>
   <link href='https://blog.alifeee.net/gists' />
-  <id>https://blog.alifeee.net//gists</id>
+  <id>https://blog.alifeee.net/gists</id>
   <updated>2024-05-01T00:00:00+00:00</updated>
   <summary>Why I like (GitHub) gists and a short tour through ones I have created</summary>
 </entry>
@@ -78,7 +86,7 @@
 <entry>
   <title>I ran a computer font-making workshop!</title>
   <link href='https://blog.alifeee.net/font-workshop' />
-  <id>https://blog.alifeee.net//font-workshop</id>
+  <id>https://blog.alifeee.net/font-workshop</id>
   <updated>2024-03-09T00:00:00+00:00</updated>
   <summary>What did people make and what did I learn?</summary>
 </entry>
@@ -94,7 +102,7 @@
 <entry>
   <title>Making my own Font - BogFace</title>
   <link href='https://blog.alifeee.net/making-bogface' />
-  <id>https://blog.alifeee.net//making-bogface</id>
+  <id>https://blog.alifeee.net/making-bogface</id>
   <updated>2023-12-23T00:00:00+00:00</updated>
   <summary>How and why I made my first font</summary>
 </entry>
@@ -102,7 +110,7 @@
 <entry>
   <title>What is a third space and why do I like the concept?</title>
   <link href='https://blog.alifeee.net/what-is-a-third-space' />
-  <id>https://blog.alifeee.net//what-is-a-third-space</id>
+  <id>https://blog.alifeee.net/what-is-a-third-space</id>
   <updated>2023-12-15T00:00:00+00:00</updated>
   <summary>I talk a lot about third spaces. These are some thoughts and opinions.</summary>
 </entry>
@@ -110,7 +118,7 @@
 <entry>
   <title>Hackspace Adventures</title>
   <link href='https://blog.alifeee.net/hackspace-adventures' />
-  <id>https://blog.alifeee.net//hackspace-adventures</id>
+  <id>https://blog.alifeee.net/hackspace-adventures</id>
   <updated>2023-11-07T00:00:00+00:00</updated>
   <summary>What, why, and how is a Hackspace, and what have I used them for?</summary>
 </entry>
@@ -118,7 +126,7 @@
 <entry>
   <title>Making Factorio Proximity Voice Chat</title>
   <link href='https://blog.alifeee.net/factorio-proximity-chat' />
-  <id>https://blog.alifeee.net//factorio-proximity-chat</id>
+  <id>https://blog.alifeee.net/factorio-proximity-chat</id>
   <updated>2023-10-30T00:00:00+00:00</updated>
   <summary>Using Lua and C to enable proximity-based voice chat in Factorio</summary>
 </entry>
@@ -126,7 +134,7 @@
 <entry>
   <title>Hull Bus Terminal Signs</title>
   <link href='https://blog.alifeee.net/hull-bus-sign' />
-  <id>https://blog.alifeee.net//hull-bus-sign</id>
+  <id>https://blog.alifeee.net/hull-bus-sign</id>
   <updated>2023-10-08T00:00:00+00:00</updated>
   <summary>Making Pong on an old Dot-Matrix Display.</summary>
 </entry>
@@ -134,7 +142,7 @@
 <entry>
   <title>Coding Projects! #1: Collage generator for Steam games</title>
   <link href='https://blog.alifeee.net/steam-collage-api' />
-  <id>https://blog.alifeee.net//steam-collage-api</id>
+  <id>https://blog.alifeee.net/steam-collage-api</id>
   <updated>2023-08-23T00:00:00+00:00</updated>
   <summary>How I made an automatic collage generator: to make a custom game collage using the games in any Steam library.</summary>
 </entry>
@@ -142,7 +150,7 @@
 <entry>
   <title>Snippets of a Degree</title>
   <link href='https://blog.alifeee.net/snippets-of-a-degree' />
-  <id>https://blog.alifeee.net//snippets-of-a-degree</id>
+  <id>https://blog.alifeee.net/snippets-of-a-degree</id>
   <updated>2023-07-10T00:00:00+00:00</updated>
   <summary>Tiny snippets from Masters' degree reports and dissertations at Durham University.</summary>
 </entry>
@@ -150,7 +158,7 @@
 <entry>
   <title>Sketch Your Society: 100 different sketches from 100 different societies</title>
   <link href='https://blog.alifeee.net/sketch-your-society' />
-  <id>https://blog.alifeee.net//sketch-your-society</id>
+  <id>https://blog.alifeee.net/sketch-your-society</id>
   <updated>2023-06-24T00:00:00+00:00</updated>
   <summary>We took a blank sketchbook to a university freshers' fair and asked every society to draw us something. This is what they drew!</summary>
 </entry>
@@ -158,7 +166,7 @@
 <entry>
   <title>Ring Populations</title>
   <link href='https://blog.alifeee.net/ring-populations' />
-  <id>https://blog.alifeee.net//ring-populations</id>
+  <id>https://blog.alifeee.net/ring-populations</id>
   <updated>2023-06-18T00:00:00+00:00</updated>
   <summary>Why is it so hard to compare city populations? Dispatches investigates.</summary>
 </entry>
@@ -166,7 +174,7 @@
 <entry>
   <title>I biked from Birmingham to Cambridge (a tribute to National Cycle Routes)</title>
   <link href='https://blog.alifeee.net/bike-to-cambridge' />
-  <id>https://blog.alifeee.net//bike-to-cambridge</id>
+  <id>https://blog.alifeee.net/bike-to-cambridge</id>
   <updated>2023-05-10T00:00:00+00:00</updated>
   <summary>The story of my first bike-tour, and why trains are great.</summary>
 </entry>
