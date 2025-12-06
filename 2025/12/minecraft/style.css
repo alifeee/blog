@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("MinecraftRegular-Bmg3.otf");
+}
+html,
+body {
+  background-color: #aaa;
+  color: white;
+  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("BlockSprite_dirt.png");
+  background-size: 50px;
+  image-rendering: pixelated;
+}
+hr {
+  border-color: white;
+}
+a,
+a:visited {
+  color: white;
+}
+
+header .blurb {
+  max-width: max-content;
+}
+header .blurb > p {
+  max-width: 40rem;
+}
+@media (min-width: 60rem) {
+  header .blurb {
+    columns: 2;
+  }
+}
+
+#custompic {
+  border: 1px solid white;
+  padding: 0.5rem;
+  width: max-content;
+}
+#custompic > * {
+  margin: 0.5rem 0;
+}
+
+img-comparison-slider img,
+img-opacity-slider img,
+img-blinker img,
+img-hover img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: min-content;
+  height: auto;
+  object-fit: cover;
+}
+img-opacity-slider,
+img-blinker,
+img-hover {
+  display: grid;
+  grid-template-areas: "images";
+  width: min-content;
+}
+img-opacity-slider img,
+img-blinker img,
+img-hover img {
+  grid-area: images;
+}
+img-opacity-slider img {
+  opacity: 0.75;
+}
+img-hover {
+  cursor: not-allowed;
+}
+img-hover:hover img:nth-child(2) {
+  opacity: 0;
+}
+input.opacity-slider {
+  max-width: 90vw;
+}
+.hidden {
+  display: none;
+}
+footer {
+  padding: 4rem 0;
+}
+#buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+#buttons button {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  flex: 1 1 10rem;
+  font-family: "Minecraft", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+#buttons button.active {
+  background-color: lightgreen;
+}
