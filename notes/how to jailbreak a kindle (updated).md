@@ -10,6 +10,8 @@ Information wants to [be](https://en.wikipedia.org/wiki/A_Hacker_Manifesto) [fre
 
 Why not buy an old Kindle from eBay or CEX (the Kindle 4 seems around £15-20) – or even better: get your auntie's old one that she no longer uses – and jailbreak it.
 
+See my [other post about kindles](/notes/how-to-jailbreak-a-kindle-updated/) for more
+
 ## Why ?
 
 Mainly, it lets you detach from Amazon's ecosystem. Amazon doesn't have to know what you're doing with the device (what books you're reading), nor does it have any control via-the-Internet over the device, nor does Amazon get to decide what formats you are and aren't allowed to read.
