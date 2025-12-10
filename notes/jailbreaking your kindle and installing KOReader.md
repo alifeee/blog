@@ -6,6 +6,12 @@ tags:
   - koreader
   - jailbreaking
 ---
+<div class="alert">
+
+There is an updated guide in the [newer note about kindles](/waaaaah/).
+
+</div>
+
 Here's how I jailbreak kindles and install custom e-reader software ([KOReader](https://koreader.rocks/)).
 
 ## Why?
