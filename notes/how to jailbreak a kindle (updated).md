@@ -6,7 +6,7 @@ tags:
   - koreader
   - jailbreaking
 ---
-Information wants to [be](https://en.wikipedia.org/wiki/A_Hacker_Manifesto) [free](https://en.wikipedia.org/wiki/Information_wants_to_be_free). Reading on a computer or phone sucks[^2]. Kobo e-readers are expensive[^3].
+Information wants to [be](https://en.wikipedia.org/wiki/A_Hacker_Manifesto) [free](https://en.wikipedia.org/wiki/Information_wants_to_be_free). Reading on a computer or phone sucks. Kobo e-readers are expensive.
 
 Why not buy an old Kindle from eBay or CEX (the Kindle 4 seems around £15-20) – or even better: get your auntie's old one that she no longer uses – and jailbreak it.
 
