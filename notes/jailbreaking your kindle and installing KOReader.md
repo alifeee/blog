@@ -8,7 +8,7 @@ tags:
 ---
 <div class="alert">
 
-There is an updated guide in the [newer note about kindles](/waaaaah/).
+There is an updated guide in the [newer note about kindles](/notes/how-to-jailbreak-a-kindle-updated/).
 
 </div>
 
