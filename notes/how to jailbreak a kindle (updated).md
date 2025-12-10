@@ -10,7 +10,7 @@ Information wants to [be](https://en.wikipedia.org/wiki/A_Hacker_Manifesto) [fre
 
 Why not buy an old Kindle from eBay or CEX (the Kindle 4 seems around £15-20) – or even better: get your auntie's old one that she no longer uses – and jailbreak it.
 
-See my [other post about kindles](/notes/jailbreaking-your-kindle-and-installing-ko-reader/) for more
+See my [other post about kindles](/jailbreaking-your-kindle-and-installing-ko-reader/) for more
 
 ## Why ?
 
@@ -135,7 +135,7 @@ do some hefty web searching for your specific problem…
 You can only configure WiFi and use the USB file transfer on Kindle's OS; you can't use KOReader for that.
 But, you probably only have to do that once.
 
-A few ideas (apart from the obvious "start reading books"). See [my other note](/notes/jailbreaking-your-kindle-and-installing-ko-reader/) for more information.
+A few ideas (apart from the obvious "start reading books"). See [my other note](/jailbreaking-your-kindle-and-installing-ko-reader/) for more information.
 
 - get some books
 - set some custom lockscreen backgrounds
