@@ -1,0 +1,267 @@
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./TitilliumWeb-Regular.ttf");
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: url("./TitilliumWeb-Bold.ttf");
+}
+
+:root {
+    --bg: #161616 url(bg.png);
+    --panel-bg: #313031;
+    --frame-bg: #242324;
+    --title-color: #ffe6c0;
+    --body-color: #fff;
+    --input-color: #1d1c1d;
+    --infotext-color: #75dafb;
+    --disabled-color: #b3b1b3;
+    --factorio-orange: #ffae00;
+    --factorio-orange-light: #f1be64;
+    --cancel-red: #fe4d4d;
+    --orange-border: 2px solid var(--factorio-orange);
+    --blur-color: #251c13;
+    --dusty-blur: 0 0 10px 2px var(--blur-color);
+    --font-scale: 1;
+    --end-marks: 
+        linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 4px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent 4px),
+        repeating-linear-gradient(to right, transparent, transparent 4px, #373637 4px, #3b3a3b 6px, #373637 8px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent 4px),
+        linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent 4px),
+        repeating-linear-gradient(to right, #2a2a2a, #2d2c2d 2px, #2a2a2a 4px)
+    ;
+    --lit-surface-color: rgba(255, 255, 255, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    outline-color: var(--factorio-orange);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Titillium Web", sans-serif;
+    color: var(--body-color);
+    font-weight: normal;
+}
+
+body * {
+    font-size: calc(var(--font-scale) * var(--rel-size, 28px));
+}
+
+strong, .fio-h1, .fio-h2 {
+    font-weight: bold;
+}
+
+.fio-h1, .fio-h2 {
+    color: var(--title-color);
+}
+
+.fio-h1 {
+    --rel-size: 36px;
+    line-height: 2ch;
+    height:calc(48px * var(--font-scale));
+    margin-right: auto;
+    padding-right: 30px;
+    background-color: var(--panel-bg);
+    z-index: 1;
+}
+
+p {
+    margin: 1em 0 0;
+}
+
+.fio-row {
+    display: flex;
+    flex-direction: row;
+}
+
+hr {
+    border: none;
+    overflow: visible;
+    --hr-width: 10px;
+    width: calc(100% + var(--hr-width) * 2);
+    margin-left: calc(var(--hr-width) * -1);
+    height: 4px;
+    background-image: linear-gradient(#111, #686868);
+}
+
+hr.fio-full-width {
+    --hr-width: 20px;
+}
+
+/* Containers: panel, frame, section, blue-frame */
+
+.fio-panel {
+    display: flex;
+    flex-direction: column;
+    background: var(--panel-bg);
+    box-shadow: 
+        0 0 25px 0 #000, 
+        inset 12px 0 3px -11px var(--shadow-color), 
+        inset -12px 0 3px -11px var(--shadow-color), 
+        inset 0 -12px 2.5px -9px var(--shadow-color), 
+        inset 0 12px 4px -9px rgba(230, 240, 255, 0.25), 
+        inset 0 2px 8px 2px var(--blur-color)
+    ;
+    margin: 15px;
+    padding: 20px;
+}
+
+/*  I will have to change this later since sometimes there's buttons
+    in this area. Either add a class to look for that tells the panel
+    it has buttons in it, or make a div that holds this thing and 
+    optionally holds buttons */
+
+.fio-panel::after {
+    content: '';
+    height: calc(64px * var(--font-scale));
+    width: 100%;
+    background-image: var(--end-marks);
+}
+
+.fio-panel::before {
+    content: '';
+    position: absolute;
+    top: 35px;
+    height: calc(48px * var(--font-scale));
+    width: calc(100% - 70px);
+    background-image: var(--end-marks);
+}
+
+.fio-frame {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: var(--frame-bg);
+    box-shadow: 
+        0 -3px 7px 0 #000,
+        0 -4px 2px -1px #000,
+        0 3.8px 3px -1.2px var(--lit-surface-color),
+        inset 0 0 12px 1px var(--shadow-color);
+    ;
+}
+
+/* Input types: text, checkbox, checkbox.fio-switch, radio */
+input[type=checkbox].fio-switch::before {
+    content: attr(data-off);
+}
+
+input[type=checkbox].fio-switch::after {
+    content: attr(data-on);
+}
+
+/*  Buttons: normal, confirm, back, cancel
+    States: idle, disabled, hover, press */
+button {
+    box-shadow: 
+        var(--dusty-blur),
+        var(--inset-shadow)
+    ;
+    --inset-shadow: 
+        inset 0 6px 4px -4px #fff,
+        inset 0 -6px 3px -4px #000,
+        inset 0 0 10px 0 #000
+    ;
+    color: #1d1c1d;
+    font-family: inherit;
+    --rel-size: 36px;
+    font-weight: bold;
+    line-height: calc(var(--font-scale) * 64px);
+    margin: 8px;
+    border: none;
+    padding: 2px calc(var(--font-scale) * 24px);
+    background: #8e8e8e;
+    transition-duration: 0.05s;
+}
+
+button:hover:not(:disabled), button.hover:not(:disabled) {
+    --blur-color: var(--factorio-orange);
+}
+
+button:disabled {
+    color: #b3b1b3;
+    font-weight: normal;
+    background: #272727;
+}
+
+button:active:not(:disabled), button.active {
+    background: var(--factorio-orange-light);
+    outline: none;
+    padding-top: 4px;
+    padding-bottom: 0;
+}
+
+button:disabled, button:active, button.active {
+    --inset-shadow:
+        inset 0 2px 6px 2px rgba(0, 0, 0, 0.8)
+    ;
+}
+
+/*  Selection color. Keeping this above 50% luminosity,
+    since this is a dark theme. The 0.8 alpha is needed
+    because anything with alpha 1 becomes alpha 0.5-ish
+    but not really alpha more like multiply or something,
+    and looks really dirty. */
+::selection {
+    background: rgba(241, 190, 100, 0.8);
+    color: #000;
+}
+
+/* Fun part: scrollbars */
+::-webkit-scrollbar {
+    width: 25px;
+    height: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+    min-height: 32px;
+    background-color: #858585;
+    background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) 3px, transparent 8px),
+        linear-gradient(to top, #111, #111 1px, transparent 4px),
+        linear-gradient(to right, #5e5e5e, transparent 4px),
+        linear-gradient(to left, #5e5e5e, transparent 4px),
+        linear-gradient(to bottom, #858585, #858585 8px, transparent 8px),
+        linear-gradient(to top, #858585, #858585 8px, transparent 8px),
+        linear-gradient(to right, #858585, #858585 4px, transparent 4px),
+        linear-gradient(to left, #858585, #858585 4px, transparent 4px),
+        repeating-linear-gradient(to bottom, #626262, #a9a9a9 5px, #626262 8px)
+    ;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    min-width: 32px;
+    background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent 3px),
+        linear-gradient(to top, #111, transparent 3px),
+        linear-gradient(to right, #5e5e5e, transparent 4px),
+        linear-gradient(to left, #5e5e5e, transparent 4px),
+        linear-gradient(to bottom, #858585, #858585 4px, transparent 4px),
+        linear-gradient(to top, #858585, #858585 4px, transparent 4px),
+        linear-gradient(to right, #858585, #858585 8px, transparent 8px),
+        linear-gradient(to left, #858585, #858585 8px, transparent 8px),
+        repeating-linear-gradient(to right, #626262, #a9a9a9 5px, #626262 8px)
+    ;
+}
+
+::-webkit-scrollbar-track {
+    background: #333030;
+    box-shadow: 
+        -5px 0 10px -3px var(--shadow-color), 
+        inset 0 1px 3px 1px var(--shadow-color),
+        inset 0 -4px 3px -1px var(--lit-surface-color)
+    ;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--panel-bg);
+    box-shadow: 
+        inset 0 -1px 3px 1px var(--shadow-color),
+        inset 0 4px 3px -1px var(--lit-surface-color)
+    ;
+}

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      alifeee - Pictures from a proximity voice chat Factorio server
+    </title>
+    <!-- browser metas -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A timeline of progress in a Factorio world, played with a proximity voice chat mod that I made"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta
+      property="og:title"
+      content="Pictures from a proximity voice chat Factorio server"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site" content="alifeee's blog" />
+    <meta
+      property="og:url"
+      content="https://blog.alifeee.net/2025/12/factorio-maps/"
+    />
+    <meta
+      property="og:image"
+      content="https://blog.alifeee.net/factorio-proximity-chat/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="A timeline of progress in a Factorio world, played with a proximity voice chat mod that I made"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- RSS link -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for blog.alifeee.net"
+      href="/feed.xml"
+    />
+
+    <!-- link to mastodon -->
+    <meta property="fediverse:creator" content="@alifeee@mastodon.social" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const galleries = document.querySelectorAll(".timeline");
+        galleries.forEach((gal) => {
+          const slider = gal.querySelector("input");
+          const label = gal.querySelector("label");
+          const prevbutton = gal.querySelector("button.prev");
+          const nextbutton = gal.querySelector("button.next");
+          const images = gal.querySelectorAll(".image-gallery img");
+          function update(n) {
+            label.innerText = n;
+            images.forEach((image) => {
+              image.classList.add("hidden");
+            });
+            images[n - 1].classList.remove("hidden");
+            // disable prev
+            if (n == 1) prevbutton.disabled = true;
+            else prevbutton.disabled = false;
+            // disable next
+            if (n == images.length) nextbutton.disabled = true;
+            else nextbutton.disabled = false;
+          }
+          slider.addEventListener("input", (e) => {
+            update(e.target.value);
+          });
+          prevbutton.addEventListener("click", (e) => {
+            e.preventDefault();
+            slider.value = parseInt(slider.value) - 1;
+            update(slider.value);
+          });
+          nextbutton.addEventListener("click", (e) => {
+            e.preventDefault();
+            slider.value = parseInt(slider.value) + 1;
+            update(slider.value);
+          });
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="factorio.css" />
+    <style>
+      :root {
+        --font-scale: 0.6;
+      }
+      /* copied from previous factorio blog post :-] */
+      body {
+        background-image: url("./images/grass-tiled.jpg");
+        font-size: 0.5em;
+      }
+      a,
+      a:visited {
+        color: #e39827;
+      }
+      header,
+      main,
+      footer {
+        position: relative;
+      }
+      h1,
+      h2 {
+        margin: 0;
+      }
+      header ul {
+        margin-top: 0;
+      }
+      .fio-h1 {
+        height: initial;
+        --font-scale: 1;
+      }
+      .fio-h2 {
+        --font-scale: 0.75;
+      }
+      .fio-panel {
+        max-width: 40rem;
+      }
+      .fio-panel::before {
+        top: unset;
+      }
+      .fio-panel::after {
+        margin-top: 1rem;
+      }
+
+      blockquote {
+        border-left: 10px solid var(--factorio-orange-light);
+        margin: 1.5rem 1rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .timeline .controls {
+        display: flex;
+        align-items: center;
+      }
+      .timeline .controls label {
+        display: inline-block;
+        width: 2rem;
+        flex: 0 0 2rem;
+        text-align: end;
+        margin-right: 0.25rem;
+        margin-top: 0.1rem;
+      }
+      .timeline .controls input {
+        width: 0;
+        flex: 1 1 0;
+      }
+      .timeline .controls button {
+        margin: 0.25rem;
+        cursor: pointer;
+        --font-scale: 0.5;
+      }
+      .timeline .controls button:disabled {
+        cursor: not-allowed;
+      }
+      img.hidden {
+        visibility: hidden;
+      }
+      .image-gallery {
+        position: relative;
+        margin-top: 1rem;
+      }
+      .image-gallery img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .image-gallery img:not(:first-child) {
+        position: absolute;
+        inset: 0;
+      }
+
+      footer.fio-panel {
+        margin-bottom: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="fio-panel">
+      <div class="fio-h1" id="top">
+        <h1>Pictures from a proximity voice chat Factorio server</h1>
+      </div>
+      <p style="opacity: 0.5; --font-scale: 0.5; margin: 0.25rem 0 1rem">
+        alifeee · 2025-12 · <a href="/">back to main page</a>
+      </p>
+      <hr />
+      <h2 class="fio-h2">Table of contents</h2>
+      <ul style="margin-top: 0">
+        <li><a href="#top">introduction</a></li>
+        <li><a href="#top">making maps</a></li>
+        <li>
+          pictures
+          <ul>
+            <li><a href="#ammo">ammo</a></li>
+            <li><a href="#factory">factory</a></li>
+            <li><a href="#minerals">minerals</a></li>
+            <li><a href="#lake">lake</a></li>
+          </ul>
+        </li>
+        <li><a href="#links">links</a></li>
+      </ul>
+      <hr />
+      <h2 class="fio-h2">What's this about?</h2>
+      <p>
+        Last year I organised a playthrough of
+        <a href="https://factorio.com/">Factorio</a> with my friends. The invite
+        read:
+      </p>
+      <blockquote>
+        Let's play a big Factorio multiplayer game!
+        <br />
+        🕒3 hours every 📅Tuesday evening at 🕖7pm, first session 📅9th January
+        <br />
+        My plan is that once a week, I will host a server for three hours. So,
+        we all play at the same time and you cannot play on the server outside
+        of the playing time. It is a collaborative save, we will all be working
+        together. And, theoretically, we will use my proximity chat mod to use
+        proximity voice chat.
+      </blockquote>
+      <p>
+        I'd just spent a few months developing a proximity voice chat mod for it
+        (which you can read about in my
+        <a href="/factorio-proximity-chat/">other blog post</a>), so I was
+        excited to try it.
+      </p>
+      <p>
+        In the end, I think we had around 10-15 people weekly for 10-or-so
+        weeks. Factorio is a great game already, so it just made it even more
+        fun to hear people whizz by on trains and catch a snippet of their
+        conversation while you were talking to someone else about the most
+        efficient way to route iron through the maze that was supposed to be the
+        smelting area.
+      </p>
+      <p>
+        We ended the game by launching 10 rockets for each of the 10 players in
+        the final session ^.^
+      </p>
+      <hr />
+      <h2 class="fio-h2">Making maps</h2>
+      <p>
+        I <a href="https://alifeee.net/maps/">love maps</a>. Playing a video
+        game is a great opportunity to map, which is why almost every time I
+        host a Minecraft server I use
+        <a href="https://github.com/webbukkit/dynmap">Dynmap</a>, which allows
+        you to create a 2D and 3D map of the world that people can view on their
+        web browser as if it were Google Maps.
+      </p>
+      <p>
+        It turns out that Factorio is no different, and there are plenty of
+        mapping tools. I looked at a few and ended up using
+        <a href="https://github.com/L0laapk3/FactorioMaps/">FactorioMaps</a>,
+        which is a fork-of-a-fork-of-a-fork-of-a-project. It lets you pipe in a
+        game save, and generates a bunch of tiles and web files, which – when
+        viewed – use <a href="https://leafletjs.com/">Leaflet</a> to display a
+        nice web-based map.
+      </p>
+      <p>
+        The map is currently on
+        <a href="https://server.alifeee.net/factorio/"
+          >https://server.alifeee.net/factorio/</a
+        >, but I can't promise it still will be by the time you're reading this.
+        You can see examples of it in the pictures below :]
+      </p>
+    </header>
+    <main class="fio-panel">
+      <div class="fio-h1">
+        <h2>Pictures</h2>
+      </div>
+      <p>
+        I've screenshot a couple of areas in the map to look at below — have a
+        look at the progression of the save over time with the buttons/sliders
+        :]
+      </p>
+      <p>
+        If you're lucky you might be able to look at the original map on
+        <a href="https://server.alifeee.net/factorio/"
+          >https://server.alifeee.net/factorio/</a
+        >
+        (if I've not deleted it by now).
+      </p>
+      <!-- to make these
+while read -r folder; do
+  id="${folder#*/}"
+  echo '<hr>'
+  echo '<article class="timeline" id="'"${id}"'">'
+  echo '<h3 class="fio-h2">'"${id}"'</h3>'
+  cat "${folder}.html"
+  echo '<div class="image-gallery">'
+  hidden=""
+  for image in "${folder}"/*.webp; do
+    echo '  <img src="'"${image}"'" '"${hidden}"'>'
+    hidden='class=hidden'
+  done
+  echo '</div>'
+  echo '<form class="controls" autocomplete="off">'
+  echo '<label for="">1</label>'
+  echo '<input min="1" step="1" max="'$(ls "${folder}"/*.webp | wc -l)'" type="range" value="1" />'
+  echo '<button disabled class="prev">previous</button>'
+  echo '<button class="next">next</button>'
+  echo '</form>'
+  echo '</article>'
+done <<< $(find images -mindepth 1 -type d | sort -V)
+        -->
+      <div>
+        <hr />
+        <article class="timeline" id="ammo">
+          <h3 class="fio-h2">ammo</h3>
+          <p>
+            This is my favourite area in the map because at the end, you can see
+            the ammo factory is fed by two sources of iron. One comes from the
+            left of the screen and ends up on the right of the ammo factory. The
+            other comes from the right and ends on the left.
+          </p>
+          <p>
+            In some way I think that is a great descriptor of the chaos of
+            multiplayer, that two completely independent iron feeds end up
+            feeding opposite ends of the same factory.
+          </p>
+          <div class="image-gallery">
+            <img src="images/ammo/w_ammo01.webp" />
+            <img src="images/ammo/w_ammo02.webp" class="hidden" />
+            <img src="images/ammo/w_ammo03.webp" class="hidden" />
+            <img src="images/ammo/w_ammo04.webp" class="hidden" />
+            <img src="images/ammo/w_ammo05.webp" class="hidden" />
+            <img src="images/ammo/w_ammo06.webp" class="hidden" />
+            <img src="images/ammo/w_ammo07.webp" class="hidden" />
+            <img src="images/ammo/w_ammo08.webp" class="hidden" />
+            <img src="images/ammo/w_ammo09.webp" class="hidden" />
+            <img src="images/ammo/w_ammo10.webp" class="hidden" />
+            <img src="images/ammo/w_ammo11.webp" class="hidden" />
+            <img src="images/ammo/w_ammo12.webp" class="hidden" />
+            <img src="images/ammo/w_ammo13.webp" class="hidden" />
+            <img src="images/ammo/w_ammo14.webp" class="hidden" />
+            <img src="images/ammo/w_ammo15.webp" class="hidden" />
+            <img src="images/ammo/w_ammo16.webp" class="hidden" />
+          </div>
+          <form class="controls" autocomplete="off">
+            <label for="">1</label>
+            <input min="1" step="1" max="16" type="range" value="1" />
+            <button disabled class="prev">previous</button>
+            <button class="next">next</button>
+          </form>
+        </article>
+        <hr />
+        <article class="timeline" id="factory">
+          <h3 class="fio-h2">factory</h3>
+          <p>
+            This view is a mid-zoom of the main factory, which is also the spawn
+            point of the map.
+          </p>
+          <p>
+            As you progress in time, you can see more miners be placed, power
+            generation pop up, and just generally more and more stuff get piled
+            onto the busiest area on the map.
+          </p>
+          <div class="image-gallery">
+            <img src="images/factory/w_factory01.webp" />
+            <img src="images/factory/w_factory02.webp" class="hidden" />
+            <img src="images/factory/w_factory03.webp" class="hidden" />
+            <img src="images/factory/w_factory04.webp" class="hidden" />
+            <img src="images/factory/w_factory05.webp" class="hidden" />
+            <img src="images/factory/w_factory06.webp" class="hidden" />
+            <img src="images/factory/w_factory07.webp" class="hidden" />
+            <img src="images/factory/w_factory08.webp" class="hidden" />
+            <img src="images/factory/w_factory09.webp" class="hidden" />
+            <img src="images/factory/w_factory10.webp" class="hidden" />
+            <img src="images/factory/w_factory11.webp" class="hidden" />
+            <img src="images/factory/w_factory12.webp" class="hidden" />
+            <img src="images/factory/w_factory13.webp" class="hidden" />
+            <img src="images/factory/w_factory14.webp" class="hidden" />
+            <img src="images/factory/w_factory15.webp" class="hidden" />
+            <img src="images/factory/w_factory16.webp" class="hidden" />
+          </div>
+          <form class="controls" autocomplete="off">
+            <label for="">1</label>
+            <input min="1" step="1" max="16" type="range" value="1" />
+            <button disabled class="prev">previous</button>
+            <button class="next">next</button>
+          </form>
+        </article>
+        <hr />
+        <article class="timeline" id="lake">
+          <h3 class="fio-h2">lake</h3>
+          <p>
+            I picked this view because it starts quite pretty, and you can
+            slowly see this nice inlet of the lake be polluted, terraformed, and
+            finally forgotten about and surrounded in factory.
+          </p>
+          <p>
+            At least it's not completely covered over by the end. Reminds me of
+            urban rivers.
+          </p>
+          <div class="image-gallery">
+            <img src="images/lake/w_lake01.webp" />
+            <img src="images/lake/w_lake02.webp" class="hidden" />
+            <img src="images/lake/w_lake03.webp" class="hidden" />
+            <img src="images/lake/w_lake04.webp" class="hidden" />
+            <img src="images/lake/w_lake05.webp" class="hidden" />
+            <img src="images/lake/w_lake06.webp" class="hidden" />
+            <img src="images/lake/w_lake07.webp" class="hidden" />
+            <img src="images/lake/w_lake08.webp" class="hidden" />
+            <img src="images/lake/w_lake09.webp" class="hidden" />
+            <img src="images/lake/w_lake10.webp" class="hidden" />
+            <img src="images/lake/w_lake11.webp" class="hidden" />
+            <img src="images/lake/w_lake12.webp" class="hidden" />
+            <img src="images/lake/w_lake13.webp" class="hidden" />
+            <img src="images/lake/w_lake14.webp" class="hidden" />
+          </div>
+          <form class="controls" autocomplete="off">
+            <label for="">1</label>
+            <input min="1" step="1" max="14" type="range" value="1" />
+            <button disabled class="prev">previous</button>
+            <button class="next">next</button>
+          </form>
+        </article>
+        <hr />
+        <article class="timeline" id="minerals">
+          <h3 class="fio-h2">minerals</h3>
+          <p>
+            Finally, this is a zoom of the factory, with an initial view of the
+            starting copper, coal, and iron patches.
+          </p>
+          <p>
+            As you pan through, you'll see the resources diminish and finally
+            disappear altogether, leaving only the idea that they were there –
+            as gaps in the factory or errant underground belts.
+          </p>
+          <div class="image-gallery">
+            <img src="images/minerals/w_minerals01.webp" />
+            <img src="images/minerals/w_minerals02.webp" class="hidden" />
+            <img src="images/minerals/w_minerals03.webp" class="hidden" />
+            <img src="images/minerals/w_minerals04.webp" class="hidden" />
+            <img src="images/minerals/w_minerals05.webp" class="hidden" />
+            <img src="images/minerals/w_minerals06.webp" class="hidden" />
+            <img src="images/minerals/w_minerals07.webp" class="hidden" />
+            <img src="images/minerals/w_minerals08.webp" class="hidden" />
+            <img src="images/minerals/w_minerals09.webp" class="hidden" />
+            <img src="images/minerals/w_minerals10.webp" class="hidden" />
+            <img src="images/minerals/w_minerals11.webp" class="hidden" />
+            <img src="images/minerals/w_minerals12.webp" class="hidden" />
+            <img src="images/minerals/w_minerals13.webp" class="hidden" />
+            <img src="images/minerals/w_minerals14.webp" class="hidden" />
+            <img src="images/minerals/w_minerals15.webp" class="hidden" />
+            <img src="images/minerals/w_minerals16.webp" class="hidden" />
+          </div>
+          <form class="controls" autocomplete="off">
+            <label for="">1</label>
+            <input min="1" step="1" max="16" type="range" value="1" />
+            <button disabled class="prev">previous</button>
+            <button class="next">next</button>
+          </form>
+        </article>
+      </div>
+      <hr />
+      That's all! Have a look at the actual map below yourself, or just go about
+      your day :]
+    </main>
+    <footer class="fio-panel">
+      <div class="fio-h1">
+        <h2>Links</h2>
+      </div>
+      <ul>
+        <li>
+          Factorio proximity chat mod:
+          <a href="https://mods.factorio.com/mod/proximity-voice-chat">
+            https://mods.factorio.com/mod/proximity-voice-chat
+          </a>
+        </li>
+        <li>
+          Factorio proximity chat mod (blog post):
+          <a href="/factorio-proximity-chat/">
+            https://blog.alifeee.net/factorio-proximity-chat/
+          </a>
+        </li>
+        <li>
+          Our game map (maybe it still exists):
+          <a href="https://server.alifeee.net/factorio/">
+            https://server.alifeee.net/factorio/
+          </a>
+        </li>
+        <li>
+          Factorio map generator:
+          <a href="https://github.com/L0laapk3/FactorioMaps">
+            https://github.com/L0laapk3/FactorioMaps
+          </a>
+        </li>
+        <li>
+          Factorio CSS framework (used to style this page):
+          <a href="https://github.com/drewtato/factorio-css/">
+            https://github.com/drewtato/factorio-css/
+          </a>
+        </li>
+      </ul>
+      <p><a href="/">back to main page</a></p>
+    </footer>
+  </body>
+</html>
