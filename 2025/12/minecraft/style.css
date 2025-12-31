@@ -21,6 +21,11 @@ a:visited {
   color: white;
 }
 
+.date {
+  color: grey;
+  margin-top: -1rem;
+  margin-bottom: -0.5rem;
+}
 header .blurb {
   max-width: max-content;
 }

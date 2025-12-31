@@ -41,7 +41,7 @@ read_speed=200
 read_time=$(($num_words / $read_speed))
 
 # date (from last git modified date)
-date=$(git log -1 --pretty="format:%aI" . | cut -b "1-7")
+date=$(git log -1 --pretty="format:%aI" . | cut -b "1-10")
 
 has_template=$(echo "${original_html}" | grep '{{.*}}')
 if [ ! -z "${has_template}" ]; then

@@ -235,3 +235,15 @@ header a:visited {
   text-decoration: none;
   color: black;
 }
+
+.topinfo {
+  font-size: 0.8rem;
+  color: var(--unimportanttext-colour);
+  text-align: center;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+word-count {
+  display: inline-block;
+}

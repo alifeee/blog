@@ -70,6 +70,7 @@ cat << EOHTML >> "${tempfile}"
 <header>
 <h1 id="top">Pictures from a proximity voice chat Minecraft server</h1>
 <section class="blurb">
+<p class="date">2025-12-06</p>
 <p>Table of Contents</p>
 <ul>
 <li><a href="#top">Introduction</a></li>
