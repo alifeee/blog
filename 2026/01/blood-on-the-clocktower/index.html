@@ -61,6 +61,12 @@
       #contents {
         position: relative;
         width: max-content;
+        max-width: 95vw;
+        height: auto;
+      }
+      #contents svg {
+        max-width: 100%;
+        height: auto;
       }
       #contents svg path {
         cursor: pointer;
@@ -139,23 +145,47 @@
         border: 1px solid black;
         padding: 0.25rem;
       }
+      .parts .info .name::before {
+        content: "name";
+        display: block;
+        opacity: 0.5;
+      }
       .parts .info .name {
         grid-area: name;
         text-align: center;
       }
+      .parts .info .madewith::before {
+        content: "made using";
+        display: block;
+        opacity: 0.5;
+      }
       .parts .info .madewith {
+        position: relative;
         grid-area: tool;
         text-align: center;
       }
       .parts .info .links {
         grid-area: links;
+        margin: 0;
         word-break: break-all;
         display: flex;
         flex-direction: column;
+        font-family: "Courier New", Courier, monospace;
+        font-size: small;
+        max-height: 4rem;
+        overflow-y: scroll;
+      }
+      .parts .info .links li {
+        margin-left: 0.75rem;
       }
       .parts .info .description {
         grid-area: desc;
         margin: 0;
+      }
+
+      #markdown img {
+        max-height: 20rem;
+        max-width: 100%;
       }
     </style>
     <script>
@@ -170,16 +200,12 @@
             const windowW = window.innerWidth;
             const windowH = window.innerHeight;
 
-            console.log("center at ", centerX, centerY, " from top left");
-            document.getElementById(
-              "debugdot"
-            ).style.inset = `${centerY}px auto auto ${centerX}px`;
-
             const dialog = document.getElementById("dialog-" + area_id);
             dialog.style.transformOrigin = `calc(50% - ${
               windowW / 2 - centerX
             }px) calc(50% - ${windowH / 2 - centerY}px)`;
             dialog.showModal();
+            // dialog.show();
           });
         });
         // toggle visibility of clickable areas
@@ -342,17 +368,17 @@
     </g>
   </g>
 </svg>
-<label><input type=checkbox id=showall autocomplete=off>highlight</label>
+<label><input type=checkbox id=showall autocomplete=off>highlight all</label>
 <link rel=preload href='images/parts/tokens_character.webp' as=image />
 <img class=hiddenimg src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
 <dialog closedby=any class=parts id=dialog-tokens_character>
   <img src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>character tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_TB_All_47mm.svg">token_TB_All_47mm.svg</a></li></ul>
+    <p class=description>the character tokens that everyone draws at random, and that the storyteller uses in the grimoire to reference who the players are. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/clips.webp' as=image />
@@ -363,20 +389,8 @@
   <div class=info>
     <span class=name>clips</span>
     <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
+    <ul class=links></ul>
     <p class=description>for attaching the two parts of the box together</p>
-  </div>
-</dialog>
-<link rel=preload href='images/parts/rulesheet_prompts1.webp' as=image />
-<img class=hiddenimg src='images/parts/rulesheet_prompts1.webp' alt='picture of board game pieces: rulesheet_prompts1'>
-<dialog closedby=any class=parts id=dialog-rulesheet_prompts1>
-  <img src='images/parts/rulesheet_prompts1.webp' alt='picture of board game pieces: rulesheet_prompts1'>
-  <form method=dialog><button autofocus role=dialog>×</button></form>
-  <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokens_life.webp' as=image />
@@ -385,10 +399,10 @@
   <img src='images/parts/tokens_life.webp' alt='picture of board game pieces: tokens_life'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>life tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_life.svg">token_life.svg</a></li></ul>
+    <p class=description>the tokens which represent each player on the town square. the front is blank, for 'alive', and the back has a cross, for 'dead'.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_rules.webp' as=image />
@@ -397,10 +411,10 @@
   <img src='images/parts/rulesheet_rules.webp' alt='picture of board game pieces: rulesheet_rules'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>rulebooks</span>
+    <span class=madewith>printer + binding</span>
+    <ul class=links><li><a href="parts/rulebook_all.pdf">rulebook_all.pdf</a></li><li><a href="parts/rulebook_all_even.pdf">rulebook_all_even.pdf</a></li><li><a href="parts/rulebook_all_odd.pdf">rulebook_all_odd.pdf</a></li><li><a href="parts/rulebook_trouble-brewing.pdf">rulebook_trouble-brewing.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16.pdf">rulebook_trouble-brewing_16.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16_even.pdf">rulebook_trouble-brewing_16_even.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16_odd.pdf">rulebook_trouble-brewing_16_odd.pdf</a></li></ul>
+    <p class=description>the main rulebook, and the Trouble Brewing rulebook. These are printed as A6 booklets following <a href='https://blog.alifeee.net/notes/printing-an-a4-pdf-as-an-a6-booklet/'>these instructions from myself</a>. I've left the split PDFs in case you want to booklet print them without the faff. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokens_shrouds.webp' as=image />
@@ -409,10 +423,10 @@
   <img src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>character death shrouds</span>
+    <span class=madewith>3D printer</span>
+    <ul class=links><li><a href="parts/Death_Shroud_Blank.stl">Death_Shroud_Blank.stl</a></li></ul>
+    <p class=description>shrouds to cover character tokens in the grimoire, reminding the storyteller that they are dead. <a href='https://www.thingiverse.com/thing:6888948'>modelled by lxthrp</a></p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/bag.webp' as=image />
@@ -423,7 +437,7 @@
   <div class=info>
     <span class=name>token bag</span>
     <span class=madewith>sewing machine</span>
-    <span class=links></span>
+    <ul class=links></ul>
     <p class=description>for choosing random tokens at the start of the game</p>
   </div>
 </dialog>
@@ -435,8 +449,8 @@
   <div class=info>
     <span class=name>character sheets</span>
     <span class=madewith>printer + laminator</span>
-    <span class=links><a href="parts/script_trouble-brewing.pdf">script_trouble-brewing.pdf</a><a href="parts/script-back.pdf">script-back.pdf</a></span>
-    <p class=description>each player gets given one of these in the game – so they can reference which characters everyone else could be</p>
+    <ul class=links><li><a href="parts/script_trouble-brewing.pdf">script_trouble-brewing.pdf</a></li><li><a href="parts/script-back.pdf">script-back.pdf</a></li></ul>
+    <p class=description>each player gets given one of these in the game – so they can reference which characters everyone else could be. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/townsquare.webp' as=image />
@@ -445,10 +459,10 @@
   <img src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>town square</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/townsquare.svg">townsquare.svg</a></li></ul>
+    <p class=description>decorative piece for the middle of the room, which also holds life tokens and vote tokens, so that everyone in the game can see who is alive and who can vote. I'd also put the player count sheet under this so all the player information is in the same place.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokens_spare.webp' as=image />
@@ -457,10 +471,10 @@
   <img src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>spare tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links></ul>
+    <p class=description>just some spare tokens the same size as the life and reminder tokens, in case I lose some, or need to have more players.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_prompts.webp' as=image />
@@ -469,10 +483,10 @@
   <img src='images/parts/rulesheet_prompts.webp' alt='picture of board game pieces: rulesheet_prompts'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>storyteller prompts</span>
+    <span class=madewith>sharpie + laminator</span>
+    <ul class=links><li><a href="parts/storyteller-prompts.txt">storyteller-prompts.txt</a></li></ul>
+    <p class=description>these are cards that can be shown at nighttime to make what's happening a bit more obvious</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokens_reminder.webp' as=image />
@@ -481,10 +495,10 @@
   <img src='images/parts/tokens_reminder.webp' alt='picture of board game pieces: tokens_reminder'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>storyteller reminder tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_TB_reminder-tokens.svg">token_TB_reminder-tokens.svg</a></li></ul>
+    <p class=description>these are for the grimoire, to remind the storyteller who has abilities, who they have/will target, and other miscellany. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokens_votes.webp' as=image />
@@ -493,10 +507,10 @@
   <img src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>final vote tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_vote.svg">token_vote.svg</a></li></ul>
+    <p class=description>tokens for dead players to act as their final vote. when they die, these are added to their token in the town square, and if they vote while dead, they lose their vote token.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_intro.webp' as=image />
@@ -505,10 +519,10 @@
   <img src='images/parts/rulesheet_intro.webp' alt='picture of board game pieces: rulesheet_intro'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>quick rules sheets</span>
+    <span class=madewith>printer + laminator</span>
+    <ul class=links><li><a href="parts/rulesheet_explanation-and-setup.pdf">rulesheet_explanation-and-setup.pdf</a></li></ul>
+    <p class=description>these are to read at the start of the game. there's one written in first person for the storyteller to read, or one in third person for an experienced player to read. the backs are different and show: an overview of setup steps for the storyteller; and the player counts, which can live under the town square, as it should be public. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_taster.webp' as=image />
@@ -517,10 +531,10 @@
   <img src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>game summary</span>
+    <span class=madewith>printer + laminator</span>
+    <ul class=links><li><a href="parts/summary.pdf">summary.pdf</a></li></ul>
+    <p class=description>this is a simple sheet which provides an overview of the game. I thought it would be useful to show people who don't know much about the game :]. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokenbox.webp' as=image />
@@ -529,10 +543,10 @@
   <img src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>token box</span>
+    <span class=madewith>3D printer</span>
+    <ul class=links><li><a href="parts/container.scad">container.scad</a></li><li><a href="parts/container.stl">container.stl</a></li></ul>
+    <p class=description>I had some time while laminating, so I designed a rough-n-ready 3D-printable box which can hold the character tokens perfectly, as well as some misc pots for other tokens. I also laser-cut and laser-engraved some rudimentary lids for the loose sections to stop tokens falling everywhere when I move the box. You'd do just as well with some baggies for the tokens.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_nightsheet.webp' as=image />
@@ -541,14 +555,38 @@
   <img src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name></span>
-    <span class=madewith></span>
-    <span class=links><a href="parts/"></a></span>
-    <p class=description></p>
+    <span class=name>storyteller's nightsheet</span>
+    <span class=madewith>printer+laminator</span>
+    <ul class=links><li><a href="parts/rulesheet_night-reference_trouble-brewing.pdf">rulesheet_night-reference_trouble-brewing.pdf</a></li><li><a href="parts/rulesheet_night-reference-complex_trouble-brewing.pdf">rulesheet_night-reference-complex_trouble-brewing.pdf</a></li></ul>
+    <p class=description>this is a sheet to remind the storyteller who to wake at nighttime to ask for choices and/or tell information. there are two versions of it, one simple, one complex. I've used paperclips to act as reminders for which characters to wake. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
-<div id=debugdot></div>
 </div>
+<p>see <a href='info.html'>all this information on one page</a> or see the underlying <a href='partsinfo.json'>JSON file</a></p>
+<section id=markdown>
+<hr>
+<p><em><strong>content below unfinished</strong></em></p>
+<hr>
+<h3>laser cutting</h3>
+<p><img src="images/lightburn.png" alt=""></p>
+<h3>box shots</h3>
+<p><img src="./images/box_top.webp" alt="">
+<img src="./images/box_side.webp" alt="">
+<img src="./images/box_partial.webp" alt="">
+<img src="./images/box_open.webp" alt=""></p>
+<h3>demon face</h3>
+<p><img src="./images/face.webp" alt=""></p>
+<h3>official boxes</h3>
+<p><img src="images/official_box-inside.webp" alt=""></p>
+<p><img src="images/official_box-contents1.webp" alt="">
+<img src="images/official_box-contents3.webp" alt="">
+<img src="images/official_box-contents-2.webp" alt=""></p>
+<h3>to-do</h3>
+<ul>
+<li>add images here from camera roll :]</li>
+</ul>
+
+</section>
         <!-- !!end content!! -->
       </section>
     </main>
