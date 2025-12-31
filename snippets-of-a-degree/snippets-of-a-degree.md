@@ -50,7 +50,7 @@ Proteins change shape according to their environment and each conformation can b
 
 <figcaption>
 
-Unfortunately, during the testing, one of the participants (a male aged 18-24) had to stop the process after only a couple of minutes due to sickness, and therefore did not have change to generate any meaningful data for this project.
+Unfortunately, during the testing, one of the participants (a male aged 18-24) had to stop the process after only a couple of minutes due to sickness, and therefore did not have chance to generate any meaningful data for this project.
 
 </figcaption>
 
