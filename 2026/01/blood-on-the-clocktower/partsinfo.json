@@ -1,0 +1,137 @@
+{
+    "bag": {
+        "name": "token bag",
+        "description": "for choosing random tokens at the start of the game",
+        "madewith": "sewing machine",
+        "links": []
+    },
+    "clips": {
+        "name": "clips",
+        "description": "for attaching the two parts of the box together",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "rulesheet_characters": {
+        "name": "character sheets",
+        "description": "each player gets given one of these in the game – so they can reference which characters everyone else could be",
+        "madewith": "printer + laminator",
+        "links": [
+            "script_trouble-brewing.pdf",
+            "script-back.pdf"
+        ]
+    },
+    "rulesheet_intro": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "rulesheet_nightsheet": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "rulesheet_prompts": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "rulesheet_prompts1": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "rulesheet_rules": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "rulesheet_taster": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokenbox": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokens_character": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokens_life": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokens_reminder": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokens_shrouds": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokens_spare": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "tokens_votes": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    },
+    "townsquare": {
+        "name": "",
+        "description": "",
+        "madewith": "",
+        "links": [
+            ""
+        ]
+    }
+}
