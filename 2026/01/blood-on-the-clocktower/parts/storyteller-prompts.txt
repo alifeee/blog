@@ -1,0 +1,13 @@
+This is the Demon
+These characters are not in play
+This ability targeted you
+You are
+This player is
+You have this ability
+These characters are in play
+These are your Minions
+Did you vote today?
+Your choice?
+Use your ability now?
+Did you nominate today?
+
