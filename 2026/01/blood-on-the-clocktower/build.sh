@@ -40,20 +40,36 @@ html=$(
       | sed 's+fill:#ff0000;fill-opacity:0.5+fill:var(--f);fill-opacity:var(--o)+'
     echo "<label><input type=checkbox id=showall autocomplete=off>highlight all</label>"
     while read partfile; do
-        fn="${partfile##*/}"
-        bn="${fn%.*}"
-        echo "<link rel=preload href='${partfile}' as=image />"
-        echo "<img class=hiddenimg src='${partfile}' alt='picture of board game pieces: ${bn}'>"
-        echo "<dialog closedby=any class=parts id=dialog-${bn}>"
-        echo "  <img src='${partfile}' alt='picture of board game pieces: ${bn}'>"
-        echo "  <form method=dialog><button autofocus role=dialog>×</button></form>"
-        echo "  <div class=info>"
-        echo "${json}" | jq -r '.'"${bn}"' | .links[] |= "<li><a href=\"parts/\(.)\">\(.)</a></li>" | .links |= if length > 0 then join("") else "" end | "    <span class=name>\(.name)</span>\n    <span class=madewith>\(.madewith)</span>\n    <ul class=links>\(.links)</ul>\n    <p class=description>\(.description)</p>"'
-        echo "  </div>"
-        echo "</dialog>"
+      fn="${partfile##*/}"
+      bn="${fn%.*}"
+      echo "<link rel=preload href='${partfile}' as=image />"
+      echo "<img class=hiddenimg src='${partfile}' alt='picture of board game pieces: ${bn}'>"
+      echo "<dialog closedby=any class=parts id=dialog-${bn}>"
+      echo "  <img src='${partfile}' alt='picture of board game pieces: ${bn}'>"
+      echo "  <form method=dialog><button autofocus role=dialog>×</button></form>"
+      echo "  <div class=info>"
+      echo "${json}" | jq -r '.'"${bn}"' | .links[] |= "<li><a href=\"parts/\(.)\">\(.)</a></li>" | .links |= if length > 0 then join("") else "" end | "    <span class=name>\(.name)</span>\n    <span class=madewith>\(.madewith)</span>\n    <ul class=links>\(.links)</ul>\n    <p class=description>\(.description)</p>"'
+      echo "  </div>"
+      echo "</dialog>"
     done <<< $(find images/parts -type f)
     echo "</div>"
-    echo "<p>see <a href='info.html'>all this information on one page</a> or see the underlying <a href='partsinfo.json'>JSON file</a></p>"
+    echo "<details class=deepcontents><summary>the above might not work (on Safari/etc), expand for all information and pictures at once</summary>"
+    echo "<p>see <a href='info.html'>all this information on one page</a>, "
+    echo "the underlying <a href='partsinfo.json'>JSON file</a>, "
+    echo "or <a href=parts.zip>a zip of all the files</a>.</p>"
+    while read partfile; do
+      fn="${partfile##*/}"
+      bn="${fn%.*}"
+      echo "<hr>"
+      echo "<div class=parts>"
+      echo "  <img src='${partfile}' alt='picture of board game pieces: ${bn}'>"
+      echo "  <div class=info>"
+      echo "${json}" | jq -r '.'"${bn}"' | .links[] |= "<li><a href=\"parts/\(.)\">\(.)</a></li>" | .links |= if length > 0 then join("") else "" end | "    <span class=name>\(.name)</span>\n    <span class=madewith>\(.madewith)</span>\n    <ul class=links>\(.links)</ul>\n    <p class=description>\(.description)</p>"'
+      echo "  </div>"
+      echo "</div>"
+      echo "</dialog>"
+    done <<< $(find images/parts -type f)
+    echo "</details>"
     echo "<section id=markdown>"
     marked -i "$CONTENT_FILE"
     echo "</section>"
