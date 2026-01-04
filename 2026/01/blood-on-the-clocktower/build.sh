@@ -1,12 +1,12 @@
 #!/bin/bash
 # build HTML !
 
-# check marked is installed
-if ! type "marked" 2> /dev/null > /dev/null; then
-  echo "marked not installed. https://www.npmjs.com/package/marked. please run"
-  echo "npm install -g marked"
-  exit 1
-fi
+startts=`date +%s.%N`
+
+# check markdown is installed
+# check markdown is installed
+python3 -c "import markdown" || (echo "markdown not installed, ru
+n: pip3 install --user markdown" && exit 1)
 
 INDEX_FILE="index.html"
 TEMP_FILE="index.html.temp"
@@ -38,6 +38,7 @@ html=$(
     cat images/box_contents.svg \
       | sed 's+xlink:href="box_contents.webp"+xlink:href="images/box_contents.webp"+' \
       | sed 's+fill:#ff0000;fill-opacity:0.5+fill:var(--f);fill-opacity:var(--o)+'
+    echo "<span id=clickme>click me!</span>"
     echo "<label><input type=checkbox id=showall autocomplete=off>highlight all</label>"
     while read partfile; do
       fn="${partfile##*/}"
@@ -67,11 +68,10 @@ html=$(
       echo "${json}" | jq -r '.'"${bn}"' | .links[] |= "<li><a href=\"parts/\(.)\">\(.)</a></li>" | .links |= if length > 0 then join("") else "" end | "    <span class=name>\(.name)</span>\n    <span class=madewith>\(.madewith)</span>\n    <ul class=links>\(.links)</ul>\n    <p class=description>\(.description)</p>"'
       echo "  </div>"
       echo "</div>"
-      echo "</dialog>"
     done <<< $(find images/parts -type f)
     echo "</details>"
     echo "<section id=markdown>"
-    marked -i "$CONTENT_FILE"
+    cat "$CONTENT_FILE" | python3 -m markdown -x toc
     echo "</section>"
 )
 
@@ -88,4 +88,8 @@ echo "${html}" >> $TEMP_FILE
 echo "${original_html}" | awk 'NR >= '"${end}"'' >> $TEMP_FILE
 cat $TEMP_FILE > $INDEX_FILE
 rm -f $TEMP_FILE
-echo "done! 🚀"
+
+endts=`date +%s.%N`
+totaltime=$(echo "($endts - $startts)*1000" | bc -l)
+
+echo "done in ${totaltime%.*} ms! 🚀"

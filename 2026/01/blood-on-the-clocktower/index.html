@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>alifeee - stabilising our wobbly bench</title>
+    <title>alifeee - DIY Blood on the Clocktower</title>
 
     <!-- browser metas -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Attaching two support struts to our bench to stop it wobbling"
+      content="Making my own copy of Blood on the Clocktower"
     />
 
     <!-- embed metas - https://ogp.me/ -->
-    <meta property="og:title" content="Stabilising our wobbly bench" />
+    <meta property="og:title" content="DIY Blood on the Clocktower" />
     <meta property="og:type" content="website" />
     <meta property="og:site" content="alifeee's blog" />
     <meta
       property="og:url"
-      content="https://blog.alifeee.net/2025/08/bench-stabilisation/"
+      content="https://blog.alifeee.net/2026/01/blood-on-the-clocktower"
     />
     <meta
       property="og:image"
-      content="https://blog.alifeee.net/2025/08/bench-stabilisation/images/bench1.webp"
+      content="https://blog.alifeee.net/2026/01/blood-on-the-clocktower/images/face.webp"
     />
     <meta
       property="og:description"
-      content="Attaching two support struts to our bench to stop it wobbling"
+      content="Making my own copy of Blood on the Clocktower"
     />
     <meta property="og:locale" content="en_GB" />
 
@@ -75,6 +75,9 @@
         font-family: "dum", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
           sans-serif;
       }
+      h2 {
+        font-size: 2rem;
+      }
       a,
       a:visited {
         color: white;
@@ -106,12 +109,35 @@
       #contents svg path:hover {
         --o: 0.6;
       }
+      #contents #clickme {
+        position: absolute;
+        top: 30%;
+        right: 15%;
+        border-radius: 50% 0 0 50%;
+        background-color: white;
+        color: black;
+        transform: rotate(-30deg);
+        height: max-content;
+        width: max-content;
+        padding: 0.25rem 1rem 0.25rem 1rem;
+        font-size: 2rem;
+        animation: pulse 0.8s infinite ease-out alternate;
+      }
+      @keyframes pulse {
+        100% {
+          transform: rotate(-30deg) scale(1.2);
+        }
+      }
       #contents label {
         position: absolute;
         inset: auto auto 0.25rem 0.25rem;
         padding: 0.25rem 0.5rem;
         margin: 0.25rem 0;
         background-color: white;
+        border-radius: 0.5rem;
+      }
+      #contents svg,
+      #contents img {
         border-radius: 0.5rem;
       }
       .deepcontents {
@@ -226,6 +252,9 @@
         margin: 0;
       }
 
+      #markdown > p:not(:has(img)) {
+        max-width: 40rem;
+      }
       #markdown img {
         max-height: 20rem;
         max-width: 100%;
@@ -258,6 +287,12 @@
             e.target.checked ? 0.3 : 0.0
           );
         });
+        // hide "click me" when hovered
+        document
+          .getElementById("clickme")
+          .addEventListener("mouseover", (e) => {
+            e.target.style.display = "none";
+          });
         // document.getElementById("dialog-tokens_character").showModal();
       });
     </script>
@@ -269,24 +304,33 @@
       <p style="opacity: 0.75; margin: -0.5rem 0 1rem 0">
         alifeee · 2026-01 · <a href="/">back to main page</a>
       </p>
-      <div style="display:flex;">
+      <div style="display: flex; flex-wrap: wrap">
         <div>
-      <p style="max-width: 15rem; margin: 0">
-        Over festag, I decided that I wanted to play <a href="https://en.wikipedia.org/wiki/Blood_on_the_Clocktower">Blood on the Clocktower</a>, but I didn't want to buy it for <a href="https://bloodontheclocktower.com/products/blood-on-the-clocktower-the-game">£141</a>. So, I made my own copy using a laser cutter, laminator, and other tools and techniques.
-      </p>
-      <p style="max-width: 15rem; margin: 0.5rem 0;">
-        Have a look at everything I made here – click on each item in the image to see more info!
-      </p>
-      </div>
-      <div>
-      <h2 style="margin:0">Table of Contents</h2>
-      <ul>
-        <li><a href="top">my attempt</a></li>
-        <li>the official set</li>
-        <li>the making of my set</li>
-        <li>my first game</li>
-      </ul>
-      </div>
+          <h2 style="margin: 0">Table of Contents</h2>
+          <ul>
+            <li><a href="#top">my attempt</a></li>
+            <li><a href="#the-official-set">the official set</a></li>
+            <li><a href="#making-my-set">making my set</a></li>
+            <li>my first game</li>
+          </ul>
+        </div>
+        <div>
+          <p style="max-width: 15rem; margin: 0 1rem">
+            Over festag, I decided that I wanted to play
+            <a href="https://en.wikipedia.org/wiki/Blood_on_the_Clocktower"
+              >Blood on the Clocktower</a
+            >, but I didn't want to buy it for
+            <a
+              href="https://bloodontheclocktower.com/products/blood-on-the-clocktower-the-game"
+              >£141</a
+            >. So, I made my own copy using a laser cutter, laminator, and other
+            tools and techniques.
+          </p>
+          <p style="max-width: 15rem; margin: 0.5rem 1rem">
+            Have a look at everything I made here – click on each item in the
+            image to see more info!
+          </p>
+        </div>
       </div>
     </header>
     <main>
@@ -433,41 +477,30 @@
     </g>
   </g>
 </svg>
+<span id=clickme>click me!</span>
 <label><input type=checkbox id=showall autocomplete=off>highlight all</label>
-<link rel=preload href='images/parts/tokens_votes.webp' as=image />
-<img class=hiddenimg src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
-<dialog closedby=any class=parts id=dialog-tokens_votes>
-  <img src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
+<link rel=preload href='images/parts/tokens_character.webp' as=image />
+<img class=hiddenimg src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
+<dialog closedby=any class=parts id=dialog-tokens_character>
+  <img src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>final vote tokens</span>
+    <span class=name>character tokens</span>
     <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/token_vote.svg">token_vote.svg</a></li></ul>
-    <p class=description>tokens for dead players to act as their final vote. when they die, these are added to their token in the town square, and if they vote while dead, they lose their vote token.</p>
+    <ul class=links><li><a href="parts/token_TB_All_47mm.svg">token_TB_All_47mm.svg</a></li></ul>
+    <p class=description>the character tokens that everyone draws at random, and that the storyteller uses in the grimoire to reference who the players are. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/tokens_spare.webp' as=image />
-<img class=hiddenimg src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
-<dialog closedby=any class=parts id=dialog-tokens_spare>
-  <img src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
+<link rel=preload href='images/parts/clips.webp' as=image />
+<img class=hiddenimg src='images/parts/clips.webp' alt='picture of board game pieces: clips'>
+<dialog closedby=any class=parts id=dialog-clips>
+  <img src='images/parts/clips.webp' alt='picture of board game pieces: clips'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>spare tokens</span>
-    <span class=madewith>laser cutter</span>
+    <span class=name>clips</span>
+    <span class=madewith></span>
     <ul class=links></ul>
-    <p class=description>just some spare tokens the same size as the life and reminder tokens, in case I lose some, or need to have more players.</p>
-  </div>
-</dialog>
-<link rel=preload href='images/parts/rulesheet_taster.webp' as=image />
-<img class=hiddenimg src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
-<dialog closedby=any class=parts id=dialog-rulesheet_taster>
-  <img src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
-  <form method=dialog><button autofocus role=dialog>×</button></form>
-  <div class=info>
-    <span class=name>game summary</span>
-    <span class=madewith>printer + laminator</span>
-    <ul class=links><li><a href="parts/summary.pdf">summary.pdf</a></li></ul>
-    <p class=description>this is a simple sheet which provides an overview of the game. I thought it would be useful to show people who don't know much about the game :]. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+    <p class=description>for attaching the two parts of the box together</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/tokens_life.webp' as=image />
@@ -482,52 +515,40 @@
     <p class=description>the tokens which represent each player on the town square. the front is blank, for 'alive', and the back has a cross, for 'dead'.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/rulesheet_nightsheet.webp' as=image />
-<img class=hiddenimg src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
-<dialog closedby=any class=parts id=dialog-rulesheet_nightsheet>
-  <img src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
+<link rel=preload href='images/parts/rulesheet_rules.webp' as=image />
+<img class=hiddenimg src='images/parts/rulesheet_rules.webp' alt='picture of board game pieces: rulesheet_rules'>
+<dialog closedby=any class=parts id=dialog-rulesheet_rules>
+  <img src='images/parts/rulesheet_rules.webp' alt='picture of board game pieces: rulesheet_rules'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>storyteller's nightsheet</span>
-    <span class=madewith>printer+laminator</span>
-    <ul class=links><li><a href="parts/rulesheet_night-reference_trouble-brewing.pdf">rulesheet_night-reference_trouble-brewing.pdf</a></li><li><a href="parts/rulesheet_night-reference-complex_trouble-brewing.pdf">rulesheet_night-reference-complex_trouble-brewing.pdf</a></li></ul>
-    <p class=description>this is a sheet to remind the storyteller who to wake at nighttime to ask for choices and/or tell information. there are two versions of it, one simple, one complex. I've used paperclips to act as reminders for which characters to wake. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+    <span class=name>rulebooks</span>
+    <span class=madewith>printer + binding</span>
+    <ul class=links><li><a href="parts/rulebook_all.pdf">rulebook_all.pdf</a></li><li><a href="parts/rulebook_all_even.pdf">rulebook_all_even.pdf</a></li><li><a href="parts/rulebook_all_odd.pdf">rulebook_all_odd.pdf</a></li><li><a href="parts/rulebook_trouble-brewing.pdf">rulebook_trouble-brewing.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16.pdf">rulebook_trouble-brewing_16.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16_even.pdf">rulebook_trouble-brewing_16_even.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16_odd.pdf">rulebook_trouble-brewing_16_odd.pdf</a></li></ul>
+    <p class=description>the main rulebook, and the Trouble Brewing rulebook. These are printed as A6 booklets following <a href='https://blog.alifeee.net/notes/printing-an-a4-pdf-as-an-a6-booklet/'>these instructions from myself</a>. I've left the split PDFs in case you want to booklet print them without the faff. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/tokens_character.webp' as=image />
-<img class=hiddenimg src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
-<dialog closedby=any class=parts id=dialog-tokens_character>
-  <img src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
+<link rel=preload href='images/parts/tokens_shrouds.webp' as=image />
+<img class=hiddenimg src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
+<dialog closedby=any class=parts id=dialog-tokens_shrouds>
+  <img src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>character tokens</span>
-    <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/token_TB_All_47mm.svg">token_TB_All_47mm.svg</a></li></ul>
-    <p class=description>the character tokens that everyone draws at random, and that the storyteller uses in the grimoire to reference who the players are. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
-  </div>
-</dialog>
-<link rel=preload href='images/parts/tokenbox.webp' as=image />
-<img class=hiddenimg src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
-<dialog closedby=any class=parts id=dialog-tokenbox>
-  <img src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
-  <form method=dialog><button autofocus role=dialog>×</button></form>
-  <div class=info>
-    <span class=name>token box</span>
+    <span class=name>character death shrouds</span>
     <span class=madewith>3D printer</span>
-    <ul class=links><li><a href="parts/container.scad">container.scad</a></li><li><a href="parts/container.stl">container.stl</a></li></ul>
-    <p class=description>I had some time while laminating, so I designed a rough-n-ready 3D-printable box which can hold the character tokens perfectly, as well as some misc pots for other tokens. I also laser-cut and laser-engraved some rudimentary lids for the loose sections to stop tokens falling everywhere when I move the box. You'd do just as well with some baggies for the tokens.</p>
+    <ul class=links><li><a href="parts/Death_Shroud_Blank.stl">Death_Shroud_Blank.stl</a></li></ul>
+    <p class=description>shrouds to cover character tokens in the grimoire, reminding the storyteller that they are dead. <a href='https://www.thingiverse.com/thing:6888948'>modelled by lxthrp</a></p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/townsquare.webp' as=image />
-<img class=hiddenimg src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
-<dialog closedby=any class=parts id=dialog-townsquare>
-  <img src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
+<link rel=preload href='images/parts/bag.webp' as=image />
+<img class=hiddenimg src='images/parts/bag.webp' alt='picture of board game pieces: bag'>
+<dialog closedby=any class=parts id=dialog-bag>
+  <img src='images/parts/bag.webp' alt='picture of board game pieces: bag'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>town square</span>
-    <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/townsquare.svg">townsquare.svg</a></li></ul>
-    <p class=description>decorative piece for the middle of the room, which also holds life tokens and vote tokens, so that everyone in the game can see who is alive and who can vote. I'd also put the player count sheet under this so all the player information is in the same place.</p>
+    <span class=name>token bag</span>
+    <span class=madewith>sewing machine</span>
+    <ul class=links></ul>
+    <p class=description>for choosing random tokens at the start of the game</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_characters.webp' as=image />
@@ -542,16 +563,28 @@
     <p class=description>each player gets given one of these in the game – so they can reference which characters everyone else could be. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/clips.webp' as=image />
-<img class=hiddenimg src='images/parts/clips.webp' alt='picture of board game pieces: clips'>
-<dialog closedby=any class=parts id=dialog-clips>
-  <img src='images/parts/clips.webp' alt='picture of board game pieces: clips'>
+<link rel=preload href='images/parts/townsquare.webp' as=image />
+<img class=hiddenimg src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
+<dialog closedby=any class=parts id=dialog-townsquare>
+  <img src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>clips</span>
-    <span class=madewith></span>
+    <span class=name>town square</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/townsquare.svg">townsquare.svg</a></li></ul>
+    <p class=description>decorative piece for the middle of the room, which also holds life tokens and vote tokens, so that everyone in the game can see who is alive and who can vote. I'd also put the player count sheet under this so all the player information is in the same place.</p>
+  </div>
+</dialog>
+<link rel=preload href='images/parts/tokens_spare.webp' as=image />
+<img class=hiddenimg src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
+<dialog closedby=any class=parts id=dialog-tokens_spare>
+  <img src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
+  <form method=dialog><button autofocus role=dialog>×</button></form>
+  <div class=info>
+    <span class=name>spare tokens</span>
+    <span class=madewith>laser cutter</span>
     <ul class=links></ul>
-    <p class=description>for attaching the two parts of the box together</p>
+    <p class=description>just some spare tokens the same size as the life and reminder tokens, in case I lose some, or need to have more players.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_prompts.webp' as=image />
@@ -578,16 +611,16 @@
     <p class=description>these are for the grimoire, to remind the storyteller who has abilities, who they have/will target, and other miscellany. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/tokens_shrouds.webp' as=image />
-<img class=hiddenimg src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
-<dialog closedby=any class=parts id=dialog-tokens_shrouds>
-  <img src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
+<link rel=preload href='images/parts/tokens_votes.webp' as=image />
+<img class=hiddenimg src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
+<dialog closedby=any class=parts id=dialog-tokens_votes>
+  <img src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>character death shrouds</span>
-    <span class=madewith>3D printer</span>
-    <ul class=links><li><a href="parts/Death_Shroud_Blank.stl">Death_Shroud_Blank.stl</a></li></ul>
-    <p class=description>shrouds to cover character tokens in the grimoire, reminding the storyteller that they are dead. <a href='https://www.thingiverse.com/thing:6888948'>modelled by lxthrp</a></p>
+    <span class=name>final vote tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_vote.svg">token_vote.svg</a></li></ul>
+    <p class=description>tokens for dead players to act as their final vote. when they die, these are added to their token in the town square, and if they vote while dead, they lose their vote token.</p>
   </div>
 </dialog>
 <link rel=preload href='images/parts/rulesheet_intro.webp' as=image />
@@ -602,28 +635,40 @@
     <p class=description>these are to read at the start of the game. there's one written in first person for the storyteller to read, or one in third person for an experienced player to read. the backs are different and show: an overview of setup steps for the storyteller; and the player counts, which can live under the town square, as it should be public. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/bag.webp' as=image />
-<img class=hiddenimg src='images/parts/bag.webp' alt='picture of board game pieces: bag'>
-<dialog closedby=any class=parts id=dialog-bag>
-  <img src='images/parts/bag.webp' alt='picture of board game pieces: bag'>
+<link rel=preload href='images/parts/rulesheet_taster.webp' as=image />
+<img class=hiddenimg src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
+<dialog closedby=any class=parts id=dialog-rulesheet_taster>
+  <img src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>token bag</span>
-    <span class=madewith>sewing machine</span>
-    <ul class=links></ul>
-    <p class=description>for choosing random tokens at the start of the game</p>
+    <span class=name>game summary</span>
+    <span class=madewith>printer + laminator</span>
+    <ul class=links><li><a href="parts/summary.pdf">summary.pdf</a></li></ul>
+    <p class=description>this is a simple sheet which provides an overview of the game. I thought it would be useful to show people who don't know much about the game :]. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
-<link rel=preload href='images/parts/rulesheet_rules.webp' as=image />
-<img class=hiddenimg src='images/parts/rulesheet_rules.webp' alt='picture of board game pieces: rulesheet_rules'>
-<dialog closedby=any class=parts id=dialog-rulesheet_rules>
-  <img src='images/parts/rulesheet_rules.webp' alt='picture of board game pieces: rulesheet_rules'>
+<link rel=preload href='images/parts/tokenbox.webp' as=image />
+<img class=hiddenimg src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
+<dialog closedby=any class=parts id=dialog-tokenbox>
+  <img src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
   <form method=dialog><button autofocus role=dialog>×</button></form>
   <div class=info>
-    <span class=name>rulebooks</span>
-    <span class=madewith>printer + binding</span>
-    <ul class=links><li><a href="parts/rulebook_all.pdf">rulebook_all.pdf</a></li><li><a href="parts/rulebook_all_even.pdf">rulebook_all_even.pdf</a></li><li><a href="parts/rulebook_all_odd.pdf">rulebook_all_odd.pdf</a></li><li><a href="parts/rulebook_trouble-brewing.pdf">rulebook_trouble-brewing.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16.pdf">rulebook_trouble-brewing_16.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16_even.pdf">rulebook_trouble-brewing_16_even.pdf</a></li><li><a href="parts/rulebook_trouble-brewing_16_odd.pdf">rulebook_trouble-brewing_16_odd.pdf</a></li></ul>
-    <p class=description>the main rulebook, and the Trouble Brewing rulebook. These are printed as A6 booklets following <a href='https://blog.alifeee.net/notes/printing-an-a4-pdf-as-an-a6-booklet/'>these instructions from myself</a>. I've left the split PDFs in case you want to booklet print them without the faff. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+    <span class=name>token box</span>
+    <span class=madewith>3D printer</span>
+    <ul class=links><li><a href="parts/container.scad">container.scad</a></li><li><a href="parts/container.stl">container.stl</a></li></ul>
+    <p class=description>I had some time while laminating, so I designed a rough-n-ready 3D-printable box which can hold the character tokens perfectly, as well as some misc pots for other tokens. I also laser-cut and laser-engraved some rudimentary lids for the loose sections to stop tokens falling everywhere when I move the box. You'd do just as well with some baggies for the tokens.</p>
+  </div>
+</dialog>
+<link rel=preload href='images/parts/rulesheet_nightsheet.webp' as=image />
+<img class=hiddenimg src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
+<dialog closedby=any class=parts id=dialog-rulesheet_nightsheet>
+  <img src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
+  <form method=dialog><button autofocus role=dialog>×</button></form>
+  <div class=info>
+    <span class=name>storyteller's nightsheet</span>
+    <span class=madewith>printer+laminator</span>
+    <ul class=links><li><a href="parts/rulesheet_night-reference_trouble-brewing.pdf">rulesheet_night-reference_trouble-brewing.pdf</a></li><li><a href="parts/rulesheet_night-reference-complex_trouble-brewing.pdf">rulesheet_night-reference-complex_trouble-brewing.pdf</a></li></ul>
+    <p class=description>this is a sheet to remind the storyteller who to wake at nighttime to ask for choices and/or tell information. there are two versions of it, one simple, one complex. I've used paperclips to act as reminders for which characters to wake. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </dialog>
 </div>
@@ -631,61 +676,6 @@
 <p>see <a href='info.html'>all this information on one page</a>, 
 the underlying <a href='partsinfo.json'>JSON file</a>, 
 or <a href=parts.zip>a zip of all the files</a>.</p>
-<hr>
-<div class=parts>
-  <img src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
-  <div class=info>
-    <span class=name>final vote tokens</span>
-    <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/token_vote.svg">token_vote.svg</a></li></ul>
-    <p class=description>tokens for dead players to act as their final vote. when they die, these are added to their token in the town square, and if they vote while dead, they lose their vote token.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
-  <div class=info>
-    <span class=name>spare tokens</span>
-    <span class=madewith>laser cutter</span>
-    <ul class=links></ul>
-    <p class=description>just some spare tokens the same size as the life and reminder tokens, in case I lose some, or need to have more players.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
-  <div class=info>
-    <span class=name>game summary</span>
-    <span class=madewith>printer + laminator</span>
-    <ul class=links><li><a href="parts/summary.pdf">summary.pdf</a></li></ul>
-    <p class=description>this is a simple sheet which provides an overview of the game. I thought it would be useful to show people who don't know much about the game :]. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/tokens_life.webp' alt='picture of board game pieces: tokens_life'>
-  <div class=info>
-    <span class=name>life tokens</span>
-    <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/token_life.svg">token_life.svg</a></li></ul>
-    <p class=description>the tokens which represent each player on the town square. the front is blank, for 'alive', and the back has a cross, for 'dead'.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
-  <div class=info>
-    <span class=name>storyteller's nightsheet</span>
-    <span class=madewith>printer+laminator</span>
-    <ul class=links><li><a href="parts/rulesheet_night-reference_trouble-brewing.pdf">rulesheet_night-reference_trouble-brewing.pdf</a></li><li><a href="parts/rulesheet_night-reference-complex_trouble-brewing.pdf">rulesheet_night-reference-complex_trouble-brewing.pdf</a></li></ul>
-    <p class=description>this is a sheet to remind the storyteller who to wake at nighttime to ask for choices and/or tell information. there are two versions of it, one simple, one complex. I've used paperclips to act as reminders for which characters to wake. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
-  </div>
-</div>
-</dialog>
 <hr>
 <div class=parts>
   <img src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
@@ -696,40 +686,6 @@ or <a href=parts.zip>a zip of all the files</a>.</p>
     <p class=description>the character tokens that everyone draws at random, and that the storyteller uses in the grimoire to reference who the players are. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
   </div>
 </div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
-  <div class=info>
-    <span class=name>token box</span>
-    <span class=madewith>3D printer</span>
-    <ul class=links><li><a href="parts/container.scad">container.scad</a></li><li><a href="parts/container.stl">container.stl</a></li></ul>
-    <p class=description>I had some time while laminating, so I designed a rough-n-ready 3D-printable box which can hold the character tokens perfectly, as well as some misc pots for other tokens. I also laser-cut and laser-engraved some rudimentary lids for the loose sections to stop tokens falling everywhere when I move the box. You'd do just as well with some baggies for the tokens.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
-  <div class=info>
-    <span class=name>town square</span>
-    <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/townsquare.svg">townsquare.svg</a></li></ul>
-    <p class=description>decorative piece for the middle of the room, which also holds life tokens and vote tokens, so that everyone in the game can see who is alive and who can vote. I'd also put the player count sheet under this so all the player information is in the same place.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/rulesheet_characters.webp' alt='picture of board game pieces: rulesheet_characters'>
-  <div class=info>
-    <span class=name>character sheets</span>
-    <span class=madewith>printer + laminator</span>
-    <ul class=links><li><a href="parts/script_trouble-brewing.pdf">script_trouble-brewing.pdf</a></li><li><a href="parts/script-back.pdf">script-back.pdf</a></li></ul>
-    <p class=description>each player gets given one of these in the game – so they can reference which characters everyone else could be. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
-  </div>
-</div>
-</dialog>
 <hr>
 <div class=parts>
   <img src='images/parts/clips.webp' alt='picture of board game pieces: clips'>
@@ -740,62 +696,16 @@ or <a href=parts.zip>a zip of all the files</a>.</p>
     <p class=description>for attaching the two parts of the box together</p>
   </div>
 </div>
-</dialog>
 <hr>
 <div class=parts>
-  <img src='images/parts/rulesheet_prompts.webp' alt='picture of board game pieces: rulesheet_prompts'>
+  <img src='images/parts/tokens_life.webp' alt='picture of board game pieces: tokens_life'>
   <div class=info>
-    <span class=name>storyteller prompts</span>
-    <span class=madewith>sharpie + laminator</span>
-    <ul class=links><li><a href="parts/storyteller-prompts.txt">storyteller-prompts.txt</a></li></ul>
-    <p class=description>these are cards that can be shown at nighttime to make what's happening a bit more obvious</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/tokens_reminder.webp' alt='picture of board game pieces: tokens_reminder'>
-  <div class=info>
-    <span class=name>storyteller reminder tokens</span>
+    <span class=name>life tokens</span>
     <span class=madewith>laser cutter</span>
-    <ul class=links><li><a href="parts/token_TB_reminder-tokens.svg">token_TB_reminder-tokens.svg</a></li></ul>
-    <p class=description>these are for the grimoire, to remind the storyteller who has abilities, who they have/will target, and other miscellany. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
+    <ul class=links><li><a href="parts/token_life.svg">token_life.svg</a></li></ul>
+    <p class=description>the tokens which represent each player on the town square. the front is blank, for 'alive', and the back has a cross, for 'dead'.</p>
   </div>
 </div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
-  <div class=info>
-    <span class=name>character death shrouds</span>
-    <span class=madewith>3D printer</span>
-    <ul class=links><li><a href="parts/Death_Shroud_Blank.stl">Death_Shroud_Blank.stl</a></li></ul>
-    <p class=description>shrouds to cover character tokens in the grimoire, reminding the storyteller that they are dead. <a href='https://www.thingiverse.com/thing:6888948'>modelled by lxthrp</a></p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/rulesheet_intro.webp' alt='picture of board game pieces: rulesheet_intro'>
-  <div class=info>
-    <span class=name>quick rules sheets</span>
-    <span class=madewith>printer + laminator</span>
-    <ul class=links><li><a href="parts/rulesheet_explanation-and-setup.pdf">rulesheet_explanation-and-setup.pdf</a></li></ul>
-    <p class=description>these are to read at the start of the game. there's one written in first person for the storyteller to read, or one in third person for an experienced player to read. the backs are different and show: an overview of setup steps for the storyteller; and the player counts, which can live under the town square, as it should be public. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
-  </div>
-</div>
-</dialog>
-<hr>
-<div class=parts>
-  <img src='images/parts/bag.webp' alt='picture of board game pieces: bag'>
-  <div class=info>
-    <span class=name>token bag</span>
-    <span class=madewith>sewing machine</span>
-    <ul class=links></ul>
-    <p class=description>for choosing random tokens at the start of the game</p>
-  </div>
-</div>
-</dialog>
 <hr>
 <div class=parts>
   <img src='images/parts/rulesheet_rules.webp' alt='picture of board game pieces: rulesheet_rules'>
@@ -806,32 +716,193 @@ or <a href=parts.zip>a zip of all the files</a>.</p>
     <p class=description>the main rulebook, and the Trouble Brewing rulebook. These are printed as A6 booklets following <a href='https://blog.alifeee.net/notes/printing-an-a4-pdf-as-an-a6-booklet/'>these instructions from myself</a>. I've left the split PDFs in case you want to booklet print them without the faff. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
   </div>
 </div>
-</dialog>
+<hr>
+<div class=parts>
+  <img src='images/parts/tokens_shrouds.webp' alt='picture of board game pieces: tokens_shrouds'>
+  <div class=info>
+    <span class=name>character death shrouds</span>
+    <span class=madewith>3D printer</span>
+    <ul class=links><li><a href="parts/Death_Shroud_Blank.stl">Death_Shroud_Blank.stl</a></li></ul>
+    <p class=description>shrouds to cover character tokens in the grimoire, reminding the storyteller that they are dead. <a href='https://www.thingiverse.com/thing:6888948'>modelled by lxthrp</a></p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/bag.webp' alt='picture of board game pieces: bag'>
+  <div class=info>
+    <span class=name>token bag</span>
+    <span class=madewith>sewing machine</span>
+    <ul class=links></ul>
+    <p class=description>for choosing random tokens at the start of the game</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/rulesheet_characters.webp' alt='picture of board game pieces: rulesheet_characters'>
+  <div class=info>
+    <span class=name>character sheets</span>
+    <span class=madewith>printer + laminator</span>
+    <ul class=links><li><a href="parts/script_trouble-brewing.pdf">script_trouble-brewing.pdf</a></li><li><a href="parts/script-back.pdf">script-back.pdf</a></li></ul>
+    <p class=description>each player gets given one of these in the game – so they can reference which characters everyone else could be. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/townsquare.webp' alt='picture of board game pieces: townsquare'>
+  <div class=info>
+    <span class=name>town square</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/townsquare.svg">townsquare.svg</a></li></ul>
+    <p class=description>decorative piece for the middle of the room, which also holds life tokens and vote tokens, so that everyone in the game can see who is alive and who can vote. I'd also put the player count sheet under this so all the player information is in the same place.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/tokens_spare.webp' alt='picture of board game pieces: tokens_spare'>
+  <div class=info>
+    <span class=name>spare tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links></ul>
+    <p class=description>just some spare tokens the same size as the life and reminder tokens, in case I lose some, or need to have more players.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/rulesheet_prompts.webp' alt='picture of board game pieces: rulesheet_prompts'>
+  <div class=info>
+    <span class=name>storyteller prompts</span>
+    <span class=madewith>sharpie + laminator</span>
+    <ul class=links><li><a href="parts/storyteller-prompts.txt">storyteller-prompts.txt</a></li></ul>
+    <p class=description>these are cards that can be shown at nighttime to make what's happening a bit more obvious</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/tokens_reminder.webp' alt='picture of board game pieces: tokens_reminder'>
+  <div class=info>
+    <span class=name>storyteller reminder tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_TB_reminder-tokens.svg">token_TB_reminder-tokens.svg</a></li></ul>
+    <p class=description>these are for the grimoire, to remind the storyteller who has abilities, who they have/will target, and other miscellany. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/tokens_votes.webp' alt='picture of board game pieces: tokens_votes'>
+  <div class=info>
+    <span class=name>final vote tokens</span>
+    <span class=madewith>laser cutter</span>
+    <ul class=links><li><a href="parts/token_vote.svg">token_vote.svg</a></li></ul>
+    <p class=description>tokens for dead players to act as their final vote. when they die, these are added to their token in the town square, and if they vote while dead, they lose their vote token.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/rulesheet_intro.webp' alt='picture of board game pieces: rulesheet_intro'>
+  <div class=info>
+    <span class=name>quick rules sheets</span>
+    <span class=madewith>printer + laminator</span>
+    <ul class=links><li><a href="parts/rulesheet_explanation-and-setup.pdf">rulesheet_explanation-and-setup.pdf</a></li></ul>
+    <p class=description>these are to read at the start of the game. there's one written in first person for the storyteller to read, or one in third person for an experienced player to read. the backs are different and show: an overview of setup steps for the storyteller; and the player counts, which can live under the town square, as it should be public. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/rulesheet_taster.webp' alt='picture of board game pieces: rulesheet_taster'>
+  <div class=info>
+    <span class=name>game summary</span>
+    <span class=madewith>printer + laminator</span>
+    <ul class=links><li><a href="parts/summary.pdf">summary.pdf</a></li></ul>
+    <p class=description>this is a simple sheet which provides an overview of the game. I thought it would be useful to show people who don't know much about the game :]. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/tokenbox.webp' alt='picture of board game pieces: tokenbox'>
+  <div class=info>
+    <span class=name>token box</span>
+    <span class=madewith>3D printer</span>
+    <ul class=links><li><a href="parts/container.scad">container.scad</a></li><li><a href="parts/container.stl">container.stl</a></li></ul>
+    <p class=description>I had some time while laminating, so I designed a rough-n-ready 3D-printable box which can hold the character tokens perfectly, as well as some misc pots for other tokens. I also laser-cut and laser-engraved some rudimentary lids for the loose sections to stop tokens falling everywhere when I move the box. You'd do just as well with some baggies for the tokens.</p>
+  </div>
+</div>
+<hr>
+<div class=parts>
+  <img src='images/parts/rulesheet_nightsheet.webp' alt='picture of board game pieces: rulesheet_nightsheet'>
+  <div class=info>
+    <span class=name>storyteller's nightsheet</span>
+    <span class=madewith>printer+laminator</span>
+    <ul class=links><li><a href="parts/rulesheet_night-reference_trouble-brewing.pdf">rulesheet_night-reference_trouble-brewing.pdf</a></li><li><a href="parts/rulesheet_night-reference-complex_trouble-brewing.pdf">rulesheet_night-reference-complex_trouble-brewing.pdf</a></li></ul>
+    <p class=description>this is a sheet to remind the storyteller who to wake at nighttime to ask for choices and/or tell information. there are two versions of it, one simple, one complex. I've used paperclips to act as reminders for which characters to wake. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.</p>
+  </div>
+</div>
 </details>
 <section id=markdown>
-<hr>
-<p><em><strong>content below unfinished</strong></em></p>
-<hr>
-<h3>laser cutting</h3>
-<p><img src="images/lightburn.png" alt=""></p>
-<h3>box shots</h3>
-<p><img src="./images/box_top.webp" alt="">
-<img src="./images/box_side.webp" alt="">
-<img src="./images/box_partial.webp" alt="">
-<img src="./images/box_open.webp" alt=""></p>
-<h3>demon face</h3>
-<p><img src="./images/face.webp" alt=""></p>
-<h3>official boxes</h3>
-<p><img src="images/official_box-inside.webp" alt=""></p>
-<p><img src="images/official_box-contents1.webp" alt="">
-<img src="images/official_box-contents3.webp" alt="">
-<img src="images/official_box-contents-2.webp" alt=""></p>
-<h3>to-do</h3>
-<ul>
-<li>add images here from camera roll :]</li>
-</ul>
+<h2 id="the-official-set">the official set</h2>
+<p>As mentioned before, the official set will put you back <a href="https://bloodontheclocktower.com/products/blood-on-the-clocktower-the-game">£141</a>. You can find it cheaper on other websites, sometimes down to £100. I've played with an official set before, and it really is very nice.</p>
+<p>It also comes with three scripts (Trouble Brewing, Bad Moon Rising, and Sects &amp; Violets), unlike my set which only has the Trouble Brewing characters.</p>
+<p><img alt="picture of a set of Blood on the Clocktower in play" src="images/official_box-inside.webp" /></p>
+<p>As a comparison to the inside of my set, here's the inside of the official set.</p>
+<p><img alt="picture of a set of Blood on the Clocktower, layed out to show all the pieces" src="images/official_box-contents1.webp" />
+<img alt="picture of a set of Blood on the Clocktower, layed out to show all the pieces" src="images/official_box-contents-2.webp" /></p>
+<h2 id="making-my-set">making my set</h2>
+<p>I used a few tools and techniques to make the parts of my set. You can see exactly what was used for each part in the interactive contents at the top. Here are some scrappier "in-progress" pictures.</p>
+<h3 id="laser-cutting">laser cutting</h3>
+<p>After finding <a href="github.com/Aechs/BotCT_Tokens/">Aechs' tokens</a>, I changed the text to Hershey text so that it would appear better laser-cut, and then tried to find the best laser speed/power settings. Hopefully you agree that the rightmost is the best. The speed/power settings were this, though they'll be different on different laser cutters:</p>
+<pre><code>images: 175/15
+leaf/triangle motifs: 200/12
+names: 200/12
+descriptions: 35/10
+cutout: 18/25
+</code></pre>
+<p><img alt="picture of several laser cut tokens, progressively getting more readable and less burnt-looking" src="images/making/lasercutter_power-choice.webp" /></p>
+<p>I cut the tokens one-by-one, as they took about 2-3 minutes each, which gave me time to check and align the next token while the previous was cutting. Here's what it looked like in Lightburn, laser cutting software:</p>
+<p><img alt="screenshot of Lightburn software, showing lots of token designs, and a power output panel" src="images/lightburn.png" /></p>
+<p>…and here's a token just after it's been cut:</p>
+<p><img alt="picture of laser cutter above a token that has just been cut out of plywood" src="images/making/lasercutter_undertaker2.webp" /></p>
+<p>I used one-and-a-half boards of plywood that I bought for a few quid from <a href="https://www.sheffieldhackspace.org.uk/">Sheffield Hackspace</a>'s stock.</p>
+<p><img alt="picture of laser cutter above a plywood board with lots of circular holes in it" src="images/making/lasercutter_done.webp" /></p>
+<p>Finally for laser cutting, here's a timelapse video and a realtime video of some of the tokens being cut. You can see how it wasn't a big deal to stand and watch them be cut… as it's quite mesmerising, I think. I especially like the cutting of the tiny text.</p>
+<video controls="" preload="none" loop="" crossorigin="anonymous" poster="images/making/lasercutter_timelapse_PREVIEW.webp" style="max-width: 40rem;">
+  <source src="images/making/lasercutter_timelapse.webm" type="video/webm">
+</video>
+<video controls="" preload="none" loop="" crossorigin="anonymous" poster="images/making/lasercutter_fullcut_PREVIEW.webp" style="max-width: 40rem;">
+  <source src="images/making/lasercutter_fullcut.webm" type="video/webm">
+</video>
 
-</section>
+<h3 id="printing-binding-and-laminating">printing, binding, and laminating</h3>
+<p>I printed a lot of sheets and booklets. Again, to see exactly which, look at the interactive contents at the top of the page. By the end of laminating, I had a pretty developed process of preparing the next sheets while the previous one was laminating.</p>
+<p><img alt="picture of laminator laminating a sheet of paper, with a second sheet ready to be laminated" src="images/making/laminating.webp" /></p>
+<p>I spent a lot of time with a guillotine afterwards, cropping all the sheets and laminated sheets to have a nice margin. I also bound the two rule booklets with thread.</p>
+<h3 id="3d-printing">3D printing</h3>
+<p>The first thing I 3D printed was just for fun, really, as I knew I had about 4 or 5 hours, so I may as well set off a fairly long print. I only had the character tokens at this point, so I measured them and made a perfectly sized box, to which I added a couple of extra generic compartments for other tokens.</p>
+<p>I set off this print and then spent the waiting time laminating and laser cutting.</p>
+<p><img alt="picture of a 3D printer printing a small box, just having completed the base, and building up the walls" src="images/making/tokenbox_printing.webp" /></p>
+<p>Near the end, I realised I'd forgotten death shrouds. Luckily, lots of people have 3D printed these online, so there were lots of files available already. After testing one, I set off another 15 to print. They fit quite well on my custom tokens :]</p>
+<p><img alt="picture of a 3D printer printing several flat bookmark-shaped objects" src="images/making/shrouds_printing.webp" />
+<img alt="picture of wooden tokens in a box, with a red 3D printed bookmark covering one of the tokens" src="images/making/shroud_test.webp" /></p>
+<h3 id="the-game-box">the game box</h3>
+<p>For the box, I went round some charity shops near me, and bought a sturdy-ish, large-but-not-too-large, square box. The box both houses the stuff (like a normal board game box) but also clips together to become part of the playing pieces!… so I wanted a nice size (not too small so as to fit all the pieces in, not too big as to be annoying).</p>
+<p>I also wanted to line the inside with felt, to stop the pieces slipping around when you're playing, but I couldn't get any felt (it was a Sunday and the markets were closed), so I just used some foam that was lying around the hackspace.</p>
+<p>With the foam it's really quite impressive what angle you can have the box without the pieces slipping out.</p>
+<p><img alt="picture of a board game box lid, with foam on the inside, and several tokens laid out within" src="images/making/foam_inside.webp" />
+<img alt="picture of a board game box lid, with foam on the inside, and several tokens laid out within, this time at a harsh angle" src="images/making/foam_tilted.webp" /></p>
+<p>The final thing I did was paint the box black with some acrylic paint (that I got for £1.50 from town). I didn't really prep the box, so the paint is already coming off, but that's fine.</p>
+<p><img alt="picture of the top and bottom of a board game box, painted black, drying" src="images/making/box_painting.webp" /></p>
+<h3 id="the-final-product">the 'final' product</h3>
+<p>In the end, I've ended up with a nice box with the first Blood on the Clocktower script in it. It's not as nice as the official game, has less content (1 of 3 scripts), and would probably end up quite different if I made it again, but it was fun to make :]</p>
+<p><img alt="picture of a black board game box, from the side" src="./images/box_side.webp" />
+<img alt="picture of a black board game box, from the top, slightly open" src="./images/box_partial.webp" />
+<img alt="picture of a black board game box, from the top, fully open" src="./images/box_open.webp" /></p>
+<h2 id="my-first-game">my first game</h2>
+<p>What's the point in making an entire board game if you don't play it? Not a lot.</p>
+<p>A few days after I finished making the game, we played one round after a pot luck. There ended up being 8 players and me, the storyteller. There's a lot to think about, so I made a few mistakes, which were:</p>
+<ul>
+<li>on the first night, there was a lot to do. in my confusion, I woke the chef and told them the empath's info (0 instead of 1), then I didn't wake the empath (both were corrected in the daytime)</li>
+<li>still on the confusiongrind, I told the fortune teller a 0 when they picked their red herring (which was corrected later in the game)</li>
+</ul>
+<p>Here's a picture of the final state of the grimoire. Good job evil team ;]</p>
+<p><img alt="picture of Blood on the Clocktower Grimoire with several character tokens and reminder tokens inside" src="images/first-game.webp" /></p></section>
         <!-- !!end content!! -->
       </section>
     </main>
