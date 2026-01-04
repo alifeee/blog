@@ -1,0 +1,133 @@
+{
+    "bag": {
+        "name": "token bag",
+        "description": "for choosing random tokens at the start of the game",
+        "madewith": "sewing machine",
+        "links": []
+    },
+    "clips": {
+        "name": "clips",
+        "description": "for attaching the two parts of the box together",
+        "madewith": "",
+        "links": []
+    },
+    "rulesheet_characters": {
+        "name": "character sheets",
+        "description": "each player gets given one of these in the game – so they can reference which characters everyone else could be. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.",
+        "madewith": "printer + laminator",
+        "links": [
+            "script_trouble-brewing.pdf",
+            "script-back.pdf"
+        ]
+    },
+    "rulesheet_intro": {
+        "name": "quick rules sheets",
+        "description": "these are to read at the start of the game. there's one written in first person for the storyteller to read, or one in third person for an experienced player to read. the backs are different and show: an overview of setup steps for the storyteller; and the player counts, which can live under the town square, as it should be public. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.",
+        "madewith": "printer + laminator",
+        "links": [
+            "rulesheet_explanation-and-setup.pdf"
+        ]
+    },
+    "rulesheet_nightsheet": {
+        "name": "storyteller's nightsheet",
+        "description": "this is a sheet to remind the storyteller who to wake at nighttime to ask for choices and/or tell information. there are two versions of it, one simple, one complex. I've used paperclips to act as reminders for which characters to wake. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.",
+        "madewith": "printer+laminator",
+        "links": [
+            "rulesheet_night-reference_trouble-brewing.pdf",
+            "rulesheet_night-reference-complex_trouble-brewing.pdf"
+        ]
+    },
+    "rulesheet_prompts": {
+        "name": "storyteller prompts",
+        "description": "these are cards that can be shown at nighttime to make what's happening a bit more obvious",
+        "madewith": "sharpie + laminator",
+        "links": [
+            "storyteller-prompts.txt"
+        ]
+    },
+    "rulesheet_rules": {
+        "name": "rulebooks",
+        "description": "the main rulebook, and the Trouble Brewing rulebook. These are printed as A6 booklets following <a href='https://blog.alifeee.net/notes/printing-an-a4-pdf-as-an-a6-booklet/'>these instructions from myself</a>. I've left the split PDFs in case you want to booklet print them without the faff. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.",
+        "madewith": "printer + binding",
+        "links": [
+            "rulebook_all.pdf",
+            "rulebook_all_even.pdf",
+            "rulebook_all_odd.pdf",
+            "rulebook_trouble-brewing.pdf",
+            "rulebook_trouble-brewing_16.pdf",
+            "rulebook_trouble-brewing_16_even.pdf",
+            "rulebook_trouble-brewing_16_odd.pdf"
+        ]
+    },
+    "rulesheet_taster": {
+        "name": "game summary",
+        "description": "this is a simple sheet which provides an overview of the game. I thought it would be useful to show people who don't know much about the game :]. adapted from <a href='https://github.com/tjhowse/botc'>tjhowse's PDFs</a>.",
+        "madewith": "printer + laminator",
+        "links": [
+            "summary.pdf"
+        ]
+    },
+    "tokenbox": {
+        "name": "token box",
+        "description": "I had some time while laminating, so I designed a rough-n-ready 3D-printable box which can hold the character tokens perfectly, as well as some misc pots for other tokens. I also laser-cut and laser-engraved some rudimentary lids for the loose sections to stop tokens falling everywhere when I move the box. You'd do just as well with some baggies for the tokens.",
+        "madewith": "3D printer",
+        "links": [
+            "container.scad",
+            "container.stl"
+        ]
+    },
+    "tokens_character": {
+        "name": "character tokens",
+        "description": "the character tokens that everyone draws at random, and that the storyteller uses in the grimoire to reference who the players are. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.",
+        "madewith": "laser cutter",
+        "links": [
+            "token_TB_All_47mm.svg"
+        ]
+    },
+    "tokens_life": {
+        "name": "life tokens",
+        "description": "the tokens which represent each player on the town square. the front is blank, for 'alive', and the back has a cross, for 'dead'.",
+        "madewith": "laser cutter",
+        "links": [
+            "token_life.svg"
+        ]
+    },
+    "tokens_reminder": {
+        "name": "storyteller reminder tokens",
+        "description": "these are for the grimoire, to remind the storyteller who has abilities, who they have/will target, and other miscellany. adapted from <a href='https://github.com/Aechs/BotCT_Tokens/'>Aechs' tokens</a>.",
+        "madewith": "laser cutter",
+        "links": [
+            "token_TB_reminder-tokens.svg"
+        ]
+    },
+    "tokens_shrouds": {
+        "name": "character death shrouds",
+        "description": "shrouds to cover character tokens in the grimoire, reminding the storyteller that they are dead. <a href='https://www.thingiverse.com/thing:6888948'>modelled by lxthrp</a>",
+        "madewith": "3D printer",
+        "links": [
+            "Death_Shroud_Blank.stl"
+        ]
+    },
+    "tokens_spare": {
+        "name": "spare tokens",
+        "description": "just some spare tokens the same size as the life and reminder tokens, in case I lose some, or need to have more players.",
+        "madewith": "laser cutter",
+        "links": []
+    },
+    "tokens_votes": {
+        "name": "final vote tokens",
+        "description": "tokens for dead players to act as their final vote. when they die, these are added to their token in the town square, and if they vote while dead, they lose their vote token.",
+        "madewith": "laser cutter",
+        "links": [
+            "token_vote.svg"
+        ]
+    },
+    "townsquare": {
+        "name": "town square",
+        "description": "decorative piece for the middle of the room, which also holds life tokens and vote tokens, so that everyone in the game can see who is alive and who can vote. I'd also put the player count sheet under this so all the player information is in the same place.",
+        "madewith": "laser cutter",
+        "links": [
+            "townsquare.svg"
+        ]
+    }
+}
