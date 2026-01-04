@@ -38,7 +38,7 @@ html=$(
     cat images/box_contents.svg \
       | sed 's+xlink:href="box_contents.webp"+xlink:href="images/box_contents.webp"+' \
       | sed 's+fill:#ff0000;fill-opacity:0.5+fill:var(--f);fill-opacity:var(--o)+'
-    echo "<span id=clickme>click me!</span>"
+    echo "<span id=clickme>←click me!</span>"
     echo "<label><input type=checkbox id=showall autocomplete=off>highlight all</label>"
     while read partfile; do
       fn="${partfile##*/}"

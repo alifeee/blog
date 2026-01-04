@@ -113,7 +113,7 @@
         position: absolute;
         top: 30%;
         right: 15%;
-        border-radius: 50% 0 0 50%;
+        border-radius: 50% 5% 5% 50%;
         background-color: white;
         color: black;
         transform: rotate(-30deg);
@@ -128,6 +128,11 @@
           transform: rotate(-30deg) scale(1.2);
         }
       }
+      @media (width < 40rem) {
+        #contents #clickme {
+          font-size: 1rem;
+        }
+      }
       #contents label {
         position: absolute;
         inset: auto auto 0.25rem 0.25rem;
@@ -137,20 +142,15 @@
         border-radius: 0.5rem;
       }
       #contents svg,
-      #contents img {
+      #contents > img {
         border-radius: 0.5rem;
       }
       .deepcontents {
         margin-left: 1rem;
+        max-width: min(40rem, 90vw);
       }
       .deepcontents summary {
         margin-left: -1rem;
-      }
-      .deepcontents .parts .info {
-        max-width: 40rem;
-      }
-      .deepcontents .parts .info > * {
-        border-color: white;
       }
 
       .hiddenimg {
@@ -166,11 +166,11 @@
         padding: 0;
         margin: auto;
         border: none;
-        position: static;
+        position: fixed;
         inset: 0;
         height: max-content;
         width: 100%;
-        max-width: min(40rem, 95vw);
+        max-width: min(40rem, 90vw);
         /* anim */
         opacity: 0;
         transform: scaleX(0) scaleY(0);
@@ -188,10 +188,12 @@
         inset: 0.5rem 0.5rem auto auto;
       }
       .parts img {
+        position: relative;
         width: 100%;
         max-width: min(40rem, 95vw);
         height: auto;
-        margin-bottom: -4px;
+        margin-bottom: -8px;
+        z-index: -1;
       }
       /* anim */
       dialog.parts:open {
@@ -209,6 +211,12 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr auto;
         grid-template-areas: "name tool links" "desc desc desc";
+        background-color: white;
+        color: black;
+      }
+      .parts .info a,
+      .parts .info a:visited {
+        color: black;
       }
       .parts .info > * {
         border: 1px solid black;
@@ -297,6 +305,9 @@
           .addEventListener("mouseover", (e) => {
             e.target.style.display = "none";
           });
+        document.getElementById("clickme").addEventListener("mouseup", (e) => {
+          e.target.style.display = "none";
+        });
         // document.getElementById("dialog-tokens_character").showModal();
       });
     </script>
@@ -306,7 +317,7 @@
     <header id="top">
       <h1>Making my own copy of Blood on the Clocktower</h1>
       <p style="opacity: 0.75; margin: -0.5rem 0 1rem 0">
-        alifeee · 2026-01 · <a href="/">back to main page</a>
+        alifeee · 2026-01-04 · <a href="/">back to main page</a>
       </p>
       <div style="display: flex; flex-wrap: wrap">
         <div>
@@ -481,7 +492,7 @@
     </g>
   </g>
 </svg>
-<span id=clickme>click me!</span>
+<span id=clickme>←click me!</span>
 <label><input type=checkbox id=showall autocomplete=off>highlight all</label>
 <link rel=preload href='images/parts/tokens_character.webp' as=image />
 <img class=hiddenimg src='images/parts/tokens_character.webp' alt='picture of board game pieces: tokens_character'>
