@@ -15,9 +15,11 @@ As a comparison to the inside of my set, here's the inside of the official set.
 
 I used a few tools and techniques to make the parts of my set. You can see exactly what was used for each part in the interactive contents at the top. Here are some scrappier "in-progress" pictures.
 
+I made everything here at [Sheffield Hackspace](https://www.sheffieldhackspace.org.uk/). I don't have my own laser cutter, 3D printer, or anything like that – it's all made with shared resources.
+
 ### laser cutting
 
-After finding [Aechs' tokens](github.com/Aechs/BotCT_Tokens/), I changed the text to Hershey text so that it would appear better laser-cut, and then tried to find the best laser speed/power settings. Hopefully you agree that the rightmost is the best. The speed/power settings were this, though they'll be different on different laser cutters:
+After finding [Aechs' tokens](github.com/Aechs/BotCT_Tokens/), I changed the text to [Hershey text](https://www.evilmadscientist.com/2011/hershey-text-an-inkscape-extension-for-engraving-fonts/) so that it would appear better laser-cut, and then tried to find the best laser speed/power settings. Hopefully you agree that the rightmost is the best. The speed/power settings were this, though they'll be different on different laser cutters:
 
     images: 175/15
     leaf/triangle motifs: 200/12
@@ -41,10 +43,10 @@ I used one-and-a-half boards of plywood that I bought for a few quid from [Sheff
 
 Finally for laser cutting, here's a timelapse video and a realtime video of some of the tokens being cut. You can see how it wasn't a big deal to stand and watch them be cut… as it's quite mesmerising, I think. I especially like the cutting of the tiny text.
 
-<video controls="" preload="none" loop="" crossorigin="anonymous" poster="images/making/lasercutter_timelapse_PREVIEW.webp" style="max-width: 40rem;">
+<video controls="" preload="none" loop="" crossorigin="anonymous" poster="images/making/lasercutter_timelapse_PREVIEW.webp" style="max-width: min(95vw, 40rem);">
   <source src="images/making/lasercutter_timelapse.webm" type="video/webm">
 </video>
-<video controls="" preload="none" loop="" crossorigin="anonymous" poster="images/making/lasercutter_fullcut_PREVIEW.webp" style="max-width: 40rem;">
+<video controls="" preload="none" loop="" crossorigin="anonymous" poster="images/making/lasercutter_fullcut_PREVIEW.webp" style="max-width: min(95vw, 40rem);">
   <source src="images/making/lasercutter_fullcut.webm" type="video/webm">
 </video>
 
@@ -58,7 +60,7 @@ I spent a lot of time with a guillotine afterwards, cropping all the sheets and 
 
 ### 3D printing
 
-The first thing I 3D printed was just for fun, really, as I knew I had about 4 or 5 hours, so I may as well set off a fairly long print. I only had the character tokens at this point, so I measured them and made a perfectly sized box, to which I added a couple of extra generic compartments for other tokens.
+The first thing I 3D printed was just for fun, really, as I knew I had about 4 or 5 hours, so I may as well have set off a fairly long print. I only had the character tokens at this point, so I measured them and made a perfectly sized box, to which I added a couple of extra generic compartments for other tokens.
 
 I set off this print and then spent the waiting time laminating and laser cutting.
 
@@ -104,3 +106,5 @@ A few days after I finished making the game, we played one round after a pot luc
 Here's a picture of the final state of the grimoire. Good job evil team ;]
 
 ![picture of Blood on the Clocktower Grimoire with several character tokens and reminder tokens inside](images/first-game.webp)
+
+Why not make *your* own copy!? ;]
