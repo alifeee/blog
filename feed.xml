@@ -4,12 +4,20 @@
 
 <title>alifeee's blog</title>
 <link href='https://blog.alifeee.net/feed.xml' rel='self' />
-<updated>2025-12-26T00:00:00+00:00</updated>
+<updated>2026-01-04T00:00:00+00:00</updated>
 <author>
   <name>alifeee</name>
 </author>
 <id>https://blog.alifeee.net/</id>
 <icon>https://blog.alifeee.net/og-image.png</icon>
+
+<entry>
+  <title>DIY Blood on the Clocktower</title>
+  <link href='https://blog.alifeee.net/2026/01/blood-on-the-clocktower/' />
+  <id>https://blog.alifeee.net/2026/01/blood-on-the-clocktower/</id>
+  <updated>2026-01-04T00:00:00+00:00</updated>
+  <summary>Making my own copy of Blood on the Clocktower</summary>
+</entry>
 
 <entry>
   <title>Pictures from a proximity voice chat Factorio server</title>
