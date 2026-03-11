@@ -1,3 +1,5 @@
+> [!CAUTION]
+> MOVED! see <https://git.alifeee.net/blog/about/>
 # alifeee's blog
 
 This repo contains blog stuff that I write, as well as any code used to generate it. It can be found on [`blog.alifeee.net`](https://blog.alifeee.net)
